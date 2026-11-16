@@ -162,12 +162,18 @@
     const STORAGE_KEY_GAS_URL = 'family100_gas_webapp_url';
     const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbyrbhRx6eGu2xma2SGsiYpbKQhHX23AC9GvPj3BVDacwwQUTD16viQcZNPP5NncZ2gRzw/exec';
 
+    const TEAM_COLORS = ['red', 'blue', 'gold', 'emerald', 'purple', 'cyan', 'rose', 'indigo'];
+
     const state = {
         gasUrl: localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GAS_URL,
         questions: [],
         currentIndex: 0,
         revealedIds: new Set(),
-        teamScores: [0, 0, 0],
+        teams: [
+            { name: 'Tim Merah', score: 0, color: 'red' },
+            { name: 'Tim Biru', score: 0, color: 'blue' },
+            { name: 'Tim Emas', score: 0, color: 'gold' },
+        ],
         activeTeam: 0,
         strikes: 0,
         soundEnabled: true,
@@ -194,11 +200,7 @@
         input: document.getElementById('answer-input'),
         feedback: document.getElementById('feedback-msg'),
         teamsContainer: document.getElementById('teams-container'),
-        teamScoreEls: [
-            document.getElementById('team-score-0'),
-            document.getElementById('team-score-1'),
-            document.getElementById('team-score-2'),
-        ],
+        btnAddTeam: document.getElementById('btn-add-team'),
         btnTetot: document.getElementById('btn-tetot'),
         revealedCount: document.getElementById('revealed-count'),
         strikes: document.getElementById('strike-indicators'),
@@ -441,32 +443,69 @@
     }
 
     function getTeamName(index) {
-        const card = el.teamsContainer ? el.teamsContainer.querySelector(`.podium-unit[data-team="${index}"]`) : null;
-        const inp = card ? card.querySelector('.team-name-input') : null;
-        const val = inp ? inp.value.trim() : '';
-        return val || `Tim ${index + 1}`;
+        const team = state.teams[index];
+        return (team && team.name.trim()) ? team.name.trim() : `Tim ${index + 1}`;
     }
 
     function renderTeamScores() {
-        const sortedIndices = [0, 1, 2].sort((a, b) => state.teamScores[b] - state.teamScores[a]);
-        state.teamScores.forEach((sc, idx) => {
-            if (el.teamScoreEls[idx]) {
-                el.teamScoreEls[idx].textContent = String(sc);
+        if (!el.teamsContainer) return;
+        const sortedIndices = state.teams.map((_, i) => i).sort((a, b) => state.teams[b].score - state.teams[a].score);
+        el.teamsContainer.textContent = '';
+
+        state.teams.forEach((team, idx) => {
+            const isAct = idx === state.activeTeam;
+            const unit = document.createElement('div');
+            unit.className = `podium-unit podium-${team.color}${isAct ? ' active' : ''}`;
+            unit.dataset.team = String(idx);
+            unit.setAttribute('role', 'button');
+            unit.setAttribute('tabindex', '0');
+            unit.setAttribute('aria-pressed', String(isAct));
+
+            const buzzer = document.createElement('div');
+            buzzer.className = 'podium-buzzer';
+            buzzer.setAttribute('aria-hidden', 'true');
+
+            const rank = document.createElement('span');
+            rank.className = 'podium-rank';
+            rank.textContent = `#${sortedIndices.indexOf(idx) + 1}`;
+
+            if (state.teams.length > 1) {
+                const btnRemove = document.createElement('button');
+                btnRemove.type = 'button';
+                btnRemove.className = 'podium-remove';
+                btnRemove.dataset.removeTeam = String(idx);
+                btnRemove.title = 'Hapus tim';
+                btnRemove.setAttribute('aria-label', `Hapus ${team.name}`);
+                btnRemove.textContent = '×';
+                unit.appendChild(btnRemove);
             }
-            const rankEl = document.getElementById(`team-rank-${idx}`);
-            if (rankEl) {
-                rankEl.textContent = `#${sortedIndices.indexOf(idx) + 1}`;
-            }
+
+            const scoreEl = document.createElement('div');
+            scoreEl.className = 'podium-score';
+            scoreEl.id = `team-score-${idx}`;
+            scoreEl.textContent = String(team.score);
+
+            const pedestal = document.createElement('div');
+            pedestal.className = 'podium-pedestal';
+
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.className = 'team-name-input';
+            nameInput.value = team.name;
+            nameInput.maxLength = 20;
+            nameInput.dataset.teamNameIdx = String(idx);
+            nameInput.setAttribute('aria-label', `Nama Tim ${idx + 1}`);
+
+            pedestal.appendChild(nameInput);
+            unit.append(buzzer, rank, scoreEl, pedestal);
+            el.teamsContainer.appendChild(unit);
         });
-        if (el.teamsContainer) {
-            el.teamsContainer.querySelectorAll('.podium-unit').forEach((card) => {
-                const isAct = Number(card.dataset.team) === state.activeTeam;
-                card.classList.toggle('active', isAct);
-                card.setAttribute('aria-pressed', String(isAct));
-            });
-        }
+
         if (el.activeTurnLabel) {
             el.activeTurnLabel.textContent = `Giliran Menjawab: ${getTeamName(state.activeTeam)}`;
+        }
+        if (el.btnAddTeam) {
+            el.btnAddTeam.disabled = state.teams.length >= 8;
         }
     }
 
@@ -515,7 +554,7 @@
     }
 
     function triggerScorePop() {
-        const target = el.teamScoreEls[state.activeTeam];
+        const target = document.getElementById(`team-score-${state.activeTeam}`);
         if (!target) return;
         target.classList.remove('pop');
         void target.offsetWidth;
@@ -580,7 +619,7 @@
         if (data.found && !data.already_revealed && data.answer) {
             const teamName = getTeamName(state.activeTeam);
             state.revealedIds.add(Number(data.answer.id));
-            state.teamScores[state.activeTeam] += Number(data.answer.points);
+            state.teams[state.activeTeam].score += Number(data.answer.points);
             playCorrectSound();
             spawnConfetti();
             renderBoard();
@@ -795,10 +834,21 @@
         });
         el.btnResetRound.addEventListener('click', resetRound);
         el.btnResetScores.addEventListener('click', () => {
-            state.teamScores = [0, 0, 0];
+            state.teams.forEach((t) => { t.score = 0; });
             renderTeamScores();
             setFeedback('Skor semua tim direset ke 0.', 'ok');
         });
+        if (el.btnAddTeam) {
+            el.btnAddTeam.addEventListener('click', () => {
+                if (state.teams.length >= 8) return;
+                const nextIdx = state.teams.length;
+                const color = TEAM_COLORS[nextIdx % TEAM_COLORS.length];
+                state.teams.push({ name: `Tim ${nextIdx + 1}`, score: 0, color });
+                state.activeTeam = nextIdx;
+                renderTeamScores();
+                setFeedback(`Tim ${nextIdx + 1} ditambahkan.`, 'ok');
+            });
+        }
         el.btnTetot.addEventListener('click', () => {
             state.strikes = Math.min(3, state.strikes + 1);
             renderBoard();
@@ -806,12 +856,35 @@
             setFeedback(`TETOT! Kesalahan ${getTeamName(state.activeTeam)} (${state.strikes}/3)`, 'err');
         });
         el.teamsContainer.addEventListener('click', (e) => {
+            const removeBtn = e.target.closest('[data-remove-team]');
+            if (removeBtn) {
+                e.stopPropagation();
+                if (state.teams.length <= 1) return;
+                const remIdx = Number(removeBtn.dataset.removeTeam);
+                state.teams.splice(remIdx, 1);
+                if (state.activeTeam >= state.teams.length) {
+                    state.activeTeam = state.teams.length - 1;
+                }
+                renderTeamScores();
+                return;
+            }
             const card = e.target.closest('.podium-unit');
             if (!card) return;
             state.activeTeam = Number(card.dataset.team) || 0;
             renderTeamScores();
             if (e.target.tagName !== 'INPUT') {
                 el.input.focus();
+            }
+        });
+        el.teamsContainer.addEventListener('input', (e) => {
+            if (e.target.dataset && e.target.dataset.teamNameIdx !== undefined) {
+                const idx = Number(e.target.dataset.teamNameIdx);
+                if (state.teams[idx]) {
+                    state.teams[idx].name = e.target.value;
+                }
+                if (el.activeTurnLabel) {
+                    el.activeTurnLabel.textContent = `Giliran Menjawab: ${getTeamName(state.activeTeam)}`;
+                }
             }
         });
         el.teamsContainer.addEventListener('keydown', (e) => {

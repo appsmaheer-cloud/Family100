@@ -80,18 +80,20 @@ body {
     gap: 12px;
 }
 
-.brand-badge {
+.brand-logo-wrap {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
+    background: #FFFFFF;
+    padding: 6px 12px;
     border-radius: 10px;
-    background: var(--bar-crimson);
-    color: #FFFFFF;
-    font-weight: 800;
-    font-size: 1.15rem;
-    border: 2px solid var(--accent-gold);
+    border: 1px solid var(--border-color);
+}
+
+.brand-logo {
+    height: 36px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .brand-title {
@@ -313,13 +315,11 @@ body {
 
 /* Layar Utama Studio (Soal + Papan Jawaban) */
 .studio-screen {
-    background: #0B1220;
-    border: 5px solid var(--accent-gold);
-    outline: 3px dashed rgba(245, 183, 0, 0.55);
-    outline-offset: 5px;
-    border-radius: 16px;
+    background: #0F172A;
+    border: 2px solid rgba(245, 183, 0, 0.55);
+    border-radius: 14px;
     padding: 20px;
-    box-shadow: 0 14px 48px rgba(0, 0, 0, 0.55), 0 0 42px rgba(245, 183, 0, 0.18);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 [data-theme="light"] .studio-screen {
@@ -507,9 +507,33 @@ body {
 
 .podium-stage {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
     align-items: end;
+}
+
+.podium-remove {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #CBD5E1;
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.podium-remove:hover {
+    background: var(--bar-crimson);
+    color: #FFFFFF;
 }
 
 .podium-buzzer {
@@ -579,17 +603,14 @@ body {
     border-top: 2px solid rgba(255, 255, 255, 0.25);
 }
 
-.podium-red .podium-pedestal {
-    background: #B91C1C;
-}
-
-.podium-blue .podium-pedestal {
-    background: #1D4ED8;
-}
-
-.podium-gold .podium-pedestal {
-    background: #B45309;
-}
+.podium-red .podium-pedestal { background: #B91C1C; }
+.podium-blue .podium-pedestal { background: #1D4ED8; }
+.podium-gold .podium-pedestal { background: #B45309; }
+.podium-emerald .podium-pedestal { background: #047857; }
+.podium-purple .podium-pedestal { background: #6D28D9; }
+.podium-cyan .podium-pedestal { background: #0E7490; }
+.podium-rose .podium-pedestal { background: #BE123C; }
+.podium-indigo .podium-pedestal { background: #4338CA; }
 
 .team-name-input {
     width: 100%;
@@ -645,17 +666,20 @@ body {
     box-shadow: 0 0 50px rgba(245, 183, 0, 0.28);
 }
 
-.start-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 999px;
-    background: var(--bar-crimson);
-    border: 2px solid var(--accent-gold);
-    color: #FFFFFF;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
-    margin-bottom: 14px;
+.start-logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    padding: 10px 18px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.start-logo {
+    max-width: 240px;
+    height: auto;
+    display: block;
 }
 
 .start-title {
