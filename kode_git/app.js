@@ -210,7 +210,9 @@
         form: document.getElementById('answer-form'),
         input: document.getElementById('answer-input'),
         feedback: document.getElementById('feedback-msg'),
-        teamsContainer: document.getElementById('teams-container'),
+        teamsContainer: document.getElementById('studio-arena'),
+        teamsLeft: document.getElementById('teams-left'),
+        teamsRight: document.getElementById('teams-right'),
         btnAddTeam: document.getElementById('btn-add-team'),
         btnTetot: document.getElementById('btn-tetot'),
         revealedCount: document.getElementById('revealed-count'),
@@ -576,9 +578,10 @@
     }
 
     function renderTeamScores() {
-        if (!el.teamsContainer) return;
+        if (!el.teamsLeft || !el.teamsRight) return;
         const sortedIndices = state.teams.map((_, i) => i).sort((a, b) => state.teams[b].score - state.teams[a].score);
-        el.teamsContainer.textContent = '';
+        el.teamsLeft.textContent = '';
+        el.teamsRight.textContent = '';
 
         state.teams.forEach((team, idx) => {
             const isAct = idx === state.activeTeam;
@@ -648,7 +651,12 @@
             pedestal.append(iconSpan, nameInput);
             desk.append(topCounter, rank, scoreEl, pedestal);
             unit.append(crew, desk);
-            el.teamsContainer.appendChild(unit);
+
+            if (idx % 2 === 0) {
+                el.teamsLeft.appendChild(unit);
+            } else {
+                el.teamsRight.appendChild(unit);
+            }
         });
 
         if (el.activeTurnLabel) {
@@ -722,10 +730,10 @@
             unit.classList.add('celebrate');
             setTimeout(() => unit.classList.remove('celebrate'), 1100);
         }
-        if (el.studioAudience) {
-            el.studioAudience.classList.add('cheering');
-            setTimeout(() => el.studioAudience.classList.remove('cheering'), 1200);
-        }
+        document.querySelectorAll('.wing-audience').forEach((aud) => {
+            aud.classList.add('cheering');
+            setTimeout(() => aud.classList.remove('cheering'), 1300);
+        });
     }
 
     function resetRound() {

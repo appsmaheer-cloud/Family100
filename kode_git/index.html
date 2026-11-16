@@ -31,43 +31,19 @@
     </header>
 
     <main class="stage">
-        <section class="studio-stage">
-            <div class="studio-main-row">
-                <aside class="panel info-panel">
-                    <div class="studio-host" aria-label="Host Studio">
-                        <div class="host-avatar">
-                            <svg class="host-svg" viewBox="0 0 80 80" aria-hidden="true">
-                                <line x1="40" y1="6" x2="40" y2="16" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
-                                <circle cx="40" cy="5" r="3.5" fill="#38BDF8"/>
-                                <rect x="20" y="16" width="40" height="30" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2.5"/>
-                                <rect x="27" y="24" width="26" height="12" rx="6" fill="#0F172A"/>
-                                <circle cx="34" cy="30" r="2.8" fill="#38BDF8"/>
-                                <circle cx="46" cy="30" r="2.8" fill="#38BDF8"/>
-                                <path d="M22 50 C22 46, 58 46, 58 50 L62 76 L18 76 Z" fill="#0070F3"/>
-                                <rect x="58" y="48" width="6" height="16" rx="3" fill="#94A3B8"/>
-                                <circle cx="61" cy="46" r="5" fill="#E2E8F0"/>
-                            </svg>
-                        </div>
-                        <div class="host-speech" id="host-speech">Selamat datang di Studio Family 100!</div>
-                    </div>
-                    <div class="stat-block">
-                        <span class="stat-label">Jawaban Terbuka</span>
-                        <strong id="revealed-count" class="stat-value">0 / 8</strong>
-                    </div>
-                    <div class="stat-block">
-                        <span class="stat-label">Kesalahan Ronde</span>
-                        <div id="strike-indicators" class="strike-dots" aria-label="Indikator Salah">
-                            <span class="strike-box">✕</span>
-                            <span class="strike-box">✕</span>
-                            <span class="strike-box">✕</span>
-                        </div>
-                    </div>
-                    <div class="history-block">
-                        <span class="stat-label">Riwayat Jawaban</span>
-                        <ul id="guess-history" class="guess-history"></ul>
-                    </div>
-                </aside>
+        <section id="studio-arena" class="studio-arena">
+            <!-- Sayap Kiri: Penonton Kiri + Podium Tim Kiri -->
+            <aside class="panel studio-wing wing-left" aria-label="Podium Kiri">
+                <div class="wing-audience" aria-hidden="true">
+                    <div class="aud-tier"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="aud-tier aud-tier-2"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                </div>
+                <span class="wing-label">PODIUM KIRI</span>
+                <div id="teams-left" class="wing-podiums"></div>
+            </aside>
 
+            <!-- Tengah: Layar Soal & Jawaban + Host + Kontrol -->
+            <div class="studio-center">
                 <section class="studio-screen" aria-label="Layar Soal dan Jawaban">
                     <div class="question-banner" aria-live="polite">
                         <span id="question-number" class="question-badge">Soal #1</span>
@@ -78,7 +54,7 @@
 
                     <div class="turn-bar">
                         <span class="turn-dot"></span>
-                        <span id="active-turn-label">Giliran Menjawab: Tim Merah</span>
+                        <span id="active-turn-label">Giliran Berdiskusi &amp; Menjawab: Tim Merah</span>
                     </div>
 
                     <form id="answer-form" class="answer-form" autocomplete="off">
@@ -95,38 +71,62 @@
                     </form>
                     <p id="feedback-msg" class="feedback-msg" role="status" aria-live="polite"></p>
                 </section>
+
+                <div class="panel studio-controls-bar">
+                    <button type="button" id="btn-add-team" class="btn btn-primary btn-sm">+ Tambah Tim</button>
+                    <button type="button" id="btn-tetot" class="btn btn-danger btn-sm">✕ TETOT! (Salah)</button>
+                    <button type="button" id="btn-reveal-all" class="btn btn-secondary btn-sm">Buka Semua</button>
+                    <button type="button" id="btn-reset-round" class="btn btn-secondary btn-sm">Reset Ronde</button>
+                    <button type="button" id="btn-reset-scores" class="btn btn-secondary btn-sm">Reset Skor</button>
+                </div>
+
+                <div class="panel center-meta-row">
+                    <div class="studio-host" aria-label="Host Studio">
+                        <div class="host-avatar">
+                            <svg class="host-svg" viewBox="0 0 80 80" aria-hidden="true">
+                                <line x1="40" y1="6" x2="40" y2="16" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="40" cy="5" r="3.5" fill="#38BDF8"/>
+                                <rect x="20" y="16" width="40" height="30" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2.5"/>
+                                <rect x="27" y="24" width="26" height="12" rx="6" fill="#0F172A"/>
+                                <circle cx="34" cy="30" r="2.8" fill="#38BDF8"/>
+                                <circle cx="46" cy="30" r="2.8" fill="#38BDF8"/>
+                                <path d="M22 50 C22 46, 58 46, 58 50 L62 76 L18 76 Z" fill="#0070F3"/>
+                                <rect x="58" y="48" width="6" height="16" rx="3" fill="#94A3B8"/>
+                                <circle cx="61" cy="46" r="5" fill="#E2E8F0"/>
+                            </svg>
+                        </div>
+                        <div class="host-speech" id="host-speech">Selamat datang di Studio Family 100!</div>
+                    </div>
+                    <div class="center-stats">
+                        <div class="stat-inline">
+                            <span class="stat-label">Terbuka</span>
+                            <strong id="revealed-count" class="stat-value">0 / 8</strong>
+                        </div>
+                        <div class="stat-inline">
+                            <span class="stat-label">Salah</span>
+                            <div id="strike-indicators" class="strike-dots" aria-label="Indikator Salah">
+                                <span class="strike-box">✕</span>
+                                <span class="strike-box">✕</span>
+                                <span class="strike-box">✕</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history-block">
+                        <span class="stat-label">Riwayat Jawaban</span>
+                        <ul id="guess-history" class="guess-history"></ul>
+                    </div>
+                </div>
             </div>
 
-            <section class="panel podium-floor" aria-label="Podium Tim">
-                <div class="podium-floor-header">
-                    <span class="stat-label">PODIUM PESERTA (KLIK TIM YANG MENJAWAB)</span>
-                    <div class="floor-actions">
-                        <button type="button" id="btn-add-team" class="btn btn-primary btn-sm">+ Tambah Tim</button>
-                        <button type="button" id="btn-tetot" class="btn btn-danger btn-sm">✕ TETOT! (Salah)</button>
-                        <button type="button" id="btn-reveal-all" class="btn btn-secondary btn-sm">Buka Semua</button>
-                        <button type="button" id="btn-reset-round" class="btn btn-secondary btn-sm">Reset Ronde</button>
-                        <button type="button" id="btn-reset-scores" class="btn btn-secondary btn-sm">Reset Skor</button>
-                    </div>
+            <!-- Sayap Kanan: Penonton Kanan + Podium Tim Kanan -->
+            <aside class="panel studio-wing wing-right" aria-label="Podium Kanan">
+                <div class="wing-audience" aria-hidden="true">
+                    <div class="aud-tier"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="aud-tier aud-tier-2"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
                 </div>
-                <div id="studio-audience" class="studio-audience" aria-hidden="true">
-                    <div class="aud-tier aud-tier-3">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                    <div class="aud-tier aud-tier-2">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                    <div class="aud-tier aud-tier-1">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                </div>
-                <div id="teams-container" class="podium-stage"></div>
-            </section>
+                <span class="wing-label">PODIUM KANAN</span>
+                <div id="teams-right" class="wing-podiums"></div>
+            </aside>
         </section>
     </main>
 
