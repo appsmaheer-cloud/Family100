@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="studio">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permainan Family 100 — GAS &amp; Git</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-badge">100</span>
+            <div>
+                <h1 class="brand-title">Permainan Family 100</h1>
+                <p class="brand-sub" id="mode-indicator">Mode Contoh Lokal (Siap GitHub Pages &amp; GAS)</p>
+            </div>
+        </div>
+
+        <div class="topbar-controls">
+            <label for="question-select" class="sr-only">Pilih Pertanyaan</label>
+            <select id="question-select" class="select-control" aria-label="Pilih Pertanyaan"></select>
+            <button type="button" id="btn-random" class="btn btn-secondary">Acak Soal</button>
+            <button type="button" id="btn-manage" class="btn btn-secondary">Kelola Soal</button>
+            <button type="button" id="btn-gas-config" class="btn btn-secondary">URL GAS</button>
+            <button type="button" id="btn-sound" class="btn btn-icon" aria-pressed="true" title="Suara Aktif">🔊</button>
+            <button type="button" id="btn-theme" class="btn btn-icon" aria-pressed="false" title="Ganti Tema">☀️</button>
+        </div>
+    </header>
+
+    <main class="stage">
+        <section class="question-banner" aria-live="polite">
+            <span id="question-number" class="question-badge">Soal #1</span>
+            <h2 id="question-text" class="question-text">Memuat pertanyaan...</h2>
+        </section>
+
+        <section class="game-grid">
+            <aside class="panel info-panel">
+                <div class="stat-block">
+                    <span class="stat-label">Jawaban Terbuka</span>
+                    <strong id="revealed-count" class="stat-value">0 / 8</strong>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-label">Kesalahan Ronde</span>
+                    <div id="strike-indicators" class="strike-dots" aria-label="Indikator Salah">
+                        <span class="strike-box">✕</span>
+                        <span class="strike-box">✕</span>
+                        <span class="strike-box">✕</span>
+                    </div>
+                </div>
+                <div class="history-block">
+                    <span class="stat-label">Riwayat Jawaban</span>
+                    <ul id="guess-history" class="guess-history"></ul>
+                </div>
+            </aside>
+
+            <section class="board-wrapper" aria-label="Papan Jawaban">
+                <div id="answer-board" class="answer-board"></div>
+
+                <form id="answer-form" class="answer-form" autocomplete="off">
+                    <label for="answer-input" class="sr-only">Ketik jawaban peserta</label>
+                    <input
+                        type="text"
+                        id="answer-input"
+                        class="answer-input"
+                        placeholder="Ketik jawaban peserta di sini..."
+                        maxlength="120"
+                        required
+                    >
+                    <button type="submit" id="btn-submit" class="btn btn-primary">Cek Jawaban</button>
+                </form>
+                <p id="feedback-msg" class="feedback-msg" role="status" aria-live="polite"></p>
+            </section>
+
+            <aside class="panel score-panel">
+                <div class="score-box">
+                    <span class="score-label">POINT</span>
+                    <div id="total-score" class="score-value">0</div>
+                </div>
+                <div class="score-actions">
+                    <button type="button" id="btn-reveal-all" class="btn btn-secondary btn-full">Buka Semua</button>
+                    <button type="button" id="btn-reset-round" class="btn btn-danger btn-full">Reset Ronde</button>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <div id="wrong-overlay" class="wrong-overlay" aria-hidden="true">
+        <div class="wrong-x">✕</div>
+    </div>
+
+    <!-- Modal Konfigurasi GAS -->
+    <div id="gas-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="gas-modal-title" hidden>
+        <div class="modal-backdrop" data-close-modal="gas"></div>
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="gas-modal-title">Hubungkan Google Apps Script</h3>
+                <button type="button" class="btn btn-icon" data-close-modal="gas" aria-label="Tutup">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="gas-config-form">
+                    <div class="form-group">
+                        <label for="gas-url-input">URL Web App GAS (kosongkan untuk mode contoh lokal)</label>
+                        <input type="url" id="gas-url-input" class="input-field" placeholder="https://script.google.com/macros/s/.../exec">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan &amp; Muat Ulang Soal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Kelola Soal -->
+    <div id="manage-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-backdrop" data-close-modal="manage"></div>
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-title">Kelola Database Pertanyaan</h3>
+                <button type="button" class="btn btn-icon" data-close-modal="manage" aria-label="Tutup">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="add-question-form" class="manage-form">
+                    <div class="form-group">
+                        <label for="new-question-text">Pertanyaan Baru</label>
+                        <input type="text" id="new-question-text" class="input-field" placeholder="Contoh: Apa yang sering dibawa saat piknik?" maxlength="255" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Daftar Jawaban &amp; Poin (maksimal 8)</label>
+                        <div id="new-answers-list" class="new-answers-list"></div>
+                        <button type="button" id="btn-add-answer-row" class="btn btn-secondary btn-sm">+ Tambah Baris Jawaban</button>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan Pertanyaan</button>
+                </form>
+
+                <hr class="divider">
+
+                <div class="saved-list-section">
+                    <h4>Daftar Pertanyaan Tersimpan</h4>
+                    <ul id="saved-questions-list" class="saved-questions-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
