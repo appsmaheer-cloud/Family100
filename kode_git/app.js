@@ -160,9 +160,10 @@
 
     const STORAGE_KEY_QUESTIONS = 'family100_gas_local_questions_v1';
     const STORAGE_KEY_GAS_URL = 'family100_gas_webapp_url';
+    const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbyrbhRx6eGu2xma2SGsiYpbKQhHX23AC9GvPj3BVDacwwQUTD16viQcZNPP5NncZ2gRzw/exec';
 
     const state = {
-        gasUrl: localStorage.getItem(STORAGE_KEY_GAS_URL) || '',
+        gasUrl: localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GAS_URL,
         questions: [],
         currentIndex: 0,
         revealedIds: new Set(),
