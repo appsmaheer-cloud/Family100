@@ -419,7 +419,31 @@ html, body {
     color: #F87171;
 }
 
-/* Score Panel (3 Teams) */
+/* Studio Mascot (kiri, seperti video) */
+.studio-mascot {
+    text-align: center;
+    padding: 10px 8px 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mascot-title {
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+}
+
+.mascot-svg {
+    width: 96px;
+    height: 88px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Score Panel (3 Team Podiums) */
 .score-panel {
     display: flex;
     flex-direction: column;
@@ -427,29 +451,72 @@ html, body {
     text-align: center;
 }
 
-.teams-container {
+.podium-stage {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.team-card {
+.podium-unit {
+    position: relative;
     background: var(--surface-elevated);
     border: 2px solid var(--border-color);
-    border-radius: var(--radius);
-    padding: 10px 12px;
+    border-radius: 10px;
+    padding-top: 10px;
+    overflow: hidden;
     cursor: pointer;
     transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
 }
 
-.team-card:hover {
+.podium-unit:hover {
     border-color: var(--accent-gold);
 }
 
-.team-card.active {
+.podium-unit.active {
     border-color: var(--accent-gold);
-    background: linear-gradient(180deg, rgba(245, 183, 0, 0.18) 0%, var(--surface-elevated) 100%);
-    box-shadow: 0 0 14px rgba(245, 183, 0, 0.25);
+    box-shadow: 0 0 18px rgba(245, 183, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+.podium-rank {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--accent-gold);
+}
+
+.podium-score {
+    font-size: 2.15rem;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+    padding: 4px 8px 8px;
+}
+
+.podium-score.pop {
+    animation: scorePop 0.4s ease;
+}
+
+.podium-pedestal {
+    padding: 6px 8px;
+    border-top: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.podium-red .podium-pedestal {
+    background: #B91C1C;
+}
+
+.podium-blue .podium-pedestal {
+    background: #1D4ED8;
+}
+
+.podium-gold .podium-pedestal {
+    background: #B45309;
 }
 
 .team-name-input {
@@ -457,29 +524,17 @@ html, body {
     background: transparent;
     border: 1px solid transparent;
     border-radius: 6px;
-    color: var(--accent-gold);
+    color: #FFFFFF;
     font-size: 0.88rem;
     font-weight: 800;
     text-align: center;
-    padding: 2px 4px;
+    padding: 3px 4px;
 }
 
 .team-name-input:focus {
     outline: none;
-    border-color: var(--accent-gold);
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.team-score {
-    font-size: 2.2rem;
-    font-weight: 900;
-    font-variant-numeric: tabular-nums;
-    line-height: 1.15;
-    margin-top: 2px;
-}
-
-.team-score.pop {
-    animation: scorePop 0.4s ease;
+    border-color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.25);
 }
 
 .score-actions {
@@ -700,9 +755,10 @@ html, body {
         order: -1;
     }
 
-    .teams-container {
+    .podium-stage {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        align-items: end;
     }
 }
 

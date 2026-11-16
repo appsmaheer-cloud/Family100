@@ -35,6 +35,19 @@
 
         <section class="game-grid">
             <aside class="panel info-panel">
+                <div class="studio-mascot">
+                    <div class="mascot-title">PERMAINAN<br>FAMILY 100</div>
+                    <svg class="mascot-svg" viewBox="0 0 120 110" aria-hidden="true">
+                        <circle cx="60" cy="38" r="24" fill="#FDBA74"/>
+                        <path d="M36 34 C36 16, 84 16, 84 34 C80 24, 40 24, 36 34 Z" fill="#1E293B"/>
+                        <circle cx="52" cy="38" r="3" fill="#0F172A"/>
+                        <circle cx="68" cy="38" r="3" fill="#0F172A"/>
+                        <path d="M53 49 Q60 54 67 49" stroke="#0F172A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <rect x="34" y="64" width="52" height="36" rx="14" fill="#E03C31"/>
+                        <circle cx="92" cy="48" r="11" fill="#F5B700"/>
+                        <text x="92" y="53" text-anchor="middle" font-size="14" font-weight="900" fill="#111827">?</text>
+                    </svg>
+                </div>
                 <div class="stat-block">
                     <span class="stat-label">Jawaban Terbuka</span>
                     <strong id="revealed-count" class="stat-value">0 / 8</strong>
@@ -72,19 +85,28 @@
             </section>
 
             <aside class="panel score-panel">
-                <span class="stat-label">PILIH TIM &amp; SKOR</span>
-                <div id="teams-container" class="teams-container">
-                    <div class="team-card active" data-team="0" role="button" tabindex="0" aria-pressed="true">
-                        <input type="text" class="team-name-input" value="Tim 1" maxlength="20" aria-label="Nama Tim 1">
-                        <div class="team-score" id="team-score-0">0</div>
+                <span class="stat-label">PODIUM &amp; SKOR TIM</span>
+                <div id="teams-container" class="podium-stage">
+                    <div class="podium-unit podium-red active" data-team="0" role="button" tabindex="0" aria-pressed="true">
+                        <span class="podium-rank" id="team-rank-0">#1</span>
+                        <div class="podium-score" id="team-score-0">0</div>
+                        <div class="podium-pedestal">
+                            <input type="text" class="team-name-input" value="Tim Merah" maxlength="20" aria-label="Nama Tim 1">
+                        </div>
                     </div>
-                    <div class="team-card" data-team="1" role="button" tabindex="0" aria-pressed="false">
-                        <input type="text" class="team-name-input" value="Tim 2" maxlength="20" aria-label="Nama Tim 2">
-                        <div class="team-score" id="team-score-1">0</div>
+                    <div class="podium-unit podium-blue" data-team="1" role="button" tabindex="0" aria-pressed="false">
+                        <span class="podium-rank" id="team-rank-1">#2</span>
+                        <div class="podium-score" id="team-score-1">0</div>
+                        <div class="podium-pedestal">
+                            <input type="text" class="team-name-input" value="Tim Biru" maxlength="20" aria-label="Nama Tim 2">
+                        </div>
                     </div>
-                    <div class="team-card" data-team="2" role="button" tabindex="0" aria-pressed="false">
-                        <input type="text" class="team-name-input" value="Tim 3" maxlength="20" aria-label="Nama Tim 3">
-                        <div class="team-score" id="team-score-2">0</div>
+                    <div class="podium-unit podium-gold" data-team="2" role="button" tabindex="0" aria-pressed="false">
+                        <span class="podium-rank" id="team-rank-2">#3</span>
+                        <div class="podium-score" id="team-score-2">0</div>
+                        <div class="podium-pedestal">
+                            <input type="text" class="team-name-input" value="Tim Emas" maxlength="20" aria-label="Nama Tim 3">
+                        </div>
                     </div>
                 </div>
                 <div class="score-actions">

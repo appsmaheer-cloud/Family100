@@ -435,14 +435,26 @@
         boxes.forEach((box, idx) => box.classList.toggle('active', idx < state.strikes));
     }
 
+    function getTeamName(index) {
+        const card = el.teamsContainer ? el.teamsContainer.querySelector(`.podium-unit[data-team="${index}"]`) : null;
+        const inp = card ? card.querySelector('.team-name-input') : null;
+        const val = inp ? inp.value.trim() : '';
+        return val || `Tim ${index + 1}`;
+    }
+
     function renderTeamScores() {
+        const sortedIndices = [0, 1, 2].sort((a, b) => state.teamScores[b] - state.teamScores[a]);
         state.teamScores.forEach((sc, idx) => {
             if (el.teamScoreEls[idx]) {
                 el.teamScoreEls[idx].textContent = String(sc);
             }
+            const rankEl = document.getElementById(`team-rank-${idx}`);
+            if (rankEl) {
+                rankEl.textContent = `#${sortedIndices.indexOf(idx) + 1}`;
+            }
         });
         if (el.teamsContainer) {
-            el.teamsContainer.querySelectorAll('.team-card').forEach((card) => {
+            el.teamsContainer.querySelectorAll('.podium-unit').forEach((card) => {
                 const isAct = Number(card.dataset.team) === state.activeTeam;
                 card.classList.toggle('active', isAct);
                 card.setAttribute('aria-pressed', String(isAct));
@@ -543,20 +555,22 @@
 
         const data = await checkAnswerRemoteOrLocal(q, guess);
         if (data.found && !data.already_revealed && data.answer) {
+            const teamName = getTeamName(state.activeTeam);
             state.revealedIds.add(Number(data.answer.id));
             state.teamScores[state.activeTeam] += Number(data.answer.points);
             playCorrectSound();
             renderBoard();
             triggerScorePop();
-            addHistoryItem(`[Tim ${state.activeTeam + 1}] ${data.answer.answer_text}`, true, data.answer.points);
-            setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk Tim ${state.activeTeam + 1})`, 'ok');
+            addHistoryItem(`[${teamName}] ${data.answer.answer_text}`, true, data.answer.points);
+            setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk ${teamName})`, 'ok');
         } else if (data.found && data.already_revealed) {
             setFeedback(`Jawaban "${data.answer.answer_text}" sudah terbuka sebelumnya.`, 'err');
         } else {
+            const teamName = getTeamName(state.activeTeam);
             state.strikes = Math.min(3, state.strikes + 1);
             renderBoard();
             triggerWrongEffect();
-            addHistoryItem(`[Tim ${state.activeTeam + 1}] ${guess}`, false, 0);
+            addHistoryItem(`[${teamName}] ${guess}`, false, 0);
             setFeedback(`TETOT! "${guess}" tidak ada di papan jawaban!`, 'err');
         }
         el.input.value = '';
@@ -738,10 +752,10 @@
             state.strikes = Math.min(3, state.strikes + 1);
             renderBoard();
             triggerWrongEffect();
-            setFeedback(`TETOT! Kesalahan Tim ${state.activeTeam + 1} (${state.strikes}/3)`, 'err');
+            setFeedback(`TETOT! Kesalahan ${getTeamName(state.activeTeam)} (${state.strikes}/3)`, 'err');
         });
         el.teamsContainer.addEventListener('click', (e) => {
-            const card = e.target.closest('.team-card');
+            const card = e.target.closest('.podium-unit');
             if (!card) return;
             state.activeTeam = Number(card.dataset.team) || 0;
             renderTeamScores();
@@ -752,7 +766,7 @@
         el.teamsContainer.addEventListener('keydown', (e) => {
             if (e.target.tagName === 'INPUT') return;
             if (e.key === 'Enter' || e.key === ' ') {
-                const card = e.target.closest('.team-card');
+                const card = e.target.closest('.podium-unit');
                 if (card) {
                     e.preventDefault();
                     state.activeTeam = Number(card.dataset.team) || 0;
