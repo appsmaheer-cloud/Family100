@@ -202,6 +202,8 @@
         btnStartGame: document.getElementById('btn-start-game'),
         confettiLayer: document.getElementById('confetti-layer'),
         activeTurnLabel: document.getElementById('active-turn-label'),
+        hostSpeech: document.getElementById('host-speech'),
+        studioAudience: document.getElementById('studio-audience'),
         qNumber: document.getElementById('question-number'),
         qText: document.getElementById('question-text'),
         board: document.getElementById('answer-board'),
@@ -463,27 +465,62 @@
         svg.setAttribute('class', 'contestants-svg');
         svg.setAttribute('aria-hidden', 'true');
 
-        const people = [
+        const robots = [
             { cx: 34, cls: 'person person-left', shirt: 'shirt-a' },
             { cx: 75, cls: 'person person-center', shirt: 'shirt-b' },
             { cx: 116, cls: 'person person-right', shirt: 'shirt-a' },
         ];
 
-        people.forEach((p) => {
+        robots.forEach((p) => {
             const g = document.createElementNS(ns, 'g');
             g.setAttribute('class', p.cls);
 
-            const head = document.createElementNS(ns, 'circle');
-            head.setAttribute('cx', String(p.cx));
-            head.setAttribute('cy', '20');
-            head.setAttribute('r', '11');
-            head.setAttribute('class', 'person-head');
+            const ant = document.createElementNS(ns, 'line');
+            ant.setAttribute('x1', String(p.cx));
+            ant.setAttribute('y1', '4');
+            ant.setAttribute('x2', String(p.cx));
+            ant.setAttribute('y2', '11');
+            ant.setAttribute('class', 'robot-antenna');
+
+            const bulb = document.createElementNS(ns, 'circle');
+            bulb.setAttribute('cx', String(p.cx));
+            bulb.setAttribute('cy', '3.5');
+            bulb.setAttribute('r', '2.5');
+            bulb.setAttribute('class', 'robot-bulb');
+
+            const head = document.createElementNS(ns, 'rect');
+            head.setAttribute('x', String(p.cx - 12));
+            head.setAttribute('y', '11');
+            head.setAttribute('width', '24');
+            head.setAttribute('height', '19');
+            head.setAttribute('rx', '6');
+            head.setAttribute('class', 'robot-head');
+
+            const visor = document.createElementNS(ns, 'rect');
+            visor.setAttribute('x', String(p.cx - 9));
+            visor.setAttribute('y', '16');
+            visor.setAttribute('width', '18');
+            visor.setAttribute('height', '8');
+            visor.setAttribute('rx', '4');
+            visor.setAttribute('class', 'robot-visor');
+
+            const eyeL = document.createElementNS(ns, 'circle');
+            eyeL.setAttribute('cx', String(p.cx - 4));
+            eyeL.setAttribute('cy', '20');
+            eyeL.setAttribute('r', '1.8');
+            eyeL.setAttribute('class', 'robot-eye');
+
+            const eyeR = document.createElementNS(ns, 'circle');
+            eyeR.setAttribute('cx', String(p.cx + 4));
+            eyeR.setAttribute('cy', '20');
+            eyeR.setAttribute('r', '1.8');
+            eyeR.setAttribute('class', 'robot-eye');
 
             const body = document.createElementNS(ns, 'path');
-            body.setAttribute('d', `M${p.cx - 16} 64 C${p.cx - 16} 36, ${p.cx + 16} 36, ${p.cx + 16} 64 Z`);
+            body.setAttribute('d', `M${p.cx - 15} 64 L${p.cx - 12} 34 C${p.cx - 12} 32, ${p.cx + 12} 32, ${p.cx + 12} 34 L${p.cx + 15} 64 Z`);
             body.setAttribute('class', `person-body ${p.shirt}`);
 
-            g.append(head, body);
+            g.append(ant, bulb, head, visor, eyeL, eyeR, body);
             svg.appendChild(g);
         });
 
@@ -619,6 +656,12 @@
         setTimeout(() => el.wrongOverlay.classList.remove('show'), 750);
     }
 
+    function setHostSpeech(text) {
+        if (el.hostSpeech) {
+            el.hostSpeech.textContent = text;
+        }
+    }
+
     function triggerScorePop() {
         const target = document.getElementById(`team-score-${state.activeTeam}`);
         if (target) {
@@ -630,6 +673,10 @@
         if (unit) {
             unit.classList.add('celebrate');
             setTimeout(() => unit.classList.remove('celebrate'), 1100);
+        }
+        if (el.studioAudience) {
+            el.studioAudience.classList.add('cheering');
+            setTimeout(() => el.studioAudience.classList.remove('cheering'), 1200);
         }
     }
 
@@ -698,6 +745,7 @@
             triggerScorePop();
             addHistoryItem(`[${teamName}] ${data.answer.answer_text}`, true, data.answer.points);
             setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk ${teamName})`, 'ok');
+            setHostSpeech(`Tepat sekali! ${data.answer.answer_text} (+${data.answer.points})!`);
         } else if (data.found && data.already_revealed) {
             setFeedback(`Jawaban "${data.answer.answer_text}" sudah terbuka sebelumnya.`, 'err');
         } else {
@@ -707,6 +755,7 @@
             triggerWrongEffect();
             addHistoryItem(`[${teamName}] ${guess}`, false, 0);
             setFeedback(`TETOT! "${guess}" tidak ada di papan jawaban!`, 'err');
+            setHostSpeech(`TETOT! Belum tepat, ayo diskusi lagi ${teamName}!`);
         }
         el.input.value = '';
         el.input.focus();
