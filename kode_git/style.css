@@ -227,7 +227,54 @@ body {
     font-weight: 700;
 }
 
-/* Studio Arena (Kiri: Podium + Penonton, Tengah: Layar + Host, Kanan: Podium + Penonton) */
+/* Stadium Bowl (Penonton Melingkari Kiri, Bawah, Kanan) */
+.stadium-bowl {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stadium-upper {
+    display: grid;
+    grid-template-columns: 112px 1fr 112px;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.bleacher-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 8px;
+    padding: 16px 6px;
+    background: linear-gradient(180deg, rgba(0, 112, 243, 0.1) 0%, #091224 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+[data-theme="light"] .bleacher-side {
+    background: linear-gradient(180deg, rgba(0, 112, 243, 0.08) 0%, #CBD5E1 100%);
+}
+
+.bleacher-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 4px;
+    padding-top: 14px;
+    border-bottom: 2px solid rgba(56, 189, 248, 0.2);
+}
+
+.stadium-bottom-rows {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Studio Arena (Kiri: Podium, Tengah: Layar + Host, Kanan: Podium) */
 .studio-arena {
     display: grid;
     grid-template-columns: 230px 1fr 230px;
@@ -359,7 +406,8 @@ body {
 .stadium-row-2 { width: 92%; }
 .stadium-row-3 { width: 100%; }
 
-.stadium-row span {
+.stadium-row span,
+.bleacher-row span {
     position: relative;
     flex: 1;
     max-width: 22px;
@@ -370,7 +418,8 @@ body {
     border-bottom: none;
 }
 
-.stadium-row span::after {
+.stadium-row span::after,
+.bleacher-row span::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -383,12 +432,14 @@ body {
     animation: audSway 2.2s ease-in-out infinite;
 }
 
-.stadium-row span:nth-child(even)::after {
+.stadium-row span:nth-child(even)::after,
+.bleacher-row span:nth-child(even)::after {
     background: #38BDF8;
     animation-delay: 0.55s;
 }
 
-.stadium-row span::before {
+.stadium-row span::before,
+.bleacher-row span::before {
     content: "";
     position: absolute;
     top: -10px;
@@ -401,21 +452,93 @@ body {
     animation: audSway 2.2s ease-in-out infinite;
 }
 
-.stadium-row span:nth-child(even)::before {
+.stadium-row span:nth-child(even)::before,
+.bleacher-row span:nth-child(even)::before {
     animation-delay: 0.55s;
 }
 
-[data-theme="light"] .stadium-row span {
+/* Tangan Penonton + Merchandise (Terompet, Bendera, Tepuk Tangan) */
+.spec-arm {
+    position: absolute;
+    bottom: 6px;
+    width: 3px;
+    height: 11px;
+    border-radius: 2px;
+    background: #94A3B8;
+    transform-origin: bottom center;
+    z-index: 2;
+}
+
+.spec-arm-l {
+    left: 1px;
+    transform: rotate(-28deg);
+    animation: specWaveL 1.8s ease-in-out infinite;
+}
+
+.spec-arm-r {
+    right: 1px;
+    transform: rotate(28deg);
+    animation: specWaveR 1.8s ease-in-out infinite;
+}
+
+.spec-prop {
+    position: absolute;
+    top: -19px;
+    right: -4px;
+    font-style: normal;
+    font-size: 0.68rem;
+    line-height: 1;
+    z-index: 3;
+    animation: propBob 1.6s ease-in-out infinite;
+}
+
+.stadium-bowl.cheering .spec-arm-l {
+    animation: specWaveL 0.28s ease-in-out 5;
+}
+
+.stadium-bowl.cheering .spec-arm-r {
+    animation: specWaveR 0.28s ease-in-out 5;
+}
+
+.stadium-bowl.cheering .spec-prop {
+    animation: propCheer 0.28s ease-in-out 5;
+}
+
+@keyframes specWaveL {
+    0%, 100% { transform: rotate(-24deg); }
+    50% { transform: rotate(-55deg); }
+}
+
+@keyframes specWaveR {
+    0%, 100% { transform: rotate(24deg); }
+    50% { transform: rotate(55deg); }
+}
+
+@keyframes propBob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-2px) rotate(8deg); }
+}
+
+@keyframes propCheer {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1.25); }
+}
+
+[data-theme="light"] .stadium-row span,
+[data-theme="light"] .bleacher-row span {
     background: #94A3B8;
     border-color: rgba(15, 23, 42, 0.22);
 }
 
-[data-theme="light"] .stadium-row span::before {
+[data-theme="light"] .stadium-row span::before,
+[data-theme="light"] .bleacher-row span::before {
     background: #334155;
 }
 
-.stadium-arc.cheering .stadium-row span::after,
-.stadium-arc.cheering .stadium-row span::before {
+.stadium-bowl.cheering .stadium-row span::after,
+.stadium-bowl.cheering .stadium-row span::before,
+.stadium-bowl.cheering .bleacher-row span::after,
+.stadium-bowl.cheering .bleacher-row span::before {
     animation: audCheer 0.3s ease-in-out 4;
 }
 
@@ -1532,6 +1655,16 @@ body {
 /* Responsive */
 @media (max-width: 960px) {
 /* Responsive */
+@media (max-width: 1220px) {
+    .stadium-upper {
+        grid-template-columns: 1fr;
+    }
+
+    .bleacher-side {
+        display: none;
+    }
+}
+
 @media (max-width: 1080px) {
     .studio-arena {
         grid-template-columns: 1fr;

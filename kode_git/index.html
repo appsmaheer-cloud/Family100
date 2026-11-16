@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Permainan Family 100 — GAS &amp; Git</title>
     <link rel="icon" type="image/png" href="logo-codeera.png">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <header class="topbar">
@@ -32,7 +32,10 @@
     </header>
 
     <main class="stage">
-        <section id="studio-arena" class="studio-arena">
+        <div id="stadium-bowl" class="stadium-bowl">
+            <div class="stadium-upper">
+                <div id="bleacher-left" class="bleacher-side bleacher-left" aria-hidden="true"></div>
+                <section id="studio-arena" class="studio-arena">
             <!-- Sayap Kiri: Podium Tim Kiri -->
             <aside class="panel studio-wing wing-left" aria-label="Podium Kiri">
                 <span class="wing-label">PODIUM KIRI</span>
@@ -121,26 +124,15 @@
                 <div id="teams-right" class="wing-podiums"></div>
             </aside>
         </section>
+                <div id="bleacher-right" class="bleacher-side bleacher-right" aria-hidden="true"></div>
+            </div>
 
-        <!-- Tribun Penonton Melingkari Panggung (gaya stadium) -->
+        <!-- Tribun Penonton Melingkari Bawah Panggung -->
         <section id="stadium-arc" class="stadium-arc" aria-hidden="true">
             <div class="stadium-arc-label">TRIBUN PENONTON STUDIO</div>
-            <div class="stadium-row stadium-row-1">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <div class="stadium-row stadium-row-2">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <div class="stadium-row stadium-row-3">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
+            <div id="stadium-bottom-rows" class="stadium-bottom-rows"></div>
         </section>
+        </div>
     </main>
 
     <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
@@ -215,6 +207,6 @@
         </div>
     </div>
 
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
 </body>
 </html>

@@ -730,10 +730,10 @@
             unit.classList.add('celebrate');
             setTimeout(() => unit.classList.remove('celebrate'), 1100);
         }
-        const arc = document.getElementById('stadium-arc');
-        if (arc) {
-            arc.classList.add('cheering');
-            setTimeout(() => arc.classList.remove('cheering'), 1300);
+        const bowl = document.getElementById('stadium-bowl');
+        if (bowl) {
+            bowl.classList.add('cheering');
+            setTimeout(() => bowl.classList.remove('cheering'), 1400);
         }
     }
 
@@ -935,7 +935,57 @@
         renderSavedQuestionsList();
     }
 
+    function createSpectatorNode(idx) {
+        const props = ['🎺', '📣', '🚩', '👏', '✨', '🎉'];
+        const sp = document.createElement('span');
+        sp.className = 'spectator';
+        if (idx % 2 === 0 || idx % 3 === 0) {
+            const prop = document.createElement('i');
+            prop.className = 'spec-prop';
+            prop.textContent = props[idx % props.length];
+            sp.appendChild(prop);
+        }
+        const armL = document.createElement('b');
+        armL.className = 'spec-arm spec-arm-l';
+        const armR = document.createElement('b');
+        armR.className = 'spec-arm spec-arm-r';
+        sp.append(armL, armR);
+        return sp;
+    }
+
+    function populateAudience() {
+        const left = document.getElementById('bleacher-left');
+        const right = document.getElementById('bleacher-right');
+        const bottom = document.getElementById('stadium-bottom-rows');
+
+        [left, right].forEach((side, sideIdx) => {
+            if (!side) return;
+            side.textContent = '';
+            for (let r = 0; r < 6; r++) {
+                const row = document.createElement('div');
+                row.className = 'bleacher-row';
+                for (let c = 0; c < 4; c++) {
+                    row.appendChild(createSpectatorNode(sideIdx * 24 + r * 4 + c));
+                }
+                side.appendChild(row);
+            }
+        });
+
+        if (bottom) {
+            bottom.textContent = '';
+            [20, 24, 28].forEach((count, rIdx) => {
+                const row = document.createElement('div');
+                row.className = `stadium-row stadium-row-${rIdx + 1}`;
+                for (let i = 0; i < count; i++) {
+                    row.appendChild(createSpectatorNode(rIdx * 30 + i));
+                }
+                bottom.appendChild(row);
+            });
+        }
+    }
+
     function init() {
+        populateAudience();
         const params = new URLSearchParams(window.location.search);
         if (params.get('gasUrl')) {
             state.gasUrl = params.get('gasUrl');
