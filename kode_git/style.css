@@ -826,7 +826,7 @@ body {
 }
 
 .tv-display .answer-slot {
-    min-height: clamp(38px, 4.8vh, 56px);
+    min-height: clamp(48px, 6.2vh, 72px);
 }
 
 .tv-display .turn-bar {
@@ -904,9 +904,9 @@ body {
 
 .answer-slot {
     display: grid;
-    grid-template-columns: 48px 1fr 74px;
+    grid-template-columns: 54px 1fr 84px;
     align-items: center;
-    min-height: clamp(40px, 5.4vh, 58px);
+    min-height: clamp(48px, 6.2vh, 72px);
     background: linear-gradient(180deg, #0070F3 0%, #0353B5 100%);
     border: 2px solid var(--brand-cyan);
     border-radius: 8px;
@@ -931,7 +931,7 @@ body {
     background: rgba(0, 0, 0, 0.32);
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     font-weight: 900;
-    font-size: 1.05rem;
+    font-size: clamp(1.15rem, 1.5vw, 1.5rem);
     color: #CBD5E1;
 }
 
@@ -947,15 +947,15 @@ body {
     background: rgba(0, 0, 0, 0.36);
     border-left: 2px solid rgba(255, 255, 255, 0.22);
     font-weight: 900;
-    font-size: 1.15rem;
+    font-size: clamp(1.25rem, 1.65vw, 1.7rem);
     font-variant-numeric: tabular-nums;
     color: var(--accent-gold);
 }
 
 .slot-text {
-    padding: 8px 16px;
+    padding: 10px 18px;
     font-weight: 800;
-    font-size: 1.08rem;
+    font-size: clamp(1.15rem, 1.55vw, 1.55rem);
     letter-spacing: 0.06em;
     text-align: center;
     text-transform: uppercase;

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="id" data-theme="studio">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Permainan Family 100 — GAS &amp; Git</title>
     <link rel="icon" type="image/png" href="favicon-codeera.png">
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
+
 <body>
     <header class="topbar">
         <div class="brand">
@@ -25,9 +27,11 @@
             <button type="button" id="btn-random" class="btn btn-secondary">Acak Soal</button>
             <button type="button" id="btn-manage" class="btn btn-secondary">Kelola Soal</button>
             <button type="button" id="btn-gas-config" class="btn btn-secondary">URL GAS</button>
-            <button type="button" id="btn-sound" class="btn btn-icon" aria-pressed="true" title="Suara Aktif">🔊</button>
+            <button type="button" id="btn-sound" class="btn btn-icon" aria-pressed="true"
+                title="Suara Aktif">🔊</button>
             <button type="button" id="btn-fullscreen" class="btn btn-icon" title="Layar Penuh">⛶</button>
-            <button type="button" id="btn-theme" class="btn btn-icon" aria-pressed="false" title="Ganti Tema">☀️</button>
+            <button type="button" id="btn-theme" class="btn btn-icon" aria-pressed="false"
+                title="Ganti Tema">☀️</button>
         </div>
     </header>
 
@@ -43,7 +47,8 @@
             <div class="studio-center">
                 <section class="studio-screen tv-cabinet" aria-label="Layar TV Soal dan Hasil Survei">
                     <div class="tv-top-bar">
-                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> LIVE • STUDIO TV</span>
+                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> LIVE • STUDIO
+                            TV</span>
                         <span class="tv-brand-pill">📺 PAPAN SURVEI FAMILY 100</span>
                         <span class="tv-survey-pill">100 RESPONDEN</span>
                     </div>
@@ -68,14 +73,8 @@
 
                         <form id="answer-form" class="answer-form" autocomplete="off">
                             <label for="answer-input" class="sr-only">Ketik jawaban peserta</label>
-                            <input
-                                type="text"
-                                id="answer-input"
-                                class="answer-input"
-                                placeholder="Ketik jawaban peserta di sini..."
-                                maxlength="120"
-                                required
-                            >
+                            <input type="text" id="answer-input" class="answer-input"
+                                placeholder="Ketik jawaban peserta di sini..." maxlength="120" required>
                             <button type="submit" id="btn-submit" class="btn btn-primary">Cek Jawaban</button>
                         </form>
                         <p id="feedback-msg" class="feedback-msg" role="status" aria-live="polite"></p>
@@ -99,15 +98,17 @@
                     <div class="studio-host" aria-label="Host Studio">
                         <div class="host-avatar">
                             <svg class="host-svg" viewBox="0 0 80 80" aria-hidden="true">
-                                <line x1="40" y1="6" x2="40" y2="16" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
-                                <circle cx="40" cy="5" r="3.5" fill="#38BDF8"/>
-                                <rect x="20" y="16" width="40" height="30" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2.5"/>
-                                <rect x="27" y="24" width="26" height="12" rx="6" fill="#0F172A"/>
-                                <circle cx="34" cy="30" r="2.8" fill="#38BDF8"/>
-                                <circle cx="46" cy="30" r="2.8" fill="#38BDF8"/>
-                                <path d="M22 50 C22 46, 58 46, 58 50 L62 76 L18 76 Z" fill="#0070F3"/>
-                                <rect x="58" y="48" width="6" height="16" rx="3" fill="#94A3B8"/>
-                                <circle cx="61" cy="46" r="5" fill="#E2E8F0"/>
+                                <line x1="40" y1="6" x2="40" y2="16" stroke="#38BDF8" stroke-width="3"
+                                    stroke-linecap="round" />
+                                <circle cx="40" cy="5" r="3.5" fill="#38BDF8" />
+                                <rect x="20" y="16" width="40" height="30" rx="10" fill="#1E293B" stroke="#38BDF8"
+                                    stroke-width="2.5" />
+                                <rect x="27" y="24" width="26" height="12" rx="6" fill="#0F172A" />
+                                <circle cx="34" cy="30" r="2.8" fill="#38BDF8" />
+                                <circle cx="46" cy="30" r="2.8" fill="#38BDF8" />
+                                <path d="M22 50 C22 46, 58 46, 58 50 L62 76 L18 76 Z" fill="#0070F3" />
+                                <rect x="58" y="48" width="6" height="16" rx="3" fill="#94A3B8" />
+                                <circle cx="61" cy="46" r="5" fill="#E2E8F0" />
                             </svg>
                         </div>
                         <div class="host-speech" id="host-speech">Selamat datang di Studio Family 100!</div>
@@ -149,7 +150,8 @@
                 <img src="logo-codeera.png" alt="CODEERA - PT. Baseerah Otomasi Indonesia" class="start-logo">
             </div>
             <h2 class="start-title">Permainan Family 100</h2>
-            <p class="start-desc">Siapkan tim Anda, jawab survei dengan tepat, dan kumpulkan poin tertinggi di podium.</p>
+            <p class="start-desc">Siapkan tim Anda, jawab survei dengan tepat, dan kumpulkan poin tertinggi di podium.
+            </p>
             <button type="button" id="btn-start-game" class="btn btn-start">▶ Mulai Permainan</button>
         </div>
     </div>
@@ -173,7 +175,8 @@
                 <form id="gas-config-form">
                     <div class="form-group">
                         <label for="gas-url-input">URL Web App GAS (kosongkan untuk mode contoh lokal)</label>
-                        <input type="url" id="gas-url-input" class="input-field" placeholder="https://script.google.com/macros/s/.../exec">
+                        <input type="url" id="gas-url-input" class="input-field"
+                            placeholder="https://script.google.com/macros/s/.../exec">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan &amp; Muat Ulang Soal</button>
                 </form>
@@ -193,12 +196,14 @@
                 <form id="add-question-form" class="manage-form">
                     <div class="form-group">
                         <label for="new-question-text">Pertanyaan Baru</label>
-                        <input type="text" id="new-question-text" class="input-field" placeholder="Contoh: Apa yang sering dibawa saat piknik?" maxlength="255" required>
+                        <input type="text" id="new-question-text" class="input-field"
+                            placeholder="Contoh: Apa yang sering dibawa saat piknik?" maxlength="255" required>
                     </div>
                     <div class="form-group">
                         <label>Daftar Jawaban &amp; Poin (maksimal 8)</label>
                         <div id="new-answers-list" class="new-answers-list"></div>
-                        <button type="button" id="btn-add-answer-row" class="btn btn-secondary btn-sm">+ Tambah Baris Jawaban</button>
+                        <button type="button" id="btn-add-answer-row" class="btn btn-secondary btn-sm">+ Tambah Baris
+                            Jawaban</button>
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan Pertanyaan</button>
                 </form>
@@ -215,4 +220,5 @@
 
     <script src="app.js?v=8"></script>
 </body>
+
 </html>
