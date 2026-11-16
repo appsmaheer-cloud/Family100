@@ -29,11 +29,6 @@
     </header>
 
     <main class="stage">
-        <section class="question-banner" aria-live="polite">
-            <span id="question-number" class="question-badge">Soal #1</span>
-            <h2 id="question-text" class="question-text">Memuat pertanyaan...</h2>
-        </section>
-
         <section class="studio-stage">
             <div class="studio-main-row">
                 <aside class="panel info-panel">
@@ -68,7 +63,12 @@
                     </div>
                 </aside>
 
-                <section class="board-wrapper" aria-label="Papan Jawaban">
+                <section class="studio-screen" aria-label="Layar Soal dan Jawaban">
+                    <div class="question-banner" aria-live="polite">
+                        <span id="question-number" class="question-badge">Soal #1</span>
+                        <h2 id="question-text" class="question-text">Memuat pertanyaan...</h2>
+                    </div>
+
                     <div id="answer-board" class="answer-board"></div>
 
                     <div class="turn-bar">
