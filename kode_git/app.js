@@ -167,7 +167,8 @@
         questions: [],
         currentIndex: 0,
         revealedIds: new Set(),
-        score: 0,
+        teamScores: [0, 0, 0],
+        activeTeam: 0,
         strikes: 0,
         soundEnabled: true,
         audioCtx: null,
@@ -187,12 +188,19 @@
         form: document.getElementById('answer-form'),
         input: document.getElementById('answer-input'),
         feedback: document.getElementById('feedback-msg'),
-        totalScore: document.getElementById('total-score'),
+        teamsContainer: document.getElementById('teams-container'),
+        teamScoreEls: [
+            document.getElementById('team-score-0'),
+            document.getElementById('team-score-1'),
+            document.getElementById('team-score-2'),
+        ],
+        btnTetot: document.getElementById('btn-tetot'),
         revealedCount: document.getElementById('revealed-count'),
         strikes: document.getElementById('strike-indicators'),
         history: document.getElementById('guess-history'),
         btnRevealAll: document.getElementById('btn-reveal-all'),
         btnResetRound: document.getElementById('btn-reset-round'),
+        btnResetScores: document.getElementById('btn-reset-scores'),
         wrongOverlay: document.getElementById('wrong-overlay'),
         gasModal: document.getElementById('gas-modal'),
         gasConfigForm: document.getElementById('gas-config-form'),
@@ -240,17 +248,20 @@
         const ctx = getAudioCtx();
         if (!ctx) return;
         const now = ctx.currentTime;
-        [150, 115].forEach((freq, idx) => {
+        [
+            { freq: 185, start: 0, dur: 0.14 },
+            { freq: 120, start: 0.16, dur: 0.42 },
+        ].forEach((tone) => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
             osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(freq, now + idx * 0.14);
-            gain.gain.setValueAtTime(0.2, now + idx * 0.14);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.14 + 0.28);
+            osc.frequency.setValueAtTime(tone.freq, now + tone.start);
+            gain.gain.setValueAtTime(0.28, now + tone.start);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + tone.start + tone.dur);
             osc.connect(gain);
             gain.connect(ctx.destination);
-            osc.start(now + idx * 0.14);
-            osc.stop(now + idx * 0.14 + 0.3);
+            osc.start(now + tone.start);
+            osc.stop(now + tone.start + tone.dur + 0.02);
         });
     }
 
@@ -419,9 +430,24 @@
         });
 
         el.revealedCount.textContent = `${state.revealedIds.size} / ${answers.length}`;
-        el.totalScore.textContent = String(state.score);
+        renderTeamScores();
         const boxes = el.strikes.querySelectorAll('.strike-box');
         boxes.forEach((box, idx) => box.classList.toggle('active', idx < state.strikes));
+    }
+
+    function renderTeamScores() {
+        state.teamScores.forEach((sc, idx) => {
+            if (el.teamScoreEls[idx]) {
+                el.teamScoreEls[idx].textContent = String(sc);
+            }
+        });
+        if (el.teamsContainer) {
+            el.teamsContainer.querySelectorAll('.team-card').forEach((card) => {
+                const isAct = Number(card.dataset.team) === state.activeTeam;
+                card.classList.toggle('active', isAct);
+                card.setAttribute('aria-pressed', String(isAct));
+            });
+        }
     }
 
     function setFeedback(message, type) {
@@ -454,14 +480,15 @@
     }
 
     function triggerScorePop() {
-        el.totalScore.classList.remove('pop');
-        void el.totalScore.offsetWidth;
-        el.totalScore.classList.add('pop');
+        const target = el.teamScoreEls[state.activeTeam];
+        if (!target) return;
+        target.classList.remove('pop');
+        void target.offsetWidth;
+        target.classList.add('pop');
     }
 
     function resetRound() {
         state.revealedIds.clear();
-        state.score = 0;
         state.strikes = 0;
         el.history.textContent = '';
         setFeedback('', '');
@@ -517,20 +544,20 @@
         const data = await checkAnswerRemoteOrLocal(q, guess);
         if (data.found && !data.already_revealed && data.answer) {
             state.revealedIds.add(Number(data.answer.id));
-            state.score += Number(data.answer.points);
+            state.teamScores[state.activeTeam] += Number(data.answer.points);
             playCorrectSound();
             renderBoard();
             triggerScorePop();
-            addHistoryItem(data.answer.answer_text, true, data.answer.points);
-            setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} poin)`, 'ok');
+            addHistoryItem(`[Tim ${state.activeTeam + 1}] ${data.answer.answer_text}`, true, data.answer.points);
+            setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk Tim ${state.activeTeam + 1})`, 'ok');
         } else if (data.found && data.already_revealed) {
             setFeedback(`Jawaban "${data.answer.answer_text}" sudah terbuka sebelumnya.`, 'err');
         } else {
             state.strikes = Math.min(3, state.strikes + 1);
             renderBoard();
             triggerWrongEffect();
-            addHistoryItem(guess, false, 0);
-            setFeedback(`Maaf, "${guess}" tidak ada di papan jawaban!`, 'err');
+            addHistoryItem(`[Tim ${state.activeTeam + 1}] ${guess}`, false, 0);
+            setFeedback(`TETOT! "${guess}" tidak ada di papan jawaban!`, 'err');
         }
         el.input.value = '';
         el.input.focus();
@@ -702,6 +729,37 @@
             setFeedback('Semua jawaban telah dibuka.', 'ok');
         });
         el.btnResetRound.addEventListener('click', resetRound);
+        el.btnResetScores.addEventListener('click', () => {
+            state.teamScores = [0, 0, 0];
+            renderTeamScores();
+            setFeedback('Skor semua tim direset ke 0.', 'ok');
+        });
+        el.btnTetot.addEventListener('click', () => {
+            state.strikes = Math.min(3, state.strikes + 1);
+            renderBoard();
+            triggerWrongEffect();
+            setFeedback(`TETOT! Kesalahan Tim ${state.activeTeam + 1} (${state.strikes}/3)`, 'err');
+        });
+        el.teamsContainer.addEventListener('click', (e) => {
+            const card = e.target.closest('.team-card');
+            if (!card) return;
+            state.activeTeam = Number(card.dataset.team) || 0;
+            renderTeamScores();
+            if (e.target.tagName !== 'INPUT') {
+                el.input.focus();
+            }
+        });
+        el.teamsContainer.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT') return;
+            if (e.key === 'Enter' || e.key === ' ') {
+                const card = e.target.closest('.team-card');
+                if (card) {
+                    e.preventDefault();
+                    state.activeTeam = Number(card.dataset.team) || 0;
+                    renderTeamScores();
+                }
+            }
+        });
 
         el.btnManage.addEventListener('click', () => {
             renderSavedQuestionsList();
