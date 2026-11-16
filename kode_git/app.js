@@ -954,9 +954,22 @@
     }
 
     function populateAudience() {
+        const top = document.getElementById('stadium-top-rows');
         const left = document.getElementById('bleacher-left');
         const right = document.getElementById('bleacher-right');
         const bottom = document.getElementById('stadium-bottom-rows');
+
+        if (top) {
+            top.textContent = '';
+            [26, 22].forEach((count, rIdx) => {
+                const row = document.createElement('div');
+                row.className = `stadium-row stadium-row-top-${rIdx + 1}`;
+                for (let i = 0; i < count; i++) {
+                    row.appendChild(createSpectatorNode(100 + rIdx * 30 + i));
+                }
+                top.appendChild(row);
+            });
+        }
 
         [left, right].forEach((side, sideIdx) => {
             if (!side) return;
@@ -964,8 +977,8 @@
             for (let r = 0; r < 6; r++) {
                 const row = document.createElement('div');
                 row.className = 'bleacher-row';
-                for (let c = 0; c < 4; c++) {
-                    row.appendChild(createSpectatorNode(sideIdx * 24 + r * 4 + c));
+                for (let c = 0; c < 3; c++) {
+                    row.appendChild(createSpectatorNode(sideIdx * 18 + r * 3 + c));
                 }
                 side.appendChild(row);
             }
@@ -973,7 +986,7 @@
 
         if (bottom) {
             bottom.textContent = '';
-            [20, 24, 28].forEach((count, rIdx) => {
+            [22, 26].forEach((count, rIdx) => {
                 const row = document.createElement('div');
                 row.className = `stadium-row stadium-row-${rIdx + 1}`;
                 for (let i = 0; i < count; i++) {
