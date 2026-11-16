@@ -263,12 +263,69 @@
             .trim();
     }
 
-    function isMatch(normAnswer, normGuess) {
-        if (normAnswer === normGuess) return true;
-        if (normAnswer.length <= 2 || normGuess.length <= 2) {
-            return normAnswer.split(' ').includes(normGuess);
+    const SYNONYM_GROUPS = [
+        ['MENANGIS', 'NANGIS', 'MEWEK', 'BERSEDIH', 'SEDIH'],
+        ['MINTA MAAF', 'MEMINTA MAAF', 'MOHON MAAF', 'MAAF', 'AMPUN'],
+        ['MINTA BANTUAN', 'MINTA TOLONG', 'TOLONG', 'BANTUAN', 'MEMBANTU'],
+        ['BERDOA', 'DOA', 'SHOLAT', 'SALAT', 'SEMBAHYANG', 'IBADAH', 'BERIBADAH'],
+        ['MENCARI SOLUSI', 'CARI SOLUSI', 'SOLUSI', 'PENYELESAIAN', 'JALAN KELUAR'],
+        ['CURHAT', 'CERITA', 'BERCERITA', 'NGOBROL', 'SHARING'],
+        ['MARAH MARAH', 'MARAH', 'NGAMUK', 'EMOSI', 'KESAL', 'MENGAMUK'],
+        ['JALAN JALAN', 'LIBURAN', 'PIKNIK', 'HEALING', 'REFRESHING', 'REKREASI', 'TRAVELING', 'BERLIBUR'],
+        ['MELAMUN', 'NGELAMUN', 'LAMUN', 'TERMENUNG', 'MELONGO'],
+        ['DIAM', 'DIEM', 'BUNGKAM', 'PENDIAM', 'MENENG'],
+        ['CENGENGESAN', 'KETAWA', 'TERTAWA', 'NYENGIR', 'SENYUM', 'CEKIKIKAN'],
+        ['GUGUP', 'GROGI', 'NERVOUS', 'PANIK', 'GEMETAR'],
+        ['MENCARI ALASAN', 'CARI ALASAN', 'NGELES', 'ALASAN', 'BERDALIH'],
+        ['PURA PURA LUPA', 'LUPA', 'NGAKU LUPA', 'TIDAK INGAT'],
+        ['BAU', 'BAU BADAN', 'KETEK', 'BUSUK', 'APEK'],
+        ['NYEBELIN', 'MENYEBALKAN', 'SEBEL', 'RESE', 'MENJENGKELKAN'],
+        ['SOMBONG', 'ANGKUH', 'CONGKAK', 'BELAGU', 'AROGAN', 'SONGONG'],
+        ['SUKA PINJAM DUIT', 'PINJAM DUIT', 'PINJAM UANG', 'NGUTANG', 'HUTANG', 'UTANG', 'MINJAM DUIT'],
+        ['KASAR', 'GALAK', 'TIDAK SOPAN'],
+        ['TIDAK DIPERCAYA', 'PEMBOHONG', 'PENGKHIANAT', 'BOHONG'],
+        ['JAHAT', 'KEJAM', 'LICIK', 'NAKAL'],
+        ['EGOIS', 'SERAKAH', 'PELIT', 'KIKIR', 'MAU MENANG SENDIRI'],
+        ['MEMBELI PROPERTY', 'BELI PROPERTY', 'PROPERTI', 'RUMAH', 'TANAH', 'APARTEMEN', 'RUKO', 'BELI RUMAH'],
+        ['MEMBELI EMAS', 'BELI EMAS', 'EMAS', 'LOGAM MULIA', 'PERHIASAN', 'ANTAM'],
+        ['MEMBELI KENDARAAN', 'BELI KENDARAAN', 'MOBIL', 'MOTOR', 'BELI MOBIL', 'BELI MOTOR'],
+        ['MENABUNG', 'NABUNG', 'TABUNGAN', 'INVESTASI', 'DEPOSITO', 'SIMPAN UANG'],
+        ['GOOGLESHEET', 'GOOGLE SHEET', 'GOOGLE SHEETS', 'SPREADSHEET', 'GSHEET'],
+        ['SQL SERVER', 'MSSQL', 'SQLSERVER'],
+        ['APACHE SPARK', 'SPARK', 'PYSPARK'],
+        ['GRATIS', 'FREE', 'CUMA CUMA'],
+        ['BRUG', 'JEMBATAN'],
+        ['GORDIJN', 'GORDEN', 'HORDENG', 'TIRAI'],
+        ['HANDDOEK', 'HANDUK'],
+        ['SPOOR', 'SEPUR', 'KERETA'],
+    ];
+
+    function expandVariants(normText) {
+        const variants = new Set([normText]);
+        const stripped = normText.replace(/\b(MENG|MEM|MEN|ME|BER)([A-Z]{3,})/g, '$2');
+        if (stripped && stripped !== normText) variants.add(stripped);
+        for (const group of SYNONYM_GROUPS) {
+            if (group.some((t) => normText === t || (normText.length >= 4 && t.includes(normText)))) {
+                group.forEach((t) => variants.add(t));
+            }
         }
-        return normAnswer.includes(normGuess) || normGuess.includes(normAnswer);
+        return Array.from(variants);
+    }
+
+    function isMatch(normAnswer, normGuess) {
+        const ansVariants = expandVariants(normAnswer);
+        const guessVariants = expandVariants(normGuess);
+        for (const av of ansVariants) {
+            for (const gv of guessVariants) {
+                if (av === gv) return true;
+                if (av.length <= 2 || gv.length <= 2) {
+                    if (av.split(' ').includes(gv)) return true;
+                    continue;
+                }
+                if (av.includes(gv) || gv.includes(av)) return true;
+            }
+        }
+        return false;
     }
 
     function loadLocalQuestions() {
@@ -340,24 +397,24 @@
         el.qText.textContent = q.question;
 
         const answers = Array.isArray(q.answers) ? q.answers : [];
-        answers.forEach((ans) => {
+        answers.forEach((ans, idx) => {
             const isRevealed = state.revealedIds.has(Number(ans.id));
             const row = document.createElement('div');
             row.className = isRevealed ? 'answer-slot revealed' : 'answer-slot';
 
-            const pts = document.createElement('div');
-            pts.className = 'slot-points';
-            pts.textContent = String(ans.points);
+            const num = document.createElement('div');
+            num.className = 'slot-num';
+            num.textContent = String(idx + 1);
 
             const txt = document.createElement('div');
             txt.className = isRevealed ? 'slot-text' : 'slot-text hidden-mask';
             txt.textContent = isRevealed ? ans.answer_text : '• • • • • • • •';
 
-            const status = document.createElement('div');
-            status.className = 'slot-status';
-            status.textContent = isRevealed ? '✓' : '!';
+            const pts = document.createElement('div');
+            pts.className = 'slot-points';
+            pts.textContent = String(ans.points);
 
-            row.append(pts, txt, status);
+            row.append(num, txt, pts);
             el.board.appendChild(row);
         });
 
@@ -385,11 +442,15 @@
 
     function triggerWrongEffect() {
         playWrongSound();
+        const xBox = el.wrongOverlay.querySelector('.wrong-x');
+        if (xBox) {
+            xBox.textContent = '✕'.repeat(Math.max(1, state.strikes));
+        }
         el.wrongOverlay.classList.add('show');
         el.board.classList.remove('board-shake');
         void el.board.offsetWidth;
         el.board.classList.add('board-shake');
-        setTimeout(() => el.wrongOverlay.classList.remove('show'), 700);
+        setTimeout(() => el.wrongOverlay.classList.remove('show'), 750);
     }
 
     function triggerScorePop() {

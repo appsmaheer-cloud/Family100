@@ -236,12 +236,82 @@ function normalizeText_(text) {
     .trim();
 }
 
-function isMatch_(normAnswer, normGuess) {
-  if (normAnswer === normGuess) return true;
-  if (normAnswer.length <= 2 || normGuess.length <= 2) {
-    return normAnswer.split(' ').indexOf(normGuess) !== -1;
+function getSynonymGroups_() {
+  return [
+    ['MENANGIS', 'NANGIS', 'MEWEK', 'BERSEDIH', 'SEDIH'],
+    ['MINTA MAAF', 'MEMINTA MAAF', 'MOHON MAAF', 'MAAF', 'AMPUN'],
+    ['MINTA BANTUAN', 'MINTA TOLONG', 'TOLONG', 'BANTUAN', 'MEMBANTU'],
+    ['BERDOA', 'DOA', 'SHOLAT', 'SALAT', 'SEMBAHYANG', 'IBADAH', 'BERIBADAH'],
+    ['MENCARI SOLUSI', 'CARI SOLUSI', 'SOLUSI', 'PENYELESAIAN', 'JALAN KELUAR'],
+    ['CURHAT', 'CERITA', 'BERCERITA', 'NGOBROL', 'SHARING'],
+    ['MARAH MARAH', 'MARAH', 'NGAMUK', 'EMOSI', 'KESAL', 'MENGAMUK'],
+    ['JALAN JALAN', 'LIBURAN', 'PIKNIK', 'HEALING', 'REFRESHING', 'REKREASI', 'TRAVELING', 'BERLIBUR'],
+    ['MELAMUN', 'NGELAMUN', 'LAMUN', 'TERMENUNG', 'MELONGO'],
+    ['DIAM', 'DIEM', 'BUNGKAM', 'PENDIAM', 'MENENG'],
+    ['CENGENGESAN', 'KETAWA', 'TERTAWA', 'NYENGIR', 'SENYUM', 'CEKIKIKAN'],
+    ['GUGUP', 'GROGI', 'NERVOUS', 'PANIK', 'GEMETAR'],
+    ['MENCARI ALASAN', 'CARI ALASAN', 'NGELES', 'ALASAN', 'BERDALIH'],
+    ['PURA PURA LUPA', 'LUPA', 'NGAKU LUPA', 'TIDAK INGAT'],
+    ['BAU', 'BAU BADAN', 'KETEK', 'BUSUK', 'APEK'],
+    ['NYEBELIN', 'MENYEBALKAN', 'SEBEL', 'RESE', 'MENJENGKELKAN'],
+    ['SOMBONG', 'ANGKUH', 'CONGKAK', 'BELAGU', 'AROGAN', 'SONGONG'],
+    ['SUKA PINJAM DUIT', 'PINJAM DUIT', 'PINJAM UANG', 'NGUTANG', 'HUTANG', 'UTANG', 'MINJAM DUIT'],
+    ['KASAR', 'GALAK', 'TIDAK SOPAN'],
+    ['TIDAK DIPERCAYA', 'PEMBOHONG', 'PENGKHIANAT', 'BOHONG'],
+    ['JAHAT', 'KEJAM', 'LICIK', 'NAKAL'],
+    ['EGOIS', 'SERAKAH', 'PELIT', 'KIKIR', 'MAU MENANG SENDIRI'],
+    ['MEMBELI PROPERTY', 'BELI PROPERTY', 'PROPERTI', 'RUMAH', 'TANAH', 'APARTEMEN', 'RUKO', 'BELI RUMAH'],
+    ['MEMBELI EMAS', 'BELI EMAS', 'EMAS', 'LOGAM MULIA', 'PERHIASAN', 'ANTAM'],
+    ['MEMBELI KENDARAAN', 'BELI KENDARAAN', 'MOBIL', 'MOTOR', 'BELI MOBIL', 'BELI MOTOR'],
+    ['MENABUNG', 'NABUNG', 'TABUNGAN', 'INVESTASI', 'DEPOSITO', 'SIMPAN UANG'],
+    ['GOOGLESHEET', 'GOOGLE SHEET', 'GOOGLE SHEETS', 'SPREADSHEET', 'GSHEET'],
+    ['SQL SERVER', 'MSSQL', 'SQLSERVER'],
+    ['APACHE SPARK', 'SPARK', 'PYSPARK'],
+    ['GRATIS', 'FREE', 'CUMA CUMA'],
+    ['BRUG', 'JEMBATAN'],
+    ['GORDIJN', 'GORDEN', 'HORDENG', 'TIRAI'],
+    ['HANDDOEK', 'HANDUK'],
+    ['SPOOR', 'SEPUR', 'KERETA']
+  ];
+}
+
+function expandVariants_(normText) {
+  const variants = [normText];
+  const stripped = normText.replace(/\b(MENG|MEM|MEN|ME|BER)([A-Z]{3,})/g, '$2');
+  if (stripped && stripped !== normText) variants.push(stripped);
+
+  const groups = getSynonymGroups_();
+  for (let i = 0; i < groups.length; i++) {
+    const group = groups[i];
+    for (let j = 0; j < group.length; j++) {
+      const term = group[j];
+      if (normText === term || (normText.length >= 4 && term.indexOf(normText) !== -1)) {
+        for (let k = 0; k < group.length; k++) {
+          if (variants.indexOf(group[k]) === -1) variants.push(group[k]);
+        }
+        break;
+      }
+    }
   }
-  return normAnswer.indexOf(normGuess) !== -1 || normGuess.indexOf(normAnswer) !== -1;
+  return variants;
+}
+
+function isMatch_(normAnswer, normGuess) {
+  const ansVariants = expandVariants_(normAnswer);
+  const guessVariants = expandVariants_(normGuess);
+  for (let i = 0; i < ansVariants.length; i++) {
+    const av = ansVariants[i];
+    for (let j = 0; j < guessVariants.length; j++) {
+      const gv = guessVariants[j];
+      if (av === gv) return true;
+      if (av.length <= 2 || gv.length <= 2) {
+        if (av.split(' ').indexOf(gv) !== -1) return true;
+        continue;
+      }
+      if (av.indexOf(gv) !== -1 || gv.indexOf(av) !== -1) return true;
+    }
+  }
+  return false;
 }
 
 function checkAnswer_(questionId, guess, revealedIds) {
