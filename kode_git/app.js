@@ -181,7 +181,12 @@
         btnManage: document.getElementById('btn-manage'),
         btnGasConfig: document.getElementById('btn-gas-config'),
         btnSound: document.getElementById('btn-sound'),
+        btnFullscreen: document.getElementById('btn-fullscreen'),
         btnTheme: document.getElementById('btn-theme'),
+        startOverlay: document.getElementById('start-overlay'),
+        btnStartGame: document.getElementById('btn-start-game'),
+        confettiLayer: document.getElementById('confetti-layer'),
+        activeTurnLabel: document.getElementById('active-turn-label'),
         qNumber: document.getElementById('question-number'),
         qText: document.getElementById('question-text'),
         board: document.getElementById('answer-board'),
@@ -460,6 +465,24 @@
                 card.setAttribute('aria-pressed', String(isAct));
             });
         }
+        if (el.activeTurnLabel) {
+            el.activeTurnLabel.textContent = `Giliran Menjawab: ${getTeamName(state.activeTeam)}`;
+        }
+    }
+
+    function spawnConfetti() {
+        if (!el.confettiLayer) return;
+        const colors = ['#F5B700', '#10B981', '#E03C31', '#60A5FA', '#FFFFFF'];
+        for (let i = 0; i < 28; i++) {
+            const piece = document.createElement('span');
+            piece.className = 'confetti-piece';
+            piece.style.left = `${Math.random() * 100}%`;
+            piece.style.top = `${Math.random() * 15}%`;
+            piece.style.backgroundColor = colors[i % colors.length];
+            piece.style.animationDelay = `${Math.random() * 0.25}s`;
+            el.confettiLayer.appendChild(piece);
+            setTimeout(() => piece.remove(), 1400);
+        }
     }
 
     function setFeedback(message, type) {
@@ -559,6 +582,7 @@
             state.revealedIds.add(Number(data.answer.id));
             state.teamScores[state.activeTeam] += Number(data.answer.points);
             playCorrectSound();
+            spawnConfetti();
             renderBoard();
             triggerScorePop();
             addHistoryItem(`[${teamName}] ${data.answer.answer_text}`, true, data.answer.points);
@@ -726,6 +750,32 @@
             el.btnSound.setAttribute('aria-pressed', String(state.soundEnabled));
         });
 
+        if (el.btnFullscreen) {
+            el.btnFullscreen.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => {});
+                } else {
+                    document.exitFullscreen().catch(() => {});
+                }
+            });
+        }
+
+        if (el.btnStartGame && el.startOverlay) {
+            el.btnStartGame.addEventListener('click', () => {
+                el.startOverlay.classList.add('hidden');
+                playCorrectSound();
+                el.input.focus();
+            });
+        }
+
+        if (el.teamsContainer) {
+            el.teamsContainer.addEventListener('input', (e) => {
+                if (e.target.classList.contains('team-name-input') && el.activeTurnLabel) {
+                    el.activeTurnLabel.textContent = `Giliran Menjawab: ${getTeamName(state.activeTeam)}`;
+                }
+            });
+        }
+
         el.btnTheme.addEventListener('click', () => {
             const root = document.documentElement;
             const isLight = root.getAttribute('data-theme') === 'light';
@@ -739,6 +789,7 @@
             if (!q) return;
             q.answers.forEach((a) => state.revealedIds.add(Number(a.id)));
             playCorrectSound();
+            spawnConfetti();
             renderBoard();
             setFeedback('Semua jawaban telah dibuka.', 'ok');
         });

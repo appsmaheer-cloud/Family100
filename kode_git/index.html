@@ -23,6 +23,7 @@
             <button type="button" id="btn-manage" class="btn btn-secondary">Kelola Soal</button>
             <button type="button" id="btn-gas-config" class="btn btn-secondary">URL GAS</button>
             <button type="button" id="btn-sound" class="btn btn-icon" aria-pressed="true" title="Suara Aktif">🔊</button>
+            <button type="button" id="btn-fullscreen" class="btn btn-icon" title="Layar Penuh">⛶</button>
             <button type="button" id="btn-theme" class="btn btn-icon" aria-pressed="false" title="Ganti Tema">☀️</button>
         </div>
     </header>
@@ -68,6 +69,11 @@
 
             <section class="board-wrapper" aria-label="Papan Jawaban">
                 <div id="answer-board" class="answer-board"></div>
+
+                <div class="turn-bar">
+                    <span class="turn-dot"></span>
+                    <span id="active-turn-label">Giliran Menjawab: Tim Merah</span>
+                </div>
 
                 <form id="answer-form" class="answer-form" autocomplete="off">
                     <label for="answer-input" class="sr-only">Ketik jawaban peserta</label>
@@ -118,6 +124,17 @@
             </aside>
         </section>
     </main>
+
+    <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
+    <div id="start-overlay" class="start-overlay">
+        <div class="start-card">
+            <div class="start-badge">FAMILY 100</div>
+            <h2 class="start-title">PERMAINAN FAMILY 100</h2>
+            <p class="start-desc">Siapkan 3 tim terbaik Anda! Jawab survei dengan tepat dan raih poin tertinggi di podium.</p>
+            <button type="button" id="btn-start-game" class="btn btn-start">▶ MULAI PERMAINAN</button>
+        </div>
+    </div>
 
     <div id="wrong-overlay" class="wrong-overlay" aria-hidden="true">
         <div class="wrong-x-wrap">

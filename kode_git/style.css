@@ -385,11 +385,34 @@ html, body {
     opacity: 0.55;
 }
 
+/* Turn Indicator Bar */
+.turn-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--surface-elevated);
+    border: 1px solid var(--accent-gold);
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.turn-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 8px #10B981;
+}
+
 /* Answer Input Form */
 .answer-form {
     display: flex;
     gap: 10px;
-    margin-top: 16px;
+    margin-top: 10px;
 }
 
 .answer-input {
@@ -541,6 +564,102 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+/* Start Splash Screen */
+.start-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: radial-gradient(circle at 50% 35%, #263559 0%, #0F172A 80%);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.start-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.start-card {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    background: var(--surface-panel);
+    border: 4px solid var(--accent-gold);
+    border-radius: 20px;
+    padding: 36px 28px;
+    box-shadow: 0 0 50px rgba(245, 183, 0, 0.28);
+}
+
+.start-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: var(--bar-crimson);
+    border: 2px solid var(--accent-gold);
+    color: #FFFFFF;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+}
+
+.start-title {
+    margin: 0 0 10px;
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: var(--accent-gold);
+}
+
+.start-desc {
+    margin: 0 0 24px;
+    color: #CBD5E1;
+    font-size: 0.96rem;
+}
+
+.btn-start {
+    width: 100%;
+    min-height: 54px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    background: var(--accent-gold);
+    color: #111827;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(245, 183, 0, 0.35);
+}
+
+/* Confetti Layer */
+.confetti-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 55;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 14px;
+    border-radius: 2px;
+    animation: confettiFall 1.1s ease-out forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(85vh) rotate(540deg);
+        opacity: 0;
+    }
 }
 
 /* Wrong Overlay */
