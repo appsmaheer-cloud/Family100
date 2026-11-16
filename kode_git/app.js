@@ -730,10 +730,11 @@
             unit.classList.add('celebrate');
             setTimeout(() => unit.classList.remove('celebrate'), 1100);
         }
-        document.querySelectorAll('.wing-audience').forEach((aud) => {
-            aud.classList.add('cheering');
-            setTimeout(() => aud.classList.remove('cheering'), 1300);
-        });
+        const arc = document.getElementById('stadium-arc');
+        if (arc) {
+            arc.classList.add('cheering');
+            setTimeout(() => arc.classList.remove('cheering'), 1300);
+        }
     }
 
     function resetRound() {

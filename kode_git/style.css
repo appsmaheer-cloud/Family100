@@ -316,67 +316,79 @@ body {
     gap: 18px;
 }
 
-.wing-audience {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
+/* Tribun Penonton Melingkari Panggung (Amphitheater Stadium) */
+.stadium-arc {
+    margin-top: 22px;
+    padding: 14px 20px 18px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 112, 243, 0.14) 0%, #091224 72%);
+    border: 2px solid var(--border-color);
+    border-radius: 16px 16px 50% 50% / 16px 16px 46px 46px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    gap: 6px;
-    padding: 34px 8px 10px;
-    opacity: 0.72;
-    transition: opacity 0.25s ease;
+    align-items: center;
+    gap: 8px;
 }
 
-.wing-audience.cheering {
-    opacity: 1;
+[data-theme="light"] .stadium-arc {
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 112, 243, 0.12) 0%, #CBD5E1 75%);
 }
 
-.wing-audience .aud-tier {
+.stadium-arc-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--brand-cyan);
+}
+
+[data-theme="light"] .stadium-arc-label {
+    color: var(--brand-blue);
+}
+
+.stadium-row {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-end;
-    gap: 4px;
-    height: 36px;
-    border-bottom: 3px solid rgba(56, 189, 248, 0.28);
+    gap: 6px;
+    padding-top: 12px;
+    border-bottom: 3px solid rgba(56, 189, 248, 0.22);
+    border-radius: 0 0 50% 50%;
 }
 
-.wing-audience .aud-tier-2 {
-    transform: translateX(6px);
-}
+.stadium-row-1 { width: 84%; }
+.stadium-row-2 { width: 92%; }
+.stadium-row-3 { width: 100%; }
 
-.wing-audience .aud-tier span {
+.stadium-row span {
     position: relative;
     flex: 1;
-    max-width: 20px;
-    height: 22px;
+    max-width: 22px;
+    height: 20px;
     border-radius: 5px 5px 0 0;
     background: #1E3A5F;
     border: 1px solid rgba(56, 189, 248, 0.35);
     border-bottom: none;
 }
 
-.wing-audience .aud-tier span::after {
+.stadium-row span::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 14px;
-    height: 14px;
+    height: 13px;
     border-radius: 6px 6px 0 0;
     background: #0284C7;
     animation: audSway 2.2s ease-in-out infinite;
 }
 
-.wing-audience .aud-tier span:nth-child(even)::after {
+.stadium-row span:nth-child(even)::after {
     background: #38BDF8;
     animation-delay: 0.55s;
 }
 
-.wing-audience .aud-tier span::before {
+.stadium-row span::before {
     content: "";
     position: absolute;
     top: -10px;
@@ -389,21 +401,21 @@ body {
     animation: audSway 2.2s ease-in-out infinite;
 }
 
-.wing-audience .aud-tier span:nth-child(even)::before {
+.stadium-row span:nth-child(even)::before {
     animation-delay: 0.55s;
 }
 
-[data-theme="light"] .wing-audience .aud-tier span {
+[data-theme="light"] .stadium-row span {
     background: #94A3B8;
-    border-color: rgba(15, 23, 42, 0.25);
+    border-color: rgba(15, 23, 42, 0.22);
 }
 
-[data-theme="light"] .wing-audience .aud-tier span::before {
+[data-theme="light"] .stadium-row span::before {
     background: #334155;
 }
 
-.wing-audience.cheering .aud-tier span::after,
-.wing-audience.cheering .aud-tier span::before {
+.stadium-arc.cheering .stadium-row span::after,
+.stadium-arc.cheering .stadium-row span::before {
     animation: audCheer 0.3s ease-in-out 4;
 }
 
