@@ -281,13 +281,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    min-height: 460px;
-    background: linear-gradient(180deg, var(--surface-panel) 0%, #0B1222 100%);
+    min-height: 540px;
+    background: linear-gradient(180deg, #0D1B36 0%, #091224 100%);
     border-bottom: 5px solid var(--brand-cyan);
 }
 
 [data-theme="light"] .studio-wing {
-    background: linear-gradient(180deg, #F8FAFC 0%, #E2E8F0 100%);
+    background: linear-gradient(180deg, #E2E8F0 0%, #CBD5E1 100%);
 }
 
 .wing-label {
@@ -297,11 +297,15 @@ body {
     font-weight: 800;
     letter-spacing: 0.1em;
     color: var(--brand-cyan);
-    text-align: center;
+    background: rgba(11, 18, 34, 0.75);
+    padding: 4px 10px;
+    border-radius: 999px;
+    align-self: center;
 }
 
 [data-theme="light"] .wing-label {
-    color: var(--brand-blue);
+    color: #FFFFFF;
+    background: var(--brand-blue);
 }
 
 .wing-podiums {
@@ -319,30 +323,88 @@ body {
     pointer-events: none;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    gap: 8px;
-    padding: 40px 8px 0;
-    opacity: 0.36;
+    justify-content: space-evenly;
+    gap: 6px;
+    padding: 34px 8px 10px;
+    opacity: 0.72;
     transition: opacity 0.25s ease;
 }
 
 .wing-audience.cheering {
-    opacity: 0.78;
+    opacity: 1;
 }
 
-.wing-audience .aud-tier span::after,
+.wing-audience .aud-tier {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 4px;
+    height: 36px;
+    border-bottom: 3px solid rgba(56, 189, 248, 0.28);
+}
+
+.wing-audience .aud-tier-2 {
+    transform: translateX(6px);
+}
+
+.wing-audience .aud-tier span {
+    position: relative;
+    flex: 1;
+    max-width: 20px;
+    height: 22px;
+    border-radius: 5px 5px 0 0;
+    background: #1E3A5F;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-bottom: none;
+}
+
+.wing-audience .aud-tier span::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 6px 6px 0 0;
+    background: #0284C7;
+    animation: audSway 2.2s ease-in-out infinite;
+}
+
+.wing-audience .aud-tier span:nth-child(even)::after {
+    background: #38BDF8;
+    animation-delay: 0.55s;
+}
+
 .wing-audience .aud-tier span::before {
-    animation: audSway 2.4s ease-in-out infinite;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #E2E8F0;
+    animation: audSway 2.2s ease-in-out infinite;
 }
 
-.wing-audience .aud-tier span:nth-child(even)::after,
 .wing-audience .aud-tier span:nth-child(even)::before {
-    animation-delay: 0.6s;
+    animation-delay: 0.55s;
+}
+
+[data-theme="light"] .wing-audience .aud-tier span {
+    background: #94A3B8;
+    border-color: rgba(15, 23, 42, 0.25);
+}
+
+[data-theme="light"] .wing-audience .aud-tier span::before {
+    background: #334155;
 }
 
 .wing-audience.cheering .aud-tier span::after,
 .wing-audience.cheering .aud-tier span::before {
-    animation: audCheer 0.32s ease-in-out 4;
+    animation: audCheer 0.3s ease-in-out 4;
 }
 
 @keyframes audSway {
