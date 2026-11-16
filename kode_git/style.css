@@ -202,7 +202,8 @@ body {
 
 .question-banner {
     background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
-    border: 2px solid rgba(245, 183, 0, 0.55);
+    color: #F8FAFC;
+    border: 2px solid rgba(56, 189, 248, 0.45);
     border-radius: 10px;
     padding: 14px 18px;
     margin-bottom: 16px;
@@ -551,64 +552,75 @@ body {
 
 /* Penonton Studio */
 .studio-audience {
-    background: rgba(0, 112, 243, 0.08);
+    background: linear-gradient(180deg, rgba(0, 112, 243, 0.14) 0%, rgba(15, 23, 42, 0.28) 100%);
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding: 6px 12px 0;
+    padding: 8px 14px 4px;
     overflow: hidden;
 }
 
 .aud-label {
     display: block;
-    font-size: 0.68rem;
-    font-weight: 700;
+    font-size: 0.7rem;
+    font-weight: 800;
     letter-spacing: 0.08em;
+    color: var(--brand-blue);
+    margin-bottom: 8px;
+}
+
+[data-theme="studio"] .aud-label {
     color: var(--brand-cyan);
-    margin-bottom: 4px;
 }
 
 .aud-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 4px;
-    height: 22px;
+    gap: 6px;
+    height: 36px;
+    padding-top: 12px;
 }
 
 .aud-row span {
     flex: 1;
-    max-width: 18px;
-    height: 16px;
-    border-radius: 999px 999px 0 0;
+    max-width: 24px;
+    height: 20px;
+    border-radius: 10px 10px 0 0;
     background: #334155;
     position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.aud-row span:nth-child(odd) {
+    height: 24px;
+    background: #1E293B;
 }
 
 .aud-row span::before {
     content: "";
     position: absolute;
-    top: -8px;
+    top: -11px;
     left: 50%;
     transform: translateX(-50%);
-    width: 9px;
-    height: 9px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     background: #475569;
 }
 
 .studio-audience.cheering .aud-row span {
     background: var(--brand-blue);
-    animation: audCheer 0.38s ease-in-out 3;
+    animation: audCheer 0.35s ease-in-out 4;
 }
 
 .studio-audience.cheering .aud-row span:nth-child(even) {
-    animation-delay: 0.1s;
+    animation-delay: 0.12s;
     background: var(--brand-cyan);
 }
 
 @keyframes audCheer {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    50% { transform: translateY(-8px); }
 }
 
 .podium-stage {
@@ -689,6 +701,33 @@ body {
 .person-body {
     stroke: #0F172A;
     stroke-width: 1.5;
+}
+
+.robot-arm {
+    stroke: #94A3B8;
+    stroke-width: 4;
+    stroke-linecap: round;
+    fill: none;
+}
+
+.podium-unit.active .robot-arm-l {
+    transform-origin: 22px 40px;
+    animation: armWaveL 0.65s ease-in-out infinite;
+}
+
+.podium-unit.active .robot-arm-r {
+    transform-origin: 46px 40px;
+    animation: armWaveR 0.65s ease-in-out infinite;
+}
+
+@keyframes armWaveL {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-22deg); }
+}
+
+@keyframes armWaveR {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(22deg); }
 }
 
 .podium-red .shirt-a { fill: #DC2626; }
@@ -853,7 +892,7 @@ body {
     font-weight: 900;
     font-variant-numeric: tabular-nums;
     line-height: 1.15;
-    padding: 6px 8px 8px;
+    padding: 26px 8px 8px;
     color: #FFFFFF;
 }
 
@@ -1294,64 +1333,75 @@ body {
 
     /* Penonton Studio */
 .studio-audience {
-    background: rgba(0, 112, 243, 0.08);
+    background: linear-gradient(180deg, rgba(0, 112, 243, 0.14) 0%, rgba(15, 23, 42, 0.28) 100%);
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding: 6px 12px 0;
+    padding: 8px 14px 4px;
     overflow: hidden;
 }
 
 .aud-label {
     display: block;
-    font-size: 0.68rem;
-    font-weight: 700;
+    font-size: 0.7rem;
+    font-weight: 800;
     letter-spacing: 0.08em;
+    color: var(--brand-blue);
+    margin-bottom: 8px;
+}
+
+[data-theme="studio"] .aud-label {
     color: var(--brand-cyan);
-    margin-bottom: 4px;
 }
 
 .aud-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 4px;
-    height: 22px;
+    gap: 6px;
+    height: 36px;
+    padding-top: 12px;
 }
 
 .aud-row span {
     flex: 1;
-    max-width: 18px;
-    height: 16px;
-    border-radius: 999px 999px 0 0;
+    max-width: 24px;
+    height: 20px;
+    border-radius: 10px 10px 0 0;
     background: #334155;
     position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.aud-row span:nth-child(odd) {
+    height: 24px;
+    background: #1E293B;
 }
 
 .aud-row span::before {
     content: "";
     position: absolute;
-    top: -8px;
+    top: -11px;
     left: 50%;
     transform: translateX(-50%);
-    width: 9px;
-    height: 9px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     background: #475569;
 }
 
 .studio-audience.cheering .aud-row span {
     background: var(--brand-blue);
-    animation: audCheer 0.38s ease-in-out 3;
+    animation: audCheer 0.35s ease-in-out 4;
 }
 
 .studio-audience.cheering .aud-row span:nth-child(even) {
-    animation-delay: 0.1s;
+    animation-delay: 0.12s;
     background: var(--brand-cyan);
 }
 
 @keyframes audCheer {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    50% { transform: translateY(-8px); }
 }
 
 .podium-stage {

@@ -242,23 +242,61 @@
         return state.audioCtx;
     }
 
+    function playStartFanfare() {
+        if (!state.soundEnabled) return;
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+        [392.0, 523.25, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+            gain.gain.setValueAtTime(0.22, now + idx * 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.32);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.08);
+            osc.stop(now + idx * 0.08 + 0.34);
+        });
+    }
+
     function playCorrectSound() {
         if (!state.soundEnabled) return;
         const ctx = getAudioCtx();
         if (!ctx) return;
         const now = ctx.currentTime;
-        [523.25, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
+        [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((freq, idx) => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(freq, now + idx * 0.06);
-            gain.gain.setValueAtTime(0.18, now + idx * 0.06);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.25);
+            osc.type = idx < 3 ? 'triangle' : 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.055);
+            gain.gain.setValueAtTime(0.24, now + idx * 0.055);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.055 + 0.42);
             osc.connect(gain);
             gain.connect(ctx.destination);
-            osc.start(now + idx * 0.06);
-            osc.stop(now + idx * 0.06 + 0.26);
+            osc.start(now + idx * 0.055);
+            osc.stop(now + idx * 0.055 + 0.44);
         });
+
+        const bufferSize = Math.floor(ctx.sampleRate * 0.65);
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.25));
+        }
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.value = 1400;
+        const nGain = ctx.createGain();
+        nGain.gain.setValueAtTime(0.14, now + 0.12);
+        nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.72);
+        noise.connect(filter);
+        filter.connect(nGain);
+        nGain.connect(ctx.destination);
+        noise.start(now + 0.12);
     }
 
     function playWrongSound() {
@@ -267,19 +305,21 @@
         if (!ctx) return;
         const now = ctx.currentTime;
         [
-            { freq: 185, start: 0, dur: 0.14 },
-            { freq: 120, start: 0.16, dur: 0.42 },
+            { freq: 195, start: 0, dur: 0.15 },
+            { freq: 118, start: 0.17, dur: 0.52 },
         ].forEach((tone) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(tone.freq, now + tone.start);
-            gain.gain.setValueAtTime(0.28, now + tone.start);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + tone.start + tone.dur);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start(now + tone.start);
-            osc.stop(now + tone.start + tone.dur + 0.02);
+            [0, 4].forEach((detune) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = detune === 0 ? 'sawtooth' : 'square';
+                osc.frequency.setValueAtTime(tone.freq + detune, now + tone.start);
+                gain.gain.setValueAtTime(0.22, now + tone.start);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + tone.start + tone.dur);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now + tone.start);
+                osc.stop(now + tone.start + tone.dur + 0.02);
+            });
         });
     }
 
@@ -520,7 +560,15 @@
             body.setAttribute('d', `M${p.cx - 15} 64 L${p.cx - 12} 34 C${p.cx - 12} 32, ${p.cx + 12} 32, ${p.cx + 12} 34 L${p.cx + 15} 64 Z`);
             body.setAttribute('class', `person-body ${p.shirt}`);
 
-            g.append(ant, bulb, head, visor, eyeL, eyeR, body);
+            const armL = document.createElementNS(ns, 'path');
+            armL.setAttribute('d', `M${p.cx - 12} 38 L${p.cx - 21} 49`);
+            armL.setAttribute('class', 'robot-arm robot-arm-l');
+
+            const armR = document.createElementNS(ns, 'path');
+            armR.setAttribute('d', `M${p.cx + 12} 38 L${p.cx + 21} 49`);
+            armR.setAttribute('class', 'robot-arm robot-arm-r');
+
+            g.append(ant, bulb, head, visor, eyeL, eyeR, armL, armR, body);
             svg.appendChild(g);
         });
 
@@ -923,7 +971,7 @@
         if (el.btnStartGame && el.startOverlay) {
             el.btnStartGame.addEventListener('click', () => {
                 el.startOverlay.classList.add('hidden');
-                playCorrectSound();
+                playStartFanfare();
                 el.input.focus();
             });
         }
