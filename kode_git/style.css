@@ -578,6 +578,67 @@ body {
     animation: propCheer 0.28s ease-in-out 5;
 }
 
+/* Orientasi Penonton: Semua Menghadap ke Layar TV Tengah */
+.bleacher-top .stadium-row span::before {
+    top: -8px;
+    box-shadow: inset 0 -2px 0 rgba(15, 23, 42, 0.35);
+}
+
+.bleacher-left .bleacher-row {
+    transform: perspective(220px) rotateY(16deg);
+}
+
+.bleacher-left .bleacher-row span::before {
+    left: 62%;
+}
+
+.bleacher-left .bleacher-row span::after {
+    left: 56%;
+    border-radius: 4px 8px 0 0;
+}
+
+.bleacher-right .bleacher-row {
+    transform: perspective(220px) rotateY(-16deg);
+}
+
+.bleacher-right .bleacher-row span::before {
+    left: 38%;
+}
+
+.bleacher-right .bleacher-row span::after {
+    left: 44%;
+    border-radius: 8px 4px 0 0;
+}
+
+/* Tribun Bawah: Tampak Belakang Menghadap ke Atas (ke Layar TV) */
+.stadium-arc .stadium-row span {
+    background: #0F172A;
+    border-color: rgba(56, 189, 248, 0.28);
+}
+
+.stadium-arc .stadium-row span::before {
+    background: #1E293B;
+    border: 1.5px solid #64748B;
+    top: -9px;
+}
+
+.stadium-arc .stadium-row span:nth-child(even)::before {
+    background: #334155;
+}
+
+.stadium-arc .stadium-row span::after {
+    background: #0369A1;
+}
+
+.stadium-arc .stadium-row span:nth-child(even)::after {
+    background: #0284C7;
+}
+
+.stadium-arc .spec-arm {
+    z-index: 1;
+    bottom: 8px;
+}
+
 @keyframes specWaveL {
     0%, 100% { transform: rotate(-24deg); }
     50% { transform: rotate(-55deg); }
@@ -738,22 +799,137 @@ body {
     width: 100%;
 }
 
-/* Layar Utama Studio (Soal + Papan Jawaban) */
+/* Layar Utama Studio TV (Bezel TV + Soal + List Hasil Survei) */
 .studio-screen {
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #0B1222;
-    border: 2px solid var(--brand-blue);
-    border-radius: 16px;
-    padding: 12px 16px;
-    box-shadow: 0 12px 36px rgba(0, 112, 243, 0.16);
+    background: linear-gradient(180deg, #1E293B 0%, #0B1222 14%, #09101E 88%, #1E293B 100%);
+    border: 5px solid #1E293B;
+    outline: 2px solid rgba(56, 189, 248, 0.55);
+    border-radius: 18px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 16px 42px rgba(0, 112, 243, 0.24), inset 0 0 24px rgba(0, 0, 0, 0.55);
 }
 
 [data-theme="light"] .studio-screen {
     background: var(--surface-panel);
+    border-color: #334155;
+}
+
+.tv-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 14px;
+    background: linear-gradient(90deg, #0F172A 0%, #172554 50%, #0F172A 100%);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.35);
+    flex-shrink: 0;
+}
+
+.tv-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #FCA5A5;
+    background: rgba(220, 38, 38, 0.18);
+    border: 1px solid rgba(248, 113, 113, 0.45);
+    padding: 2px 9px;
+    border-radius: 999px;
+}
+
+.tv-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #EF4444;
+    box-shadow: 0 0 8px #EF4444;
+    animation: tvPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes tvPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+.tv-brand-pill {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #F8FAFC;
+}
+
+.tv-survey-pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--brand-cyan);
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 2px 9px;
+    border-radius: 999px;
+}
+
+.tv-display {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 16px 8px;
+}
+
+.survey-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 10px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    background: rgba(0, 112, 243, 0.14);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--brand-cyan);
+}
+
+[data-theme="light"] .survey-list-header {
+    color: var(--brand-blue);
+    background: rgba(0, 112, 243, 0.08);
+}
+
+.tv-chin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 12px;
+    background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+    border-top: 1px solid rgba(56, 189, 248, 0.25);
+    flex-shrink: 0;
+}
+
+.tv-power-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #38BDF8;
+    box-shadow: 0 0 8px #38BDF8;
+}
+
+.tv-chin-text {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #94A3B8;
 }
 
 .answer-board {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Permainan Family 100 — GAS &amp; Git</title>
     <link rel="icon" type="image/png" href="favicon-codeera.png">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
     <header class="topbar">
@@ -48,34 +48,52 @@
                 <div id="teams-left" class="wing-podiums"></div>
             </aside>
 
-            <!-- Tengah: Layar Soal & Jawaban + Host + Kontrol -->
+            <!-- Tengah: Layar TV Soal & List Hasil Survei + Host + Kontrol -->
             <div class="studio-center">
-                <section class="studio-screen" aria-label="Layar Soal dan Jawaban">
-                    <div class="question-banner" aria-live="polite">
-                        <span id="question-number" class="question-badge">Soal #1</span>
-                        <h2 id="question-text" class="question-text">Memuat pertanyaan...</h2>
+                <section class="studio-screen tv-cabinet" aria-label="Layar TV Soal dan Hasil Survei">
+                    <div class="tv-top-bar">
+                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> LIVE • STUDIO TV</span>
+                        <span class="tv-brand-pill">📺 PAPAN SURVEI FAMILY 100</span>
+                        <span class="tv-survey-pill">100 RESPONDEN</span>
                     </div>
 
-                    <div id="answer-board" class="answer-board"></div>
+                    <div class="tv-display">
+                        <div class="question-banner" aria-live="polite">
+                            <span id="question-number" class="question-badge">Soal #1</span>
+                            <h2 id="question-text" class="question-text">Memuat pertanyaan...</h2>
+                        </div>
 
-                    <div class="turn-bar">
-                        <span class="turn-dot"></span>
-                        <span id="active-turn-label">Giliran Berdiskusi &amp; Menjawab: Tim Merah</span>
+                        <div class="survey-list-header">
+                            <span>LIST HASIL SURVEI</span>
+                            <span>SKOR SURVEI</span>
+                        </div>
+
+                        <div id="answer-board" class="answer-board"></div>
+
+                        <div class="turn-bar">
+                            <span class="turn-dot"></span>
+                            <span id="active-turn-label">Giliran Berdiskusi &amp; Menjawab: Tim Merah</span>
+                        </div>
+
+                        <form id="answer-form" class="answer-form" autocomplete="off">
+                            <label for="answer-input" class="sr-only">Ketik jawaban peserta</label>
+                            <input
+                                type="text"
+                                id="answer-input"
+                                class="answer-input"
+                                placeholder="Ketik jawaban peserta di sini..."
+                                maxlength="120"
+                                required
+                            >
+                            <button type="submit" id="btn-submit" class="btn btn-primary">Cek Jawaban</button>
+                        </form>
+                        <p id="feedback-msg" class="feedback-msg" role="status" aria-live="polite"></p>
                     </div>
 
-                    <form id="answer-form" class="answer-form" autocomplete="off">
-                        <label for="answer-input" class="sr-only">Ketik jawaban peserta</label>
-                        <input
-                            type="text"
-                            id="answer-input"
-                            class="answer-input"
-                            placeholder="Ketik jawaban peserta di sini..."
-                            maxlength="120"
-                            required
-                        >
-                        <button type="submit" id="btn-submit" class="btn btn-primary">Cek Jawaban</button>
-                    </form>
-                    <p id="feedback-msg" class="feedback-msg" role="status" aria-live="polite"></p>
+                    <div class="tv-chin" aria-hidden="true">
+                        <span class="tv-power-led"></span>
+                        <span class="tv-chin-text">CODEERA • STUDIO LED TV</span>
+                    </div>
                 </section>
 
                 <div class="panel studio-controls-bar">
@@ -212,6 +230,6 @@
         </div>
     </div>
 
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=5"></script>
 </body>
 </html>
