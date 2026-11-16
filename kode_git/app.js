@@ -162,7 +162,16 @@
     const STORAGE_KEY_GAS_URL = 'family100_gas_webapp_url';
     const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbyrbhRx6eGu2xma2SGsiYpbKQhHX23AC9GvPj3BVDacwwQUTD16viQcZNPP5NncZ2gRzw/exec';
 
-    const TEAM_COLORS = ['red', 'blue', 'gold', 'emerald', 'purple', 'cyan', 'rose', 'indigo'];
+    const TEAM_THEMES = [
+        { color: 'red', icon: '🔥', defaultName: 'Tim Merah' },
+        { color: 'blue', icon: '⚡', defaultName: 'Tim Biru' },
+        { color: 'gold', icon: '👑', defaultName: 'Tim Emas' },
+        { color: 'emerald', icon: '🦁', defaultName: 'Tim Hijau' },
+        { color: 'purple', icon: '🚀', defaultName: 'Tim Ungu' },
+        { color: 'cyan', icon: '💎', defaultName: 'Tim Cyan' },
+        { color: 'rose', icon: '🦅', defaultName: 'Tim Pink' },
+        { color: 'indigo', icon: '🌟', defaultName: 'Tim Indigo' },
+    ];
 
     const state = {
         gasUrl: localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GAS_URL,
@@ -170,9 +179,9 @@
         currentIndex: 0,
         revealedIds: new Set(),
         teams: [
-            { name: 'Tim Merah', score: 0, color: 'red' },
-            { name: 'Tim Biru', score: 0, color: 'blue' },
-            { name: 'Tim Emas', score: 0, color: 'gold' },
+            { name: 'Tim Merah', score: 0, color: 'red', icon: '🔥' },
+            { name: 'Tim Biru', score: 0, color: 'blue', icon: '⚡' },
+            { name: 'Tim Emas', score: 0, color: 'gold', icon: '👑' },
         ],
         activeTeam: 0,
         strikes: 0,
@@ -447,6 +456,40 @@
         return (team && team.name.trim()) ? team.name.trim() : `Tim ${index + 1}`;
     }
 
+    function createContestantsSvg() {
+        const ns = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', '0 0 150 64');
+        svg.setAttribute('class', 'contestants-svg');
+        svg.setAttribute('aria-hidden', 'true');
+
+        const people = [
+            { cx: 34, cls: 'person person-left', shirt: 'shirt-a' },
+            { cx: 75, cls: 'person person-center', shirt: 'shirt-b' },
+            { cx: 116, cls: 'person person-right', shirt: 'shirt-a' },
+        ];
+
+        people.forEach((p) => {
+            const g = document.createElementNS(ns, 'g');
+            g.setAttribute('class', p.cls);
+
+            const head = document.createElementNS(ns, 'circle');
+            head.setAttribute('cx', String(p.cx));
+            head.setAttribute('cy', '20');
+            head.setAttribute('r', '11');
+            head.setAttribute('class', 'person-head');
+
+            const body = document.createElementNS(ns, 'path');
+            body.setAttribute('d', `M${p.cx - 16} 64 C${p.cx - 16} 36, ${p.cx + 16} 36, ${p.cx + 16} 64 Z`);
+            body.setAttribute('class', `person-body ${p.shirt}`);
+
+            g.append(head, body);
+            svg.appendChild(g);
+        });
+
+        return svg;
+    }
+
     function renderTeamScores() {
         if (!el.teamsContainer) return;
         const sortedIndices = state.teams.map((_, i) => i).sort((a, b) => state.teams[b].score - state.teams[a].score);
@@ -461,9 +504,26 @@
             unit.setAttribute('tabindex', '0');
             unit.setAttribute('aria-pressed', String(isAct));
 
+            const crew = document.createElement('div');
+            crew.className = 'podium-contestants';
+            if (isAct) {
+                const bubble = document.createElement('span');
+                bubble.className = 'discuss-bubble';
+                bubble.textContent = '💬';
+                crew.appendChild(bubble);
+            }
+            crew.appendChild(createContestantsSvg());
+
+            const desk = document.createElement('div');
+            desk.className = 'podium-3d-body';
+
+            const topCounter = document.createElement('div');
+            topCounter.className = 'podium-desk-top';
+
             const buzzer = document.createElement('div');
             buzzer.className = 'podium-buzzer';
             buzzer.setAttribute('aria-hidden', 'true');
+            topCounter.appendChild(buzzer);
 
             const rank = document.createElement('span');
             rank.className = 'podium-rank';
@@ -477,7 +537,7 @@
                 btnRemove.title = 'Hapus tim';
                 btnRemove.setAttribute('aria-label', `Hapus ${team.name}`);
                 btnRemove.textContent = '×';
-                unit.appendChild(btnRemove);
+                desk.appendChild(btnRemove);
             }
 
             const scoreEl = document.createElement('div');
@@ -488,6 +548,10 @@
             const pedestal = document.createElement('div');
             pedestal.className = 'podium-pedestal';
 
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'team-icon';
+            iconSpan.textContent = team.icon || '🔥';
+
             const nameInput = document.createElement('input');
             nameInput.type = 'text';
             nameInput.className = 'team-name-input';
@@ -496,13 +560,15 @@
             nameInput.dataset.teamNameIdx = String(idx);
             nameInput.setAttribute('aria-label', `Nama Tim ${idx + 1}`);
 
-            pedestal.appendChild(nameInput);
-            unit.append(buzzer, rank, scoreEl, pedestal);
+            pedestal.append(iconSpan, nameInput);
+            desk.append(topCounter, rank, scoreEl, pedestal);
+            unit.append(crew, desk);
             el.teamsContainer.appendChild(unit);
         });
 
         if (el.activeTurnLabel) {
-            el.activeTurnLabel.textContent = `Giliran Menjawab: ${getTeamName(state.activeTeam)}`;
+            const activeIcon = state.teams[state.activeTeam]?.icon || '';
+            el.activeTurnLabel.textContent = `Giliran Berdiskusi & Menjawab: ${activeIcon} ${getTeamName(state.activeTeam)}`;
         }
         if (el.btnAddTeam) {
             el.btnAddTeam.disabled = state.teams.length >= 8;
@@ -555,10 +621,16 @@
 
     function triggerScorePop() {
         const target = document.getElementById(`team-score-${state.activeTeam}`);
-        if (!target) return;
-        target.classList.remove('pop');
-        void target.offsetWidth;
-        target.classList.add('pop');
+        if (target) {
+            target.classList.remove('pop');
+            void target.offsetWidth;
+            target.classList.add('pop');
+        }
+        const unit = el.teamsContainer ? el.teamsContainer.querySelector(`.podium-unit[data-team="${state.activeTeam}"]`) : null;
+        if (unit) {
+            unit.classList.add('celebrate');
+            setTimeout(() => unit.classList.remove('celebrate'), 1100);
+        }
     }
 
     function resetRound() {
@@ -841,12 +913,13 @@
         if (el.btnAddTeam) {
             el.btnAddTeam.addEventListener('click', () => {
                 if (state.teams.length >= 8) return;
-                const nextIdx = state.teams.length;
-                const color = TEAM_COLORS[nextIdx % TEAM_COLORS.length];
-                state.teams.push({ name: `Tim ${nextIdx + 1}`, score: 0, color });
-                state.activeTeam = nextIdx;
+                const usedColors = new Set(state.teams.map((t) => t.color));
+                const theme = TEAM_THEMES.find((th) => !usedColors.has(th.color)) || TEAM_THEMES[state.teams.length % TEAM_THEMES.length];
+                const nextNum = state.teams.length + 1;
+                state.teams.push({ name: `Tim ${nextNum}`, score: 0, color: theme.color, icon: theme.icon });
+                state.activeTeam = state.teams.length - 1;
                 renderTeamScores();
-                setFeedback(`Tim ${nextIdx + 1} ditambahkan.`, 'ok');
+                setFeedback(`${theme.icon} Tim ${nextNum} ditambahkan.`, 'ok');
             });
         }
         el.btnTetot.addEventListener('click', () => {

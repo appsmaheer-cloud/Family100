@@ -512,9 +512,189 @@ body {
     align-items: end;
 }
 
+.podium-unit {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    perspective: 700px;
+    transition: transform 0.18s ease;
+}
+
+.podium-unit:hover {
+    transform: translateY(-3px);
+}
+
+.podium-unit.active {
+    transform: translateY(-6px);
+}
+
+/* 3 Kontestan di belakang podium */
+.podium-contestants {
+    position: relative;
+    width: 100%;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: -4px;
+    z-index: 1;
+}
+
+.contestants-svg {
+    width: 142px;
+    height: 58px;
+    overflow: visible;
+}
+
+.person-head {
+    fill: #FDBA74;
+    stroke: #0F172A;
+    stroke-width: 1.5;
+}
+
+.person-body {
+    stroke: #0F172A;
+    stroke-width: 1.5;
+}
+
+.podium-red .shirt-a { fill: #DC2626; }
+.podium-red .shirt-b { fill: #991B1B; }
+.podium-blue .shirt-a { fill: #2563EB; }
+.podium-blue .shirt-b { fill: #1E40AF; }
+.podium-gold .shirt-a { fill: #D97706; }
+.podium-gold .shirt-b { fill: #92400E; }
+.podium-emerald .shirt-a { fill: #059669; }
+.podium-emerald .shirt-b { fill: #065F46; }
+.podium-purple .shirt-a { fill: #7C3AED; }
+.podium-purple .shirt-b { fill: #5B21B6; }
+.podium-cyan .shirt-a { fill: #0891B2; }
+.podium-cyan .shirt-b { fill: #155E75; }
+.podium-rose .shirt-a { fill: #E11D48; }
+.podium-rose .shirt-b { fill: #9F1239; }
+.podium-indigo .shirt-a { fill: #4F46E5; }
+.podium-indigo .shirt-b { fill: #3730A3; }
+
+.discuss-bubble {
+    position: absolute;
+    top: -10px;
+    right: 18%;
+    font-size: 1.05rem;
+    background: #FFFFFF;
+    border-radius: 999px;
+    padding: 1px 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+    animation: bubbleFloat 1.1s ease-in-out infinite;
+    z-index: 3;
+}
+
+.podium-unit.active .person-left {
+    transform-origin: 34px 60px;
+    animation: discussLeft 0.9s ease-in-out infinite;
+}
+
+.podium-unit.active .person-right {
+    transform-origin: 116px 60px;
+    animation: discussRight 0.9s ease-in-out infinite;
+}
+
+.podium-unit.active .person-center {
+    transform-origin: 75px 60px;
+    animation: discussCenter 0.75s ease-in-out infinite;
+}
+
+.podium-unit.celebrate .person {
+    animation: cheerJump 0.45s ease-in-out 2 !important;
+}
+
+@keyframes discussLeft {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(8deg) translateY(-2px); }
+}
+
+@keyframes discussRight {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(-8deg) translateY(-2px); }
+}
+
+@keyframes discussCenter {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes cheerJump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+@keyframes bubbleFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-4px) scale(1.08); }
+}
+
+/* Badan Podium 3D */
+.podium-3d-body {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(180deg, #1E293B 0%, #0B1220 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 10px 10px 6px 6px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    z-index: 2;
+}
+
+.podium-unit.active .podium-3d-body {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 24px rgba(245, 183, 0, 0.42), 0 14px 26px rgba(0, 0, 0, 0.55);
+}
+
+.podium-desk-top {
+    height: 18px;
+    background: linear-gradient(180deg, #475569 0%, #334155 100%);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateX(22deg);
+    transform-origin: bottom;
+}
+
+.podium-unit.active .podium-desk-top {
+    background: linear-gradient(180deg, #64748B 0%, #475569 100%);
+    border-bottom-color: var(--accent-gold);
+}
+
+.podium-buzzer {
+    width: 34px;
+    height: 11px;
+    margin: 0;
+    border-radius: 999px 999px 2px 2px;
+    background: #1E293B;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.podium-unit.active .podium-buzzer {
+    background: var(--accent-gold);
+    box-shadow: 0 0 14px var(--accent-gold);
+}
+
+.podium-rank {
+    position: absolute;
+    top: 22px;
+    left: 8px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.42);
+    color: var(--accent-gold);
+}
+
 .podium-remove {
     position: absolute;
-    top: 6px;
+    top: 22px;
     right: 8px;
     width: 22px;
     height: 22px;
@@ -536,62 +716,13 @@ body {
     color: #FFFFFF;
 }
 
-.podium-buzzer {
-    width: 34px;
-    height: 12px;
-    margin: 0 auto 6px;
-    border-radius: 999px 999px 2px 2px;
-    background: #475569;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.podium-unit.active .podium-buzzer {
-    background: var(--accent-gold);
-    box-shadow: 0 0 14px var(--accent-gold);
-}
-
-.podium-unit {
-    position: relative;
-    background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
-    border: 3px solid var(--border-color);
-    border-top: 6px solid #94A3B8;
-    border-radius: 12px 12px 6px 6px;
-    padding-top: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
-    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
-}
-
-.podium-unit:hover {
-    border-color: var(--accent-gold);
-}
-
-.podium-unit.active {
-    border-color: var(--accent-gold);
-    border-top-color: var(--accent-gold);
-    box-shadow: 0 0 24px rgba(245, 183, 0, 0.45), 0 12px 24px rgba(0, 0, 0, 0.5);
-    transform: translateY(-4px);
-}
-
-.podium-rank {
-    position: absolute;
-    top: 6px;
-    left: 8px;
-    font-size: 0.72rem;
-    font-weight: 900;
-    padding: 2px 6px;
-    border-radius: 6px;
-    background: rgba(0, 0, 0, 0.35);
-    color: var(--accent-gold);
-}
-
 .podium-score {
     font-size: 2.15rem;
     font-weight: 900;
     font-variant-numeric: tabular-nums;
     line-height: 1.15;
-    padding: 4px 8px 8px;
+    padding: 6px 8px 8px;
+    color: #FFFFFF;
 }
 
 .podium-score.pop {
@@ -599,8 +730,18 @@ body {
 }
 
 .podium-pedestal {
-    padding: 6px 8px;
-    border-top: 2px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 7px 8px;
+    border-top: 2px solid rgba(255, 255, 255, 0.28);
+}
+
+.team-icon {
+    font-size: 1rem;
+    line-height: 1;
+    flex-shrink: 0;
 }
 
 .podium-red .podium-pedestal { background: #B91C1C; }
@@ -613,14 +754,15 @@ body {
 .podium-indigo .podium-pedestal { background: #4338CA; }
 
 .team-name-input {
-    width: 100%;
+    min-width: 0;
+    flex: 1;
     background: transparent;
     border: 1px solid transparent;
     border-radius: 6px;
     color: #FFFFFF;
     font-size: 0.88rem;
     font-weight: 800;
-    text-align: center;
+    text-align: left;
     padding: 3px 4px;
 }
 
