@@ -29,11 +29,14 @@
     --input-text: #0F172A;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     background: radial-gradient(circle at 50% 18%, #263559 0%, var(--bg-stage) 65%);
@@ -217,10 +220,16 @@ html, body {
     font-weight: 700;
 }
 
-/* Grid */
-.game-grid {
+/* Studio Stage Layout */
+.studio-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.studio-main-row {
     display: grid;
-    grid-template-columns: 240px 1fr 220px;
+    grid-template-columns: 230px 1fr;
     gap: 20px;
     align-items: start;
 }
@@ -306,9 +315,11 @@ html, body {
 .board-wrapper {
     background: #0F172A;
     border: 4px solid var(--accent-gold);
+    outline: 3px dashed rgba(245, 183, 0, 0.5);
+    outline-offset: 5px;
     border-radius: 14px;
     padding: 20px;
-    box-shadow: 0 0 36px rgba(245, 183, 0, 0.14);
+    box-shadow: 0 0 42px rgba(245, 183, 0, 0.16);
 }
 
 [data-theme="light"] .board-wrapper {
@@ -316,9 +327,9 @@ html, body {
 }
 
 .answer-board {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 14px;
 }
 
 .answer-slot {
@@ -466,18 +477,46 @@ html, body {
     margin: 0 auto;
 }
 
-/* Score Panel (3 Team Podiums) */
-.score-panel {
+/* Podium Floor (3 Contestant Podiums Side-by-Side) */
+.podium-floor {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    text-align: center;
+    gap: 14px;
+}
+
+.podium-floor-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.floor-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .podium-stage {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: end;
+}
+
+.podium-buzzer {
+    width: 34px;
+    height: 12px;
+    margin: 0 auto 6px;
+    border-radius: 999px 999px 2px 2px;
+    background: #475569;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.podium-unit.active .podium-buzzer {
+    background: var(--accent-gold);
+    box-shadow: 0 0 14px var(--accent-gold);
 }
 
 .podium-unit {
@@ -719,29 +758,70 @@ html, body {
 
 /* Animations */
 @keyframes flipReveal {
-    0% { transform: scaleY(0.2); }
-    60% { transform: scaleY(1.06); }
-    100% { transform: scaleY(1); }
+    0% {
+        transform: scaleY(0.2);
+    }
+
+    60% {
+        transform: scaleY(1.06);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
 }
 
 @keyframes scorePop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.18); color: var(--accent-gold); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+        color: var(--accent-gold);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes xBounce {
-    0% { transform: scale(0.5); }
-    60% { transform: scale(1.12); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(0.5);
+    }
+
+    60% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes boardShake {
-    0%, 100% { transform: translateX(0); }
-    20% { transform: translateX(-8px); }
-    40% { transform: translateX(8px); }
-    60% { transform: translateX(-6px); }
-    80% { transform: translateX(6px); }
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-6px);
+    }
+
+    80% {
+        transform: translateX(6px);
+    }
 }
 
 .board-shake {
@@ -866,18 +946,22 @@ html, body {
 
 /* Responsive */
 @media (max-width: 960px) {
-    .game-grid {
+    .studio-main-row {
         grid-template-columns: 1fr;
     }
 
-    .score-panel {
-        order: -1;
+    .info-panel {
+        order: 2;
+    }
+}
+
+@media (max-width: 720px) {
+    .answer-board {
+        grid-template-columns: 1fr;
     }
 
     .podium-stage {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        align-items: end;
+        grid-template-columns: 1fr;
     }
 }
 

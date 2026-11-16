@@ -34,66 +34,77 @@
             <h2 id="question-text" class="question-text">Memuat pertanyaan...</h2>
         </section>
 
-        <section class="game-grid">
-            <aside class="panel info-panel">
-                <div class="studio-mascot">
-                    <div class="mascot-title">PERMAINAN<br>FAMILY 100</div>
-                    <svg class="mascot-svg" viewBox="0 0 120 110" aria-hidden="true">
-                        <circle cx="60" cy="38" r="24" fill="#FDBA74"/>
-                        <path d="M36 34 C36 16, 84 16, 84 34 C80 24, 40 24, 36 34 Z" fill="#1E293B"/>
-                        <circle cx="52" cy="38" r="3" fill="#0F172A"/>
-                        <circle cx="68" cy="38" r="3" fill="#0F172A"/>
-                        <path d="M53 49 Q60 54 67 49" stroke="#0F172A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                        <rect x="34" y="64" width="52" height="36" rx="14" fill="#E03C31"/>
-                        <circle cx="92" cy="48" r="11" fill="#F5B700"/>
-                        <text x="92" y="53" text-anchor="middle" font-size="14" font-weight="900" fill="#111827">?</text>
-                    </svg>
-                </div>
-                <div class="stat-block">
-                    <span class="stat-label">Jawaban Terbuka</span>
-                    <strong id="revealed-count" class="stat-value">0 / 8</strong>
-                </div>
-                <div class="stat-block">
-                    <span class="stat-label">Kesalahan Ronde</span>
-                    <div id="strike-indicators" class="strike-dots" aria-label="Indikator Salah">
-                        <span class="strike-box">✕</span>
-                        <span class="strike-box">✕</span>
-                        <span class="strike-box">✕</span>
+        <section class="studio-stage">
+            <div class="studio-main-row">
+                <aside class="panel info-panel">
+                    <div class="studio-mascot">
+                        <div class="mascot-title">PERMAINAN<br>FAMILY 100</div>
+                        <svg class="mascot-svg" viewBox="0 0 120 110" aria-hidden="true">
+                            <circle cx="60" cy="38" r="24" fill="#FDBA74"/>
+                            <path d="M36 34 C36 16, 84 16, 84 34 C80 24, 40 24, 36 34 Z" fill="#1E293B"/>
+                            <circle cx="52" cy="38" r="3" fill="#0F172A"/>
+                            <circle cx="68" cy="38" r="3" fill="#0F172A"/>
+                            <path d="M53 49 Q60 54 67 49" stroke="#0F172A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <rect x="34" y="64" width="52" height="36" rx="14" fill="#E03C31"/>
+                            <circle cx="92" cy="48" r="11" fill="#F5B700"/>
+                            <text x="92" y="53" text-anchor="middle" font-size="14" font-weight="900" fill="#111827">?</text>
+                        </svg>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-label">Jawaban Terbuka</span>
+                        <strong id="revealed-count" class="stat-value">0 / 8</strong>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-label">Kesalahan Ronde</span>
+                        <div id="strike-indicators" class="strike-dots" aria-label="Indikator Salah">
+                            <span class="strike-box">✕</span>
+                            <span class="strike-box">✕</span>
+                            <span class="strike-box">✕</span>
+                        </div>
+                    </div>
+                    <div class="history-block">
+                        <span class="stat-label">Riwayat Jawaban</span>
+                        <ul id="guess-history" class="guess-history"></ul>
+                    </div>
+                </aside>
+
+                <section class="board-wrapper" aria-label="Papan Jawaban">
+                    <div id="answer-board" class="answer-board"></div>
+
+                    <div class="turn-bar">
+                        <span class="turn-dot"></span>
+                        <span id="active-turn-label">Giliran Menjawab: Tim Merah</span>
+                    </div>
+
+                    <form id="answer-form" class="answer-form" autocomplete="off">
+                        <label for="answer-input" class="sr-only">Ketik jawaban peserta</label>
+                        <input
+                            type="text"
+                            id="answer-input"
+                            class="answer-input"
+                            placeholder="Ketik jawaban peserta di sini..."
+                            maxlength="120"
+                            required
+                        >
+                        <button type="submit" id="btn-submit" class="btn btn-primary">Cek Jawaban</button>
+                    </form>
+                    <p id="feedback-msg" class="feedback-msg" role="status" aria-live="polite"></p>
+                </section>
+            </div>
+
+            <section class="panel podium-floor" aria-label="Podium 3 Tim">
+                <div class="podium-floor-header">
+                    <span class="stat-label">PODIUM KONTESTAN (KLIK TIM YANG MENJAWAB)</span>
+                    <div class="floor-actions">
+                        <button type="button" id="btn-tetot" class="btn btn-danger btn-sm">✕ TETOT! (Salah)</button>
+                        <button type="button" id="btn-reveal-all" class="btn btn-secondary btn-sm">Buka Semua</button>
+                        <button type="button" id="btn-reset-round" class="btn btn-secondary btn-sm">Reset Ronde</button>
+                        <button type="button" id="btn-reset-scores" class="btn btn-secondary btn-sm">Reset Skor</button>
                     </div>
                 </div>
-                <div class="history-block">
-                    <span class="stat-label">Riwayat Jawaban</span>
-                    <ul id="guess-history" class="guess-history"></ul>
-                </div>
-            </aside>
-
-            <section class="board-wrapper" aria-label="Papan Jawaban">
-                <div id="answer-board" class="answer-board"></div>
-
-                <div class="turn-bar">
-                    <span class="turn-dot"></span>
-                    <span id="active-turn-label">Giliran Menjawab: Tim Merah</span>
-                </div>
-
-                <form id="answer-form" class="answer-form" autocomplete="off">
-                    <label for="answer-input" class="sr-only">Ketik jawaban peserta</label>
-                    <input
-                        type="text"
-                        id="answer-input"
-                        class="answer-input"
-                        placeholder="Ketik jawaban peserta di sini..."
-                        maxlength="120"
-                        required
-                    >
-                    <button type="submit" id="btn-submit" class="btn btn-primary">Cek Jawaban</button>
-                </form>
-                <p id="feedback-msg" class="feedback-msg" role="status" aria-live="polite"></p>
-            </section>
-
-            <aside class="panel score-panel">
-                <span class="stat-label">PODIUM &amp; SKOR TIM</span>
                 <div id="teams-container" class="podium-stage">
                     <div class="podium-unit podium-red active" data-team="0" role="button" tabindex="0" aria-pressed="true">
+                        <div class="podium-buzzer" aria-hidden="true"></div>
                         <span class="podium-rank" id="team-rank-0">#1</span>
                         <div class="podium-score" id="team-score-0">0</div>
                         <div class="podium-pedestal">
@@ -101,6 +112,7 @@
                         </div>
                     </div>
                     <div class="podium-unit podium-blue" data-team="1" role="button" tabindex="0" aria-pressed="false">
+                        <div class="podium-buzzer" aria-hidden="true"></div>
                         <span class="podium-rank" id="team-rank-1">#2</span>
                         <div class="podium-score" id="team-score-1">0</div>
                         <div class="podium-pedestal">
@@ -108,6 +120,7 @@
                         </div>
                     </div>
                     <div class="podium-unit podium-gold" data-team="2" role="button" tabindex="0" aria-pressed="false">
+                        <div class="podium-buzzer" aria-hidden="true"></div>
                         <span class="podium-rank" id="team-rank-2">#3</span>
                         <div class="podium-score" id="team-score-2">0</div>
                         <div class="podium-pedestal">
@@ -115,13 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="score-actions">
-                    <button type="button" id="btn-tetot" class="btn btn-danger btn-full">✕ TETOT! (Salah)</button>
-                    <button type="button" id="btn-reveal-all" class="btn btn-secondary btn-full">Buka Semua</button>
-                    <button type="button" id="btn-reset-round" class="btn btn-secondary btn-full">Reset Ronde</button>
-                    <button type="button" id="btn-reset-scores" class="btn btn-secondary btn-full">Reset Skor Tim</button>
-                </div>
-            </aside>
+            </section>
         </section>
     </main>
 
