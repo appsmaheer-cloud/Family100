@@ -961,11 +961,11 @@
 
         if (top) {
             top.textContent = '';
-            [26, 22].forEach((count, rIdx) => {
+            [34, 30].forEach((count, rIdx) => {
                 const row = document.createElement('div');
                 row.className = `stadium-row stadium-row-top-${rIdx + 1}`;
                 for (let i = 0; i < count; i++) {
-                    row.appendChild(createSpectatorNode(100 + rIdx * 30 + i));
+                    row.appendChild(createSpectatorNode(100 + rIdx * 40 + i));
                 }
                 top.appendChild(row);
             });
@@ -974,11 +974,11 @@
         [left, right].forEach((side, sideIdx) => {
             if (!side) return;
             side.textContent = '';
-            for (let r = 0; r < 6; r++) {
+            for (let r = 0; r < 7; r++) {
                 const row = document.createElement('div');
                 row.className = 'bleacher-row';
-                for (let c = 0; c < 3; c++) {
-                    row.appendChild(createSpectatorNode(sideIdx * 18 + r * 3 + c));
+                for (let c = 0; c < 4; c++) {
+                    row.appendChild(createSpectatorNode(sideIdx * 28 + r * 4 + c));
                 }
                 side.appendChild(row);
             }
@@ -986,11 +986,11 @@
 
         if (bottom) {
             bottom.textContent = '';
-            [22, 26].forEach((count, rIdx) => {
+            [30, 34].forEach((count, rIdx) => {
                 const row = document.createElement('div');
                 row.className = `stadium-row stadium-row-${rIdx + 1}`;
                 for (let i = 0; i < count; i++) {
-                    row.appendChild(createSpectatorNode(rIdx * 30 + i));
+                    row.appendChild(createSpectatorNode(rIdx * 40 + i));
                 }
                 bottom.appendChild(row);
             });
