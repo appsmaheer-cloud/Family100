@@ -205,29 +205,31 @@ body {
 .question-banner {
     background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
     color: #F8FAFC;
-    border: 2px solid rgba(56, 189, 248, 0.45);
-    border-radius: 10px;
-    padding: 9px 14px;
+    border: 2px solid rgba(56, 189, 248, 0.6);
+    border-radius: 12px;
+    padding: 14px 20px;
     margin-bottom: 10px;
     text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 112, 243, 0.2);
 }
 
 .question-badge {
     display: inline-block;
-    padding: 2px 10px;
+    padding: 4px 14px;
     border-radius: 999px;
     background: var(--accent-gold);
     color: #111827;
-    font-size: 0.74rem;
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 8px;
 }
 
 .question-text {
     margin: 0;
-    font-size: clamp(1rem, 1.55vw, 1.42rem);
+    font-size: clamp(1.35rem, 2.3vw, 2.25rem);
     line-height: 1.25;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.01em;
 }
 
 /* Studio Arena (Kiri: Podium, Tengah: Layar TV + Host, Kanan: Podium) */
@@ -815,16 +817,16 @@ body {
 }
 
 .tv-display .question-banner {
-    padding: 7px 12px;
-    margin-bottom: 6px;
+    padding: 14px 20px;
+    margin-bottom: 10px;
 }
 
 .tv-display .answer-board {
-    gap: 6px 12px;
+    gap: 8px 14px;
 }
 
 .tv-display .answer-slot {
-    min-height: clamp(34px, 4.2vh, 48px);
+    min-height: clamp(38px, 4.8vh, 56px);
 }
 
 .tv-display .turn-bar {
