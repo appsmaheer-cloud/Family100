@@ -974,13 +974,13 @@
         [left, right].forEach((side, sideIdx) => {
             if (!side) return;
             side.textContent = '';
-            for (let r = 0; r < 7; r++) {
-                const row = document.createElement('div');
-                row.className = 'bleacher-row';
-                for (let c = 0; c < 4; c++) {
-                    row.appendChild(createSpectatorNode(sideIdx * 28 + r * 4 + c));
+            for (let t = 0; t < 2; t++) {
+                const tier = document.createElement('div');
+                tier.className = 'bleacher-row';
+                for (let c = 0; c < 14; c++) {
+                    tier.appendChild(createSpectatorNode(sideIdx * 28 + t * 14 + c));
                 }
-                side.appendChild(row);
+                side.appendChild(tier);
             }
         });
 

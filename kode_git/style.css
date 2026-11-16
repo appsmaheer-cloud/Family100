@@ -284,10 +284,11 @@ body {
 
 .bleacher-side {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
-    gap: 4px;
-    padding: 10px 4px;
+    align-items: stretch;
+    gap: 6px;
+    padding: 10px 6px;
     background: linear-gradient(180deg, rgba(0, 112, 243, 0.1) 0%, #091224 100%);
     border: 1px solid var(--border-color);
     border-radius: 12px;
@@ -300,11 +301,20 @@ body {
 
 .bleacher-row {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: flex-end;
-    gap: 3px;
-    padding-top: 10px;
-    border-bottom: 2px solid rgba(56, 189, 248, 0.2);
+    align-items: center;
+    flex: 1;
+    gap: 4px;
+    padding: 4px 2px;
+}
+
+.bleacher-left .bleacher-row {
+    border-right: 2px solid rgba(56, 189, 248, 0.22);
+}
+
+.bleacher-right .bleacher-row {
+    border-left: 2px solid rgba(56, 189, 248, 0.22);
 }
 
 .stadium-bottom-rows {
@@ -578,36 +588,47 @@ body {
     animation: propCheer 0.28s ease-in-out 5;
 }
 
-/* Orientasi Penonton: Semua Menghadap ke Layar TV Tengah */
-.bleacher-top .stadium-row span::before {
-    top: -8px;
-    box-shadow: inset 0 -2px 0 rgba(15, 23, 42, 0.35);
+/* Orientasi Penonton: Duduk Melingkari Stadion & Semua Menghadap ke Layar TV Tengah */
+.bleacher-top .stadium-row {
+    padding-top: 4px;
+    padding-bottom: 10px;
+    border-bottom: none;
+    border-top: 2px solid rgba(56, 189, 248, 0.22);
+    border-radius: 50% 50% 0 0;
 }
 
-.bleacher-left .bleacher-row {
-    transform: perspective(220px) rotateY(16deg);
+.bleacher-top .stadium-row span {
+    transform: rotate(180deg);
 }
 
-.bleacher-left .bleacher-row span::before {
-    left: 62%;
+.bleacher-top .spec-prop {
+    transform: rotate(180deg);
+    animation: none;
 }
 
-.bleacher-left .bleacher-row span::after {
-    left: 56%;
-    border-radius: 4px 8px 0 0;
+.bleacher-left .bleacher-row span,
+.bleacher-right .bleacher-row span {
+    flex: none;
+    width: 22px;
+    height: 18px;
 }
 
-.bleacher-right .bleacher-row {
-    transform: perspective(220px) rotateY(-16deg);
+.bleacher-left .bleacher-row span {
+    transform: rotate(90deg);
 }
 
-.bleacher-right .bleacher-row span::before {
-    left: 38%;
+.bleacher-left .spec-prop {
+    transform: rotate(-90deg);
+    animation: none;
 }
 
-.bleacher-right .bleacher-row span::after {
-    left: 44%;
-    border-radius: 8px 4px 0 0;
+.bleacher-right .bleacher-row span {
+    transform: rotate(-90deg);
+}
+
+.bleacher-right .spec-prop {
+    transform: rotate(90deg);
+    animation: none;
 }
 
 /* Tribun Bawah: Tampak Belakang Menghadap ke Atas (ke Layar TV) */
