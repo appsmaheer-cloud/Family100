@@ -822,25 +822,36 @@ body {
 }
 
 .tv-display .answer-board {
-    gap: 8px 14px;
+    flex: 1;
+    gap: 10px 16px;
 }
 
 .tv-display .answer-slot {
-    min-height: clamp(48px, 6.2vh, 72px);
+    min-height: clamp(56px, 7.2vh, 84px);
 }
 
 .tv-display .turn-bar {
-    margin-top: 6px;
-    padding: 3px 12px;
+    margin-top: 8px;
+    padding: 5px 14px;
+    font-size: 0.9rem;
 }
 
 .tv-display .answer-form {
-    margin-top: 6px;
+    margin-top: 8px;
+    gap: 10px;
 }
 
 .tv-display .answer-input {
-    min-height: 36px;
-    padding: 6px 12px;
+    min-height: 52px;
+    padding: 10px 18px;
+    font-size: 1.15rem;
+}
+
+.tv-display #btn-submit {
+    min-height: 52px;
+    padding: 10px 26px;
+    font-size: 1.05rem;
+    font-weight: 800;
 }
 
 .tv-display .feedback-msg {
@@ -853,12 +864,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 10px;
-    margin-bottom: 6px;
+    padding: 6px 14px;
+    margin-bottom: 8px;
     border-radius: 6px;
     background: rgba(0, 112, 243, 0.14);
     border: 1px solid rgba(56, 189, 248, 0.28);
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     font-weight: 800;
     letter-spacing: 0.1em;
     color: var(--brand-cyan);
@@ -947,7 +958,7 @@ body {
     background: rgba(0, 0, 0, 0.36);
     border-left: 2px solid rgba(255, 255, 255, 0.22);
     font-weight: 900;
-    font-size: clamp(1.25rem, 1.65vw, 1.7rem);
+    font-size: clamp(1.35rem, 1.8vw, 1.85rem);
     font-variant-numeric: tabular-nums;
     color: var(--accent-gold);
 }
@@ -955,7 +966,7 @@ body {
 .slot-text {
     padding: 10px 18px;
     font-weight: 800;
-    font-size: clamp(1.15rem, 1.55vw, 1.55rem);
+    font-size: clamp(1.25rem, 1.7vw, 1.7rem);
     letter-spacing: 0.06em;
     text-align: center;
     text-transform: uppercase;
