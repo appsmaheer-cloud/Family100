@@ -160,6 +160,144 @@ function getSeedQuestions_() {
         { text: 'BERLIBUR', points: 70 },
         { text: 'MENABUNG', points: 60 }
       ]
+    },
+    {
+      question: 'Sebutkan format file yang paling sering dipakai untuk bertukar data!',
+      is_example: true,
+      answers: [
+        { text: 'CSV', points: 100 },
+        { text: 'EXCEL / XLSX', points: 90 },
+        { text: 'JSON', points: 80 },
+        { text: 'PDF', points: 70 },
+        { text: 'XML', points: 60 },
+        { text: 'PARQUET', points: 50 },
+        { text: 'TXT', points: 40 },
+        { text: 'SQL', points: 30 }
+      ]
+    },
+    {
+      question: 'Apa penyebab laporan atau data sering terlambat dikirim ke pusat?',
+      is_example: true,
+      answers: [
+        { text: 'PROSES MANUAL', points: 100 },
+        { text: 'FORMAT BERBEDA', points: 90 },
+        { text: 'REVISI DATA', points: 80 },
+        { text: 'KONEKSI INTERNET', points: 70 },
+        { text: 'LUPA', points: 60 },
+        { text: 'SISTEM ERROR', points: 50 },
+        { text: 'MENUNGGU APPROVAL', points: 40 },
+        { text: 'FILE TERLALU BESAR', points: 30 }
+      ]
+    },
+    {
+      question: 'Apa saja dimensi atau istilah penting dalam Data Quality (Mutu Data)?',
+      is_example: true,
+      answers: [
+        { text: 'LENGKAP / COMPLETENESS', points: 100 },
+        { text: 'AKURAT / ACCURACY', points: 90 },
+        { text: 'KONSISTEN / CONSISTENCY', points: 80 },
+        { text: 'TEPAT WAKTU / TIMELINESS', points: 70 },
+        { text: 'TIDAK DUPLIKAT / UNIQUENESS', points: 60 },
+        { text: 'VALID', points: 50 }
+      ]
+    },
+    {
+      question: 'Aplikasi apa yang paling sering dipakai tim untuk kolaborasi kerja & kirim data?',
+      is_example: true,
+      answers: [
+        { text: 'WHATSAPP', points: 100 },
+        { text: 'EMAIL', points: 90 },
+        { text: 'GOOGLE DRIVE', points: 80 },
+        { text: 'ZOOM / MEET', points: 70 },
+        { text: 'EXCEL / SPREADSHEET', points: 60 },
+        { text: 'SLACK / TEAMS', points: 50 },
+        { text: 'TRELLO / NOTION', points: 40 },
+        { text: 'GITHUB', points: 30 }
+      ]
+    },
+    {
+      question: 'Apa yang biasa dilakukan pegawai kantor saat sistem atau server tiba-tiba down?',
+      is_example: true,
+      answers: [
+        { text: 'LAPOR IT', points: 100 },
+        { text: 'REFRESH BERKALI-KALI', points: 90 },
+        { text: 'NGOPI / ISTIRAHAT', points: 80 },
+        { text: 'PANIK', points: 70 },
+        { text: 'TANYA TEMAN SEBELAH', points: 60 },
+        { text: 'RESTART LAPTOP', points: 50 },
+        { text: 'MAIN HP', points: 40 },
+        { text: 'PULANG', points: 30 }
+      ]
+    },
+    {
+      question: 'Apa yang paling sering membuat orang terlambat berangkat kerja atau acara?',
+      is_example: true,
+      answers: [
+        { text: 'MACET', points: 100 },
+        { text: 'BANGUN KESIANGAN', points: 90 },
+        { text: 'HUJAN', points: 80 },
+        { text: 'ANTRE KAMAR MANDI', points: 70 },
+        { text: 'CARI KUNCI / BARANG', points: 60 },
+        { text: 'BAN BOCOR', points: 50 },
+        { text: 'DANDAN LAMA', points: 40 },
+        { text: 'SARAPAN', points: 30 }
+      ]
+    },
+    {
+      question: 'Benda apa yang wajib dibawa saat bepergian keluar rumah, selain dompet?',
+      is_example: true,
+      answers: [
+        { text: 'HP / HANDPHONE', points: 100 },
+        { text: 'KUNCI', points: 90 },
+        { text: 'POWERBANK / CHARGER', points: 80 },
+        { text: 'TISU', points: 70 },
+        { text: 'EARPHONE', points: 60 },
+        { text: 'PAYUNG', points: 50 },
+        { text: 'BOTOL MINUM', points: 40 },
+        { text: 'PARFUM', points: 30 }
+      ]
+    },
+    {
+      question: 'Menu sarapan pagi apa yang paling populer di Indonesia?',
+      is_example: true,
+      answers: [
+        { text: 'NASI GORENG', points: 100 },
+        { text: 'BUBUR AYAM', points: 90 },
+        { text: 'NASI UDUK', points: 80 },
+        { text: 'ROTI', points: 70 },
+        { text: 'LONTONG SAYUR', points: 60 },
+        { text: 'GORENGAN', points: 50 },
+        { text: 'MI INSTAN', points: 40 },
+        { text: 'TELUR', points: 30 }
+      ]
+    },
+    {
+      question: 'Apa yang pertama kali dilakukan orang begitu bangun tidur di pagi hari?',
+      is_example: true,
+      answers: [
+        { text: 'CEK HP', points: 100 },
+        { text: 'MINUM AIR', points: 90 },
+        { text: 'KE KAMAR MANDI', points: 80 },
+        { text: 'MATIKAN ALARM', points: 70 },
+        { text: 'BERDOA', points: 60 },
+        { text: 'NGUMPULIN NYAWA', points: 50 },
+        { text: 'CUCI MUKA', points: 40 },
+        { text: 'TARIK SELIMUT LAGI', points: 30 }
+      ]
+    },
+    {
+      question: 'Alasan apa yang sering dipakai saat lupa membalas chat atau pesan?',
+      is_example: true,
+      answers: [
+        { text: 'KETIDURAN', points: 100 },
+        { text: 'SIBUK KERJA', points: 90 },
+        { text: 'TIDAK ADA SINYAL', points: 80 },
+        { text: 'SUDAH BALAS DI HATI', points: 70 },
+        { text: 'BATERAI HABIS', points: 60 },
+        { text: 'TIDAK BUKA HP', points: 50 },
+        { text: 'TENGGELAM', points: 40 },
+        { text: 'LUPA', points: 30 }
+      ]
     }
   ];
 }

@@ -156,9 +156,157 @@
                 { id: 1105, answer_text: 'MENABUNG', points: 60 },
             ],
         },
+        {
+            id: 12,
+            question: 'Sebutkan format file yang paling sering dipakai untuk bertukar data!',
+            is_example: true,
+            answers: [
+                { id: 1201, answer_text: 'CSV', points: 100 },
+                { id: 1202, answer_text: 'EXCEL / XLSX', points: 90 },
+                { id: 1203, answer_text: 'JSON', points: 80 },
+                { id: 1204, answer_text: 'PDF', points: 70 },
+                { id: 1205, answer_text: 'XML', points: 60 },
+                { id: 1206, answer_text: 'PARQUET', points: 50 },
+                { id: 1207, answer_text: 'TXT', points: 40 },
+                { id: 1208, answer_text: 'SQL', points: 30 },
+            ],
+        },
+        {
+            id: 13,
+            question: 'Apa penyebab laporan atau data sering terlambat dikirim ke pusat?',
+            is_example: true,
+            answers: [
+                { id: 1301, answer_text: 'PROSES MANUAL', points: 100 },
+                { id: 1302, answer_text: 'FORMAT BERBEDA', points: 90 },
+                { id: 1303, answer_text: 'REVISI DATA', points: 80 },
+                { id: 1304, answer_text: 'KONEKSI INTERNET', points: 70 },
+                { id: 1305, answer_text: 'LUPA', points: 60 },
+                { id: 1306, answer_text: 'SISTEM ERROR', points: 50 },
+                { id: 1307, answer_text: 'MENUNGGU APPROVAL', points: 40 },
+                { id: 1308, answer_text: 'FILE TERLALU BESAR', points: 30 },
+            ],
+        },
+        {
+            id: 14,
+            question: 'Apa saja dimensi atau istilah penting dalam Data Quality (Mutu Data)?',
+            is_example: true,
+            answers: [
+                { id: 1401, answer_text: 'LENGKAP / COMPLETENESS', points: 100 },
+                { id: 1402, answer_text: 'AKURAT / ACCURACY', points: 90 },
+                { id: 1403, answer_text: 'KONSISTEN / CONSISTENCY', points: 80 },
+                { id: 1404, answer_text: 'TEPAT WAKTU / TIMELINESS', points: 70 },
+                { id: 1405, answer_text: 'TIDAK DUPLIKAT / UNIQUENESS', points: 60 },
+                { id: 1406, answer_text: 'VALID', points: 50 },
+            ],
+        },
+        {
+            id: 15,
+            question: 'Aplikasi apa yang paling sering dipakai tim untuk kolaborasi kerja & kirim data?',
+            is_example: true,
+            answers: [
+                { id: 1501, answer_text: 'WHATSAPP', points: 100 },
+                { id: 1502, answer_text: 'EMAIL', points: 90 },
+                { id: 1503, answer_text: 'GOOGLE DRIVE', points: 80 },
+                { id: 1504, answer_text: 'ZOOM / MEET', points: 70 },
+                { id: 1505, answer_text: 'EXCEL / SPREADSHEET', points: 60 },
+                { id: 1506, answer_text: 'SLACK / TEAMS', points: 50 },
+                { id: 1507, answer_text: 'TRELLO / NOTION', points: 40 },
+                { id: 1508, answer_text: 'GITHUB', points: 30 },
+            ],
+        },
+        {
+            id: 16,
+            question: 'Apa yang biasa dilakukan pegawai kantor saat sistem atau server tiba-tiba down?',
+            is_example: true,
+            answers: [
+                { id: 1601, answer_text: 'LAPOR IT', points: 100 },
+                { id: 1602, answer_text: 'REFRESH BERKALI-KALI', points: 90 },
+                { id: 1603, answer_text: 'NGOPI / ISTIRAHAT', points: 80 },
+                { id: 1604, answer_text: 'PANIK', points: 70 },
+                { id: 1605, answer_text: 'TANYA TEMAN SEBELAH', points: 60 },
+                { id: 1606, answer_text: 'RESTART LAPTOP', points: 50 },
+                { id: 1607, answer_text: 'MAIN HP', points: 40 },
+                { id: 1608, answer_text: 'PULANG', points: 30 },
+            ],
+        },
+        {
+            id: 17,
+            question: 'Apa yang paling sering membuat orang terlambat berangkat kerja atau acara?',
+            is_example: true,
+            answers: [
+                { id: 1701, answer_text: 'MACET', points: 100 },
+                { id: 1702, answer_text: 'BANGUN KESIANGAN', points: 90 },
+                { id: 1703, answer_text: 'HUJAN', points: 80 },
+                { id: 1704, answer_text: 'ANTRE KAMAR MANDI', points: 70 },
+                { id: 1705, answer_text: 'CARI KUNCI / BARANG', points: 60 },
+                { id: 1706, answer_text: 'BAN BOCOR', points: 50 },
+                { id: 1707, answer_text: 'DANDAN LAMA', points: 40 },
+                { id: 1708, answer_text: 'SARAPAN', points: 30 },
+            ],
+        },
+        {
+            id: 18,
+            question: 'Benda apa yang wajib dibawa saat bepergian keluar rumah, selain dompet?',
+            is_example: true,
+            answers: [
+                { id: 1801, answer_text: 'HP / HANDPHONE', points: 100 },
+                { id: 1802, answer_text: 'KUNCI', points: 90 },
+                { id: 1803, answer_text: 'POWERBANK / CHARGER', points: 80 },
+                { id: 1804, answer_text: 'TISU', points: 70 },
+                { id: 1805, answer_text: 'EARPHONE', points: 60 },
+                { id: 1806, answer_text: 'PAYUNG', points: 50 },
+                { id: 1807, answer_text: 'BOTOL MINUM', points: 40 },
+                { id: 1808, answer_text: 'PARFUM', points: 30 },
+            ],
+        },
+        {
+            id: 19,
+            question: 'Menu sarapan pagi apa yang paling populer di Indonesia?',
+            is_example: true,
+            answers: [
+                { id: 1901, answer_text: 'NASI GORENG', points: 100 },
+                { id: 1902, answer_text: 'BUBUR AYAM', points: 90 },
+                { id: 1903, answer_text: 'NASI UDUK', points: 80 },
+                { id: 1904, answer_text: 'ROTI', points: 70 },
+                { id: 1905, answer_text: 'LONTONG SAYUR', points: 60 },
+                { id: 1906, answer_text: 'GORENGAN', points: 50 },
+                { id: 1907, answer_text: 'MI INSTAN', points: 40 },
+                { id: 1908, answer_text: 'TELUR', points: 30 },
+            ],
+        },
+        {
+            id: 20,
+            question: 'Apa yang pertama kali dilakukan orang begitu bangun tidur di pagi hari?',
+            is_example: true,
+            answers: [
+                { id: 2001, answer_text: 'CEK HP', points: 100 },
+                { id: 2002, answer_text: 'MINUM AIR', points: 90 },
+                { id: 2003, answer_text: 'KE KAMAR MANDI', points: 80 },
+                { id: 2004, answer_text: 'MATIKAN ALARM', points: 70 },
+                { id: 2005, answer_text: 'BERDOA', points: 60 },
+                { id: 2006, answer_text: 'NGUMPULIN NYAWA', points: 50 },
+                { id: 2007, answer_text: 'CUCI MUKA', points: 40 },
+                { id: 2008, answer_text: 'TARIK SELIMUT LAGI', points: 30 },
+            ],
+        },
+        {
+            id: 21,
+            question: 'Alasan apa yang sering dipakai saat lupa membalas chat atau pesan?',
+            is_example: true,
+            answers: [
+                { id: 2101, answer_text: 'KETIDURAN', points: 100 },
+                { id: 2102, answer_text: 'SIBUK KERJA', points: 90 },
+                { id: 2103, answer_text: 'TIDAK ADA SINYAL', points: 80 },
+                { id: 2104, answer_text: 'SUDAH BALAS DI HATI', points: 70 },
+                { id: 2105, answer_text: 'BATERAI HABIS', points: 60 },
+                { id: 2106, answer_text: 'TIDAK BUKA HP', points: 50 },
+                { id: 2107, answer_text: 'TENGGELAM', points: 40 },
+                { id: 2108, answer_text: 'LUPA', points: 30 },
+            ],
+        },
     ];
 
-    const STORAGE_KEY_QUESTIONS = 'family100_gas_local_questions_v1';
+    const STORAGE_KEY_QUESTIONS = 'family100_gas_local_questions_v2';
     const STORAGE_KEY_GAS_URL = 'family100_gas_webapp_url';
     const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbyrbhRx6eGu2xma2SGsiYpbKQhHX23AC9GvPj3BVDacwwQUTD16viQcZNPP5NncZ2gRzw/exec';
 
@@ -443,7 +591,9 @@
                 const res = await fetch(url);
                 const data = await res.json();
                 if (data.ok && Array.isArray(data.data)) {
-                    state.questions = data.data;
+                    const existing = new Set(data.data.map((q) => normalizeText(q.question)));
+                    const extras = EXAMPLE_QUESTIONS.filter((q) => !existing.has(normalizeText(q.question)));
+                    state.questions = [...data.data, ...structuredClone(extras)];
                     populateSelect();
                     resetRound();
                     return;
