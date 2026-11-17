@@ -718,7 +718,7 @@
             if (isAct) {
                 const bubble = document.createElement('span');
                 bubble.className = 'discuss-bubble';
-                bubble.textContent = '💬';
+                bubble.textContent = '🎤 MENJAWAB!';
                 crew.appendChild(bubble);
             }
             crew.appendChild(createContestantsSvg());
@@ -780,9 +780,15 @@
             }
         });
 
+        const activeTeamObj = state.teams[state.activeTeam];
+        const activeColor = activeTeamObj?.color || 'blue';
+        const turnBar = document.querySelector('.turn-bar');
+        if (turnBar) turnBar.setAttribute('data-active-color', activeColor);
+        if (el.form) el.form.setAttribute('data-active-color', activeColor);
+
         if (el.activeTurnLabel) {
-            const activeIcon = state.teams[state.activeTeam]?.icon || '';
-            el.activeTurnLabel.textContent = `Giliran Berdiskusi & Menjawab: ${activeIcon} ${getTeamName(state.activeTeam)}`;
+            const activeIcon = activeTeamObj?.icon || '';
+            el.activeTurnLabel.textContent = `Giliran Menjawab: ${activeIcon} ${getTeamName(state.activeTeam)}`;
         }
         if (el.btnAddTeam) {
             el.btnAddTeam.disabled = state.teams.length >= 8;

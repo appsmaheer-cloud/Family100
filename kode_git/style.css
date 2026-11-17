@@ -2906,3 +2906,125 @@ body {
         grid-template-columns: 40px 1fr 56px;
     }
 }
+
+/* ==========================================================================
+   Per-Team Vivid Active Colors (Podium, Turn Bar, Input & Submit)
+   ========================================================================== */
+.podium-red, [data-active-color="red"]         { --team-accent: #EF4444; --team-glow: rgba(239, 68, 68, 0.45);  --team-tint: #FEF2F2; }
+.podium-blue, [data-active-color="blue"]       { --team-accent: #2563EB; --team-glow: rgba(37, 99, 235, 0.45);  --team-tint: #EFF6FF; }
+.podium-gold, [data-active-color="gold"]       { --team-accent: #F59E0B; --team-glow: rgba(245, 158, 11, 0.48); --team-tint: #FFFBEB; }
+.podium-emerald, [data-active-color="emerald"] { --team-accent: #10B981; --team-glow: rgba(16, 185, 129, 0.45); --team-tint: #ECFDF5; }
+.podium-purple, [data-active-color="purple"]   { --team-accent: #8B5CF6; --team-glow: rgba(139, 92, 246, 0.45); --team-tint: #F5F3FF; }
+.podium-cyan, [data-active-color="cyan"]       { --team-accent: #06B6D4; --team-glow: rgba(6, 182, 212, 0.45);  --team-tint: #ECFEFF; }
+.podium-rose, [data-active-color="rose"]       { --team-accent: #F43F5E; --team-glow: rgba(244, 63, 94, 0.45);  --team-tint: #FFF1F2; }
+.podium-indigo, [data-active-color="indigo"]   { --team-accent: #6366F1; --team-glow: rgba(99, 102, 241, 0.45); --team-tint: #EEF2FF; }
+
+.podium-unit:not(.active):not(.celebrate):not(.sad):not(.sad-wrong) {
+    opacity: 0.78;
+    filter: saturate(0.85);
+}
+
+.podium-unit.active {
+    transform: translateY(-8px) scale(1.03);
+    z-index: 4;
+}
+
+.podium-unit.active .podium-3d-body {
+    border: 3px solid var(--team-accent, #0284C7) !important;
+    box-shadow: 0 0 28px var(--team-glow), 0 10px 26px rgba(15, 23, 42, 0.16) !important;
+}
+
+[data-theme="light"] .podium-unit.active .podium-3d-body {
+    background: linear-gradient(180deg, var(--team-tint, #F0F9FF) 0%, #FFFFFF 100%);
+}
+
+.podium-unit.active .podium-desk-top {
+    background: var(--team-accent, #0284C7) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.podium-unit.active .podium-buzzer {
+    background: #FFFFFF !important;
+    box-shadow: 0 0 14px #FFFFFF, 0 0 22px var(--team-accent) !important;
+}
+
+.podium-unit.active .podium-score {
+    color: var(--team-accent, #0284C7) !important;
+    text-shadow: 0 0 12px var(--team-glow);
+}
+
+[data-theme="studio"] .podium-unit.active .podium-score {
+    color: #FFFFFF !important;
+    text-shadow: 0 0 14px var(--team-accent);
+}
+
+.podium-unit.active .robot-bulb,
+.podium-unit.active .robot-core {
+    fill: var(--team-accent, #38BDF8);
+}
+
+.podium-unit.active .robot-head {
+    stroke: var(--team-accent, #0284C7);
+    stroke-width: 2;
+}
+
+.podium-unit.active .discuss-bubble {
+    top: -14px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--team-accent, #0284C7);
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 4px 14px var(--team-glow);
+    animation: activeTurnPulse 1.1s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+@keyframes activeTurnPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.08); }
+}
+
+.turn-bar[data-active-color] {
+    background: var(--team-tint, #F8FAFC) !important;
+    border: 2px solid var(--team-accent, #0284C7) !important;
+    box-shadow: 0 3px 14px var(--team-glow);
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-theme="studio"] .turn-bar[data-active-color] {
+    background: rgba(15, 23, 42, 0.9) !important;
+    color: #FFFFFF;
+}
+
+.turn-bar[data-active-color] .turn-dot {
+    background: var(--team-accent, #10B981);
+    box-shadow: 0 0 10px var(--team-accent);
+    animation: tvPulse 1s ease-in-out infinite;
+}
+
+.turn-bar[data-active-color] .active-turn-label {
+    color: var(--team-accent, #0F172A) !important;
+    font-weight: 900;
+}
+
+[data-theme="studio"] .turn-bar[data-active-color] .active-turn-label {
+    color: #FFFFFF !important;
+}
+
+.answer-form[data-active-color] .answer-input {
+    border-color: var(--team-accent, #0284C7) !important;
+    box-shadow: 0 0 0 3px var(--team-glow);
+}
+
+.answer-form[data-active-color] #btn-submit {
+    background: var(--team-accent, #0284C7) !important;
+    border-color: var(--team-accent, #0284C7) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px var(--team-glow);
+}
