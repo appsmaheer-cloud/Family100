@@ -1041,9 +1041,10 @@
     async function syncPushIfHost(eventType = 'update', fbText = '', fbType = '') {
         if (liveSync.mode !== 'host' || !state.gasUrl) return;
         const payload = buildLivePayload(eventType, fbText, fbType);
-        liveSync.lastVersion = payload.version;
+        liveSync.lastVersion = Math.max(payload.version, liveSync.lastVersion + 1);
+        payload.version = liveSync.lastVersion;
         try {
-            await fetch(state.gasUrl, {
+            const res = await fetch(state.gasUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                 body: JSON.stringify({
@@ -1052,8 +1053,20 @@
                     state: payload,
                 }),
             });
+            const data = await res.json();
+            if (!data.ok) {
+                const statusEl = document.getElementById('live-status-text');
+                if (statusEl) {
+                    statusEl.textContent = `GAS belum mendukung Live Sync (${data.error || 'update & deploy ulang Code.gs'}).`;
+                    statusEl.className = 'feedback-msg err';
+                }
+            }
         } catch (err) {
-            // Abaikan error jaringan sesaat agar game tetap lancar
+            const statusEl = document.getElementById('live-status-text');
+            if (statusEl) {
+                statusEl.textContent = 'Gagal menghubungi GAS untuk sinkronisasi live.';
+                statusEl.className = 'feedback-msg err';
+            }
         }
     }
 
@@ -1109,6 +1122,12 @@
             const data = await res.json();
             if (data && data.ok && data.state) {
                 applyLiveState(data.state);
+            } else if (data && !data.ok) {
+                const statusEl = document.getElementById('live-status-text');
+                if (statusEl) {
+                    statusEl.textContent = `GAS belum update: ${data.error || 'Deploy ulang Code.gs (New version)'}`;
+                    statusEl.className = 'feedback-msg err';
+                }
             }
         } catch (err) {
             // Abaikan error polling sesaat
@@ -1131,6 +1150,10 @@
         liveSync.mode = mode;
         const roomInput = document.getElementById('live-room-input');
         liveSync.room = sanitizeLiveRoom(roomInput ? roomInput.value : liveSync.room);
+        if (mode === 'display') {
+            liveSync.lastVersion = 0;
+            liveSync.lastEventTs = 0;
+        }
         updateLiveHpUrl();
         if (mode === 'display') {
             pollLiveDisplay();
