@@ -1180,6 +1180,14 @@
                 liveModal.hidden = false;
             });
         }
+        const btnStartLive = document.getElementById('btn-start-live');
+        if (btnStartLive && liveModal) {
+            btnStartLive.addEventListener('click', () => {
+                if (el.startOverlay) el.startOverlay.classList.add('hidden');
+                updateLiveHpUrl();
+                liveModal.hidden = false;
+            });
+        }
         if (btnCloseLive && liveModal) {
             btnCloseLive.addEventListener('click', () => { liveModal.hidden = true; });
         }

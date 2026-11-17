@@ -1549,8 +1549,29 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: radial-gradient(circle at 50% 35%, #263559 0%, #0F172A 80%);
+    background: radial-gradient(circle at 50% 35%, #1D3461 0%, #091224 72%, #050A14 100%);
+    overflow: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.start-spotlight {
+    position: absolute;
+    top: -15%;
+    width: 48vw;
+    height: 110vh;
+    pointer-events: none;
+    opacity: 0.38;
+    filter: blur(48px);
+}
+
+.start-spotlight-l {
+    left: -8%;
+    background: radial-gradient(ellipse at top left, rgba(56, 189, 248, 0.55) 0%, transparent 70%);
+}
+
+.start-spotlight-r {
+    right: -8%;
+    background: radial-gradient(ellipse at top right, rgba(245, 183, 0, 0.38) 0%, transparent 70%);
 }
 
 .start-overlay.hidden {
@@ -1560,14 +1581,30 @@ body {
 }
 
 .start-card {
-    max-width: min(720px, 92vw);
+    position: relative;
+    z-index: 2;
+    max-width: min(760px, 92vw);
     width: 100%;
     text-align: center;
-    background: var(--surface-panel);
-    border: 4px solid var(--accent-gold);
-    border-radius: 24px;
-    padding: 48px 44px;
-    box-shadow: 0 0 60px rgba(245, 183, 0, 0.32);
+    background: linear-gradient(180deg, rgba(17, 29, 54, 0.96) 0%, rgba(11, 18, 34, 0.98) 100%);
+    border: 3px solid var(--accent-gold);
+    outline: 1px solid rgba(56, 189, 248, 0.45);
+    border-radius: 26px;
+    padding: 40px 44px 36px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(245, 183, 0, 0.25);
+}
+
+.start-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.14);
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    color: var(--brand-cyan);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
 }
 
 .start-logo-wrap {
@@ -1577,28 +1614,54 @@ body {
     background: #FFFFFF;
     padding: 14px 26px;
     border-radius: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .start-logo {
-    max-width: 340px;
+    max-width: 320px;
     width: 100%;
     height: auto;
     display: block;
 }
 
 .start-title {
-    margin: 0 0 14px;
-    font-size: clamp(2rem, 3.2vw, 2.85rem);
+    margin: 0 0 12px;
+    font-size: clamp(2.1rem, 3.4vw, 3rem);
     font-weight: 900;
-    color: var(--accent-gold);
+    letter-spacing: -0.01em;
+    background: linear-gradient(180deg, #FFE066 0%, #F5B700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .start-desc {
-    margin: 0 0 30px;
+    margin: 0 auto 22px;
+    max-width: 580px;
     color: #CBD5E1;
-    font-size: clamp(1.05rem, 1.4vw, 1.28rem);
-    line-height: 1.45;
+    font-size: clamp(1.02rem, 1.35vw, 1.22rem);
+    line-height: 1.5;
+}
+
+.start-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.start-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(30, 41, 59, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.32);
+    color: #E2E8F0;
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
 .btn-start {
@@ -1606,11 +1669,31 @@ body {
     min-height: 66px;
     font-size: 1.38rem;
     font-weight: 900;
-    letter-spacing: 0.06em;
-    background: var(--accent-gold);
+    letter-spacing: 0.08em;
+    background: linear-gradient(180deg, #FACC15 0%, #F5B700 100%);
     color: #111827;
     border-radius: 14px;
-    box-shadow: 0 8px 24px rgba(245, 183, 0, 0.4);
+    box-shadow: 0 8px 28px rgba(245, 183, 0, 0.42);
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(245, 183, 0, 0.55);
+}
+
+.start-secondary {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.start-hint {
+    font-size: 0.86rem;
+    color: #94A3B8;
 }
 
 /* Confetti Layer */

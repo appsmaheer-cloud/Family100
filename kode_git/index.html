@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Permainan Family 100 — GAS &amp; Git</title>
     <link rel="icon" type="image/png" href="favicon-codeera.png">
-    <link rel="stylesheet" href="style.css?v=16">
+    <link rel="stylesheet" href="style.css?v=17">
 </head>
 
 <body>
@@ -146,14 +146,25 @@
     <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
 
     <div id="start-overlay" class="start-overlay">
+        <div class="start-spotlight start-spotlight-l" aria-hidden="true"></div>
+        <div class="start-spotlight start-spotlight-r" aria-hidden="true"></div>
         <div class="start-card">
+            <div class="start-badge">📺 STUDIO LIVE • KUIS SURVEI INTERAKTIF</div>
             <div class="start-logo-wrap">
                 <img src="logo-codeera.png" alt="CODEERA - PT. Baseerah Otomasi Indonesia" class="start-logo">
             </div>
             <h2 class="start-title">Permainan Family 100</h2>
-            <p class="start-desc">Siapkan tim Anda, jawab survei dengan tepat, dan kumpulkan poin tertinggi di podium.
-            </p>
-            <button type="button" id="btn-start-game" class="btn btn-start">▶ Mulai Permainan</button>
+            <p class="start-desc">Siapkan tim Anda, tebak jawaban survei populer dengan tepat, dan rebut skor tertinggi di podium studio.</p>
+            <div class="start-features" aria-hidden="true">
+                <span class="start-chip">🏆 Multi-Tim &amp; Podium</span>
+                <span class="start-chip">⚡ Cek Instan + Sinonim</span>
+                <span class="start-chip">📡 Remote HP Live</span>
+            </div>
+            <button type="button" id="btn-start-game" class="btn btn-start">▶ MULAI PERMAINAN</button>
+            <div class="start-secondary">
+                <button type="button" id="btn-start-live" class="btn btn-secondary btn-sm">📡 Hubungkan Remote HP</button>
+                <span class="start-hint">🔊 Klik Mulai untuk mengaktifkan efek suara studio</span>
+            </div>
         </div>
     </div>
 
@@ -252,7 +263,7 @@
         </div>
     </div>
 
-    <script src="app.js?v=15"></script>
+    <script src="app.js?v=17"></script>
 </body>
 
 </html>
