@@ -493,6 +493,12 @@
             const isRevealed = state.revealedIds.has(Number(ans.id));
             const row = document.createElement('div');
             row.className = isRevealed ? 'answer-slot revealed' : 'answer-slot';
+            row.dataset.answerId = String(ans.id);
+            if (!isRevealed) {
+                row.setAttribute('role', 'button');
+                row.setAttribute('tabindex', '0');
+                row.title = `Klik untuk membuka hasil survei #${idx + 1} (tanpa poin tim)`;
+            }
 
             const num = document.createElement('div');
             num.className = 'slot-num';
@@ -954,6 +960,26 @@
         return { ok: true, found: false };
     }
 
+    function revealSingleSlot(answerId) {
+        const q = currentQuestion();
+        if (!q || !Array.isArray(q.answers)) return;
+        const id = Number(answerId);
+        if (state.revealedIds.has(id)) return;
+        const ansIdx = q.answers.findIndex((a) => Number(a.id) === id);
+        if (ansIdx === -1) return;
+        const ans = q.answers[ansIdx];
+
+        state.revealedIds.add(id);
+        playCorrectSound();
+        renderBoard();
+
+        const msg = `👀 Hasil survei #${ansIdx + 1}: "${ans.answer_text}" (${ans.points} poin — dibuka untuk penonton)`;
+        setFeedback(msg, 'ok');
+        setHostSpeech(`Hasil survei nomor ${ansIdx + 1}: ${ans.answer_text}!`);
+        addHistoryItem(`[Penonton] #${ansIdx + 1} ${ans.answer_text}`, true, ans.points);
+        syncPushIfHost('reveal_slot', msg, 'ok');
+    }
+
     async function handleCheckAnswer(e) {
         e.preventDefault();
         if (state.isChecking) return;
@@ -1259,6 +1285,8 @@
                 playCorrectSound();
                 spawnConfetti();
                 triggerScorePop();
+            } else if (remote.event.type === 'reveal_slot') {
+                playCorrectSound();
             } else if (remote.event.type === 'wrong') {
                 triggerWrongEffect();
             }
@@ -1487,6 +1515,24 @@
                 }
             }
         });
+
+        if (el.board) {
+            el.board.addEventListener('click', (e) => {
+                const slot = e.target.closest('.answer-slot:not(.revealed)');
+                if (slot && slot.dataset.answerId) {
+                    revealSingleSlot(slot.dataset.answerId);
+                }
+            });
+            el.board.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    const slot = e.target.closest('.answer-slot:not(.revealed)');
+                    if (slot && slot.dataset.answerId) {
+                        e.preventDefault();
+                        revealSingleSlot(slot.dataset.answerId);
+                    }
+                }
+            });
+        }
 
         el.form.addEventListener('submit', handleCheckAnswer);
         el.btnRevealAll.addEventListener('click', () => {

@@ -3028,3 +3028,14 @@ body {
     color: #FFFFFF !important;
     box-shadow: 0 4px 14px var(--team-glow);
 }
+
+/* Slot Jawaban Tertutup Bisa Diklik 1-per-1 untuk Penonton */
+.answer-slot:not(.revealed) {
+    cursor: pointer;
+}
+
+.answer-slot:not(.revealed):hover {
+    transform: translateY(-2px) scale(1.01);
+    border-color: #FBBF24 !important;
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.28);
+}
