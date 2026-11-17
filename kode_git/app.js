@@ -1289,11 +1289,52 @@
             });
         }
 
-        el.btnTheme.addEventListener('click', () => {
+        function applyTheme(theme) {
             const root = document.documentElement;
-            const isLight = root.getAttribute('data-theme') === 'light';
-            root.setAttribute('data-theme', isLight ? 'studio' : 'light');
-            el.btnTheme.textContent = isLight ? '☀️' : '🌙';
+            root.setAttribute('data-theme', theme);
+            const isLight = theme === 'light';
+            if (el.btnTheme) {
+                el.btnTheme.textContent = isLight ? '🌙' : '☀️';
+                el.btnTheme.setAttribute('aria-pressed', String(isLight));
+                el.btnTheme.title = isLight ? 'Beralih ke Tema Gelap Studio' : 'Beralih ke Tema Clean Putih';
+            }
+            const btnStartTheme = document.getElementById('btn-start-theme');
+            if (btnStartTheme) {
+                btnStartTheme.textContent = isLight ? '🌙 Mode Studio Gelap' : '☀️ Mode Clean Putih';
+                btnStartTheme.title = isLight ? 'Beralih ke tema studio gelap' : 'Beralih ke tema putih bersih';
+            }
+            try {
+                localStorage.setItem('family100_theme', theme);
+            } catch (e) {}
+        }
+
+        const savedTheme = (function () {
+            try { return localStorage.getItem('family100_theme'); } catch (e) { return null; }
+        })() || 'light';
+        applyTheme(savedTheme);
+
+        if (el.btnTheme) {
+            el.btnTheme.addEventListener('click', () => {
+                const cur = document.documentElement.getAttribute('data-theme') || 'light';
+                applyTheme(cur === 'light' ? 'studio' : 'light');
+            });
+        }
+
+        const btnStartTheme = document.getElementById('btn-start-theme');
+        if (btnStartTheme) {
+            btnStartTheme.addEventListener('click', () => {
+                const cur = document.documentElement.getAttribute('data-theme') || 'light';
+                applyTheme(cur === 'light' ? 'studio' : 'light');
+            });
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (el.startOverlay && !el.startOverlay.classList.contains('hidden')) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (el.btnStartGame) el.btnStartGame.click();
+                }
+            }
         });
 
         el.form.addEventListener('submit', handleCheckAnswer);
