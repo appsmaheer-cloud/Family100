@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 156" role="img" aria-label="Logo Family 100">
+  <defs>
+    <linearGradient id="f100GoldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="35%" stop-color="#FACC15"/>
+      <stop offset="70%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <radialGradient id="f100BlueOval" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="55%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </radialGradient>
+    <linearGradient id="f100NumGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="45%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+    <filter id="f100Shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Gold Bevel Oval -->
+  <ellipse cx="180" cy="78" rx="168" ry="68" fill="url(#f100GoldRing)" filter="url(#f100Shadow)"/>
+  <!-- Inner Dark Rim -->
+  <ellipse cx="180" cy="78" rx="158" ry="60" fill="#0F172A"/>
+  <!-- Royal Blue Studio Oval -->
+  <ellipse cx="180" cy="78" rx="154" ry="56" fill="url(#f100BlueOval)"/>
+
+  <!-- Subtle Top Glass Highlight -->
+  <path d="M46 66 C85 26, 275 26, 314 66 C270 42, 90 42, 46 66 Z" fill="#FFFFFF" opacity="0.16"/>
+
+  <!-- Decorative Studio Stars -->
+  <polygon points="52,78 55,84 61,85 56,89 57,95 52,92 47,95 48,89 43,85 49,84" fill="#FDE047" opacity="0.9"/>
+  <polygon points="308,78 311,84 317,85 312,89 313,95 308,92 303,95 304,89 299,85 305,84" fill="#FDE047" opacity="0.9"/>
+
+  <!-- FAMILY Text -->
+  <text x="180" y="60" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Arial Black', Impact, sans-serif" font-weight="900" font-size="34" letter-spacing="4" fill="#FFFFFF" stroke="#0F172A" stroke-width="4" paint-order="stroke">FAMILY</text>
+
+  <!-- 100 Iconic Number -->
+  <text x="180" y="121" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Arial Black', Impact, sans-serif" font-weight="900" font-size="68" letter-spacing="-2" fill="url(#f100NumGrad)" stroke="#FFFFFF" stroke-width="5" paint-order="stroke">100</text>
+</svg>
