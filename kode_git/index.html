@@ -15,9 +15,13 @@
             <div class="brand-logo-wrap">
                 <img src="logo-codeera.png" alt="CODEERA - PT. Baseerah Otomasi Indonesia" class="brand-logo">
             </div>
+            <div class="brand-partner-wrap">
+                <span class="brand-partner-pill">Synxchro × DJPK</span>
+                <span class="brand-edition-pill">Data Exchange</span>
+            </div>
             <div>
                 <h1 class="brand-title">Permainan Family 100</h1>
-                <p class="brand-sub" id="mode-indicator">Mode Contoh Lokal (Siap GitHub Pages &amp; GAS)</p>
+                <p class="brand-sub" id="mode-indicator">Training • Fundamental Data Engineering</p>
             </div>
         </div>
 
@@ -143,6 +147,22 @@
         </section>
     </main>
 
+    <footer class="slide-stage-footer">
+        <div class="slide-footer-left">
+            <span>Synxchro x DJPK</span>
+            <span class="footer-dot">·</span>
+            <span class="footer-accent">Data Exchange</span>
+            <span class="footer-dot">·</span>
+            <span>Family 100 Codeera</span>
+        </div>
+        <div class="slide-footer-center">
+            <span class="slide-footer-tip">💡 Host dapat mengetik jawaban langsung dari HP via menu <strong>📡 Live</strong></span>
+        </div>
+        <div class="slide-footer-right">
+            <span class="footer-confidential">Confidential</span>
+        </div>
+    </footer>
+
     <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
 
     <div id="start-overlay" class="start-overlay">
@@ -150,9 +170,12 @@
         <div class="start-spotlight start-spotlight-r" aria-hidden="true"></div>
         <div class="start-card">
             <div class="start-card-header">
-                <div class="start-badge">📺 STUDIO PREMIERE • FAMILY 100 CODEERA</div>
+                <div class="start-partner-row">
+                    <span class="start-tag-pill">Training • Fundamental Data Engineering</span>
+                    <span class="start-partner-pill">Synxchro × DJPK · Data Exchange</span>
+                </div>
                 <div class="start-theme-quick">
-                    <button type="button" id="btn-start-theme" class="btn btn-secondary btn-sm" title="Ganti Tema Tampilan">☀️ Mode Clean Putih</button>
+                    <button type="button" id="btn-start-theme" class="btn btn-secondary btn-sm" title="Ganti Tema Tampilan">☀️ Mode PPT Clean</button>
                 </div>
             </div>
 
@@ -161,39 +184,76 @@
                     <img src="logo-codeera.png" alt="CODEERA - PT. Baseerah Otomasi Indonesia" class="start-logo">
                 </div>
                 <div class="start-hero-text">
-                    <h2 class="start-title">Permainan Family 100</h2>
-                    <p class="start-desc">Kuis survei interaktif studio modern. Mainkan bersama tim di panggung podium, tebak jawaban survei terpopuler, dan raih kemenangan!</p>
+                    <h2 class="start-title">Data Integration &amp; Data Exchange</h2>
+                    <p class="start-subtitle">Permainan Family 100 • Kuis Survei Interaktif</p>
+                    <p class="start-desc">Dari fundamental hingga implementasi kuis survei interaktif studio modern. Mainkan bersama tim di panggung podium, tebak jawaban terpopuler, dan raih skor tertinggi!</p>
                 </div>
             </div>
 
+            <!-- 3 Kolom Kartu PPT (Slide 6, 11, 20 Style) -->
             <div class="start-grid" aria-hidden="true">
-                <div class="start-grid-item">
-                    <div class="start-grid-icon">🏆</div>
+                <div class="start-grid-item item-teal">
+                    <div class="start-grid-head">
+                        <div class="start-grid-icon-circle bg-teal">
+                            <span>🏆</span>
+                        </div>
+                        <span class="start-step-num num-teal">01</span>
+                    </div>
                     <div class="start-grid-title">Podium Multi-Tim</div>
-                    <div class="start-grid-desc">Skor otomatis, pengganda poin (x1, x2, x3), dan indikator giliran tim aktif.</div>
+                    <div class="start-grid-desc">Skor otomatis real-time, round multiplier (x1, x2, x3), dan indikator giliran tim aktif.</div>
+                    <div class="start-grid-pill pill-teal">Mutu: Real-time Scoring &amp; Turn</div>
                 </div>
-                <div class="start-grid-item">
-                    <div class="start-grid-icon">📺</div>
+
+                <div class="start-grid-item item-blue">
+                    <div class="start-grid-head">
+                        <div class="start-grid-icon-circle bg-blue">
+                            <span>📺</span>
+                        </div>
+                        <span class="start-step-num num-blue">02</span>
+                    </div>
                     <div class="start-grid-title">Papan Survei 8 Slot</div>
-                    <div class="start-grid-desc">Animasi flip buka jawaban, audio studio Ting &amp; Tetot, dan auto-cek sinonim.</div>
+                    <div class="start-grid-desc">Animasi flip buka jawaban, audio studio Ting &amp; Tetot, serta auto-cek sinonim.</div>
+                    <div class="start-grid-pill pill-blue">Validasi: Auto-match Sinonim &amp; ACK</div>
                 </div>
-                <div class="start-grid-item">
-                    <div class="start-grid-icon">📱</div>
+
+                <div class="start-grid-item item-amber">
+                    <div class="start-grid-head">
+                        <div class="start-grid-icon-circle bg-amber">
+                            <span>📱</span>
+                        </div>
+                        <span class="start-step-num num-amber">03</span>
+                    </div>
                     <div class="start-grid-title">Live Remote Sync HP</div>
-                    <div class="start-grid-desc">Host ketik jawaban &amp; kendalikan kuis dari HP, layar TV/laptop update langsung.</div>
+                    <div class="start-grid-desc">Host ketik jawaban &amp; kontrol kuis dari HP, layar TV/laptop update seketika tanpa kabel.</div>
+                    <div class="start-grid-pill pill-amber">Data Exchange: Near-Real-Time Sync</div>
+                </div>
+            </div>
+
+            <!-- Callout Tip Box persis seperti di PPT (Slide 6, 7, 10, 15) -->
+            <div class="start-callout-box" aria-hidden="true">
+                <div class="callout-icon-circle">💡</div>
+                <div class="callout-text">
+                    <strong>Tips Host:</strong> Buka mode <strong>📡 Remote HP</strong> untuk mengetik jawaban dari ponsel tanpa perlu kembali ke laptop • Tekan <strong>F11</strong> untuk Layar Penuh TV • Tekan <strong>Enter</strong> untuk Cek jawaban.
                 </div>
             </div>
 
             <div class="start-cta-wrap">
-                <button type="button" id="btn-start-game" class="btn btn-start">▶ MULAI PERMAINAN SEKARANG</button>
+                <button type="button" id="btn-start-game" class="btn btn-start">▶ MULAI PERMAINAN SEKARANG (ENTER)</button>
             </div>
 
-            <div class="start-footer-bar">
-                <button type="button" id="btn-start-live" class="btn btn-secondary btn-sm">📡 Hubungkan Remote HP</button>
-                <div class="start-shortcuts">
-                    <span>💡 Tips: <strong>Enter</strong> Cek • <strong>Spasi</strong> Acak Soal • <strong>F11</strong> Layar Penuh TV</span>
+            <!-- Slide Footer (Slide 1-71 style) -->
+            <div class="start-slide-footer">
+                <div class="slide-footer-left">
+                    <span>Synxchro x DJPK</span>
+                    <span class="footer-dot">·</span>
+                    <span class="footer-accent">Data Exchange</span>
+                    <span class="footer-dot">·</span>
+                    <span>Codeera Studio</span>
                 </div>
-                <span class="start-hint">🔊 Audio Studio Siap</span>
+                <div class="slide-footer-right">
+                    <button type="button" id="btn-start-live" class="btn btn-secondary btn-xs">📡 Hubungkan Remote HP</button>
+                    <span class="footer-confidential">Confidential</span>
+                </div>
             </div>
         </div>
     </div>

@@ -1296,12 +1296,12 @@
             if (el.btnTheme) {
                 el.btnTheme.textContent = isLight ? '🌙' : '☀️';
                 el.btnTheme.setAttribute('aria-pressed', String(isLight));
-                el.btnTheme.title = isLight ? 'Beralih ke Tema Gelap Studio' : 'Beralih ke Tema Clean Putih';
+                el.btnTheme.title = isLight ? 'Beralih ke Tema Gelap Studio' : 'Beralih ke Tema PPT Data Exchange';
             }
             const btnStartTheme = document.getElementById('btn-start-theme');
             if (btnStartTheme) {
-                btnStartTheme.textContent = isLight ? '🌙 Mode Studio Gelap' : '☀️ Mode Clean Putih';
-                btnStartTheme.title = isLight ? 'Beralih ke tema studio gelap' : 'Beralih ke tema putih bersih';
+                btnStartTheme.textContent = isLight ? '🌙 Mode Studio Gelap' : '☀️ Mode PPT Data Exchange';
+                btnStartTheme.title = isLight ? 'Beralih ke tema studio gelap' : 'Beralih ke tema PPT Data Exchange';
             }
             try {
                 localStorage.setItem('family100_theme', theme);
