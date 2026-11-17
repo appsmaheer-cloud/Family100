@@ -146,12 +146,12 @@ body {
 }
 
 [data-theme="light"] .robot-head {
-    fill: #E2E8F0;
+    fill: url(#f100BotHead);
     stroke: #64748B;
 }
 
 [data-theme="light"] .robot-visor {
-    fill: #CBD5E1;
+    fill: url(#f100BotVisor);
 }
 
 [data-theme="light"] .person-body {
@@ -1503,86 +1503,201 @@ body {
     transform: translateY(-6px);
 }
 
-/* 3 Kontestan di belakang podium */
+/* 5 Kontestan Robot Lucu di belakang podium */
 .podium-contestants {
     position: relative;
     width: 100%;
-    height: 58px;
+    height: 74px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-bottom: -4px;
+    margin-bottom: -5px;
     z-index: 1;
 }
 
 .contestants-svg {
-    width: 142px;
-    height: 58px;
+    width: 100%;
+    max-width: 224px;
+    height: 74px;
     overflow: visible;
 }
 
 .robot-antenna {
-    stroke: #94A3B8;
+    stroke: #64748B;
     stroke-width: 2;
     stroke-linecap: round;
 }
 
 .robot-bulb {
-    fill: #64748B;
+    fill: #94A3B8;
+    transition: fill 0.2s ease;
 }
 
 .podium-unit.active .robot-bulb {
     fill: #38BDF8;
 }
 
+.podium-unit.celebrate .robot-bulb {
+    fill: #FACC15;
+}
+
+.podium-unit.sad .robot-bulb,
+.podium-unit.sad-wrong .robot-bulb {
+    fill: #EF4444;
+}
+
+.robot-ear {
+    fill: #64748B;
+}
+
+.robot-neck {
+    fill: #475569;
+}
+
 .robot-head {
-    fill: #1E293B;
-    stroke: #94A3B8;
-    stroke-width: 1.5;
+    fill: url(#f100BotHead);
+    stroke: #64748B;
+    stroke-width: 1.4;
 }
 
 .podium-unit.active .robot-head {
-    stroke: #38BDF8;
+    stroke: #0284C7;
+}
+
+.robot-shine {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.85);
+    stroke-width: 1.5;
+    stroke-linecap: round;
 }
 
 .robot-visor {
-    fill: #0B1222;
+    fill: url(#f100BotVisor);
+}
+
+.robot-blush {
+    fill: #FB7185;
+    opacity: 0.7;
 }
 
 .robot-eye {
     fill: #38BDF8;
 }
 
+.robot-eye-sparkle {
+    fill: #FFFFFF;
+}
+
+.robot-mouth {
+    fill: none;
+    stroke: #38BDF8;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+}
+
+.robot-eye-arc {
+    fill: none;
+    stroke: #34D399;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.robot-mouth-open {
+    fill: #FACC15;
+}
+
+.robot-eye-sad {
+    fill: none;
+    stroke: #60A5FA;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+.robot-tear {
+    fill: #38BDF8;
+    animation: tearDrop 0.7s ease-in-out infinite;
+}
+
+.robot-mouth-sad {
+    fill: none;
+    stroke: #60A5FA;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+}
+
+.robot-eye-x {
+    fill: none;
+    stroke: #F87171;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.robot-mouth-shock {
+    fill: none;
+    stroke: #F87171;
+    stroke-width: 1.6;
+}
+
+/* Kontrol Visibilitas Ekspresi Robot */
+.expr { display: none; }
+.expr-idle { display: inline; }
+
+.podium-unit.celebrate .expr-idle { display: none; }
+.podium-unit.celebrate .expr-happy { display: inline; }
+
+.podium-unit.sad .expr-idle { display: none; }
+.podium-unit.sad .expr-sad { display: inline; }
+
+.podium-unit.sad-wrong .expr-idle { display: none; }
+.podium-unit.sad-wrong .expr-shock { display: inline; }
+
+.robot-core {
+    fill: #38BDF8;
+    opacity: 0.85;
+}
+
+.podium-unit.celebrate .robot-core {
+    fill: #FACC15;
+}
+
+.podium-unit.sad .robot-core,
+.podium-unit.sad-wrong .robot-core {
+    fill: #EF4444;
+}
+
 .person-body {
     stroke: #0F172A;
-    stroke-width: 1.5;
+    stroke-width: 1.3;
 }
 
 .robot-arm {
     stroke: #94A3B8;
-    stroke-width: 4;
+    stroke-width: 3.6;
     stroke-linecap: round;
     fill: none;
 }
 
 .podium-unit.active .robot-arm-l {
-    transform-origin: 22px 40px;
     animation: armWaveL 0.65s ease-in-out infinite;
 }
 
 .podium-unit.active .robot-arm-r {
-    transform-origin: 46px 40px;
     animation: armWaveR 0.65s ease-in-out infinite;
 }
 
 @keyframes armWaveL {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(-22deg); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
 
 @keyframes armWaveR {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(22deg); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes tearDrop {
+    0%, 100% { transform: translateY(0); opacity: 0.9; }
+    50% { transform: translateY(2.5px); opacity: 0.4; }
 }
 
 .podium-red .shirt-a { fill: #DC2626; }
@@ -1605,43 +1720,83 @@ body {
 .discuss-bubble {
     position: absolute;
     top: -10px;
-    right: 18%;
-    font-size: 1.05rem;
+    right: 14%;
+    font-size: 1rem;
     background: #FFFFFF;
     border-radius: 999px;
     padding: 1px 6px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
     animation: bubbleFloat 1.1s ease-in-out infinite;
     z-index: 3;
 }
 
-.podium-unit.active .person-left {
-    transform-origin: 34px 60px;
-    animation: discussLeft 0.9s ease-in-out infinite;
+.react-bubble {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.15rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+    z-index: 5;
+    animation: reactPop 0.4s ease-out forwards;
+    white-space: nowrap;
 }
 
-.podium-unit.active .person-right {
-    transform-origin: 116px 60px;
+.react-happy {
+    background: #D1FAE5;
+    border: 1.5px solid #10B981;
+}
+
+.react-sad {
+    background: #FFE4E6;
+    border: 1.5px solid #F43F5E;
+}
+
+@keyframes reactPop {
+    0% { transform: translateX(-50%) scale(0.5) translateY(8px); opacity: 0; }
+    70% { transform: translateX(-50%) scale(1.12) translateY(-2px); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1) translateY(0); opacity: 1; }
+}
+
+.podium-unit.active .person-l2,
+.podium-unit.active .person-l1 {
+    animation: discussLeft 0.9s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
+}
+
+.podium-unit.active .person-r1,
+.podium-unit.active .person-r2 {
     animation: discussRight 0.9s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
 }
 
 .podium-unit.active .person-center {
-    transform-origin: 75px 60px;
     animation: discussCenter 0.75s ease-in-out infinite;
 }
 
 .podium-unit.celebrate .person {
-    animation: cheerJump 0.45s ease-in-out 2 !important;
+    animation: cheerJump 0.42s ease-in-out 4 !important;
+    animation-delay: var(--bot-delay, 0s) !important;
+}
+
+.podium-unit.sad .person {
+    animation: sadDroop 1.1s ease-in-out 2 !important;
+}
+
+.podium-unit.sad-wrong .person {
+    animation: shockShake 0.32s ease-in-out 4 !important;
 }
 
 @keyframes discussLeft {
-    0%, 100% { transform: rotate(0deg) translateY(0); }
-    50% { transform: rotate(8deg) translateY(-2px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
 }
 
 @keyframes discussRight {
-    0%, 100% { transform: rotate(0deg) translateY(0); }
-    50% { transform: rotate(-8deg) translateY(-2px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
 }
 
 @keyframes discussCenter {
@@ -1651,7 +1806,18 @@ body {
 
 @keyframes cheerJump {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-9px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes sadDroop {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+@keyframes shockShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
 }
 
 @keyframes bubbleFloat {

@@ -524,74 +524,174 @@
     function createContestantsSvg() {
         const ns = 'http://www.w3.org/2000/svg';
         const svg = document.createElementNS(ns, 'svg');
-        svg.setAttribute('viewBox', '0 0 150 64');
+        svg.setAttribute('viewBox', '0 0 220 78');
         svg.setAttribute('class', 'contestants-svg');
         svg.setAttribute('aria-hidden', 'true');
 
+        const defs = document.createElementNS(ns, 'defs');
+        defs.innerHTML = `
+            <linearGradient id="f100BotHead" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="55%" stop-color="#E2E8F0"/>
+                <stop offset="100%" stop-color="#94A3B8"/>
+            </linearGradient>
+            <linearGradient id="f100BotVisor" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0F172A"/>
+                <stop offset="100%" stop-color="#1E293B"/>
+            </linearGradient>
+        `;
+        svg.appendChild(defs);
+
         const robots = [
-            { cx: 34, cls: 'person person-left', shirt: 'shirt-a' },
-            { cx: 75, cls: 'person person-center', shirt: 'shirt-b' },
-            { cx: 116, cls: 'person person-right', shirt: 'shirt-a' },
+            { cx: 26, dy: 5, scale: 0.9, cls: 'person person-l2', shirt: 'shirt-a' },
+            { cx: 68, dy: 2, scale: 0.95, cls: 'person person-l1', shirt: 'shirt-b' },
+            { cx: 110, dy: -2, scale: 1.02, cls: 'person person-center', shirt: 'shirt-a' },
+            { cx: 152, dy: 2, scale: 0.95, cls: 'person person-r1', shirt: 'shirt-b' },
+            { cx: 194, dy: 5, scale: 0.9, cls: 'person person-r2', shirt: 'shirt-a' },
         ];
 
-        robots.forEach((p) => {
+        robots.forEach((p, idx) => {
             const g = document.createElementNS(ns, 'g');
             g.setAttribute('class', p.cls);
+            g.setAttribute('transform', `translate(${p.cx}, ${p.dy}) scale(${p.scale}) translate(${-p.cx}, 0)`);
+            g.style.setProperty('--bot-delay', `${(idx * 0.07).toFixed(2)}s`);
 
+            // Antena & lampu
             const ant = document.createElementNS(ns, 'line');
             ant.setAttribute('x1', String(p.cx));
-            ant.setAttribute('y1', '4');
+            ant.setAttribute('y1', '5');
             ant.setAttribute('x2', String(p.cx));
-            ant.setAttribute('y2', '11');
+            ant.setAttribute('y2', '12');
             ant.setAttribute('class', 'robot-antenna');
 
             const bulb = document.createElementNS(ns, 'circle');
             bulb.setAttribute('cx', String(p.cx));
-            bulb.setAttribute('cy', '3.5');
-            bulb.setAttribute('r', '2.5');
+            bulb.setAttribute('cy', '4');
+            bulb.setAttribute('r', '2.8');
             bulb.setAttribute('class', 'robot-bulb');
 
+            // Ear pods kiri & kanan
+            const earL = document.createElementNS(ns, 'rect');
+            earL.setAttribute('x', String(p.cx - 16));
+            earL.setAttribute('y', '18');
+            earL.setAttribute('width', '4');
+            earL.setAttribute('height', '9');
+            earL.setAttribute('rx', '2');
+            earL.setAttribute('class', 'robot-ear');
+
+            const earR = document.createElementNS(ns, 'rect');
+            earR.setAttribute('x', String(p.cx + 12));
+            earR.setAttribute('y', '18');
+            earR.setAttribute('width', '4');
+            earR.setAttribute('height', '9');
+            earR.setAttribute('rx', '2');
+            earR.setAttribute('class', 'robot-ear');
+
+            // Kepala 3D lucu membulat
             const head = document.createElementNS(ns, 'rect');
-            head.setAttribute('x', String(p.cx - 12));
+            head.setAttribute('x', String(p.cx - 14));
             head.setAttribute('y', '11');
-            head.setAttribute('width', '24');
-            head.setAttribute('height', '19');
-            head.setAttribute('rx', '6');
+            head.setAttribute('width', '28');
+            head.setAttribute('height', '23');
+            head.setAttribute('rx', '9');
             head.setAttribute('class', 'robot-head');
 
+            // Kilau atas kepala
+            const headShine = document.createElementNS(ns, 'path');
+            headShine.setAttribute('d', `M${p.cx - 8} 13.5 Q${p.cx} 11.5 ${p.cx + 8} 13.5`);
+            headShine.setAttribute('class', 'robot-shine');
+
+            // Visor kaca gelap
             const visor = document.createElementNS(ns, 'rect');
-            visor.setAttribute('x', String(p.cx - 9));
-            visor.setAttribute('y', '16');
-            visor.setAttribute('width', '18');
-            visor.setAttribute('height', '8');
-            visor.setAttribute('rx', '4');
+            visor.setAttribute('x', String(p.cx - 11));
+            visor.setAttribute('y', '15.5');
+            visor.setAttribute('width', '22');
+            visor.setAttribute('height', '14');
+            visor.setAttribute('rx', '5.5');
             visor.setAttribute('class', 'robot-visor');
 
-            const eyeL = document.createElementNS(ns, 'circle');
-            eyeL.setAttribute('cx', String(p.cx - 4));
-            eyeL.setAttribute('cy', '20');
-            eyeL.setAttribute('r', '1.8');
-            eyeL.setAttribute('class', 'robot-eye');
+            // Pipi merona lucu
+            const blushL = document.createElementNS(ns, 'ellipse');
+            blushL.setAttribute('cx', String(p.cx - 7.5));
+            blushL.setAttribute('cy', '25.2');
+            blushL.setAttribute('rx', '2.2');
+            blushL.setAttribute('ry', '1.2');
+            blushL.setAttribute('class', 'robot-blush');
 
-            const eyeR = document.createElementNS(ns, 'circle');
-            eyeR.setAttribute('cx', String(p.cx + 4));
-            eyeR.setAttribute('cy', '20');
-            eyeR.setAttribute('r', '1.8');
-            eyeR.setAttribute('class', 'robot-eye');
+            const blushR = document.createElementNS(ns, 'ellipse');
+            blushR.setAttribute('cx', String(p.cx + 7.5));
+            blushR.setAttribute('cy', '25.2');
+            blushR.setAttribute('rx', '2.2');
+            blushR.setAttribute('ry', '1.2');
+            blushR.setAttribute('class', 'robot-blush');
+
+            // Ekspresi 1: Normal / Idle (mata bulat bersinar + senyum kecil)
+            const exprIdle = document.createElementNS(ns, 'g');
+            exprIdle.setAttribute('class', 'expr expr-idle');
+            exprIdle.innerHTML = `
+                <circle cx="${p.cx - 4.8}" cy="21.5" r="2.3" class="robot-eye"/>
+                <circle cx="${p.cx + 4.8}" cy="21.5" r="2.3" class="robot-eye"/>
+                <circle cx="${p.cx - 5.5}" cy="20.7" r="0.85" class="robot-eye-sparkle"/>
+                <circle cx="${p.cx + 4.1}" cy="20.7" r="0.85" class="robot-eye-sparkle"/>
+                <path d="M${p.cx - 3} 26 Q${p.cx} 28.2 ${p.cx + 3} 26" class="robot-mouth"/>
+            `;
+
+            // Ekspresi 2: Senang / Sorak (^ ^ + ketawa lebar)
+            const exprHappy = document.createElementNS(ns, 'g');
+            exprHappy.setAttribute('class', 'expr expr-happy');
+            exprHappy.innerHTML = `
+                <path d="M${p.cx - 7.2} 22.2 Q${p.cx - 4.8} 18.8 ${p.cx - 2.4} 22.2" class="robot-eye-arc"/>
+                <path d="M${p.cx + 2.4} 22.2 Q${p.cx + 4.8} 18.8 ${p.cx + 7.2} 22.2" class="robot-eye-arc"/>
+                <path d="M${p.cx - 4} 24.8 Q${p.cx} 29.2 ${p.cx + 4} 24.8 Z" class="robot-mouth-open"/>
+            `;
+
+            // Ekspresi 3: Sedih (mata T_T + air mata + cemberut)
+            const exprSad = document.createElementNS(ns, 'g');
+            exprSad.setAttribute('class', 'expr expr-sad');
+            exprSad.innerHTML = `
+                <path d="M${p.cx - 7.2} 20.5 Q${p.cx - 4.8} 22.5 ${p.cx - 2.4} 21.5" class="robot-eye-sad"/>
+                <path d="M${p.cx + 2.4} 21.5 Q${p.cx + 4.8} 22.5 ${p.cx + 7.2} 20.5" class="robot-eye-sad"/>
+                <circle cx="${p.cx - 6.5}" cy="24.2" r="1.1" class="robot-tear"/>
+                <circle cx="${p.cx + 6.5}" cy="24.2" r="1.1" class="robot-tear"/>
+                <path d="M${p.cx - 3.2} 27.5 Q${p.cx} 25 ${p.cx + 3.2} 27.5" class="robot-mouth-sad"/>
+            `;
+
+            // Ekspresi 4: Salah / Kaget (X X + mulut O)
+            const exprShock = document.createElementNS(ns, 'g');
+            exprShock.setAttribute('class', 'expr expr-shock');
+            exprShock.innerHTML = `
+                <path d="M${p.cx - 6.8} 19.6 L${p.cx - 2.8} 23.2 M${p.cx - 2.8} 19.6 L${p.cx - 6.8} 23.2" class="robot-eye-x"/>
+                <path d="M${p.cx + 2.8} 19.6 L${p.cx + 6.8} 23.2 M${p.cx + 6.8} 19.6 L${p.cx + 2.8} 23.2" class="robot-eye-x"/>
+                <ellipse cx="${p.cx}" cy="26.5" rx="2.4" ry="1.8" class="robot-mouth-shock"/>
+            `;
+
+            // Leher & Badan 3D
+            const neck = document.createElementNS(ns, 'rect');
+            neck.setAttribute('x', String(p.cx - 3.5));
+            neck.setAttribute('y', '33.5');
+            neck.setAttribute('width', '7');
+            neck.setAttribute('height', '4');
+            neck.setAttribute('class', 'robot-neck');
 
             const body = document.createElementNS(ns, 'path');
-            body.setAttribute('d', `M${p.cx - 15} 64 L${p.cx - 12} 34 C${p.cx - 12} 32, ${p.cx + 12} 32, ${p.cx + 12} 34 L${p.cx + 15} 64 Z`);
+            body.setAttribute('d', `M${p.cx - 14} 78 L${p.cx - 11.5} 39 C${p.cx - 11.5} 36, ${p.cx + 11.5} 36, ${p.cx + 11.5} 39 L${p.cx + 14} 78 Z`);
             body.setAttribute('class', `person-body ${p.shirt}`);
 
+            const core = document.createElementNS(ns, 'circle');
+            core.setAttribute('cx', String(p.cx));
+            core.setAttribute('cy', '49');
+            core.setAttribute('r', '2.8');
+            core.setAttribute('class', 'robot-core');
+
             const armL = document.createElementNS(ns, 'path');
-            armL.setAttribute('d', `M${p.cx - 12} 38 L${p.cx - 21} 49`);
+            armL.setAttribute('d', `M${p.cx - 11.5} 42 Q${p.cx - 17} 48 ${p.cx - 15.5} 55`);
             armL.setAttribute('class', 'robot-arm robot-arm-l');
 
             const armR = document.createElementNS(ns, 'path');
-            armR.setAttribute('d', `M${p.cx + 12} 38 L${p.cx + 21} 49`);
+            armR.setAttribute('d', `M${p.cx + 11.5} 42 Q${p.cx + 17} 48 ${p.cx + 15.5} 55`);
             armR.setAttribute('class', 'robot-arm robot-arm-r');
 
-            g.append(ant, bulb, head, visor, eyeL, eyeR, armL, armR, body);
+            g.append(ant, bulb, earL, earR, neck, armL, armR, body, core, head, headShine, visor, blushL, blushR, exprIdle, exprHappy, exprSad, exprShock);
             svg.appendChild(g);
         });
 
@@ -720,6 +820,54 @@
         el.history.prepend(li);
     }
 
+    let reactionTimer = null;
+
+    function triggerTeamReactions(type) {
+        if (!el.teamsContainer) return;
+        const units = el.teamsContainer.querySelectorAll('.podium-unit');
+        if (reactionTimer) {
+            clearTimeout(reactionTimer);
+            reactionTimer = null;
+        }
+        units.forEach((unit) => {
+            unit.classList.remove('celebrate', 'sad', 'sad-wrong');
+            const oldReact = unit.querySelector('.react-bubble');
+            if (oldReact) oldReact.remove();
+
+            const teamIdx = Number(unit.dataset.team);
+            const isAct = teamIdx === state.activeTeam;
+            const crew = unit.querySelector('.podium-contestants');
+
+            const isHappy = (type === 'correct' && isAct) || (type === 'wrong' && !isAct);
+            const isSad = type === 'correct' && !isAct;
+            const isShock = type === 'wrong' && isAct;
+
+            if (isHappy) {
+                unit.classList.add('celebrate');
+            } else if (isSad) {
+                unit.classList.add('sad');
+            } else if (isShock) {
+                unit.classList.add('sad-wrong');
+            }
+
+            if (crew && (isHappy || isSad || isShock)) {
+                const rb = document.createElement('span');
+                rb.className = `react-bubble ${isHappy ? 'react-happy' : 'react-sad'}`;
+                rb.textContent = isHappy ? (type === 'wrong' ? '😆🎉' : '😄🎉') : (isShock ? '😵❌' : '😢');
+                crew.appendChild(rb);
+            }
+        });
+
+        reactionTimer = setTimeout(() => {
+            units.forEach((unit) => {
+                unit.classList.remove('celebrate', 'sad', 'sad-wrong');
+                const oldReact = unit.querySelector('.react-bubble');
+                if (oldReact) oldReact.remove();
+            });
+            reactionTimer = null;
+        }, 2300);
+    }
+
     function triggerWrongEffect() {
         playWrongSound();
         const xBox = el.wrongOverlay.querySelector('.wrong-x');
@@ -730,6 +878,7 @@
         el.board.classList.remove('board-shake');
         void el.board.offsetWidth;
         el.board.classList.add('board-shake');
+        triggerTeamReactions('wrong');
         setTimeout(() => el.wrongOverlay.classList.remove('show'), 750);
     }
 
@@ -746,11 +895,7 @@
             void target.offsetWidth;
             target.classList.add('pop');
         }
-        const unit = el.teamsContainer ? el.teamsContainer.querySelector(`.podium-unit[data-team="${state.activeTeam}"]`) : null;
-        if (unit) {
-            unit.classList.add('celebrate');
-            setTimeout(() => unit.classList.remove('celebrate'), 1100);
-        }
+        triggerTeamReactions('correct');
     }
 
     function resetRound() {
