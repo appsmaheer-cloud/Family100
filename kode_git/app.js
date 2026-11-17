@@ -343,8 +343,19 @@
         ['CURHAT', 'CERITA', 'BERCERITA', 'NGOBROL', 'SHARING'],
         ['MARAH MARAH', 'MARAH', 'NGAMUK', 'EMOSI', 'KESAL', 'MENGAMUK'],
         ['JALAN JALAN', 'LIBURAN', 'PIKNIK', 'HEALING', 'REFRESHING', 'REKREASI', 'TRAVELING', 'BERLIBUR'],
-        ['MELAMUN', 'NGELAMUN', 'LAMUN', 'TERMENUNG', 'MELONGO'],
+        ['MELAMUN', 'NGELAMUN', 'LAMUN', 'BENGONG', 'TERMENUNG', 'MELONGO', 'TERDIAM', 'MENGKHAYAL'],
         ['DIAM', 'DIEM', 'BUNGKAM', 'PENDIAM', 'MENENG'],
+        ['TIDUR', 'BOBOK', 'KETIDURAN', 'NGOROK', 'TERLELAP'],
+        ['MAKAN', 'SANTAP', 'JAJAN', 'NGEMIL', 'KULINER'],
+        ['MINUM', 'NGOPI', 'NGETEH', 'HAUS'],
+        ['HANDPHONE', 'HP', 'PONSEL', 'GADGET', 'GAWAI', 'SMARTPHONE'],
+        ['UANG', 'DUIT', 'CUAN', 'RUPIAH', 'DANA'],
+        ['SENANG', 'BAHAGIA', 'GEMBIRA', 'HAPPY', 'CERIA'],
+        ['CAPEK', 'LELAH', 'LETIH', 'PENAT', 'LESU'],
+        ['MALU', 'MINDER', 'SUNGKAN', 'SEGAN'],
+        ['TAKUT', 'NGEPER', 'CIUT', 'KHAWATIR', 'CEMES'],
+        ['BEKERJA', 'KERJA', 'NGANTOR', 'KANTOR', 'DINAS'],
+        ['TERLAMBAT', 'TELAT', 'NGARET'],
         ['CENGENGESAN', 'KETAWA', 'TERTAWA', 'NYENGIR', 'SENYUM', 'CEKIKIKAN'],
         ['GUGUP', 'GROGI', 'NERVOUS', 'PANIK', 'GEMETAR'],
         ['MENCARI ALASAN', 'CARI ALASAN', 'NGELES', 'ALASAN', 'BERDALIH'],
@@ -743,6 +754,27 @@
     }
 
     async function checkAnswerRemoteOrLocal(q, guess) {
+        // Cek langsung secara lokal (0ms) bila daftar jawaban sudah termuat agar tidak menunggu 5 detik ke GAS
+        if (Array.isArray(q.answers) && q.answers.length > 0) {
+            const normGuess = normalizeText(guess);
+            if (!normGuess) return { ok: true, found: false, empty: true };
+
+            let alreadyMatched = null;
+            for (const ans of q.answers) {
+                if (isMatch(normalizeText(ans.answer_text), normGuess)) {
+                    if (state.revealedIds.has(Number(ans.id))) {
+                        alreadyMatched = ans;
+                        continue;
+                    }
+                    return { ok: true, found: true, already_revealed: false, answer: ans };
+                }
+            }
+            if (alreadyMatched) {
+                return { ok: true, found: true, already_revealed: true, answer: alreadyMatched };
+            }
+            return { ok: true, found: false };
+        }
+
         if (state.gasUrl) {
             const res = await fetch(state.gasUrl, {
                 method: 'POST',
@@ -756,28 +788,12 @@
             });
             return await res.json();
         }
-
-        const normGuess = normalizeText(guess);
-        if (!normGuess) return { ok: true, found: false, empty: true };
-
-        let alreadyMatched = null;
-        for (const ans of q.answers) {
-            if (isMatch(normalizeText(ans.answer_text), normGuess)) {
-                if (state.revealedIds.has(Number(ans.id))) {
-                    alreadyMatched = ans;
-                    continue;
-                }
-                return { ok: true, found: true, already_revealed: false, answer: ans };
-            }
-        }
-        if (alreadyMatched) {
-            return { ok: true, found: true, already_revealed: true, answer: alreadyMatched };
-        }
         return { ok: true, found: false };
     }
 
     async function handleCheckAnswer(e) {
         e.preventDefault();
+        if (state.isChecking) return;
         const q = currentQuestion();
         if (!q) return;
         const guess = el.input.value.trim();
@@ -786,31 +802,40 @@
             return;
         }
 
-        const data = await checkAnswerRemoteOrLocal(q, guess);
-        if (data.found && !data.already_revealed && data.answer) {
-            const teamName = getTeamName(state.activeTeam);
-            state.revealedIds.add(Number(data.answer.id));
-            state.teams[state.activeTeam].score += Number(data.answer.points);
-            playCorrectSound();
-            spawnConfetti();
-            renderBoard();
-            triggerScorePop();
-            addHistoryItem(`[${teamName}] ${data.answer.answer_text}`, true, data.answer.points);
-            setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk ${teamName})`, 'ok');
-            setHostSpeech(`Tepat sekali! ${data.answer.answer_text} (+${data.answer.points})!`);
-        } else if (data.found && data.already_revealed) {
-            setFeedback(`Jawaban "${data.answer.answer_text}" sudah terbuka sebelumnya.`, 'err');
-        } else {
-            const teamName = getTeamName(state.activeTeam);
-            state.strikes = Math.min(3, state.strikes + 1);
-            renderBoard();
-            triggerWrongEffect();
-            addHistoryItem(`[${teamName}] ${guess}`, false, 0);
-            setFeedback(`TETOT! "${guess}" tidak ada di papan jawaban!`, 'err');
-            setHostSpeech(`TETOT! Belum tepat, ayo diskusi lagi ${teamName}!`);
+        const submitBtn = document.getElementById('btn-submit');
+        state.isChecking = true;
+        if (submitBtn) submitBtn.disabled = true;
+
+        try {
+            const data = await checkAnswerRemoteOrLocal(q, guess);
+            if (data.found && !data.already_revealed && data.answer) {
+                const teamName = getTeamName(state.activeTeam);
+                state.revealedIds.add(Number(data.answer.id));
+                state.teams[state.activeTeam].score += Number(data.answer.points);
+                playCorrectSound();
+                spawnConfetti();
+                renderBoard();
+                triggerScorePop();
+                addHistoryItem(`[${teamName}] ${data.answer.answer_text}`, true, data.answer.points);
+                setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk ${teamName})`, 'ok');
+                setHostSpeech(`Tepat sekali! ${data.answer.answer_text} (+${data.answer.points})!`);
+            } else if (data.found && data.already_revealed) {
+                setFeedback(`Jawaban "${data.answer.answer_text}" sudah terbuka sebelumnya.`, 'err');
+            } else {
+                const teamName = getTeamName(state.activeTeam);
+                state.strikes = Math.min(3, state.strikes + 1);
+                renderBoard();
+                triggerWrongEffect();
+                addHistoryItem(`[${teamName}] ${guess}`, false, 0);
+                setFeedback(`TETOT! "${guess}" tidak ada di papan jawaban!`, 'err');
+                setHostSpeech(`TETOT! Belum tepat, ayo diskusi lagi ${teamName}!`);
+            }
+            el.input.value = '';
+            el.input.focus();
+        } finally {
+            state.isChecking = false;
+            if (submitBtn) submitBtn.disabled = false;
         }
-        el.input.value = '';
-        el.input.focus();
     }
 
     function addAnswerInputRow(defaultPoints = 100) {
