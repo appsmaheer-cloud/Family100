@@ -1901,6 +1901,12 @@ body {
     }
 }
 
+.btn.live-active {
+    background: #059669;
+    border-color: #34D399;
+    color: #FFFFFF;
+}
+
 /* Responsive */
 @media (max-width: 1080px) {
     .studio-arena {

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Permainan Family 100 — GAS &amp; Git</title>
     <link rel="icon" type="image/png" href="favicon-codeera.png">
-    <link rel="stylesheet" href="style.css?v=11">
+    <link rel="stylesheet" href="style.css?v=14">
 </head>
 
 <body>
@@ -27,6 +27,7 @@
             <button type="button" id="btn-random" class="btn btn-secondary">Acak Soal</button>
             <button type="button" id="btn-manage" class="btn btn-secondary">Kelola Soal</button>
             <button type="button" id="btn-gas-config" class="btn btn-secondary">URL GAS</button>
+            <button type="button" id="btn-live" class="btn btn-secondary" title="Kontrol Live HP ke Desktop">📡 Live</button>
             <button type="button" id="btn-sound" class="btn btn-icon" aria-pressed="true"
                 title="Suara Aktif">🔊</button>
             <button type="button" id="btn-fullscreen" class="btn btn-icon" title="Layar Penuh">⛶</button>
@@ -218,7 +219,40 @@
         </div>
     </div>
 
-    <script src="app.js?v=13"></script>
+    <!-- Modal Live Sync HP ↔ Desktop -->
+    <div id="live-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="live-modal-title" hidden>
+        <div class="modal-backdrop" data-close-live="true"></div>
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="live-modal-title">📡 Sinkronisasi Live (HP ↔ Desktop)</h3>
+                <button type="button" id="btn-close-live" class="btn btn-icon" aria-label="Tutup">✕</button>
+            </div>
+            <div class="modal-body">
+                <p id="live-status-text" class="feedback-msg">Status: Belum terhubung ke room live.</p>
+                <div class="form-group">
+                    <label for="live-room-input">Kode Room</label>
+                    <div style="display:flex; gap:8px;">
+                        <input type="text" id="live-room-input" class="input-field" value="F100" maxlength="24" placeholder="F100">
+                        <button type="button" id="btn-live-rand" class="btn btn-secondary btn-sm">Acak</button>
+                    </div>
+                </div>
+                <div class="form-group" style="display:flex; flex-wrap:wrap; gap:8px;">
+                    <button type="button" id="btn-live-display" class="btn btn-primary">🖥️ Jadikan Layar Desktop (Tampil)</button>
+                    <button type="button" id="btn-live-host" class="btn btn-secondary">📱 Jadikan Remote HP (Kontrol)</button>
+                    <button type="button" id="btn-live-stop" class="btn btn-danger btn-sm">Matikan Live</button>
+                </div>
+                <div class="form-group">
+                    <label for="live-hp-url">Buka Link Ini di HP Anda (Otomatis Remote Host):</label>
+                    <div style="display:flex; gap:8px;">
+                        <input type="text" id="live-hp-url" class="input-field" readonly>
+                        <button type="button" id="btn-copy-live-url" class="btn btn-secondary btn-sm">Salin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=14"></script>
 </body>
 
 </html>

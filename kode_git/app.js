@@ -831,6 +831,7 @@
                 addHistoryItem(`[${teamName}] ${data.answer.answer_text}`, true, data.answer.points);
                 setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk ${teamName})`, 'ok');
                 setHostSpeech(`Tepat sekali! ${data.answer.answer_text} (+${data.answer.points})!`);
+                syncPushIfHost('correct', `Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk ${teamName})`, 'ok');
             } else if (data.found && data.already_revealed) {
                 setFeedback(`Jawaban "${data.answer.answer_text}" sudah terbuka sebelumnya.`, 'err');
             } else {
@@ -841,6 +842,7 @@
                 addHistoryItem(`[${teamName}] ${guess}`, false, 0);
                 setFeedback(`TETOT! "${guess}" tidak ada di papan jawaban!`, 'err');
                 setHostSpeech(`TETOT! Belum tepat, ayo diskusi lagi ${teamName}!`);
+                syncPushIfHost('wrong', `TETOT! "${guess}" tidak ada di papan jawaban!`, 'err');
             }
             el.input.value = '';
             el.input.focus();
@@ -967,6 +969,235 @@
         renderSavedQuestionsList();
     }
 
+    const liveSync = {
+        mode: 'off', // 'off' | 'host' | 'display'
+        room: 'F100',
+        lastVersion: 0,
+        lastEventTs: 0,
+        pollTimer: null,
+        lastFeedbackText: '',
+        lastFeedbackType: '',
+    };
+
+    function sanitizeLiveRoom(raw) {
+        const clean = String(raw || 'F100').toUpperCase().replace(/[^A-Z0-9_-]/g, '').slice(0, 24);
+        return clean || 'F100';
+    }
+
+    function updateLiveHpUrl() {
+        const urlInput = document.getElementById('live-hp-url');
+        const roomInput = document.getElementById('live-room-input');
+        const btnLive = document.getElementById('btn-live');
+        const statusEl = document.getElementById('live-status-text');
+        const room = sanitizeLiveRoom(roomInput ? roomInput.value : liveSync.room);
+        liveSync.room = room;
+        if (urlInput) {
+            const u = new URL(window.location.href.split('?')[0]);
+            u.searchParams.set('room', room);
+            u.searchParams.set('mode', 'host');
+            if (state.gasUrl) u.searchParams.set('gasUrl', state.gasUrl);
+            urlInput.value = u.toString();
+        }
+        if (btnLive) {
+            btnLive.classList.toggle('live-active', liveSync.mode !== 'off');
+            btnLive.textContent = liveSync.mode === 'host'
+                ? `📱 HP (${room})`
+                : liveSync.mode === 'display'
+                    ? `🖥️ TV (${room})`
+                    : '📡 Live';
+        }
+        if (statusEl) {
+            statusEl.textContent = liveSync.mode === 'host'
+                ? `Status: 🟢 Remote HP aktif di room ${room}`
+                : liveSync.mode === 'display'
+                    ? `Status: 🟢 Layar Desktop mendengarkan room ${room}`
+                    : 'Status: Belum terhubung ke room live.';
+            statusEl.className = liveSync.mode === 'off' ? 'feedback-msg' : 'feedback-msg ok';
+        }
+    }
+
+    function buildLivePayload(eventType = 'update', fbText = '', fbType = '') {
+        const now = Date.now();
+        const historyItems = el.guessHistory
+            ? Array.from(el.guessHistory.children).slice(0, 8).map((li) => ({
+                text: li.textContent || '',
+                hit: li.classList.contains('hit'),
+            }))
+            : [];
+        return {
+            version: now,
+            currentIndex: state.currentIndex,
+            revealedIds: Array.from(state.revealedIds),
+            strikes: state.strikes,
+            teams: state.teams,
+            activeTeam: state.activeTeam,
+            hostSpeech: el.hostSpeech ? el.hostSpeech.textContent : '',
+            feedback: { text: fbText, type: fbType },
+            history: historyItems,
+            event: { type: eventType, ts: now },
+        };
+    }
+
+    async function syncPushIfHost(eventType = 'update', fbText = '', fbType = '') {
+        if (liveSync.mode !== 'host' || !state.gasUrl) return;
+        const payload = buildLivePayload(eventType, fbText, fbType);
+        liveSync.lastVersion = payload.version;
+        try {
+            await fetch(state.gasUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({
+                    action: 'sync_push',
+                    room: liveSync.room,
+                    state: payload,
+                }),
+            });
+        } catch (err) {
+            // Abaikan error jaringan sesaat agar game tetap lancar
+        }
+    }
+
+    function applyLiveState(remote) {
+        if (!remote || !remote.version || remote.version <= liveSync.lastVersion) return;
+        liveSync.lastVersion = remote.version;
+
+        if (typeof remote.currentIndex === 'number' && state.questions[remote.currentIndex]) {
+            state.currentIndex = remote.currentIndex;
+            if (el.select) el.select.value = String(remote.currentIndex);
+        }
+        state.revealedIds = new Set((remote.revealedIds || []).map(Number));
+        state.strikes = Number(remote.strikes || 0);
+        if (Array.isArray(remote.teams) && remote.teams.length > 0) {
+            state.teams = remote.teams;
+        }
+        state.activeTeam = Number(remote.activeTeam || 0);
+        renderBoard();
+
+        if (el.hostSpeech && remote.hostSpeech) {
+            el.hostSpeech.textContent = remote.hostSpeech;
+        }
+        if (remote.feedback && remote.feedback.text) {
+            setFeedback(remote.feedback.text, remote.feedback.type || '');
+        }
+        if (el.guessHistory && Array.isArray(remote.history)) {
+            el.guessHistory.textContent = '';
+            remote.history.forEach((h) => {
+                const li = document.createElement('li');
+                li.className = h.hit ? 'hit' : 'miss';
+                li.textContent = h.text;
+                el.guessHistory.appendChild(li);
+            });
+        }
+
+        if (remote.event && remote.event.ts && remote.event.ts > liveSync.lastEventTs) {
+            liveSync.lastEventTs = remote.event.ts;
+            if (remote.event.type === 'correct') {
+                playCorrectSound();
+                spawnConfetti();
+                triggerScorePop();
+            } else if (remote.event.type === 'wrong') {
+                triggerWrongEffect();
+            }
+        }
+    }
+
+    async function pollLiveDisplay() {
+        if (liveSync.mode !== 'display' || !state.gasUrl) return;
+        try {
+            const sep = state.gasUrl.includes('?') ? '&' : '?';
+            const res = await fetch(`${state.gasUrl}${sep}action=sync_pull&room=${encodeURIComponent(liveSync.room)}&_t=${Date.now()}`);
+            const data = await res.json();
+            if (data && data.ok && data.state) {
+                applyLiveState(data.state);
+            }
+        } catch (err) {
+            // Abaikan error polling sesaat
+        }
+    }
+
+    function setLiveMode(mode) {
+        if (liveSync.pollTimer) {
+            clearInterval(liveSync.pollTimer);
+            liveSync.pollTimer = null;
+        }
+        if (mode !== 'off' && !state.gasUrl) {
+            const statusEl = document.getElementById('live-status-text');
+            if (statusEl) {
+                statusEl.textContent = 'Isi URL GAS terlebih dahulu agar HP dan Desktop bisa terhubung online.';
+                statusEl.className = 'feedback-msg err';
+            }
+            return;
+        }
+        liveSync.mode = mode;
+        const roomInput = document.getElementById('live-room-input');
+        liveSync.room = sanitizeLiveRoom(roomInput ? roomInput.value : liveSync.room);
+        updateLiveHpUrl();
+        if (mode === 'display') {
+            pollLiveDisplay();
+            liveSync.pollTimer = setInterval(pollLiveDisplay, 1200);
+        } else if (mode === 'host') {
+            syncPushIfHost('update');
+        }
+    }
+
+    function initLiveSyncUI() {
+        const btnLive = document.getElementById('btn-live');
+        const liveModal = document.getElementById('live-modal');
+        const btnCloseLive = document.getElementById('btn-close-live');
+        const roomInput = document.getElementById('live-room-input');
+        const btnRand = document.getElementById('btn-live-rand');
+        const btnDisplay = document.getElementById('btn-live-display');
+        const btnHost = document.getElementById('btn-live-host');
+        const btnStop = document.getElementById('btn-live-stop');
+        const btnCopy = document.getElementById('btn-copy-live-url');
+
+        if (btnLive && liveModal) {
+            btnLive.addEventListener('click', () => {
+                updateLiveHpUrl();
+                liveModal.hidden = false;
+            });
+        }
+        if (btnCloseLive && liveModal) {
+            btnCloseLive.addEventListener('click', () => { liveModal.hidden = true; });
+        }
+        if (roomInput) {
+            roomInput.addEventListener('input', updateLiveHpUrl);
+        }
+        if (btnRand && roomInput) {
+            btnRand.addEventListener('click', () => {
+                const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+                let code = '';
+                for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)];
+                roomInput.value = code;
+                updateLiveHpUrl();
+            });
+        }
+        if (btnDisplay) btnDisplay.addEventListener('click', () => { setLiveMode('display'); if (liveModal) liveModal.hidden = true; });
+        if (btnHost) btnHost.addEventListener('click', () => { setLiveMode('host'); if (liveModal) liveModal.hidden = true; });
+        if (btnStop) btnStop.addEventListener('click', () => { setLiveMode('off'); });
+        if (btnCopy) {
+            btnCopy.addEventListener('click', () => {
+                const urlEl = document.getElementById('live-hp-url');
+                if (!urlEl) return;
+                urlEl.select();
+                navigator.clipboard?.writeText(urlEl.value).catch(() => {});
+                btnCopy.textContent = 'Tersalin!';
+                setTimeout(() => { btnCopy.textContent = 'Salin'; }, 1500);
+            });
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const urlRoom = params.get('room');
+        const urlMode = params.get('mode');
+        if (urlRoom && roomInput) roomInput.value = sanitizeLiveRoom(urlRoom);
+        if (urlMode === 'host' || urlMode === 'display') {
+            setLiveMode(urlMode);
+            if (el.startOverlay) el.startOverlay.classList.add('hidden');
+        } else {
+            updateLiveHpUrl();
+        }
+    }
+
     function init() {
         const params = new URLSearchParams(window.location.search);
         if (params.get('gasUrl')) {
@@ -980,6 +1211,7 @@
         el.select.addEventListener('change', (e) => {
             state.currentIndex = Number(e.target.value) || 0;
             resetRound();
+            syncPushIfHost('reset');
         });
 
         el.btnRandom.addEventListener('click', () => {
@@ -991,6 +1223,7 @@
             state.currentIndex = next;
             el.select.value = String(next);
             resetRound();
+            syncPushIfHost('reset');
         });
 
         el.btnSound.addEventListener('click', () => {
@@ -1041,12 +1274,17 @@
             spawnConfetti();
             renderBoard();
             setFeedback('Semua jawaban telah dibuka.', 'ok');
+            syncPushIfHost('correct', 'Semua jawaban telah dibuka.', 'ok');
         });
-        el.btnResetRound.addEventListener('click', resetRound);
+        el.btnResetRound.addEventListener('click', () => {
+            resetRound();
+            syncPushIfHost('reset');
+        });
         el.btnResetScores.addEventListener('click', () => {
             state.teams.forEach((t) => { t.score = 0; });
             renderTeamScores();
             setFeedback('Skor semua tim direset ke 0.', 'ok');
+            syncPushIfHost('update', 'Skor semua tim direset ke 0.', 'ok');
         });
         if (el.btnAddTeam) {
             el.btnAddTeam.addEventListener('click', () => {
@@ -1058,6 +1296,7 @@
                 state.activeTeam = state.teams.length - 1;
                 renderTeamScores();
                 setFeedback(`${theme.icon} Tim ${nextNum} ditambahkan.`, 'ok');
+                syncPushIfHost('update', `${theme.icon} Tim ${nextNum} ditambahkan.`, 'ok');
             });
         }
         el.btnTetot.addEventListener('click', () => {
@@ -1065,6 +1304,7 @@
             renderBoard();
             triggerWrongEffect();
             setFeedback(`TETOT! Kesalahan ${getTeamName(state.activeTeam)} (${state.strikes}/3)`, 'err');
+            syncPushIfHost('wrong', `TETOT! Kesalahan ${getTeamName(state.activeTeam)} (${state.strikes}/3)`, 'err');
         });
         el.teamsContainer.addEventListener('click', (e) => {
             const removeBtn = e.target.closest('[data-remove-team]');
@@ -1077,12 +1317,14 @@
                     state.activeTeam = state.teams.length - 1;
                 }
                 renderTeamScores();
+                syncPushIfHost('update');
                 return;
             }
             const card = e.target.closest('.podium-unit');
             if (!card) return;
             state.activeTeam = Number(card.dataset.team) || 0;
             renderTeamScores();
+            syncPushIfHost('update');
             if (e.target.tagName !== 'INPUT') {
                 el.input.focus();
             }
@@ -1138,12 +1380,18 @@
             const closeTarget = e.target && e.target.dataset ? e.target.dataset.closeModal : null;
             if (closeTarget === 'manage') el.modal.hidden = true;
             if (closeTarget === 'gas') el.gasModal.hidden = true;
+            if (e.target && e.target.dataset && e.target.dataset.closeLive === 'true') {
+                const liveModal = document.getElementById('live-modal');
+                if (liveModal) liveModal.hidden = true;
+            }
         });
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 el.modal.hidden = true;
                 el.gasModal.hidden = true;
+                const liveModal = document.getElementById('live-modal');
+                if (liveModal) liveModal.hidden = true;
             }
         });
 
@@ -1152,6 +1400,7 @@
             addAnswerInputRow(nextPts);
         });
         el.addQuestionForm.addEventListener('submit', handleAddQuestion);
+        initLiveSyncUI();
     }
 
     init();

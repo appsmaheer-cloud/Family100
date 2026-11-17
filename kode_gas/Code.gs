@@ -406,10 +406,38 @@ function jsonOut_(obj) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
+function sanitizeRoom_(room) {
+  const clean = String(room || 'F100').toUpperCase().replace(/[^A-Z0-9_-]/g, '').slice(0, 24);
+  return clean || 'F100';
+}
+
+function syncPull_(room) {
+  const key = 'live_' + sanitizeRoom_(room);
+  const raw = CacheService.getScriptCache().get(key);
+  if (!raw) return { ok: true, state: null };
+  try {
+    return { ok: true, state: JSON.parse(raw) };
+  } catch (err) {
+    return { ok: true, state: null };
+  }
+}
+
+function syncPush_(room, state) {
+  if (!state || typeof state !== 'object') {
+    return { ok: false, error: 'State live tidak valid.' };
+  }
+  const key = 'live_' + sanitizeRoom_(room);
+  CacheService.getScriptCache().put(key, JSON.stringify(state), 21600);
+  return { ok: true };
+}
+
 function doGet(e) {
   const action = (e && e.parameter && e.parameter.action) ? String(e.parameter.action) : 'questions';
   if (action === 'questions') {
     return jsonOut_({ ok: true, data: listQuestions_() });
+  }
+  if (action === 'sync_pull') {
+    return jsonOut_(syncPull_(e.parameter.room));
   }
   return jsonOut_({ ok: false, error: 'Aksi tidak dikenal.' });
 }
@@ -431,6 +459,9 @@ function doPost(e) {
   }
   if (action === 'delete') {
     return jsonOut_(deleteQuestion_(body.id));
+  }
+  if (action === 'sync_push') {
+    return jsonOut_(syncPush_(body.room, body.state));
   }
   return jsonOut_({ ok: false, error: 'Aksi POST tidak dikenal.' });
 }
