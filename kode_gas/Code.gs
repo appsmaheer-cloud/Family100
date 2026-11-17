@@ -246,7 +246,7 @@ function getSynonymGroups_() {
     ['CURHAT', 'CERITA', 'BERCERITA', 'NGOBROL', 'SHARING'],
     ['MARAH MARAH', 'MARAH', 'NGAMUK', 'EMOSI', 'KESAL', 'MENGAMUK'],
     ['JALAN JALAN', 'LIBURAN', 'PIKNIK', 'HEALING', 'REFRESHING', 'REKREASI', 'TRAVELING', 'BERLIBUR'],
-    ['MELAMUN', 'NGELAMUN', 'LAMUN', 'BENGONG', 'TERMENUNG', 'MELONGO', 'TERDIAM', 'MENGKHAYAL'],
+    ['MELAMUN', 'NGELAMUN', 'LAMUN', 'BENGONG', 'TERMENUNG', 'MELONGO', 'MENGKHAYAL'],
     ['DIAM', 'DIEM', 'BUNGKAM', 'PENDIAM', 'MENENG'],
     ['TIDUR', 'BOBOK', 'KETIDURAN', 'NGOROK', 'TERLELAP'],
     ['MAKAN', 'SANTAP', 'JAJAN', 'NGEMIL', 'KULINER'],
@@ -287,42 +287,45 @@ function getSynonymGroups_() {
 }
 
 function expandVariants_(normText) {
+function stripPrefix_(normText) {
+  return normText.replace(/\b(MENG|MEM|MEN|ME|BER)([A-Z]{3,})/g, '$2');
+}
+
+function expandVariants_(normText) {
   const variants = [normText];
-  const stripped = normText.replace(/\b(MENG|MEM|MEN|ME|BER)([A-Z]{3,})/g, '$2');
+  const stripped = stripPrefix_(normText);
   if (stripped && stripped !== normText) variants.push(stripped);
 
   const groups = getSynonymGroups_();
   for (let i = 0; i < groups.length; i++) {
     const group = groups[i];
-    for (let j = 0; j < group.length; j++) {
-      const term = group[j];
-      if (normText === term || (normText.length >= 4 && term.indexOf(normText) !== -1)) {
-        for (let k = 0; k < group.length; k++) {
-          if (variants.indexOf(group[k]) === -1) variants.push(group[k]);
-        }
-        break;
+    if (group.indexOf(normText) !== -1 || group.indexOf(stripped) !== -1) {
+      for (let k = 0; k < group.length; k++) {
+        if (variants.indexOf(group[k]) === -1) variants.push(group[k]);
       }
     }
   }
   return variants;
 }
 
-function isMatch_(normAnswer, normGuess) {
+function matchScore_(normAnswer, normGuess) {
+  if (normAnswer === normGuess) return 4;
+  if (stripPrefix_(normAnswer) === stripPrefix_(normGuess)) return 3;
+
   const ansVariants = expandVariants_(normAnswer);
   const guessVariants = expandVariants_(normGuess);
   for (let i = 0; i < ansVariants.length; i++) {
-    const av = ansVariants[i];
-    for (let j = 0; j < guessVariants.length; j++) {
-      const gv = guessVariants[j];
-      if (av === gv) return true;
-      if (av.length <= 2 || gv.length <= 2) {
-        if (av.split(' ').indexOf(gv) !== -1) return true;
-        continue;
-      }
-      if (av.indexOf(gv) !== -1 || gv.indexOf(av) !== -1) return true;
-    }
+    if (guessVariants.indexOf(ansVariants[i]) !== -1) return 2;
   }
-  return false;
+
+  if (normGuess.length <= 2 || normAnswer.length <= 2) {
+    return normAnswer.split(' ').indexOf(normGuess) !== -1 ? 2 : 0;
+  }
+  if (Math.min(normAnswer.length, normGuess.length) >= 4 &&
+      (normAnswer.indexOf(normGuess) !== -1 || normGuess.indexOf(normAnswer) !== -1)) {
+    return 1;
+  }
+  return 0;
 }
 
 function checkAnswer_(questionId, guess, revealedIds) {
@@ -336,22 +339,24 @@ function checkAnswer_(questionId, guess, revealedIds) {
   const revealedSet = {};
   (revealedIds || []).forEach(function (id) { revealedSet[Number(id)] = true; });
 
-  let alreadyMatched = null;
+  const candidates = [];
   for (let i = 0; i < q.answers.length; i++) {
     const ans = q.answers[i];
-    if (isMatch_(normalizeText_(ans.answer_text), normGuess)) {
-      if (revealedSet[Number(ans.id)]) {
-        alreadyMatched = ans;
-        continue;
-      }
-      return { ok: true, found: true, already_revealed: false, answer: ans };
+    const score = matchScore_(normalizeText_(ans.answer_text), normGuess);
+    if (score > 0) {
+      candidates.push({ ans: ans, score: score, revealed: Boolean(revealedSet[Number(ans.id)]) });
     }
   }
+  if (candidates.length === 0) return { ok: true, found: false };
 
-  if (alreadyMatched) {
-    return { ok: true, found: true, already_revealed: true, answer: alreadyMatched };
+  let maxScore = 0;
+  candidates.forEach(function (c) { if (c.score > maxScore) maxScore = c.score; });
+  const top = candidates.filter(function (c) { return c.score === maxScore; });
+  const unrevealed = top.find(function (c) { return !c.revealed; });
+  if (unrevealed) {
+    return { ok: true, found: true, already_revealed: false, answer: unrevealed.ans };
   }
-  return { ok: true, found: false };
+  return { ok: true, found: true, already_revealed: true, answer: top[0].ans };
 }
 
 function storeQuestion_(questionText, answers) {

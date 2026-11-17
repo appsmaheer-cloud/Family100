@@ -343,7 +343,7 @@
         ['CURHAT', 'CERITA', 'BERCERITA', 'NGOBROL', 'SHARING'],
         ['MARAH MARAH', 'MARAH', 'NGAMUK', 'EMOSI', 'KESAL', 'MENGAMUK'],
         ['JALAN JALAN', 'LIBURAN', 'PIKNIK', 'HEALING', 'REFRESHING', 'REKREASI', 'TRAVELING', 'BERLIBUR'],
-        ['MELAMUN', 'NGELAMUN', 'LAMUN', 'BENGONG', 'TERMENUNG', 'MELONGO', 'TERDIAM', 'MENGKHAYAL'],
+        ['MELAMUN', 'NGELAMUN', 'LAMUN', 'BENGONG', 'TERMENUNG', 'MELONGO', 'MENGKHAYAL'],
         ['DIAM', 'DIEM', 'BUNGKAM', 'PENDIAM', 'MENENG'],
         ['TIDUR', 'BOBOK', 'KETIDURAN', 'NGOROK', 'TERLELAP'],
         ['MAKAN', 'SANTAP', 'JAJAN', 'NGEMIL', 'KULINER'],
@@ -382,32 +382,42 @@
         ['SPOOR', 'SEPUR', 'KERETA'],
     ];
 
+    function stripPrefix(normText) {
+        return normText.replace(/\b(MENG|MEM|MEN|ME|BER)([A-Z]{3,})/g, '$2');
+    }
+
     function expandVariants(normText) {
         const variants = new Set([normText]);
-        const stripped = normText.replace(/\b(MENG|MEM|MEN|ME|BER)([A-Z]{3,})/g, '$2');
+        const stripped = stripPrefix(normText);
         if (stripped && stripped !== normText) variants.add(stripped);
         for (const group of SYNONYM_GROUPS) {
-            if (group.some((t) => normText === t || (normText.length >= 4 && t.includes(normText)))) {
+            if (group.some((t) => normText === t || stripped === t)) {
                 group.forEach((t) => variants.add(t));
             }
         }
         return Array.from(variants);
     }
 
-    function isMatch(normAnswer, normGuess) {
+    function matchScore(normAnswer, normGuess) {
+        if (normAnswer === normGuess) return 4;
+        const ansStem = stripPrefix(normAnswer);
+        const guessStem = stripPrefix(normGuess);
+        if (ansStem === guessStem) return 3;
+
         const ansVariants = expandVariants(normAnswer);
         const guessVariants = expandVariants(normGuess);
         for (const av of ansVariants) {
-            for (const gv of guessVariants) {
-                if (av === gv) return true;
-                if (av.length <= 2 || gv.length <= 2) {
-                    if (av.split(' ').includes(gv)) return true;
-                    continue;
-                }
-                if (av.includes(gv) || gv.includes(av)) return true;
-            }
+            if (guessVariants.includes(av)) return 2;
         }
-        return false;
+
+        if (normGuess.length <= 2 || normAnswer.length <= 2) {
+            return normAnswer.split(' ').includes(normGuess) ? 2 : 0;
+        }
+        if (Math.min(normAnswer.length, normGuess.length) >= 4 &&
+            (normAnswer.includes(normGuess) || normGuess.includes(normAnswer))) {
+            return 1;
+        }
+        return 0;
     }
 
     function loadLocalQuestions() {
@@ -759,20 +769,22 @@
             const normGuess = normalizeText(guess);
             if (!normGuess) return { ok: true, found: false, empty: true };
 
-            let alreadyMatched = null;
+            const candidates = [];
             for (const ans of q.answers) {
-                if (isMatch(normalizeText(ans.answer_text), normGuess)) {
-                    if (state.revealedIds.has(Number(ans.id))) {
-                        alreadyMatched = ans;
-                        continue;
-                    }
-                    return { ok: true, found: true, already_revealed: false, answer: ans };
+                const score = matchScore(normalizeText(ans.answer_text), normGuess);
+                if (score > 0) {
+                    candidates.push({ ans, score, revealed: state.revealedIds.has(Number(ans.id)) });
                 }
             }
-            if (alreadyMatched) {
-                return { ok: true, found: true, already_revealed: true, answer: alreadyMatched };
+            if (candidates.length === 0) return { ok: true, found: false };
+
+            const maxScore = Math.max(...candidates.map((c) => c.score));
+            const top = candidates.filter((c) => c.score === maxScore);
+            const unrevealed = top.find((c) => !c.revealed);
+            if (unrevealed) {
+                return { ok: true, found: true, already_revealed: false, answer: unrevealed.ans };
             }
-            return { ok: true, found: false };
+            return { ok: true, found: true, already_revealed: true, answer: top[0].ans };
         }
 
         if (state.gasUrl) {
