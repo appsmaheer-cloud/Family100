@@ -765,6 +765,104 @@
                             "Tempat wisatanya lagi dibongkar tukang bangunan!"
                     ],
                     "reason": "TUTUP RENOVASI! Udah macet 3 jam cuma buat foto di depan pagar seng!"
+            },
+            {
+                    "id": 47,
+                    "category": "Klasik WIB",
+                    "question": "Hujan turun dari...",
+                    "answer": "MAGHRIB",
+                    "isTwist": true,
+                    "trap": "LANGIT",
+                    "openIndices": [0, 6],
+                    "clues": [
+                            "Bukan dari atas awan atau langit.",
+                            "Ini soal waktu mulainya hujan deras di sore hari!"
+                    ],
+                    "reason": "MAGHRIB! Karena waktu Ashar belum turun, masih mendung doang!"
+            },
+            {
+                    "id": 48,
+                    "category": "Kuis Kebenaran",
+                    "question": "Kuis Kebenaran: Air laut di seluruh dunia rasanya asin banget karena di dalamnya banyak...",
+                    "answer": "KERINGAT IKAN",
+                    "isTwist": true,
+                    "trap": "GARAM LAUT",
+                    "openIndices": [0, 9],
+                    "clues": [
+                            "Bukan mineral atau garam dapur.",
+                            "Bayangkan jutaan ikan berenang 24 jam nonstop tanpa AC dan kipas angin!"
+                    ],
+                    "reason": "KERINGAT IKAN! Ikan berenang seharian penuh tanpa istirahat, ya jelas keringetan sampai lautnya asin!"
+            },
+            {
+                    "id": 49,
+                    "category": "Kuis Kebenaran",
+                    "question": "Kuis Kebenaran: Semakin tinggi kita mendaki ke puncak gunung, udaranya semakin dingin karena...",
+                    "answer": "JAUH DARI KOMPOR",
+                    "isTwist": true,
+                    "trap": "KURANG OKSIGEN",
+                    "openIndices": [0, 5, 10],
+                    "clues": [
+                            "Bukan teori tekanan udara atau fisika SMA.",
+                            "Di puncak gunung nggak ada dapur atau tukang gorengan yang nyala!"
+                    ],
+                    "reason": "JAUH DARI KOMPOR! Di bawah banyak kompor dan knalpot makanya hangat, di puncak gunung jauh dari api!"
+            },
+            {
+                    "id": 50,
+                    "category": "Kuis Kebenaran",
+                    "question": "Kuis Kebenaran: Jika seekor ayam jantan berkokok nyaring di pagi hari, itu artinya ayam tersebut...",
+                    "answer": "MASIH HIDUP",
+                    "isTwist": true,
+                    "trap": "SUDAH SUBUH",
+                    "openIndices": [0, 6],
+                    "clues": [
+                            "Jangan bahas jam matahari terbit.",
+                            "Coba bandingkan sama ayam yang sudah di meja makan!"
+                    ],
+                    "reason": "MASIH HIDUP! Kalau sudah jadi ayam goreng mana bisa berkokok?!"
+            },
+            {
+                    "id": 51,
+                    "category": "Kuis Psikologi",
+                    "question": "Kuis Psikologi: Kamu tersesat di hutan lalu menemukan rumah kosong dengan pintu terbuka dan meja makan. Hal pertama yang kamu cari di dalam adalah...",
+                    "answer": "SINYAL HP",
+                    "isTwist": true,
+                    "trap": "MAKANAN",
+                    "openIndices": [0, 7],
+                    "clues": [
+                            "Psikologi manusia modern nggak nyari nasi dulu.",
+                            "Panik karena nggak bisa buka Google Maps atau update story!"
+                    ],
+                    "reason": "SINYAL HP! Lapar bisa ditahan sampai besok, tapi nggak ada sinyal itu darurat nasional!"
+            },
+            {
+                    "id": 52,
+                    "category": "Kuis Psikologi",
+                    "question": "Kuis Psikologi: Kamu melihat dompet tebal jatuh di trotoar sepi tanpa ada orang di sekitar. Tindakan pertama yang mencerminkan sifat aslimu adalah...",
+                    "answer": "NENGOK KANAN KIRI",
+                    "isTwist": true,
+                    "trap": "AMBIL UANGNYA",
+                    "openIndices": [0, 7, 13],
+                    "clues": [
+                            "Nggak usah sok suci dulu!",
+                            "Refleks pertama mata sebelum tangan bergerak ke bawah!"
+                    ],
+                    "reason": "NENGOK KANAN KIRI! Secara psikologis, manusia pasti ngecek ada CCTV atau saksi mata dulu!"
+            },
+            {
+                    "id": 53,
+                    "category": "Kuis Psikologi",
+                    "question": "Kuis Psikologi: Jika diminta memilih antara uang Rp 100 juta tunai atau sahabat sejati seumur hidup, orang yang langsung memilih sahabat sejati biasanya...",
+                    "answer": "SUDAH KAYA",
+                    "isTwist": true,
+                    "trap": "ORANG BAIK",
+                    "openIndices": [0, 6],
+                    "clues": [
+                            "Lihat isi rekeningnya dulu sebelum memuji ketulusannya.",
+                            "Yang saldonya tipis pasti ambil 100 juta dulu!"
+                    ],
+                    "reason": "SUDAH KAYA! Kalau lagi banyak cicilan mah pasti ambil Rp 100 juta dulu baru nyari sahabat baru!"
             }
     ];
 
@@ -829,6 +927,8 @@
         tiles: document.getElementById('cl-tiles'),
         reasonBox: document.getElementById('cl-reason-box'),
         reasonText: document.getElementById('cl-reason-text'),
+        protestBtn: document.getElementById('cl-protest-btn'),
+        protestReply: document.getElementById('cl-protest-reply'),
         turnBar: document.getElementById('cl-turn-bar'),
         activeTurnLabel: document.getElementById('active-turn-label'),
         form: document.getElementById('cl-form'),
@@ -1340,6 +1440,10 @@
         state.isSolved = false;
         el.feedback.textContent = '';
         el.feedback.className = 'feedback-msg';
+        if (el.protestReply) {
+            el.protestReply.hidden = true;
+            el.protestReply.textContent = '';
+        }
         el.input.value = '';
         renderQuestion();
     }
@@ -1495,6 +1599,22 @@
             el.feedback.textContent = `MIKIRRR! Belum tepat, ayo pikir lagi ${state.teams[state.activeTeam].name}!`;
             el.feedback.className = 'feedback-msg err';
         });
+        if (el.protestBtn && el.protestReply) {
+            const PROTEST_ROASTS = [
+                '😤 Cak Lontong: "Jangan pakai emosi, pakai logika! Mikirrr!"',
+                '☝️ Cak Lontong: "Protes ditolak! Yang protes keras nilainya saya potong!"',
+                '🍚 Cak Lontong: "Sudah paling benar ini jawabannya. Salam Lemper!"',
+                '🧠 Cak Lontong: "Kalian aja yang mikirnya terlalu lurus, hidup itu ada tikungannya!"'
+            ];
+            let protestIdx = 0;
+            el.protestBtn.addEventListener('click', () => {
+                playWrongSound();
+                triggerTeamReactions('wrong');
+                el.protestReply.textContent = PROTEST_ROASTS[protestIdx % PROTEST_ROASTS.length];
+                el.protestReply.hidden = false;
+                protestIdx++;
+            });
+        }
         el.btnAddTeam.addEventListener('click', () => {
             if (state.teams.length >= 8) return;
             const used = new Set(state.teams.map((t) => t.color));
