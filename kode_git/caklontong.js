@@ -521,6 +521,146 @@
                 'Karena ada jawaban benar yang sengaja tidak disebutkan!'
             ],
             reason: 'MIKIR keras! Karena kata "terserah" sebenarnya adalah kode rahasia yang harus dipecahkan!'
+        },
+        {
+            id: 41,
+            category: 'Lingkungan Kantor',
+            question: 'Hal paling pertama yang wajib dilakukan karyawan begitu sampai di meja kerja sebelum mulai mengetik?',
+            answer: 'BUKA LAPTOP',
+            isTwist: false,
+            trap: 'BACA EMAIL',
+            openIndices: [0, 5],
+            clues: [
+                'Jangan mikir terlalu jauh, ini jawaban beneran lurus!',
+                'Kalau nggak dibuka layarnya, ya nggak bisa dipakai kerja!'
+            ],
+            reason: 'Kali ini beneran lurus! Peserta sering kejebak mikir aneh-aneh padahal emang harus BUKA LAPTOP dulu!'
+        },
+        {
+            id: 42,
+            category: 'Lingkungan Kantor',
+            question: 'Bencana paling menegangkan di hari Senin pagi sebelum sempat kerja adalah...',
+            answer: 'LUPA PASSWORD',
+            isTwist: true,
+            trap: 'LUPA SARAPAN',
+            openIndices: [0, 5, 12],
+            clues: [
+                'Bukan urusan perut, tapi urusan login ke laptop kantor.',
+                'Apalagi kalau tiga kali salah langsung kekunci IT!'
+            ],
+            reason: 'Bukan LUPA SARAPAN, tapi LUPA PASSWORD! Baru Senin pagi aja udah disuruh reset sama tim IT!'
+        },
+        {
+            id: 43,
+            category: 'Klasik WIB',
+            question: 'Sebelum menyuap nasi goreng pakai tangan kosong, hal wajib yang harus dilakukan adalah...',
+            answer: 'CUCI TANGAN',
+            isTwist: false,
+            trap: 'CUCI PIRING',
+            openIndices: [0, 5, 10],
+            clues: [
+                'Jangan dibelok-belokin, ini beneran aturan kebersihan!',
+                'Pakai sabun dan air mengalir biar nggak sakit perut!'
+            ],
+            reason: 'Haha kesal kan? Kali ini jawabannya memang lurus: CUCI TANGAN! Jangan terlalu curiga terus!'
+        },
+        {
+            id: 44,
+            category: 'Lingkungan Kantor',
+            question: 'Alasan paling jujur kenapa karyawan mendadak rajin senyum di jam 12 siang?',
+            answer: 'MAKAN SIANG',
+            isTwist: false,
+            trap: 'MALAS KERJA',
+            openIndices: [0, 6, 10],
+            clues: [
+                'Waktunya istirahat dan isi tenaga.',
+                'Jawaban beneran: ditunggu-tunggu sejak jam 10 pagi!'
+            ],
+            reason: 'Jawabannya lurus: MAKAN SIANG! Peserta yang nebak aneh-aneh pasti kena prank!'
+        },
+        {
+            id: 45,
+            category: 'Gen Z & Sosmed',
+            question: 'Momen paling bikin jantung berhenti sepersekian detik saat lagi chat di grup kantor adalah...',
+            answer: 'SALAH KIRIM',
+            isTwist: true,
+            trap: 'SALAH PAHAM',
+            openIndices: [0, 6, 10],
+            clues: [
+                'Niatnya ngirim ke grup gosip, eh malah masuk ke grup yang ada bosnya!',
+                'Langsung panik nyari tombol "Hapus untuk semua orang"!'
+            ],
+            reason: 'SALAH KIRIM! Lebih horor daripada film hantu, apalagi kalau udah ke-read sama HRD!'
+        },
+        {
+            id: 46,
+            category: 'Lingkungan Kantor',
+            question: 'Penyebab utama tanggal 20 ke atas anak kantor mendadak hobi bawa bekal dari rumah adalah...',
+            answer: 'GAJI HABIS',
+            isTwist: true,
+            trap: 'GAYA HIDUP',
+            openIndices: [0, 5, 9],
+            clues: [
+                'Bukan karena lagi diet sehat atau ikut tren gaya hidup.',
+                'Dompetnya udah ngasih sinyal darurat!'
+            ],
+            reason: 'Bukan GAYA HIDUP sehat, tapi GAJI HABIS! Tanggal tua mengubah semua orang jadi chef dadakan!'
+        },
+        {
+            id: 47,
+            category: 'Gen Z & Sosmed',
+            question: 'Setelah alarm HP berbunyi nyaring jam 6 pagi di hari libur, tindakan paling mulia adalah...',
+            answer: 'TIDUR LAGI',
+            isTwist: true,
+            trap: 'TEPAT WAKTU',
+            openIndices: [0, 6, 9],
+            clues: [
+                'Ngakunya mau olahraga pagi, tapi kasur memanggil lebih keras.',
+                'Matikan alarm, tarik selimut, lalu...'
+            ],
+            reason: 'TIDUR LAGI! Alarm hari libur cuma berfungsi sebagai pengingat bahwa kita masih boleh lanjut mimpi!'
+        },
+        {
+            id: 48,
+            category: 'Ice Breaking',
+            question: 'Hal yang diam-diam paling bikin karyawan bahagia kalau rapat sore dibatalkan mendadak adalah...',
+            answer: 'PULANG CEPAT',
+            isTwist: true,
+            trap: 'PUJIAN BOS',
+            openIndices: [0, 7, 11],
+            clues: [
+                'Bisa langsung beresin tas sebelum jam macet dimulai.',
+                'Senyumnya nggak bisa disembunyikan waktu keluar lift!'
+            ],
+            reason: 'PULANG CEPAT! Nggak ada yang lebih indah daripada notif "Meeting kita reschedule besok ya"!'
+        },
+        {
+            id: 49,
+            category: 'Ice Breaking',
+            question: 'Minuman hangat yang paling sering dipesan peserta saat acara seminar pagi biar melek adalah...',
+            answer: 'MINUM KOPI',
+            isTwist: false,
+            trap: 'MINUM JAMU',
+            openIndices: [0, 6, 9],
+            clues: [
+                'Kali ini beneran nggak belok!',
+                'Hitam, wangi, dan selalu ada di meja coffee break!'
+            ],
+            reason: 'Beneran MINUM KOPI! Kalau peserta mikir belok pasti salah!'
+        },
+        {
+            id: 50,
+            category: 'Bapak-bapak',
+            question: 'Saat ditanya "Gimana soal-soal Cak Lontong hari ini?", semua peserta pasti langsung...',
+            answer: 'MIKIR KERAS',
+            isTwist: true,
+            trap: 'MARAH BESAR',
+            openIndices: [0, 6, 10],
+            clues: [
+                'Gabungan slogan Cak Lontong + usaha maksimal otak peserta.',
+                'Kadang lurus, kadang belok — bikin pusing tapi nagih!'
+            ],
+            reason: 'MIKIR KERAS! Kadang beneran lurus, kadang belok — itulah seni TTS Cak Lontong!'
         }
     ];
 
@@ -540,6 +680,8 @@
         currentIndex: 0,
         openedLetters: new Set(),
         clueStage: 0,
+        preOpenMode: 'default',
+        questionHidden: false,
         isSolved: false,
         teams: [
             { name: 'Tim Merah', score: 0, color: 'red', icon: '🔥' },
@@ -564,9 +706,14 @@
         btnCopyHpUrl: document.getElementById('cl-copy-hp-url'),
         openHpTab: document.getElementById('cl-open-hp-tab'),
         hpCheatCard: document.getElementById('cl-hp-cheat-card'),
+        hpType: document.getElementById('cl-hp-type'),
         hpAnswer: document.getElementById('cl-hp-answer'),
         hpTrap: document.getElementById('cl-hp-trap'),
         hpClue1: document.getElementById('cl-hp-clue1'),
+        hpClue2: document.getElementById('cl-hp-clue2'),
+        hpReason: document.getElementById('cl-hp-reason'),
+        preOpenSelect: document.getElementById('cl-preopen-select'),
+        btnToggleQuestion: document.getElementById('cl-toggle-question'),
         hpClue2: document.getElementById('cl-hp-clue2'),
         hpReason: document.getElementById('cl-hp-reason'),
         btnSound: document.getElementById('cl-sound'),
@@ -956,14 +1103,55 @@
         }, 2300);
     }
 
+    function getInitialOpenedSet(q) {
+        if (!q) return new Set();
+        if (state.preOpenMode === 'default') {
+            return new Set(Array.isArray(q.openIndices) ? q.openIndices.filter((i) => q.answer[i] && q.answer[i] !== ' ') : []);
+        }
+        const count = Number(state.preOpenMode) || 0;
+        if (count <= 0) return new Set();
+        const nonSpaceIndices = [];
+        for (let i = 0; i < q.answer.length; i++) {
+            if (q.answer[i] !== ' ') nonSpaceIndices.push(i);
+        }
+        const chosen = [];
+        const base = Array.isArray(q.openIndices) ? q.openIndices : [];
+        base.forEach((idx) => {
+            if (chosen.length < count && q.answer[idx] && q.answer[idx] !== ' ' && !chosen.includes(idx)) {
+                chosen.push(idx);
+            }
+        });
+        while (chosen.length < count && chosen.length < nonSpaceIndices.length) {
+            const remaining = nonSpaceIndices.filter((idx) => !chosen.includes(idx));
+            if (remaining.length === 0) break;
+            chosen.push(remaining[Math.floor(Math.random() * remaining.length)]);
+        }
+        return new Set(chosen);
+    }
+
     function renderQuestion() {
         const q = CAK_LONTONG_QUESTIONS[state.currentIndex];
         if (!q) return;
         const clues = Array.isArray(q.clues) ? q.clues : [q.clue || '-'];
+        const words = q.answer.split(' ').filter(Boolean);
+        const letterCount = q.answer.replace(/\s+/g, '').length;
+        const isTwist = q.isTwist !== false;
+
         el.qNum.textContent = `Soal #${state.currentIndex + 1} / ${CAK_LONTONG_QUESTIONS.length}`;
         if (el.countBadge) el.countBadge.textContent = `${CAK_LONTONG_QUESTIONS.length} SOAL`;
-        el.qText.textContent = q.question;
-        el.lengthChip.textContent = `Panjang: ${q.answer.length} Huruf`;
+
+        if (state.questionHidden && !state.isSolved) {
+            el.qText.textContent = '🙈 Soal masih ditutup Host — buka kartu huruf dulu sebelum soal diberikan!';
+        } else {
+            el.qText.textContent = q.question;
+        }
+        if (el.btnToggleQuestion) {
+            el.btnToggleQuestion.textContent = state.questionHidden ? '👁️ Buka Soal' : '🙈 Tutup Soal';
+        }
+
+        el.lengthChip.textContent = words.length > 1
+            ? `Panjang: ${letterCount} Huruf (${words.length} Kata)`
+            : `Panjang: ${letterCount} Huruf`;
 
         if (el.clueChip) {
             if (state.clueStage === 0) {
@@ -982,6 +1170,11 @@
         if (el.hpCheatCard) {
             el.hpCheatCard.hidden = !isHostMode;
             if (isHostMode) {
+                if (el.hpType) {
+                    el.hpType.textContent = isTwist ? '🔀 BELOK / PLOT TWIST' : '✅ LURUS / BENERAN';
+                    el.hpType.style.background = isTwist ? '#fef3c7' : '#dcfce7';
+                    el.hpType.style.color = isTwist ? '#92400e' : '#166534';
+                }
                 if (el.hpAnswer) el.hpAnswer.textContent = q.answer;
                 if (el.hpTrap) el.hpTrap.textContent = q.trap ? `${q.trap} (Pancingan)` : '-';
                 if (el.hpClue1) el.hpClue1.textContent = clues[0] || '-';
@@ -991,7 +1184,17 @@
         }
 
         el.tiles.textContent = '';
+        let currentWordGroup = document.createElement('div');
+        currentWordGroup.className = 'cl-word-group';
         for (let i = 0; i < q.answer.length; i++) {
+            if (q.answer[i] === ' ') {
+                if (currentWordGroup.childNodes.length > 0) {
+                    el.tiles.appendChild(currentWordGroup);
+                    currentWordGroup = document.createElement('div');
+                    currentWordGroup.className = 'cl-word-group';
+                }
+                continue;
+            }
             const tile = document.createElement('button');
             tile.type = 'button';
             const isOpen = state.isSolved || state.openedLetters.has(i);
@@ -1010,7 +1213,10 @@
                     renderQuestion();
                 });
             }
-            el.tiles.appendChild(tile);
+            currentWordGroup.appendChild(tile);
+        }
+        if (currentWordGroup.childNodes.length > 0) {
+            el.tiles.appendChild(currentWordGroup);
         }
 
         if (state.isSolved) {
@@ -1025,7 +1231,7 @@
     function loadQuestion(idx) {
         state.currentIndex = idx;
         const q = CAK_LONTONG_QUESTIONS[idx];
-        state.openedLetters = new Set(Array.isArray(q?.openIndices) ? q.openIndices : []);
+        state.openedLetters = getInitialOpenedSet(q);
         state.clueStage = 0;
         state.isSolved = false;
         el.feedback.textContent = '';
@@ -1088,9 +1294,11 @@
         const guess = el.input.value.trim().toUpperCase().replace(/\s+/g, '');
         if (!guess) return;
 
-        if (guess === q.answer) {
+        const targetAnswer = q.answer.toUpperCase().replace(/\s+/g, '');
+        if (guess === targetAnswer) {
             state.isSolved = true;
-            const bonus = Math.max(40, 100 - (state.openedLetters.size - q.openIndices.length) * 10);
+            state.questionHidden = false;
+            const bonus = Math.max(40, 100 - Math.max(0, state.openedLetters.size - (q.openIndices?.length || 0)) * 10);
             state.teams[state.activeTeam].score += bonus;
             playCorrectSound();
             spawnConfetti();
@@ -1138,12 +1346,28 @@
             el.select.value = String(next);
             loadQuestion(next);
         });
+        if (el.preOpenSelect) {
+            el.preOpenSelect.addEventListener('change', (e) => {
+                state.preOpenMode = e.target.value || 'default';
+                const q = CAK_LONTONG_QUESTIONS[state.currentIndex];
+                if (q && !state.isSolved) {
+                    state.openedLetters = getInitialOpenedSet(q);
+                    renderQuestion();
+                }
+            });
+        }
+        if (el.btnToggleQuestion) {
+            el.btnToggleQuestion.addEventListener('click', () => {
+                state.questionHidden = !state.questionHidden;
+                renderQuestion();
+            });
+        }
         el.btnHintLetter.addEventListener('click', () => {
             const q = CAK_LONTONG_QUESTIONS[state.currentIndex];
             if (!q || state.isSolved) return;
             const closed = [];
             for (let i = 0; i < q.answer.length; i++) {
-                if (!state.openedLetters.has(i)) closed.push(i);
+                if (q.answer[i] !== ' ' && !state.openedLetters.has(i)) closed.push(i);
             }
             if (closed.length === 0) return;
             const pick = closed[Math.floor(Math.random() * closed.length)];
