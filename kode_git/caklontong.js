@@ -681,6 +681,90 @@
                             "Budi sendiri yang ambil langkah keluar dari kamar itu!"
                     ],
                     "reason": "P-?-?-?-?-H! PINDAH kamar aja ke sofa ruang tamu, daripada ngoroknya dilawan pakai suara lebih keras!"
+            },
+            {
+                    "id": 41,
+                    "category": "Cerita Berlubang",
+                    "question": "Setiap tanggal tua, Budi selalu mengecek saldo ATM-nya dengan penuh harap. Begitu kartu dimasukkan dan PIN ditekan, layar ATM langsung menampilkan tulisan _______ yang bikin Budi senyum kecut lalu jalan ke warteg.",
+                    "answer": "TERIMA KASIH",
+                    "isTwist": true,
+                    "trap": "TIDAK CUKUP",
+                    "openIndices": [0, 7],
+                    "clues": [
+                            "Budi nggak berani lihat angka saldonya.",
+                            "Dia langsung pencet tombol Cancel sebelum menu saldo muncul!"
+                    ],
+                    "reason": "TERIMA KASIH! Soalnya Budi keburu pencet Cancel karena takut sakit hati lihat sisa saldo Rp 4.200!"
+            },
+            {
+                    "id": 42,
+                    "category": "Cerita Berlubang",
+                    "question": "Pagi itu hujan deras mengguyur jalanan. Rina buru-buru berangkat kerja naik motor. Di tengah kemacetan, Rina bersyukur karena di dalam jok motornya ia selalu menyimpan _______ supaya tetap kuat sampai di kantor.",
+                    "answer": "DOA IBU",
+                    "isTwist": true,
+                    "trap": "JAS HUJAN",
+                    "openIndices": [0, 4],
+                    "clues": [
+                            "Bukan benda anti air atau plastik.",
+                            "Jas hujannya ketinggalan di kosan, yang tersisa cuma restu orang tua!"
+                    ],
+                    "reason": "DOA IBU! Tetap basah kuyup sih, tapi hatinya hangat sampai kantor!"
+            },
+            {
+                    "id": 43,
+                    "category": "Cerita Berlubang",
+                    "question": "Saat rapat evaluasi bulanan, bos memanggil Doni ke depan ruangan sambil memegang map merah. Semua teman sekantor langsung menatap Doni dengan wajah tegang. Ternyata bos cuma mau bilang _______ kepada Doni di depan semua orang.",
+                    "answer": "TOLONG FOTO",
+                    "isTwist": true,
+                    "trap": "KAMU DIPECAT",
+                    "openIndices": [0, 7],
+                    "clues": [
+                            "Map merahnya cuma buat properti dokumentasi HRD.",
+                            "Bos lagi butuh orang yang pegangin kamera HP!"
+                    ],
+                    "reason": "TOLONG FOTO! Jantung Doni udah mau copot dikira kena SP, ternyata disuruh jadi fotografer dadakan!"
+            },
+            {
+                    "id": 44,
+                    "category": "Cerita Berlubang",
+                    "question": "Malam minggu, Andi mengajak gebetannya makan malam di restoran paling mahal di kota. Setelah selesai makan, Andi merogoh saku celananya sambil tersenyum percaya diri. Tiba-tiba wajah Andi berubah pucat pasi karena di sakunya cuma ada _______ yang bikin dia langsung pura-pura ke toilet.",
+                    "answer": "STRUK PARKIR",
+                    "isTwist": true,
+                    "trap": "UANG RECEH",
+                    "openIndices": [0, 6],
+                    "clues": [
+                            "Dompetnya ketinggalan di laci meja kantor.",
+                            "Kertas kecil dari palang pintu masuk mal!"
+                    ],
+                    "reason": "STRUK PARKIR! Dompet tertinggal, yang nyelip di saku cuma karcis Rp 5.000!"
+            },
+            {
+                    "id": 45,
+                    "category": "Cerita Berlubang",
+                    "question": "Di sebuah seminar motivasi, pembicara bertanya kepada 100 peserta: 'Siapa di sini yang mau sukses dan kaya raya?'. Semua peserta serentak angkat tangan. Namun di baris paling depan, Pak Budi malah memilih _______ sambil tersenyum santai.",
+                    "answer": "MINUM TEH",
+                    "isTwist": true,
+                    "trap": "MALAS GERAK",
+                    "openIndices": [0, 6],
+                    "clues": [
+                            "Pak Budi kan pemilik gedung seminarnya!",
+                            "Dia udah kaya raya, jadi santai aja menikmati jamuan!"
+                    ],
+                    "reason": "MINUM TEH! Orang udah kaya mah nggak perlu ikut angkat tangan, cukup nikmatin hidangan VIP!"
+            },
+            {
+                    "id": 46,
+                    "category": "Cerita Berlubang",
+                    "question": "Setelah menempuh perjalanan macet 3 jam di tol, keluarga Pak Ahmad akhirnya sampai di tempat wisata puncak. Anak-anak berlari gembira ke gerbang masuk, tapi langkah mereka terhenti seketika karena di depan gerbang ada papan besar bertuliskan _______ dengan huruf kapital.",
+                    "answer": "TUTUP RENOVASI",
+                    "isTwist": true,
+                    "trap": "TIKET HABIS",
+                    "openIndices": [0, 6],
+                    "clues": [
+                            "Bukan karena penuh pengunjung.",
+                            "Tempat wisatanya lagi dibongkar tukang bangunan!"
+                    ],
+                    "reason": "TUTUP RENOVASI! Udah macet 3 jam cuma buat foto di depan pagar seng!"
             }
     ];
 
