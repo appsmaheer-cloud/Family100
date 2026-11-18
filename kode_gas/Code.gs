@@ -300,7 +300,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Bapak-bapak] Alasan paling sering dipakai saat pulang telat ke rumah?',
+      question: 'Alasan paling sering dipakai bapak-bapak saat pulang telat ke rumah?',
       is_example: true,
       answers: [
         { text: 'MACET DI JALAN', points: 100 },
@@ -314,7 +314,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Bapak-bapak] Apa yang langsung dilakukan suami saat istri tiba-tiba diam?',
+      question: 'Apa yang langsung dilakukan suami saat istri tiba-tiba diam dan cemberut?',
       is_example: true,
       answers: [
         { text: 'TANYA KENAPA', points: 100 },
@@ -328,7 +328,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Kantor] Apa yang bikin karyawan semangat selain tanggal gajian?',
+      question: 'Apa yang paling bikin karyawan semangat selain tanggal gajian?',
       is_example: true,
       answers: [
         { text: 'MAKAN GRATIS / TRAKTIRAN', points: 100 },
@@ -342,7 +342,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Kantor] Hal yang sering dilakukan saat meeting terasa membosankan?',
+      question: 'Hal yang sering dilakukan saat meeting di kantor terasa membosankan?',
       is_example: true,
       answers: [
         { text: 'MAIN HP / SCROLL SOSMED', points: 100 },
@@ -356,7 +356,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Sosmed] Konten apa yang paling sering muncul di FYP TikTok / Reels?',
+      question: 'Konten apa yang paling sering muncul di FYP TikTok atau Reels Instagram?',
       is_example: true,
       answers: [
         { text: 'JOGET / DANCE', points: 100 },
@@ -370,7 +370,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Sosmed] Apa yang dilakukan orang sebelum makan makanan enak di kafe?',
+      question: 'Apa yang dilakukan orang sebelum menyantap makanan enak di kafe?',
       is_example: true,
       answers: [
         { text: 'FOTO / VIDEO DULU', points: 100 },
@@ -384,7 +384,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Gen Z] Istilah bahasa gaul apa yang paling sering dipakai anak Gen Z?',
+      question: 'Istilah bahasa gaul apa yang paling sering dipakai anak muda zaman sekarang?',
       is_example: true,
       answers: [
         { text: 'OVERTHINKING / GALAU', points: 100 },
@@ -398,7 +398,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Gen Z] Benda yang wajib ada di meja kerja atau tas anak Gen Z?',
+      question: 'Benda apa yang wajib ada di meja kerja atau tas anak muda di kantor?',
       is_example: true,
       answers: [
         { text: 'ES KOPI SUSU', points: 100 },
@@ -412,7 +412,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Milenial] Apa yang paling sering dikeluhkan Milenial di usia 30-an?',
+      question: 'Apa yang paling sering dikeluhkan pekerja usia 30-an?',
       is_example: true,
       answers: [
         { text: 'SAKIT PINGGUNG / ENCOK', points: 100 },
@@ -426,7 +426,7 @@ function getSeedQuestions_() {
       ]
     },
     {
-      question: '[Boomers] Kebiasaan khas Boomers saat memakai grup WhatsApp keluarga?',
+      question: 'Kebiasaan khas orang tua saat memakai grup WhatsApp keluarga?',
       is_example: true,
       answers: [
         { text: 'KIRIM STIKER SELAMAT PAGI', points: 100 },

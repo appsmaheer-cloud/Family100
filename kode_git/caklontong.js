@@ -4,6 +4,7 @@
     const CAK_LONTONG_QUESTIONS = [
         {
             id: 1,
+            category: 'Klasik WIB',
             question: 'Pelukis yang biasa menggambar pemandangan indah di kanvas disebut...',
             answer: 'SERIUS',
             clue: 'Kalau nggak gitu gambarnya nggak jadi-jadi!',
@@ -12,6 +13,7 @@
         },
         {
             id: 2,
+            category: 'Klasik WIB',
             question: 'Bendera Indonesia warnanya merah dan...',
             answer: 'KAIN',
             clue: 'Bahan dasarnya kalau dijahit penjahit!',
@@ -20,6 +22,7 @@
         },
         {
             id: 3,
+            category: 'Klasik WIB',
             question: 'Orang yang biasa mengendarai pesawat terbang disebut...',
             answer: 'BERANI',
             clue: 'Sifat wajib sebelum duduk di kokpit!',
@@ -28,6 +31,7 @@
         },
         {
             id: 4,
+            category: 'Klasik WIB',
             question: 'Makanan yang paling enak dimakan pas lagi hujan dan dingin?',
             answer: 'LAPER',
             clue: 'Kondisi perut sebelum makan apa pun!',
@@ -36,6 +40,7 @@
         },
         {
             id: 5,
+            category: 'Lingkungan Kantor',
             question: 'Sebelum mengetik laporan di laptop kantor, sebaiknya kita...',
             answer: 'HIDUPKAN',
             clue: 'Langkah pertama sebelum keyboard ditekan!',
@@ -44,6 +49,7 @@
         },
         {
             id: 6,
+            category: 'Klasik WIB',
             question: 'Apa yang dilakukan orang kalau ban motornya bocor di tengah jalan?',
             answer: 'BERHENTI',
             clue: 'Pasti terjadi setelah ban kempes!',
@@ -52,6 +58,7 @@
         },
         {
             id: 7,
+            category: 'Klasik WIB',
             question: 'Selain di rumah, biasanya orang tidur di...',
             answer: 'KASUR',
             clue: 'Empuk dan ada bantalnya!',
@@ -60,6 +67,7 @@
         },
         {
             id: 8,
+            category: 'Klasik WIB',
             question: 'Saat lampu merah menyala di perempatan jalan, pengendara harus...',
             answer: 'LIHAT',
             clue: 'Pakai mata biar nggak salah!',
@@ -68,6 +76,7 @@
         },
         {
             id: 9,
+            category: 'Lingkungan Kantor',
             question: 'Karyawan kantor kalau tanggal tua biasanya dompetnya...',
             answer: 'ADA',
             clue: 'Bentuk fisiknya masih di saku!',
@@ -76,6 +85,7 @@
         },
         {
             id: 10,
+            category: 'Bapak-bapak',
             question: 'Benda yang paling sering dicari bapak-bapak kalau mau berangkat kerja tapi selalu lupa taruh?',
             answer: 'KETEMU',
             clue: 'Harapan terakhir setelah ubek-ubek rumah!',
@@ -84,6 +94,7 @@
         },
         {
             id: 11,
+            category: 'Lingkungan Kantor',
             question: 'Biasanya kalau lagi meeting online, suara peserta sering tidak terdengar karena...',
             answer: 'DIEM',
             clue: 'Bukan salah mic atau WiFi!',
@@ -92,6 +103,7 @@
         },
         {
             id: 12,
+            category: 'Milenial & Boomers',
             question: 'Minuman yang paling sering bikin orang begadang semalaman?',
             answer: 'BANYAK',
             clue: 'Jumlahnya berlebihan sebelum tidur!',
@@ -100,6 +112,7 @@
         },
         {
             id: 13,
+            category: 'Lingkungan Kantor',
             question: 'Kalau data Excel sudah dikerjakan seharian tapi tiba-tiba hilang, orang langsung...',
             answer: 'KAGET',
             clue: 'Reaksi pertama sebelum nangis!',
@@ -108,6 +121,7 @@
         },
         {
             id: 14,
+            category: 'Milenial & Boomers',
             question: 'Apa yang selalu bertambah setiap tahun tapi nggak pernah berkurang?',
             answer: 'ANGKA',
             clue: '2024, 2025, 2026...',
@@ -116,11 +130,57 @@
         },
         {
             id: 15,
+            category: 'Lingkungan Kantor',
             question: 'Supaya cepat kaya dan banyak uang, setiap pagi kita harus rajin...',
             answer: 'BANGUN',
             clue: 'Dilakukan setelah alarm berbunyi!',
             openIndices: [0, 4],
             reason: 'Kalau tidur terus sampai siang ya kapan kerjanya?! BANGUN dulu!'
+        },
+        {
+            id: 16,
+            category: 'Gen Z & Sosmed',
+            question: 'Anak muda kalau lagi butuh healing di kafe, yang paling pertama dipesan adalah...',
+            answer: 'MEJA',
+            clue: 'Kalau nggak ada ini mau duduk di mana?!',
+            openIndices: [0, 2],
+            reason: 'Pesan kopi bisa belakangan, yang penting dapat MEJA dulu buat foto estetik!'
+        },
+        {
+            id: 17,
+            category: 'Gen Z & Sosmed',
+            question: 'Kenapa video TikTok orang lain sering masuk FYP sementara video kita sepi?',
+            answer: 'NONTON',
+            clue: 'Yang dilakukan orang di HP!',
+            openIndices: [0, 4],
+            reason: 'Soalnya banyak yang NONTON video dia, video kita yang nonton cuma diri sendiri!'
+        },
+        {
+            id: 18,
+            category: 'Bapak-bapak',
+            question: 'Saat istri bilang "terserah mau makan di mana", sebenarnya suami harus...',
+            answer: 'MIKIR',
+            clue: 'Sesuai slogan Cak Lontong!',
+            openIndices: [0, 3],
+            reason: 'MIKIR keras! Karena kata "terserah" artinya ada jawaban benar yang dirahasiakan!'
+        },
+        {
+            id: 19,
+            category: 'Milenial & Boomers',
+            question: 'Grup WhatsApp keluarga paling sering ramai di jam 6 pagi gara-gara ada yang kirim...',
+            answer: 'GAMBAR',
+            clue: 'Isinya bunga mawar dan tulisan Selamat Pagi!',
+            openIndices: [0, 4],
+            reason: 'GAMBAR bunga mawar + kopi + tulisan "Selamat Pagi Semoga Berkah" dari om/tante!'
+        },
+        {
+            id: 20,
+            category: 'Lingkungan Kantor',
+            question: 'Alat kantor yang paling sering hilang padahal baru dibeli kemarin?',
+            answer: 'DIPINJAM',
+            clue: 'Nasib pulpen di meja kerja!',
+            openIndices: [0, 4],
+            reason: 'Bukan hilang ditelan bumi, tapi DIPINJAM teman sebelah dan lupa dikembalikan!'
         }
     ];
 
@@ -136,6 +196,7 @@
     ];
 
     const state = {
+        selectedCategory: 'ALL',
         currentIndex: 0,
         openedLetters: new Set(),
         isSolved: false,
@@ -581,15 +642,50 @@
         renderQuestion();
     }
 
-    function populateSelect() {
-        el.select.textContent = '';
-        CAK_LONTONG_QUESTIONS.forEach((q, i) => {
+    function getFilteredIndices() {
+        const list = [];
+        CAK_LONTONG_QUESTIONS.forEach((q, idx) => {
+            if (state.selectedCategory === 'ALL' || q.category === state.selectedCategory) list.push(idx);
+        });
+        return list;
+    }
+
+    function populateCategorySelect() {
+        const catEl = document.getElementById('cl-category');
+        if (!catEl) return;
+        const cats = new Set(CAK_LONTONG_QUESTIONS.map((q) => q.category));
+        catEl.textContent = '';
+        const allOpt = document.createElement('option');
+        allOpt.value = 'ALL';
+        allOpt.textContent = `Semua Kategori (${CAK_LONTONG_QUESTIONS.length})`;
+        catEl.appendChild(allOpt);
+        cats.forEach((c) => {
+            const count = CAK_LONTONG_QUESTIONS.filter((q) => q.category === c).length;
             const opt = document.createElement('option');
-            opt.value = String(i);
-            opt.textContent = `${i + 1}. ${q.question}`;
+            opt.value = c;
+            opt.textContent = `${c} (${count})`;
+            catEl.appendChild(opt);
+        });
+        catEl.value = state.selectedCategory;
+    }
+
+    function populateSelect() {
+        populateCategorySelect();
+        el.select.textContent = '';
+        const indices = getFilteredIndices();
+        indices.forEach((idx, pos) => {
+            const q = CAK_LONTONG_QUESTIONS[idx];
+            const opt = document.createElement('option');
+            opt.value = String(idx);
+            opt.textContent = `${pos + 1}. ${q.question}`;
             el.select.appendChild(opt);
         });
+        if (indices.length > 0 && !indices.includes(state.currentIndex)) {
+            state.currentIndex = indices[0];
+        }
         el.select.value = String(state.currentIndex);
+        const badge = document.getElementById('cl-count-badge');
+        if (badge) badge.textContent = `${indices.length} SOAL`;
     }
 
     function handleGuess(e) {
@@ -626,14 +722,27 @@
         populateSelect();
         loadQuestion(0);
 
+        const catEl = document.getElementById('cl-category');
+        if (catEl) {
+            catEl.addEventListener('change', (e) => {
+                state.selectedCategory = e.target.value || 'ALL';
+                populateSelect();
+                loadQuestion(state.currentIndex);
+            });
+        }
         el.select.addEventListener('change', (e) => loadQuestion(Number(e.target.value) || 0));
         el.btnRandom.addEventListener('click', () => {
-            const next = Math.floor(Math.random() * CAK_LONTONG_QUESTIONS.length);
+            const indices = getFilteredIndices();
+            if (indices.length === 0) return;
+            const next = indices[Math.floor(Math.random() * indices.length)];
             el.select.value = String(next);
             loadQuestion(next);
         });
         el.btnNext.addEventListener('click', () => {
-            const next = (state.currentIndex + 1) % CAK_LONTONG_QUESTIONS.length;
+            const indices = getFilteredIndices();
+            if (indices.length === 0) return;
+            const curPos = indices.indexOf(state.currentIndex);
+            const next = indices[(curPos + 1) % indices.length];
             el.select.value = String(next);
             loadQuestion(next);
         });

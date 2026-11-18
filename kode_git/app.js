@@ -306,7 +306,8 @@
         },
         {
             id: 22,
-            question: '[Bapak-bapak] Alasan paling sering dipakai saat pulang telat ke rumah?',
+            category: 'Bapak-bapak',
+            question: 'Alasan paling sering dipakai bapak-bapak saat pulang telat ke rumah?',
             is_example: true,
             answers: [
                 { id: 2201, answer_text: 'MACET DI JALAN', points: 100 },
@@ -321,7 +322,8 @@
         },
         {
             id: 23,
-            question: '[Bapak-bapak] Apa yang langsung dilakukan suami saat istri tiba-tiba diam?',
+            category: 'Bapak-bapak',
+            question: 'Apa yang langsung dilakukan suami saat istri tiba-tiba diam dan cemberut?',
             is_example: true,
             answers: [
                 { id: 2301, answer_text: 'TANYA KENAPA', points: 100 },
@@ -336,7 +338,8 @@
         },
         {
             id: 24,
-            question: '[Kantor] Apa yang bikin karyawan semangat selain tanggal gajian?',
+            category: 'Lingkungan Kantor',
+            question: 'Apa yang paling bikin karyawan semangat selain tanggal gajian?',
             is_example: true,
             answers: [
                 { id: 2401, answer_text: 'MAKAN GRATIS / TRAKTIRAN', points: 100 },
@@ -351,7 +354,8 @@
         },
         {
             id: 25,
-            question: '[Kantor] Hal yang sering dilakukan saat meeting terasa membosankan?',
+            category: 'Lingkungan Kantor',
+            question: 'Hal yang sering dilakukan saat meeting di kantor terasa membosankan?',
             is_example: true,
             answers: [
                 { id: 2501, answer_text: 'MAIN HP / SCROLL SOSMED', points: 100 },
@@ -366,7 +370,8 @@
         },
         {
             id: 26,
-            question: '[Sosmed] Konten apa yang paling sering muncul di FYP TikTok / Reels?',
+            category: 'Gen Z & Sosmed',
+            question: 'Konten apa yang paling sering muncul di FYP TikTok atau Reels Instagram?',
             is_example: true,
             answers: [
                 { id: 2601, answer_text: 'JOGET / DANCE', points: 100 },
@@ -381,7 +386,8 @@
         },
         {
             id: 27,
-            question: '[Sosmed] Apa yang dilakukan orang sebelum makan makanan enak di kafe?',
+            category: 'Gen Z & Sosmed',
+            question: 'Apa yang dilakukan orang sebelum menyantap makanan enak di kafe?',
             is_example: true,
             answers: [
                 { id: 2701, answer_text: 'FOTO / VIDEO DULU', points: 100 },
@@ -396,7 +402,8 @@
         },
         {
             id: 28,
-            question: '[Gen Z] Istilah bahasa gaul apa yang paling sering dipakai anak Gen Z?',
+            category: 'Gen Z & Sosmed',
+            question: 'Istilah bahasa gaul apa yang paling sering dipakai anak muda zaman sekarang?',
             is_example: true,
             answers: [
                 { id: 2801, answer_text: 'OVERTHINKING / GALAU', points: 100 },
@@ -411,7 +418,8 @@
         },
         {
             id: 29,
-            question: '[Gen Z] Benda yang wajib ada di meja kerja atau tas anak Gen Z?',
+            category: 'Gen Z & Sosmed',
+            question: 'Benda apa yang wajib ada di meja kerja atau tas anak muda di kantor?',
             is_example: true,
             answers: [
                 { id: 2901, answer_text: 'ES KOPI SUSU', points: 100 },
@@ -426,7 +434,8 @@
         },
         {
             id: 30,
-            question: '[Milenial] Apa yang paling sering dikeluhkan Milenial di usia 30-an?',
+            category: 'Milenial & Boomers',
+            question: 'Apa yang paling sering dikeluhkan pekerja usia 30-an?',
             is_example: true,
             answers: [
                 { id: 3001, answer_text: 'SAKIT PINGGUNG / ENCOK', points: 100 },
@@ -441,7 +450,8 @@
         },
         {
             id: 31,
-            question: '[Boomers] Kebiasaan khas Boomers saat memakai grup WhatsApp keluarga?',
+            category: 'Milenial & Boomers',
+            question: 'Kebiasaan khas orang tua saat memakai grup WhatsApp keluarga?',
             is_example: true,
             answers: [
                 { id: 3101, answer_text: 'KIRIM STIKER SELAMAT PAGI', points: 100 },
@@ -456,7 +466,7 @@
         },
     ];
 
-    const STORAGE_KEY_QUESTIONS = 'family100_gas_local_questions_v3';
+    const STORAGE_KEY_QUESTIONS = 'family100_gas_local_questions_v4';
     const STORAGE_KEY_GAS_URL = 'family100_gas_webapp_url';
     const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbyrbhRx6eGu2xma2SGsiYpbKQhHX23AC9GvPj3BVDacwwQUTD16viQcZNPP5NncZ2gRzw/exec';
 
@@ -474,6 +484,7 @@
     const state = {
         gasUrl: localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GAS_URL,
         questions: [],
+        selectedCategory: 'ALL',
         currentIndex: 0,
         revealedIds: new Set(),
         teams: [
@@ -763,15 +774,64 @@
         return state.questions[state.currentIndex] || null;
     }
 
-    function populateSelect() {
-        el.select.textContent = '';
+    function getQuestionCategory(q) {
+        if (!q) return 'Umum';
+        if (q.category) return q.category;
+        const txt = String(q.question || '').toLowerCase();
+        if (/power bi|excel|grafik|connector|format file|data quality/.test(txt)) return 'Data & Teknologi';
+        if (/kolaborasi|server|terlambat dikirim|karyawan|meeting|kantor/.test(txt)) return 'Lingkungan Kantor';
+        if (/bapak|suami|istri/.test(txt)) return 'Bapak-bapak';
+        if (/tiktok|kafe|gaul|meja kerja|anak muda/.test(txt)) return 'Gen Z & Sosmed';
+        if (/30-an|whatsapp keluarga|orang tua/.test(txt)) return 'Milenial & Boomers';
+        return 'Kehidupan Sehari-hari';
+    }
+
+    function getFilteredIndices() {
+        const list = [];
         state.questions.forEach((q, idx) => {
+            if (state.selectedCategory === 'ALL' || getQuestionCategory(q) === state.selectedCategory) {
+                list.push(idx);
+            }
+        });
+        return list;
+    }
+
+    function populateCategorySelect() {
+        const catEl = document.getElementById('category-select');
+        if (!catEl) return;
+        const cats = new Set();
+        state.questions.forEach((q) => cats.add(getQuestionCategory(q)));
+        const prev = state.selectedCategory || 'ALL';
+        catEl.textContent = '';
+        const allOpt = document.createElement('option');
+        allOpt.value = 'ALL';
+        allOpt.textContent = `Semua Kategori (${state.questions.length})`;
+        catEl.appendChild(allOpt);
+        Array.from(cats).forEach((c) => {
+            const count = state.questions.filter((q) => getQuestionCategory(q) === c).length;
+            const opt = document.createElement('option');
+            opt.value = c;
+            opt.textContent = `${c} (${count})`;
+            catEl.appendChild(opt);
+        });
+        catEl.value = cats.has(prev) ? prev : 'ALL';
+        state.selectedCategory = catEl.value;
+    }
+
+    function populateSelect() {
+        populateCategorySelect();
+        el.select.textContent = '';
+        const indices = getFilteredIndices();
+        indices.forEach((idx, pos) => {
+            const q = state.questions[idx];
             const opt = document.createElement('option');
             opt.value = String(idx);
-            const prefix = q.is_example ? '[Contoh] ' : '';
-            opt.textContent = `${idx + 1}. ${prefix}${q.question}`;
+            opt.textContent = `${pos + 1}. ${q.question}`;
             el.select.appendChild(opt);
         });
+        if (indices.length > 0 && !indices.includes(state.currentIndex)) {
+            state.currentIndex = indices[0];
+        }
         el.select.value = String(state.currentIndex);
     }
 
@@ -1747,11 +1807,22 @@
             syncPushIfHost('reset');
         });
 
+        const catSelect = document.getElementById('category-select');
+        if (catSelect) {
+            catSelect.addEventListener('change', (e) => {
+                state.selectedCategory = e.target.value || 'ALL';
+                populateSelect();
+                resetRound();
+                syncPushIfHost('reset');
+            });
+        }
+
         el.btnRandom.addEventListener('click', () => {
-            if (state.questions.length <= 1) return;
+            const indices = getFilteredIndices();
+            if (indices.length <= 1) return;
             let next = state.currentIndex;
             while (next === state.currentIndex) {
-                next = Math.floor(Math.random() * state.questions.length);
+                next = indices[Math.floor(Math.random() * indices.length)];
             }
             state.currentIndex = next;
             el.select.value = String(next);
