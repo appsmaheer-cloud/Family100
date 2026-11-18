@@ -99,7 +99,7 @@
             question: 'Saat istri tiba-tiba bilang "Terserah Mas mau makan di mana", jawaban paling aman adalah...',
             answer: 'PULANG',
             trap: 'PUSING',
-            openIndices: [0, 5],
+            openIndices: [0, 1, 4, 5],
             clues: [
                 'Daripada salah tebak restoran dan bikin perang dingin di mobil.',
                 'Ujung-ujungnya masak mie instan di dapur sendiri!'
@@ -112,7 +112,7 @@
             question: 'Saat MC ice breaking bilang "Ayo semuanya berdiri!", yang tidak punya kursi langsung...',
             answer: 'BERDIRI',
             trap: 'BERLARI',
-            openIndices: [0, 2, 5, 6],
+            openIndices: [0, 1, 2, 5, 6],
             clues: [
                 'Nggak usah lari keliling ruangan kayak lomba lari.',
                 'Ikuti saja instruksi MC-nya dengan tenang!'
@@ -125,7 +125,7 @@
             question: 'Supaya peserta seminar yang ngantuk berat mendadak melek semua, pembicara harus bikin...',
             answer: 'KETAWA',
             trap: 'KEPALA',
-            openIndices: [0, 1, 5],
+            openIndices: [0, 1, 3, 5],
             clues: [
                 'Reaksi spontan kalau dengar jokes bapak-bapak atau tebak-tebakan nyeleneh.',
                 'Gratis, menular, dan bikin suasana ruangan langsung cair!'
@@ -138,8 +138,8 @@
             question: 'Di akhir acara kantor, semua peserta berdiri rapat menghadap kamera sambil teriak "Satu, dua, tiga..." karena mau...',
             answer: 'KEDIP',
             isTwist: true,
-            trap: 'KEPALA',
-            openIndices: [0, 4],
+            trap: 'KELIP',
+            openIndices: [0, 1, 3, 4],
             clues: [
                 'Momen paling ngeselin pas hasil fotonya baru dilihat.',
                 'Yang lain udah senyum maksimal, eh satu orang matanya ketutup!'
@@ -167,7 +167,7 @@
             answer: 'MALU',
             isTwist: true,
             trap: 'MAJU',
-            openIndices: [0, 3],
+            openIndices: [0, 1, 3],
             clues: [
                 'Kalau teriak sendirian jelas nggak berani.',
                 'Karena rame-rame, rasa ini mendadak hilang entah ke mana!'
@@ -680,7 +680,7 @@
             answer: 'TENAGA',
             isTwist: true,
             trap: 'TANGAN',
-            openIndices: [0, 2, 5],
+            openIndices: [0, 2, 4, 5],
             clues: [
                 'Bukan anggota tubuh di ujung lengan.',
                 'Kalau lagi lemas nggak punya ini, nyuap nasi pun nggak kuat!'
@@ -694,7 +694,7 @@
             answer: 'GANTIAN',
             isTwist: true,
             trap: 'GUNTING',
-            openIndices: [0, 2, 3, 6],
+            openIndices: [0, 2, 3, 4, 6],
             clues: [
                 'Bukan alat tajam yang bunyinya krek-krek.',
                 'Kalau pelanggannya ada lima orang, masa dicukur barengan semua?!'
@@ -732,30 +732,30 @@
         {
             id: 55,
             category: 'Soal Cerita',
-            question: 'Suatu malam hujan deras dan listrik padam total. Andi sendirian di kamar hanya membawa satu batang korek api. Di mejanya ada lilin, lampu minyak, dan kompor gas. Benda apa yang harus Andi nyalakan pertama kali?',
-            answer: 'KOREK API',
+            question: 'Pak RT memasang bel rumah baru yang super canggih. Kalau dipencet bunyinya "TING TONG". Pertanyaannya: kalau seharian nggak ada tamu yang pencet bel itu, dia tetap...',
+            answer: 'NEMPEL',
             isTwist: true,
-            trap: 'KOMPOR GAS',
-            openIndices: [0, 6, 8],
+            trap: 'NEKAD',
+            openIndices: [0, 1, 3, 4, 5],
             clues: [
-                'Jangan pilih lilin atau lampu minyak dulu!',
-                'Bagaimana cara menyalakan benda lain kalau pemantiknya belum menyala?!'
+                'Bukan soal bunyi atau diamnya bel itu!',
+                'Posisinya di tembok pagar depan rumah Pak RT!'
             ],
-            reason: 'KOREK API dulu yang dinyalain! Gimana mau nyalain lilin atau kompor gas kalau korek apinya masih mati?!'
+            reason: 'N-E-?-P-E-L! Mau dipencet atau nggak seharian, belnya tetap NEMPEL di tembok rumah!'
         },
         {
             id: 56,
             category: 'Soal Cerita',
-            question: 'Pak Budi naik kereta api dari Jakarta ke Surabaya jam 08.00 pagi dengan kecepatan 100 km/jam tanpa berhenti. Di gerbong 3 ada 45 penumpang, dan angin bertiup kencang ke arah timur. Ke arah mana asap kereta api itu mengarah?',
-            answer: 'TIDAK ADA',
+            question: 'Di dalam kulkas dua pintu ada apel, jeruk, mangga, dan botol air mineral. Ketika pintu kulkas baru saja dibuka lebar, hal pertama yang keluar dari kulkas adalah...',
+            answer: 'DINGIN',
             isTwist: true,
-            trap: 'TIMUR LAUT',
-            openIndices: [0, 6, 8],
+            trap: 'DAGING',
+            openIndices: [0, 1, 3, 4, 5],
             clues: [
-                'Jangan hitung arah angin atau kecepatan keretanya!',
-                'Kereta api Jakarta–Surabaya zaman sekarang pakai mesin diesel dan listrik!'
+                'Bukan buah-buahan atau botol minumnya.',
+                'Langsung terasa di muka pas pintu kulkas dibuka!'
             ],
-            reason: 'TIDAK ADA asapnya! Kereta zaman sekarang bukan kereta uap batu bara, jadi nggak ngebul ke timur atau barat!'
+            reason: 'D-I-?-G-I-N bukan DAGING! Hawa DINGIN-nya langsung keluar duluan sebelum tangan kita ambil apa-apa!'
         },
         {
             id: 57,
@@ -830,16 +830,16 @@
         {
             id: 62,
             category: 'Soal Cerita',
-            question: 'Seorang detektif menemukan pria tergantung di ruangan kosong terkunci dari dalam tanpa kursi atau tangga, hanya ada genangan air besar di lantai. Bagaimana pria itu bisa memanjat ke atas?',
-            answer: 'ES BATU',
+            question: 'Saat acara team building di villa, Budi kebagian sekamar sama temannya yang tidur ngorok suaranya mirip mesin diesel. Sudah tutup kuping pakai bantal tapi tetap tembus. Cara paling ampuh supaya Budi nggak dengar ngoroknya lagi adalah...',
+            answer: 'PINDAH',
             isTwist: true,
-            trap: 'EM BERU',
-            openIndices: [0, 3, 6],
+            trap: 'PISAH',
+            openIndices: [0, 1, 3, 4, 5],
             clues: [
-                'Air di lantai itu dulunya padat dan tinggi!',
-                'Lama-lama mencair karena suhu ruangan!'
+                'Jangan bangunin orangnya nanti malah berantem!',
+                'Budi sendiri yang ambil tindakan keluar dari kamar itu!'
             ],
-            reason: 'Dia berdiri di atas balok ES BATU raksasa yang lama-lama mencair menjadi genangan air di lantai!'
+            reason: 'P-I-?-D-A-H! PINDAH kamar aja ke sofa ruang tamu, daripada ngoroknya dilawan pakai suara lebih keras!'
         },
         {
             id: 63,
