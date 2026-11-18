@@ -135,41 +135,44 @@
         {
             id: 11,
             category: 'Ice Breaking',
-            question: 'Gerakan wajib seluruh peserta di akhir acara kantor sebelum pada bubar pulang adalah...',
-            answer: 'FOTO',
-            trap: 'FOMO',
-            openIndices: [0, 3],
+            question: 'Di akhir acara kantor, semua peserta berdiri rapat menghadap kamera sambil teriak "Satu, dua, tiga..." karena mau...',
+            answer: 'KEDIP',
+            isTwist: true,
+            trap: 'KEPALA',
+            openIndices: [0, 4],
             clues: [
-                'Sambil teriak "Satu, dua, tiga... bebas!" atau gaya jempol.',
-                'Wajib buat laporan dokumentasi HRD dan story Instagram!'
+                'Momen paling ngeselin pas hasil fotonya baru dilihat.',
+                'Yang lain udah senyum maksimal, eh satu orang matanya ketutup!'
             ],
-            reason: 'F-?-?-O bukan FOMO! Nggak sah acaranya kalau belum FOTO bareng pose jempol!'
+            reason: 'Selalu ada satu orang yang KEDIP pas jepretan kamera, terus minta ulang sepuluh kali!'
         },
         {
             id: 12,
             category: 'Ice Breaking',
             question: 'Hal yang paling ditunggu peserta saat sesi game ice breaking hampir selesai adalah...',
-            answer: 'MAKAN',
-            trap: 'MAKIN',
-            openIndices: [0, 1, 2, 4],
+            answer: 'PULANG',
+            isTwist: true,
+            trap: 'PINANG',
+            openIndices: [0, 5],
             clues: [
-                'Biasanya ada di kotak snack atau prasmanan belakang ruangan.',
-                'Energi tambahan setelah mikir keras jawab kuis!'
+                'Bukan hadiah atau doorprize dari panitia.',
+                'Semua udah lirik jam tangan pengen segera ke parkiran!'
             ],
-            reason: 'Juara 1 boleh bangga, tapi semua peserta tetap paling nungguin jam MAKAN siang!'
+            reason: 'P-?-?-?-?-G! Doorprize sih bonus, tapi di hati paling dalam semua peserta cuma nungguin kata PULANG!'
         },
         {
             id: 13,
             category: 'Ice Breaking',
-            question: 'Syarat mutlak supaya yel-yel kelompok di acara team building terdengar menggelegar adalah...',
-            answer: 'KOMPAK',
-            trap: 'KONTAK',
-            openIndices: [0, 1, 5],
+            question: 'Alasan utama kenapa peserta acara kantor semangat banget teriak yel-yel di depan juri adalah...',
+            answer: 'MALU',
+            isTwist: true,
+            trap: 'MAJU',
+            openIndices: [0, 3],
             clues: [
-                'Kalau satu teriak kiri dan satu teriak kanan, jadinya berantakan.',
-                'Harus barengan dan satu suara!'
+                'Kalau teriak sendirian jelas nggak berani.',
+                'Karena rame-rame, rasa ini mendadak hilang entah ke mana!'
             ],
-            reason: 'K-O-?-?-?-K bukan KONTAK! Suara fals nggak masalah, yang penting KOMPAK!'
+            reason: 'M-?-?-U bukan MAJU! Justru karena kalau nggak teriak bareng malah MALU dilihat divisi sebelah!'
         },
         {
             id: 14,
@@ -323,16 +326,16 @@
         {
             id: 25,
             category: 'Klasik WIB',
-            question: 'Benda apa yang kalau dipakai makin basah, tapi tujuan kita memakainya supaya badan kering?',
-            answer: 'HANDUK',
-            isTwist: false,
-            trap: 'HUJAN',
-            openIndices: [0, 5],
+            question: 'Pedagang kaki lima di pinggir jalan langsung bubar berhamburan karena ada...',
+            answer: 'RAMAI',
+            isTwist: true,
+            trap: 'RAZIA',
+            openIndices: [0, 1, 4],
             clues: [
-                'Ada di kamar mandi, digantung setelah mandi.',
-                'Semakin kering badan kita, semakin basah benda ini!'
+                'Bukan Satpol PP atau hujan badai!',
+                'Justru ini kondisi yang paling didoakan semua pedagang!'
             ],
-            reason: 'HANDUK! Kali ini jawabannya beneran lurus, peserta yang mikir aneh-aneh pasti kejebak!'
+            reason: 'R-A-?-?-I bukan RAZIA! Karena dagangannya RAMAI pembeli, langsung ludes habis terus bubar pulang lebih cepat!'
         },
         {
             id: 26,
@@ -533,16 +536,16 @@
         {
             id: 41,
             category: 'Lingkungan Kantor',
-            question: 'Hal paling pertama yang wajib dilakukan karyawan begitu sampai di meja kerja sebelum mulai mengetik?',
-            answer: 'BUKA LAPTOP',
-            isTwist: false,
-            trap: 'BACA EMAIL',
-            openIndices: [0, 5],
+            question: 'Hal paling pertama yang dilakukan karyawan begitu sampai di meja kerja sebelum mulai mengetik?',
+            answer: 'TARIK KURSI',
+            isTwist: true,
+            trap: 'TEKAN TOMBOL',
+            openIndices: [0, 6, 10],
             clues: [
-                'Jangan mikir terlalu jauh, ini jawaban beneran lurus!',
-                'Kalau nggak dibuka layarnya, ya nggak bisa dipakai kerja!'
+                'Bukan langsung nyalain laptop atau baca email.',
+                'Kalau nggak lakukan ini, mau kerja sambil berdiri seharian?!'
             ],
-            reason: 'Kali ini beneran lurus! Peserta sering kejebak mikir aneh-aneh padahal emang harus BUKA LAPTOP dulu!'
+            reason: 'T-?-?-?-?-K K-?-?-?-I! TARIK KURSI dulu biar bisa duduk nyaman sebelum nyalain laptop!'
         },
         {
             id: 42,
@@ -561,30 +564,30 @@
         {
             id: 43,
             category: 'Klasik WIB',
-            question: 'Sebelum menyuap nasi goreng pakai tangan kosong, hal wajib yang harus dilakukan adalah...',
-            answer: 'CUCI TANGAN',
-            isTwist: false,
-            trap: 'CUCI PIRING',
-            openIndices: [0, 5, 10],
+            question: 'Sebelum menyuap nasi goreng pakai tangan kosong, hal wajib yang harus dipastikan adalah...',
+            answer: 'SUDAH MATANG',
+            isTwist: true,
+            trap: 'SUDAH BERSIH',
+            openIndices: [0, 6, 11],
             clues: [
-                'Jangan dibelok-belokin, ini beneran aturan kebersihan!',
-                'Pakai sabun dan air mengalir biar nggak sakit perut!'
+                'Bukan soal cuci tangan pakai sabun dulu.',
+                'Kalau masih beras mentah ya sakit perut!'
             ],
-            reason: 'Haha kesal kan? Kali ini jawabannya memang lurus: CUCI TANGAN! Jangan terlalu curiga terus!'
+            reason: 'S-?-?-?-?-H M-?-?-?-?-G! Pastikan nasi gorengnya SUDAH MATANG dulu, masa makan beras mentah!'
         },
         {
             id: 44,
             category: 'Lingkungan Kantor',
-            question: 'Alasan paling jujur kenapa karyawan mendadak rajin senyum di jam 12 siang?',
-            answer: 'MAKAN SIANG',
-            isTwist: false,
-            trap: 'MALAS KERJA',
-            openIndices: [0, 6, 10],
+            question: 'Alasan paling jujur kenapa karyawan mendadak rajin senyum dan ramah di jam 12 siang?',
+            answer: 'LAPAR BANGET',
+            isTwist: true,
+            trap: 'LIBUR DATANG',
+            openIndices: [0, 6, 11],
             clues: [
-                'Waktunya istirahat dan isi tenaga.',
-                'Jawaban beneran: ditunggu-tunggu sejak jam 10 pagi!'
+                'Bukan karena kerjaan udah kelar semua.',
+                'Senyumnya senyum nahan bunyi perut sambil ngajak temen ke kantin!'
             ],
-            reason: 'Jawabannya lurus: MAKAN SIANG! Peserta yang nebak aneh-aneh pasti kena prank!'
+            reason: 'LAPAR BANGET! Senyumnya bukan karena bahagia lihat Excel, tapi karena butuh temen patungan makan siang!'
         },
         {
             id: 45,
@@ -645,16 +648,16 @@
         {
             id: 49,
             category: 'Ice Breaking',
-            question: 'Minuman hangat yang paling sering dipesan peserta saat acara seminar pagi biar melek adalah...',
-            answer: 'MINUM KOPI',
-            isTwist: false,
-            trap: 'MINUM JAMU',
-            openIndices: [0, 6, 9],
+            question: 'Minuman hangat yang paling sering bikin peserta seminar pagi mendadak salah fokus adalah...',
+            answer: 'KETINGGALAN',
+            isTwist: true,
+            trap: 'KOPI HITAM',
+            openIndices: [0, 10],
             clues: [
-                'Kali ini beneran nggak belok!',
-                'Hitam, wangi, dan selalu ada di meja coffee break!'
+                'Bukan kopi atau teh manisnya.',
+                'Udah duduk manis di meja, eh gelasnya malah tertinggal di meja coffee break!'
             ],
-            reason: 'Beneran MINUM KOPI! Kalau peserta mikir belok pasti salah!'
+            reason: 'KETINGGALAN di meja belakang! Mau minum eh tangannya megang pulpen doang!'
         },
         {
             id: 50,
@@ -725,6 +728,146 @@
                 'Kalau lagi sibuk banget atau udah jadi ayam bakar, mana sempat terbang!'
             ],
             reason: 'Punya sayap doang kalau nggak punya WAKTU luang ya nggak terbang-terbang! (Atau udah di piring!)'
+        },
+        {
+            id: 55,
+            category: 'Soal Cerita',
+            question: 'Suatu malam hujan deras dan listrik padam total. Andi sendirian di kamar hanya membawa satu batang korek api. Di mejanya ada lilin, lampu minyak, dan kompor gas. Benda apa yang harus Andi nyalakan pertama kali?',
+            answer: 'KOREK API',
+            isTwist: true,
+            trap: 'KOMPOR GAS',
+            openIndices: [0, 6, 8],
+            clues: [
+                'Jangan pilih lilin atau lampu minyak dulu!',
+                'Bagaimana cara menyalakan benda lain kalau pemantiknya belum menyala?!'
+            ],
+            reason: 'KOREK API dulu yang dinyalain! Gimana mau nyalain lilin atau kompor gas kalau korek apinya masih mati?!'
+        },
+        {
+            id: 56,
+            category: 'Soal Cerita',
+            question: 'Pak Budi naik kereta api dari Jakarta ke Surabaya jam 08.00 pagi dengan kecepatan 100 km/jam tanpa berhenti. Di gerbong 3 ada 45 penumpang, dan angin bertiup kencang ke arah timur. Ke arah mana asap kereta api itu mengarah?',
+            answer: 'TIDAK ADA',
+            isTwist: true,
+            trap: 'TIMUR LAUT',
+            openIndices: [0, 6, 8],
+            clues: [
+                'Jangan hitung arah angin atau kecepatan keretanya!',
+                'Kereta api Jakarta–Surabaya zaman sekarang pakai mesin diesel dan listrik!'
+            ],
+            reason: 'TIDAK ADA asapnya! Kereta zaman sekarang bukan kereta uap batu bara, jadi nggak ngebul ke timur atau barat!'
+        },
+        {
+            id: 57,
+            category: 'Soal Cerita',
+            question: 'Di gedung kantor lantai 12, Rudi selalu naik lift sampai lantai 8 lalu jalan kaki lewat tangga ke lantai 12 setiap pagi. Padahal lift-nya tidak rusak dan bisa langsung ke lantai 12. Kenapa Rudi melakukan itu?',
+            answer: 'PENDEK',
+            isTwist: true,
+            trap: 'PENGEN',
+            openIndices: [0, 5],
+            clues: [
+                'Bukan karena Rudi pengen olahraga atau diet.',
+                'Saat pulang ke lantai 1, Rudi bisa langsung pencet tombol lift paling bawah!'
+            ],
+            reason: 'Karena badan Rudi PENDEK! Tangannya cuma nyampe pencet tombol angka 8 di panel lift, nggak nyampe angka 12!'
+        },
+        {
+            id: 58,
+            category: 'Soal Cerita',
+            question: 'Sebuah kapal pesiar mewah berlayar di tengah Samudra Pasifik dengan 200 penumpang. Tiba-tiba badai datang dan kapal oleng hebat. Ajaibnya, tidak ada satu pun orang yang sendirian jatuh ke laut. Kenapa?',
+            answer: 'MENIKAH',
+            isTwist: true,
+            trap: 'SELAMAT',
+            openIndices: [0, 6],
+            clues: [
+                'Perhatikan kata kuncinya: tidak ada satu pun orang yang "sendirian"!',
+                'Semua penumpangnya sudah punya pasangan sah!'
+            ],
+            reason: 'Karena semua penumpangnya sudah MENIKAH! Tidak ada yang "single" (sendirian)! Haha!'
+        },
+        {
+            id: 59,
+            category: 'Soal Cerita',
+            question: 'Ibu menyuruh Dodi ke warung beli garam. Di jalan Dodi ketemu teman lalu ngobrol 15 menit, mampir lihat layangan 10 menit, dan beli es cendol. Sampai di depan ibu warung, kata pertama yang keluar dari mulut Dodi adalah...',
+            answer: 'LUPA',
+            isTwist: true,
+            trap: 'LAMA',
+            openIndices: [0, 3],
+            clues: [
+                'Saking kelamaan ngobrol di jalan.',
+                'Pas ditanya "Beli apa Le?", Dodi cuma garuk kepala!'
+            ],
+            reason: 'L-?-?-A! Saking asyiknya mampir di jalan, sampai warung Dodi langsung bilang: "Bu, saya LUPA disuruh beli apa!"'
+        },
+        {
+            id: 60,
+            category: 'Soal Cerita',
+            question: 'Seorang manajer HRD mewawancarai 3 kandidat. Kandidat A jago Excel, kandidat B jago presentasi, dan kandidat C paling rapi. Setelah 2 jam diskusi, manajer HRD memutuskan memilih kandidat yang...',
+            answer: 'BELUM KERJA',
+            isTwist: true,
+            trap: 'BAGUS KERJA',
+            openIndices: [0, 6, 10],
+            clues: [
+                'Kalau kandidatnya udah punya pekerjaan tetap di tempat lain, ngapain diterima?',
+                'Syarat paling masuk akal seorang pelamar kerja!'
+            ],
+            reason: 'Ya dipilih yang BELUM KERJA! Kalau sudah bekerja di kantor lain kan nggak butuh lowongan!'
+        },
+        {
+            id: 61,
+            category: 'Soal Cerita',
+            question: 'Tiga sahabat — Eko, Budi, dan Toni — makan bersama di restoran mewah dengan total tagihan Rp 300.000. Setelah selesai makan dan mengobrol, orang yang paling terakhir berdiri meninggalkan meja makan selalu orang yang...',
+            answer: 'BAYAR',
+            isTwist: true,
+            trap: 'BESAR',
+            openIndices: [0, 4],
+            clues: [
+                'Yang lain udah duluan ke parkiran pura-pura ambil motor.',
+                'Dia masih duduk nunggu struk dari kasir!'
+            ],
+            reason: 'B-?-?-?-R! Yang lain udah kabur duluan ke parkiran, yang paling terakhir berdiri ya yang lagi BAYAR tagihan!'
+        },
+        {
+            id: 62,
+            category: 'Soal Cerita',
+            question: 'Seorang detektif menemukan pria tergantung di ruangan kosong terkunci dari dalam tanpa kursi atau tangga, hanya ada genangan air besar di lantai. Bagaimana pria itu bisa memanjat ke atas?',
+            answer: 'ES BATU',
+            isTwist: true,
+            trap: 'EM BERU',
+            openIndices: [0, 3, 6],
+            clues: [
+                'Air di lantai itu dulunya padat dan tinggi!',
+                'Lama-lama mencair karena suhu ruangan!'
+            ],
+            reason: 'Dia berdiri di atas balok ES BATU raksasa yang lama-lama mencair menjadi genangan air di lantai!'
+        },
+        {
+            id: 63,
+            category: 'Soal Cerita',
+            question: 'Hari Minggu pagi, ayah mengajak keluarga ke kebun binatang. Di kandang pertama ada gajah, di kandang kedua ada singa, dan di kandang ketiga bertuliskan "Hewan Paling Berbahaya di Dunia". Saat melongok ke dalam, pengunjung malah tertawa karena di dalamnya cuma ada...',
+            answer: 'CERMIN',
+            isTwist: true,
+            trap: 'CICAK',
+            openIndices: [0, 5],
+            clues: [
+                'Bukan binatang buas, tapi benda kaca yang memantulkan bayangan.',
+                'Pas melongok, yang kelihatan adalah wajah pengunjung sendiri!'
+            ],
+            reason: 'C-?-?-?-?-N! Di dalamnya ada CERMIN! Jadi saat pengunjung melongok, mereka langsung lihat diri sendiri sebagai makhluk paling berbahaya!'
+        },
+        {
+            id: 64,
+            category: 'Soal Cerita',
+            question: 'Rina punya uang Rp 50.000 di dompet. Ia naik angkot ke pasar bayar Rp 5.000, lalu beli sayur Rp 15.000 dan beli gorengan Rp 5.000. Di tengah jalan pulang, sopir angkot menoleh ke Rina dan bertanya "Berapa orang, Neng?". Rina menjawab...',
+            answer: 'SENDIRI',
+            isTwist: true,
+            trap: 'SEPULUH',
+            openIndices: [0, 6],
+            clues: [
+                'Jangan hitung sisa uang belanja Rina!',
+                'Perhatikan pertanyaan terakhir sopir angkotnya!'
+            ],
+            reason: 'S-?-?-?-?-?-I! Yang ditanya sopir angkot itu "Berapa orang?", bukan "Berapa sisa uang Rina?!" Ya jawabnya SENDIRI!'
         }
     ];
 
