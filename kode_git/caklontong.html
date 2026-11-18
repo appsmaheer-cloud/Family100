@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS Cak Lontong — Waktu Indonesia Bercanda</title>
+    <link rel="icon" type="image/svg+xml" href="family100-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=26">
+    <style>
+        .cl-badge-wib {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 12px;
+            border-radius: 999px;
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            color: #B45309;
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+        .cl-tiles-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 12px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            min-height: 112px;
+        }
+        .cl-tile {
+            width: clamp(46px, 5.2vw, 66px);
+            height: clamp(54px, 6.2vw, 74px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+            font-weight: 900;
+            border-radius: 12px;
+            border: 2px solid #0284C7;
+            background: linear-gradient(180deg, #0284C7 0%, #0369A1 100%);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+            text-transform: uppercase;
+            transition: transform 0.22s ease, background 0.22s ease;
+        }
+        .cl-tile.clue {
+            background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+            border-color: #FBBF24;
+            color: #FFFFFF;
+        }
+        .cl-tile.revealed {
+            background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+            border-color: #6EE7B7;
+            animation: flipReveal 0.45s ease;
+        }
+        .cl-tile.hidden-letter {
+            color: rgba(255, 255, 255, 0.35);
+        }
+        .cl-reason-box {
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: #FFFBEB;
+            border: 1.5px solid #FDE68A;
+            color: #92400E;
+            font-size: 0.96rem;
+            line-height: 1.45;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cl-reason-box[hidden] { display: none; }
+        .cl-reason-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #F59E0B;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .cl-meta-chips {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .cl-chip {
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: #F0FDFA;
+            border: 1px solid #CCFBF1;
+            color: #0F766E;
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-logo-wrap">
+                <img src="family100-logo.svg" alt="Logo Family 100" class="brand-logo">
+            </div>
+            <div>
+                <h1 class="brand-title">TTS Cak Lontong <span class="cl-badge-wib">MIKIRRR!</span></h1>
+                <p class="brand-sub">Edisi Waktu Indonesia Bercanda • Tebak Logika Nyeleneh</p>
+            </div>
+        </div>
+
+        <div class="topbar-controls">
+            <select id="cl-select" class="select-control" aria-label="Pilih Soal Cak Lontong"></select>
+            <button type="button" id="cl-random" class="btn btn-secondary">Acak Soal</button>
+            <a href="index.html" class="btn btn-secondary" style="text-decoration:none;">📺 Family 100</a>
+            <button type="button" id="cl-sound" class="btn btn-icon" aria-pressed="true" title="Suara Aktif">🔊</button>
+            <button type="button" id="cl-fullscreen" class="btn btn-icon" title="Layar Penuh">⛶</button>
+        </div>
+    </header>
+
+    <main class="stage">
+        <section id="studio-arena" class="studio-arena">
+            <aside class="panel studio-wing wing-left" aria-label="Podium Kiri">
+                <span class="wing-label">PODIUM KIRI</span>
+                <div id="teams-left" class="wing-podiums"></div>
+            </aside>
+
+            <div class="studio-center">
+                <section class="studio-screen tv-cabinet" aria-label="Papan TTS Cak Lontong">
+                    <div class="tv-top-bar">
+                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> WIB • STUDIO</span>
+                        <span class="tv-brand-pill">🧩 TEKA-TEKI SULIT CAK LONTONG</span>
+                        <span class="tv-survey-pill" id="cl-count-badge">15 SOAL</span>
+                    </div>
+
+                    <div class="tv-display" style="grid-template-rows: auto auto auto auto auto auto auto; align-content: center; gap: 10px;">
+                        <div class="question-banner">
+                            <span id="cl-q-num" class="question-badge">Soal #1</span>
+                            <h2 id="cl-q-text" class="question-text">Memuat soal Cak Lontong...</h2>
+                        </div>
+
+                        <div class="cl-meta-chips">
+                            <span class="cl-chip" id="cl-length-chip">Panjang: 6 Huruf</span>
+                            <span class="cl-chip" id="cl-clue-chip">Clue Cak Lontong: -</span>
+                        </div>
+
+                        <div id="cl-tiles" class="cl-tiles-wrap" aria-live="polite"></div>
+
+                        <div id="cl-reason-box" class="cl-reason-box" hidden>
+                            <div class="cl-reason-icon">🤣</div>
+                            <div>
+                                <strong>Kata Cak Lontong:</strong>
+                                <span id="cl-reason-text"></span>
+                            </div>
+                        </div>
+
+                        <div class="turn-bar" id="cl-turn-bar">
+                            <span class="turn-dot"></span>
+                            <span id="active-turn-label">Giliran Menjawab: Tim Merah</span>
+                        </div>
+
+                        <form id="cl-form" class="answer-form" autocomplete="off">
+                            <input type="text" id="cl-input" class="answer-input" placeholder="Ketik jawaban yang masuk akal (atau nggak masuk akal)..." maxlength="60" required>
+                            <button type="submit" id="btn-submit" class="btn btn-primary">Cek Jawaban</button>
+                        </form>
+                        <p id="cl-feedback" class="feedback-msg" role="status" aria-live="polite"></p>
+                    </div>
+                </section>
+
+                <div class="panel studio-controls-bar">
+                    <button type="button" id="btn-add-team" class="btn btn-primary btn-sm">+ Tambah Tim</button>
+                    <button type="button" id="cl-hint-letter" class="btn btn-secondary btn-sm">💡 Buka 1 Huruf</button>
+                    <button type="button" id="cl-tetot" class="btn btn-danger btn-sm">✕ MIKIRRR! (Salah)</button>
+                    <button type="button" id="cl-reveal" class="btn btn-secondary btn-sm">🏳️ Menyerah / Buka</button>
+                    <button type="button" id="cl-next" class="btn btn-secondary btn-sm">Soal Berikutnya ➡</button>
+                    <button type="button" id="cl-reset-scores" class="btn btn-secondary btn-sm">Reset Skor</button>
+                </div>
+            </div>
+
+            <aside class="panel studio-wing wing-right" aria-label="Podium Kanan">
+                <span class="wing-label">PODIUM KANAN</span>
+                <div id="teams-right" class="wing-podiums"></div>
+            </aside>
+        </section>
+    </main>
+
+    <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
+    <div id="wrong-overlay" class="wrong-overlay" aria-hidden="true">
+        <div class="wrong-x-wrap">
+            <div class="wrong-x">✕</div>
+            <div class="wrong-label">MIKIRRR!</div>
+        </div>
+    </div>
+
+    <script src="caklontong.js?v=1"></script>
+</body>
+</html>
