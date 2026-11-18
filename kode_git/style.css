@@ -59,8 +59,8 @@ body {
 
 [data-theme="light"] .topbar {
     background: #FFFFFF;
-    border-bottom: 2px solid #CBD5E1;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
 }
 
 [data-theme="light"] .brand-title {
@@ -72,41 +72,42 @@ body {
 }
 
 [data-theme="light"] .btn-secondary {
-    background: #F1F5F9;
-    border: 1px solid #CBD5E1;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
     color: #0F172A;
 }
 
 [data-theme="light"] .btn-secondary:hover {
-    background: #E2E8F0;
-    border-color: #94A3B8;
+    background: #F1F5F9;
+    border-color: #CBD5E1;
 }
 
 [data-theme="light"] .btn-icon {
-    background: #F1F5F9;
-    border: 1px solid #CBD5E1;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
     color: #0F172A;
 }
 
 [data-theme="light"] .btn-icon:hover {
-    background: #E2E8F0;
+    background: #F1F5F9;
 }
 
 [data-theme="light"] .select-control {
     background: #FFFFFF;
-    border: 1px solid #CBD5E1;
+    border: 1px solid #E2E8F0;
     color: #0F172A;
 }
 
 [data-theme="light"] .studio-wing {
     background: #FFFFFF;
-    border: 2px solid #CBD5E1;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
 }
 
 [data-theme="light"] .wing-label {
-    color: #FFFFFF;
-    background: #0284C7;
+    color: #0F766E;
+    background: #F0FDFA;
+    border: 1px solid #CCFBF1;
 }
 
 [data-theme="light"] .podium-3d-body {
@@ -159,15 +160,15 @@ body {
 }
 
 [data-theme="light"] .studio-screen {
-    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
-    border: 4px solid #CBD5E1;
-    outline: 2px solid rgba(2, 132, 199, 0.35);
-    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    outline: none;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
 }
 
 [data-theme="light"] .tv-top-bar {
-    background: #F1F5F9;
-    border-bottom: 2px solid #CBD5E1;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
 }
 
 [data-theme="light"] .tv-brand-pill {
@@ -175,14 +176,14 @@ body {
 }
 
 [data-theme="light"] .tv-survey-pill {
-    color: #0284C7;
-    background: #E0F2FE;
-    border-color: #BAE6FD;
+    color: #0F766E;
+    background: #F0FDFA;
+    border-color: #CCFBF1;
 }
 
 [data-theme="light"] .tv-chin {
-    background: #E2E8F0;
-    border-top: 2px solid #CBD5E1;
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
 }
 
 [data-theme="light"] .tv-chin-text {
@@ -3074,4 +3075,142 @@ body {
     transform: translateY(-2px) scale(1.01);
     border-color: #FBBF24 !important;
     box-shadow: 0 6px 18px rgba(2, 132, 199, 0.28);
+}
+
+/* ==========================================================================
+   5 Kontestan LEGO Minifigure Lucu & Ekspresif per Podium
+   ========================================================================== */
+.lego-stud {
+    fill: url(#f100LegoYellow);
+    stroke: #B45309;
+    stroke-width: 1.1;
+}
+
+.lego-head {
+    fill: url(#f100LegoYellow);
+    stroke: #B45309;
+    stroke-width: 1.3;
+}
+
+.lego-shine {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.72);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+}
+
+.lego-hair {
+    stroke: #0F172A;
+    stroke-width: 1.1;
+    stroke-linejoin: round;
+}
+
+.lego-blush {
+    fill: #FB7185;
+    opacity: 0.68;
+}
+
+.lego-eye {
+    fill: #0F172A;
+}
+
+.lego-eye-shine {
+    fill: #FFFFFF;
+}
+
+.lego-mouth {
+    fill: none;
+    stroke: #0F172A;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+}
+
+.lego-eye-arc {
+    fill: none;
+    stroke: #0F172A;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.lego-mouth-open {
+    fill: #DC2626;
+    stroke: #0F172A;
+    stroke-width: 1.2;
+}
+
+.lego-eye-sad {
+    fill: none;
+    stroke: #0F172A;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+.lego-tear {
+    fill: #0284C7;
+    animation: tearDrop 0.7s ease-in-out infinite;
+}
+
+.lego-mouth-sad {
+    fill: none;
+    stroke: #0F172A;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+}
+
+.lego-eye-x {
+    fill: none;
+    stroke: #DC2626;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+}
+
+.lego-mouth-shock {
+    fill: #FFFFFF;
+    stroke: #0F172A;
+    stroke-width: 1.5;
+}
+
+.lego-neck {
+    fill: #EAB308;
+    stroke: #B45309;
+    stroke-width: 1;
+}
+
+.lego-collar {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.65);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+}
+
+.lego-legs {
+    fill: #1E293B;
+    stroke: #0F172A;
+    stroke-width: 1.2;
+}
+
+.lego-arm {
+    stroke-width: 4.2;
+    stroke-linecap: round;
+    fill: none;
+}
+
+.lego-arm.shirt-a { stroke: var(--team-accent, #2563EB); }
+.lego-arm.shirt-b { stroke: #334155; }
+
+.lego-claw {
+    fill: none;
+    stroke: #FACC15;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+}
+
+.podium-unit.active .lego-arm-l,
+.podium-unit.active .lego-arm-r {
+    animation: armWaveL 0.65s ease-in-out infinite;
+}
+
+.podium-unit.active .lego-head {
+    stroke: var(--team-accent, #B45309);
+    stroke-width: 1.6;
 }

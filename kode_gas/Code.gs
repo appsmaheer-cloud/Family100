@@ -298,6 +298,146 @@ function getSeedQuestions_() {
         { text: 'TENGGELAM', points: 40 },
         { text: 'LUPA', points: 30 }
       ]
+    },
+    {
+      question: '[Bapak-bapak] Alasan paling sering dipakai saat pulang telat ke rumah?',
+      is_example: true,
+      answers: [
+        { text: 'MACET DI JALAN', points: 100 },
+        { text: 'LEMBUR KANTOR', points: 90 },
+        { text: 'BAN BOCOR', points: 80 },
+        { text: 'NGOPI / NONTON BOLA', points: 70 },
+        { text: 'RAPAT MENDADAK', points: 60 },
+        { text: 'BATERAI HP HABIS', points: 50 },
+        { text: 'BELI TITIPAN ISTRI', points: 40 },
+        { text: 'KETIDURAN', points: 30 }
+      ]
+    },
+    {
+      question: '[Bapak-bapak] Apa yang langsung dilakukan suami saat istri tiba-tiba diam?',
+      is_example: true,
+      answers: [
+        { text: 'TANYA KENAPA', points: 100 },
+        { text: 'MINTA MAAF', points: 90 },
+        { text: 'BELIKAN MAKANAN', points: 80 },
+        { text: 'TRANSFER UANG', points: 70 },
+        { text: 'IKUT DIAM', points: 60 },
+        { text: 'RAYU / GOMBAL', points: 50 },
+        { text: 'CUCI PIRING', points: 40 },
+        { text: 'KABUR KELUAR', points: 30 }
+      ]
+    },
+    {
+      question: '[Kantor] Apa yang bikin karyawan semangat selain tanggal gajian?',
+      is_example: true,
+      answers: [
+        { text: 'MAKAN GRATIS / TRAKTIRAN', points: 100 },
+        { text: 'TANGGAL MERAH / LIBUR', points: 90 },
+        { text: 'PULANG CEPAT', points: 80 },
+        { text: 'BONUS / THR', points: 70 },
+        { text: 'BOS TIDAK MASUK', points: 60 },
+        { text: 'WFH', points: 50 },
+        { text: 'RAPAT DIBATALKAN', points: 40 },
+        { text: 'KOPI GRATIS', points: 30 }
+      ]
+    },
+    {
+      question: '[Kantor] Hal yang sering dilakukan saat meeting terasa membosankan?',
+      is_example: true,
+      answers: [
+        { text: 'MAIN HP / SCROLL SOSMED', points: 100 },
+        { text: 'NGANTUK / MENGUAP', points: 90 },
+        { text: 'CORAT-CORET BUKU', points: 80 },
+        { text: 'MENGHAYAL', points: 70 },
+        { text: 'PURA-PURA CATAT', points: 60 },
+        { text: 'NYEMIL / MINUM KOPI', points: 50 },
+        { text: 'MATIKAN KAMERA', points: 40 },
+        { text: 'IZIN KE TOILET', points: 30 }
+      ]
+    },
+    {
+      question: '[Sosmed] Konten apa yang paling sering muncul di FYP TikTok / Reels?',
+      is_example: true,
+      answers: [
+        { text: 'JOGET / DANCE', points: 100 },
+        { text: 'KULINER / MUKBANG', points: 90 },
+        { text: 'KOMEDI / PRANK', points: 80 },
+        { text: 'REVIEW BARANG', points: 70 },
+        { text: 'DRAMA / CURHAT', points: 60 },
+        { text: 'KUCING LUCU', points: 50 },
+        { text: 'TIPS / TUTORIAL', points: 40 },
+        { text: 'PODCAST', points: 30 }
+      ]
+    },
+    {
+      question: '[Sosmed] Apa yang dilakukan orang sebelum makan makanan enak di kafe?',
+      is_example: true,
+      answers: [
+        { text: 'FOTO / VIDEO DULU', points: 100 },
+        { text: 'BERDOA', points: 90 },
+        { text: 'UPLOAD STORY', points: 80 },
+        { text: 'CARI ANGLE BAGUS', points: 70 },
+        { text: 'CUCI TANGAN', points: 60 },
+        { text: 'COBAIN KUAHNYA', points: 50 },
+        { text: 'TAG TEMAN', points: 40 },
+        { text: 'MINTA SENDOK', points: 30 }
+      ]
+    },
+    {
+      question: '[Gen Z] Istilah bahasa gaul apa yang paling sering dipakai anak Gen Z?',
+      is_example: true,
+      answers: [
+        { text: 'OVERTHINKING / GALAU', points: 100 },
+        { text: 'HEALING', points: 90 },
+        { text: 'FOMO', points: 80 },
+        { text: 'RED FLAG / GREEN FLAG', points: 70 },
+        { text: 'SLAY', points: 60 },
+        { text: 'BESTIE', points: 50 },
+        { text: 'VIBE', points: 40 },
+        { text: 'GHOSTING', points: 30 }
+      ]
+    },
+    {
+      question: '[Gen Z] Benda yang wajib ada di meja kerja atau tas anak Gen Z?',
+      is_example: true,
+      answers: [
+        { text: 'ES KOPI SUSU', points: 100 },
+        { text: 'TWS / EARPHONE', points: 90 },
+        { text: 'TUMBLER', points: 80 },
+        { text: 'LAPTOP / IPAD', points: 70 },
+        { text: 'CHARGER / POWERBANK', points: 60 },
+        { text: 'LIP BALM / SKINCARE', points: 50 },
+        { text: 'STIKER LUCU', points: 40 },
+        { text: 'KIPAS MINI', points: 30 }
+      ]
+    },
+    {
+      question: '[Milenial] Apa yang paling sering dikeluhkan Milenial di usia 30-an?',
+      is_example: true,
+      answers: [
+        { text: 'SAKIT PINGGUNG / ENCOK', points: 100 },
+        { text: 'CICILAN / KPR', points: 90 },
+        { text: 'CAPEK KERJA', points: 80 },
+        { text: 'HARGA RUMAH MAHAL', points: 70 },
+        { text: 'SUSAH TIDUR', points: 60 },
+        { text: 'RAMBUT RONTOK / UBAN', points: 50 },
+        { text: 'KURANG LIBURAN', points: 40 },
+        { text: 'ASAM LAMBUNG', points: 30 }
+      ]
+    },
+    {
+      question: '[Boomers] Kebiasaan khas Boomers saat memakai grup WhatsApp keluarga?',
+      is_example: true,
+      answers: [
+        { text: 'KIRIM STIKER SELAMAT PAGI', points: 100 },
+        { text: 'FORWARD BROADCAST / HOAX', points: 90 },
+        { text: 'NGETIK HURUF KAPITAL', points: 80 },
+        { text: 'KIRIM FOTO BUNGA / KOPI', points: 70 },
+        { text: 'TYPO / SALAH KIRIM', points: 60 },
+        { text: 'VOICE NOTE PANJANG', points: 50 },
+        { text: 'BALAS JEMPOL', points: 40 },
+        { text: 'KIRIM VIDEO CERAMAH', points: 30 }
+      ]
     }
   ];
 }

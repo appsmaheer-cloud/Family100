@@ -304,9 +304,159 @@
                 { id: 2108, answer_text: 'LUPA', points: 30 },
             ],
         },
+        {
+            id: 22,
+            question: '[Bapak-bapak] Alasan paling sering dipakai saat pulang telat ke rumah?',
+            is_example: true,
+            answers: [
+                { id: 2201, answer_text: 'MACET DI JALAN', points: 100 },
+                { id: 2202, answer_text: 'LEMBUR KANTOR', points: 90 },
+                { id: 2203, answer_text: 'BAN BOCOR', points: 80 },
+                { id: 2204, answer_text: 'NGOPI / NONTON BOLA', points: 70 },
+                { id: 2205, answer_text: 'RAPAT MENDADAK', points: 60 },
+                { id: 2206, answer_text: 'BATERAI HP HABIS', points: 50 },
+                { id: 2207, answer_text: 'BELI TITIPAN ISTRI', points: 40 },
+                { id: 2208, answer_text: 'KETIDURAN', points: 30 },
+            ],
+        },
+        {
+            id: 23,
+            question: '[Bapak-bapak] Apa yang langsung dilakukan suami saat istri tiba-tiba diam?',
+            is_example: true,
+            answers: [
+                { id: 2301, answer_text: 'TANYA KENAPA', points: 100 },
+                { id: 2302, answer_text: 'MINTA MAAF', points: 90 },
+                { id: 2303, answer_text: 'BELIKAN MAKANAN', points: 80 },
+                { id: 2304, answer_text: 'TRANSFER UANG', points: 70 },
+                { id: 2305, answer_text: 'IKUT DIAM', points: 60 },
+                { id: 2306, answer_text: 'RAYU / GOMBAL', points: 50 },
+                { id: 2307, answer_text: 'CUCI PIRING', points: 40 },
+                { id: 2308, answer_text: 'KABUR KELUAR', points: 30 },
+            ],
+        },
+        {
+            id: 24,
+            question: '[Kantor] Apa yang bikin karyawan semangat selain tanggal gajian?',
+            is_example: true,
+            answers: [
+                { id: 2401, answer_text: 'MAKAN GRATIS / TRAKTIRAN', points: 100 },
+                { id: 2402, answer_text: 'TANGGAL MERAH / LIBUR', points: 90 },
+                { id: 2403, answer_text: 'PULANG CEPAT', points: 80 },
+                { id: 2404, answer_text: 'BONUS / THR', points: 70 },
+                { id: 2405, answer_text: 'BOS TIDAK MASUK', points: 60 },
+                { id: 2406, answer_text: 'WFH', points: 50 },
+                { id: 2407, answer_text: 'RAPAT DIBATALKAN', points: 40 },
+                { id: 2408, answer_text: 'KOPI GRATIS', points: 30 },
+            ],
+        },
+        {
+            id: 25,
+            question: '[Kantor] Hal yang sering dilakukan saat meeting terasa membosankan?',
+            is_example: true,
+            answers: [
+                { id: 2501, answer_text: 'MAIN HP / SCROLL SOSMED', points: 100 },
+                { id: 2502, answer_text: 'NGANTUK / MENGUAP', points: 90 },
+                { id: 2503, answer_text: 'CORAT-CORET BUKU', points: 80 },
+                { id: 2504, answer_text: 'MENGHAYAL', points: 70 },
+                { id: 2505, answer_text: 'PURA-PURA CATAT', points: 60 },
+                { id: 2506, answer_text: 'NYEMIL / MINUM KOPI', points: 50 },
+                { id: 2507, answer_text: 'MATIKAN KAMERA', points: 40 },
+                { id: 2508, answer_text: 'IZIN KE TOILET', points: 30 },
+            ],
+        },
+        {
+            id: 26,
+            question: '[Sosmed] Konten apa yang paling sering muncul di FYP TikTok / Reels?',
+            is_example: true,
+            answers: [
+                { id: 2601, answer_text: 'JOGET / DANCE', points: 100 },
+                { id: 2602, answer_text: 'KULINER / MUKBANG', points: 90 },
+                { id: 2603, answer_text: 'KOMEDI / PRANK', points: 80 },
+                { id: 2604, answer_text: 'REVIEW BARANG', points: 70 },
+                { id: 2605, answer_text: 'DRAMA / CURHAT', points: 60 },
+                { id: 2606, answer_text: 'KUCING LUCU', points: 50 },
+                { id: 2607, answer_text: 'TIPS / TUTORIAL', points: 40 },
+                { id: 2608, answer_text: 'PODCAST', points: 30 },
+            ],
+        },
+        {
+            id: 27,
+            question: '[Sosmed] Apa yang dilakukan orang sebelum makan makanan enak di kafe?',
+            is_example: true,
+            answers: [
+                { id: 2701, answer_text: 'FOTO / VIDEO DULU', points: 100 },
+                { id: 2702, answer_text: 'BERDOA', points: 90 },
+                { id: 2703, answer_text: 'UPLOAD STORY', points: 80 },
+                { id: 2704, answer_text: 'CARI ANGLE BAGUS', points: 70 },
+                { id: 2705, answer_text: 'CUCI TANGAN', points: 60 },
+                { id: 2706, answer_text: 'COBAIN KUAHNYA', points: 50 },
+                { id: 2707, answer_text: 'TAG TEMAN', points: 40 },
+                { id: 2708, answer_text: 'MINTA SENDOK', points: 30 },
+            ],
+        },
+        {
+            id: 28,
+            question: '[Gen Z] Istilah bahasa gaul apa yang paling sering dipakai anak Gen Z?',
+            is_example: true,
+            answers: [
+                { id: 2801, answer_text: 'OVERTHINKING / GALAU', points: 100 },
+                { id: 2802, answer_text: 'HEALING', points: 90 },
+                { id: 2803, answer_text: 'FOMO', points: 80 },
+                { id: 2804, answer_text: 'RED FLAG / GREEN FLAG', points: 70 },
+                { id: 2805, answer_text: 'SLAY', points: 60 },
+                { id: 2806, answer_text: 'BESTIE', points: 50 },
+                { id: 2807, answer_text: 'VIBE', points: 40 },
+                { id: 2808, answer_text: 'GHOSTING', points: 30 },
+            ],
+        },
+        {
+            id: 29,
+            question: '[Gen Z] Benda yang wajib ada di meja kerja atau tas anak Gen Z?',
+            is_example: true,
+            answers: [
+                { id: 2901, answer_text: 'ES KOPI SUSU', points: 100 },
+                { id: 2902, answer_text: 'TWS / EARPHONE', points: 90 },
+                { id: 2903, answer_text: 'TUMBLER', points: 80 },
+                { id: 2904, answer_text: 'LAPTOP / IPAD', points: 70 },
+                { id: 2905, answer_text: 'CHARGER / POWERBANK', points: 60 },
+                { id: 2906, answer_text: 'LIP BALM / SKINCARE', points: 50 },
+                { id: 2907, answer_text: 'STIKER LUCU', points: 40 },
+                { id: 2908, answer_text: 'KIPAS MINI', points: 30 },
+            ],
+        },
+        {
+            id: 30,
+            question: '[Milenial] Apa yang paling sering dikeluhkan Milenial di usia 30-an?',
+            is_example: true,
+            answers: [
+                { id: 3001, answer_text: 'SAKIT PINGGUNG / ENCOK', points: 100 },
+                { id: 3002, answer_text: 'CICILAN / KPR', points: 90 },
+                { id: 3003, answer_text: 'CAPEK KERJA', points: 80 },
+                { id: 3004, answer_text: 'HARGA RUMAH MAHAL', points: 70 },
+                { id: 3005, answer_text: 'SUSAH TIDUR', points: 60 },
+                { id: 3006, answer_text: 'RAMBUT RONTOK / UBAN', points: 50 },
+                { id: 3007, answer_text: 'KURANG LIBURAN', points: 40 },
+                { id: 3008, answer_text: 'ASAM LAMBUNG', points: 30 },
+            ],
+        },
+        {
+            id: 31,
+            question: '[Boomers] Kebiasaan khas Boomers saat memakai grup WhatsApp keluarga?',
+            is_example: true,
+            answers: [
+                { id: 3101, answer_text: 'KIRIM STIKER SELAMAT PAGI', points: 100 },
+                { id: 3102, answer_text: 'FORWARD BROADCAST / HOAX', points: 90 },
+                { id: 3103, answer_text: 'NGETIK HURUF KAPITAL', points: 80 },
+                { id: 3104, answer_text: 'KIRIM FOTO BUNGA / KOPI', points: 70 },
+                { id: 3105, answer_text: 'TYPO / SALAH KIRIM', points: 60 },
+                { id: 3106, answer_text: 'VOICE NOTE PANJANG', points: 50 },
+                { id: 3107, answer_text: 'BALAS JEMPOL', points: 40 },
+                { id: 3108, answer_text: 'KIRIM VIDEO CERAMAH', points: 30 },
+            ],
+        },
     ];
 
-    const STORAGE_KEY_QUESTIONS = 'family100_gas_local_questions_v2';
+    const STORAGE_KEY_QUESTIONS = 'family100_gas_local_questions_v3';
     const STORAGE_KEY_GAS_URL = 'family100_gas_webapp_url';
     const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbyrbhRx6eGu2xma2SGsiYpbKQhHX23AC9GvPj3BVDacwwQUTD16viQcZNPP5NncZ2gRzw/exec';
 
@@ -680,174 +830,172 @@
     function createContestantsSvg() {
         const ns = 'http://www.w3.org/2000/svg';
         const svg = document.createElementNS(ns, 'svg');
-        svg.setAttribute('viewBox', '0 0 220 78');
+        svg.setAttribute('viewBox', '0 0 220 82');
         svg.setAttribute('class', 'contestants-svg');
         svg.setAttribute('aria-hidden', 'true');
 
         const defs = document.createElementNS(ns, 'defs');
         defs.innerHTML = `
-            <linearGradient id="f100BotHead" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#FFFFFF"/>
-                <stop offset="55%" stop-color="#E2E8F0"/>
-                <stop offset="100%" stop-color="#94A3B8"/>
-            </linearGradient>
-            <linearGradient id="f100BotVisor" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0F172A"/>
-                <stop offset="100%" stop-color="#1E293B"/>
+            <linearGradient id="f100LegoYellow" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FEF08A"/>
+                <stop offset="55%" stop-color="#FACC15"/>
+                <stop offset="100%" stop-color="#EAB308"/>
             </linearGradient>
         `;
         svg.appendChild(defs);
 
-        const robots = [
-            { cx: 26, dy: 5, scale: 0.9, cls: 'person person-l2', shirt: 'shirt-a' },
-            { cx: 68, dy: 2, scale: 0.95, cls: 'person person-l1', shirt: 'shirt-b' },
-            { cx: 110, dy: -2, scale: 1.02, cls: 'person person-center', shirt: 'shirt-a' },
-            { cx: 152, dy: 2, scale: 0.95, cls: 'person person-r1', shirt: 'shirt-b' },
-            { cx: 194, dy: 5, scale: 0.9, cls: 'person person-r2', shirt: 'shirt-a' },
+        const figures = [
+            { cx: 26, dy: 5, scale: 0.9, cls: 'person person-l2', shirt: 'shirt-a', hair: 'neat', hairColor: '#1E293B' },
+            { cx: 68, dy: 2, scale: 0.95, cls: 'person person-l1', shirt: 'shirt-b', hair: 'cap', hairColor: '#0284C7' },
+            { cx: 110, dy: -2, scale: 1.02, cls: 'person person-center', shirt: 'shirt-a', hair: 'spiky', hairColor: '#0F172A' },
+            { cx: 152, dy: 2, scale: 0.95, cls: 'person person-r1', shirt: 'shirt-b', hair: 'bob', hairColor: '#78350F' },
+            { cx: 194, dy: 5, scale: 0.9, cls: 'person person-r2', shirt: 'shirt-a', hair: 'beanie', hairColor: '#D97706' },
         ];
 
-        robots.forEach((p, idx) => {
+        figures.forEach((p, idx) => {
             const g = document.createElementNS(ns, 'g');
             g.setAttribute('class', p.cls);
             g.setAttribute('transform', `translate(${p.cx}, ${p.dy}) scale(${p.scale}) translate(${-p.cx}, 0)`);
             g.style.setProperty('--bot-delay', `${(idx * 0.07).toFixed(2)}s`);
 
-            // Antena & lampu
-            const ant = document.createElementNS(ns, 'line');
-            ant.setAttribute('x1', String(p.cx));
-            ant.setAttribute('y1', '5');
-            ant.setAttribute('x2', String(p.cx));
-            ant.setAttribute('y2', '12');
-            ant.setAttribute('class', 'robot-antenna');
+            // LEGO Top Stud
+            const stud = document.createElementNS(ns, 'rect');
+            stud.setAttribute('x', String(p.cx - 5));
+            stud.setAttribute('y', '6');
+            stud.setAttribute('width', '10');
+            stud.setAttribute('height', '5');
+            stud.setAttribute('rx', '1.5');
+            stud.setAttribute('class', 'lego-stud');
 
-            const bulb = document.createElementNS(ns, 'circle');
-            bulb.setAttribute('cx', String(p.cx));
-            bulb.setAttribute('cy', '4');
-            bulb.setAttribute('r', '2.8');
-            bulb.setAttribute('class', 'robot-bulb');
-
-            // Ear pods kiri & kanan
-            const earL = document.createElementNS(ns, 'rect');
-            earL.setAttribute('x', String(p.cx - 16));
-            earL.setAttribute('y', '18');
-            earL.setAttribute('width', '4');
-            earL.setAttribute('height', '9');
-            earL.setAttribute('rx', '2');
-            earL.setAttribute('class', 'robot-ear');
-
-            const earR = document.createElementNS(ns, 'rect');
-            earR.setAttribute('x', String(p.cx + 12));
-            earR.setAttribute('y', '18');
-            earR.setAttribute('width', '4');
-            earR.setAttribute('height', '9');
-            earR.setAttribute('rx', '2');
-            earR.setAttribute('class', 'robot-ear');
-
-            // Kepala 3D lucu membulat
+            // LEGO Classic Yellow Head
             const head = document.createElementNS(ns, 'rect');
-            head.setAttribute('x', String(p.cx - 14));
-            head.setAttribute('y', '11');
-            head.setAttribute('width', '28');
-            head.setAttribute('height', '23');
-            head.setAttribute('rx', '9');
-            head.setAttribute('class', 'robot-head');
+            head.setAttribute('x', String(p.cx - 11));
+            head.setAttribute('y', '10.5');
+            head.setAttribute('width', '22');
+            head.setAttribute('height', '21.5');
+            head.setAttribute('rx', '5.5');
+            head.setAttribute('class', 'lego-head');
 
-            // Kilau atas kepala
+            // Highlight kilau plastik LEGO
             const headShine = document.createElementNS(ns, 'path');
-            headShine.setAttribute('d', `M${p.cx - 8} 13.5 Q${p.cx} 11.5 ${p.cx + 8} 13.5`);
-            headShine.setAttribute('class', 'robot-shine');
+            headShine.setAttribute('d', `M${p.cx - 7} 13 L${p.cx - 7} 26`);
+            headShine.setAttribute('class', 'lego-shine');
 
-            // Visor kaca gelap
-            const visor = document.createElementNS(ns, 'rect');
-            visor.setAttribute('x', String(p.cx - 11));
-            visor.setAttribute('y', '15.5');
-            visor.setAttribute('width', '22');
-            visor.setAttribute('height', '14');
-            visor.setAttribute('rx', '5.5');
-            visor.setAttribute('class', 'robot-visor');
+            // Rambut / Topi unik tiap anggota
+            const hair = document.createElementNS(ns, 'path');
+            hair.setAttribute('fill', p.hairColor);
+            hair.setAttribute('class', 'lego-hair');
+            if (p.hair === 'cap') {
+                hair.setAttribute('d', `M${p.cx - 12} 14 C${p.cx - 12} 6, ${p.cx + 12} 6, ${p.cx + 12} 14 L${p.cx + 17} 15 L${p.cx + 17} 17 L${p.cx - 12} 16 Z`);
+            } else if (p.hair === 'spiky') {
+                hair.setAttribute('d', `M${p.cx - 12} 15 L${p.cx - 10} 7 L${p.cx - 4} 10 L${p.cx} 5 L${p.cx + 5} 10 L${p.cx + 10} 7 L${p.cx + 12} 15 Z`);
+            } else if (p.hair === 'bob') {
+                hair.setAttribute('d', `M${p.cx - 12.5} 23 C${p.cx - 13} 7, ${p.cx + 13} 7, ${p.cx + 12.5} 23 L${p.cx + 10} 23 L${p.cx + 10} 14 L${p.cx - 10} 14 L${p.cx - 10} 23 Z`);
+            } else if (p.hair === 'beanie') {
+                hair.setAttribute('d', `M${p.cx - 11.5} 15 C${p.cx - 11} 7, ${p.cx + 11} 7, ${p.cx + 11.5} 15 Z`);
+            } else {
+                hair.setAttribute('d', `M${p.cx - 11.5} 15 C${p.cx - 11} 8, ${p.cx + 11} 8, ${p.cx + 11.5} 15 Q${p.cx} 12 ${p.cx - 11.5} 15 Z`);
+            }
 
-            // Pipi merona lucu
+            // Pipi merona
             const blushL = document.createElementNS(ns, 'ellipse');
-            blushL.setAttribute('cx', String(p.cx - 7.5));
-            blushL.setAttribute('cy', '25.2');
-            blushL.setAttribute('rx', '2.2');
-            blushL.setAttribute('ry', '1.2');
-            blushL.setAttribute('class', 'robot-blush');
+            blushL.setAttribute('cx', String(p.cx - 6.8));
+            blushL.setAttribute('cy', '24.2');
+            blushL.setAttribute('rx', '2');
+            blushL.setAttribute('ry', '1.1');
+            blushL.setAttribute('class', 'lego-blush');
 
             const blushR = document.createElementNS(ns, 'ellipse');
-            blushR.setAttribute('cx', String(p.cx + 7.5));
-            blushR.setAttribute('cy', '25.2');
-            blushR.setAttribute('rx', '2.2');
-            blushR.setAttribute('ry', '1.2');
-            blushR.setAttribute('class', 'robot-blush');
+            blushR.setAttribute('cx', String(p.cx + 6.8));
+            blushR.setAttribute('cy', '24.2');
+            blushR.setAttribute('rx', '2');
+            blushR.setAttribute('ry', '1.1');
+            blushR.setAttribute('class', 'lego-blush');
 
-            // Ekspresi 1: Normal / Idle (mata bulat bersinar + senyum kecil)
+            // Ekspresi 1: Normal / Idle
             const exprIdle = document.createElementNS(ns, 'g');
             exprIdle.setAttribute('class', 'expr expr-idle');
             exprIdle.innerHTML = `
-                <circle cx="${p.cx - 4.8}" cy="21.5" r="2.3" class="robot-eye"/>
-                <circle cx="${p.cx + 4.8}" cy="21.5" r="2.3" class="robot-eye"/>
-                <circle cx="${p.cx - 5.5}" cy="20.7" r="0.85" class="robot-eye-sparkle"/>
-                <circle cx="${p.cx + 4.1}" cy="20.7" r="0.85" class="robot-eye-sparkle"/>
-                <path d="M${p.cx - 3} 26 Q${p.cx} 28.2 ${p.cx + 3} 26" class="robot-mouth"/>
+                <circle cx="${p.cx - 4.2}" cy="20.5" r="1.9" class="lego-eye"/>
+                <circle cx="${p.cx + 4.2}" cy="20.5" r="1.9" class="lego-eye"/>
+                <circle cx="${p.cx - 4.8}" cy="19.8" r="0.65" class="lego-eye-shine"/>
+                <circle cx="${p.cx + 3.6}" cy="19.8" r="0.65" class="lego-eye-shine"/>
+                <path d="M${p.cx - 3.5} 25.5 Q${p.cx} 28.5 ${p.cx + 3.5} 25.5" class="lego-mouth"/>
             `;
 
-            // Ekspresi 2: Senang / Sorak (^ ^ + ketawa lebar)
+            // Ekspresi 2: Senang / Sorak (^ ^ + tertawa lebar)
             const exprHappy = document.createElementNS(ns, 'g');
             exprHappy.setAttribute('class', 'expr expr-happy');
             exprHappy.innerHTML = `
-                <path d="M${p.cx - 7.2} 22.2 Q${p.cx - 4.8} 18.8 ${p.cx - 2.4} 22.2" class="robot-eye-arc"/>
-                <path d="M${p.cx + 2.4} 22.2 Q${p.cx + 4.8} 18.8 ${p.cx + 7.2} 22.2" class="robot-eye-arc"/>
-                <path d="M${p.cx - 4} 24.8 Q${p.cx} 29.2 ${p.cx + 4} 24.8 Z" class="robot-mouth-open"/>
+                <path d="M${p.cx - 6.5} 21.2 Q${p.cx - 4.2} 17.8 ${p.cx - 1.9} 21.2" class="lego-eye-arc"/>
+                <path d="M${p.cx + 1.9} 21.2 Q${p.cx + 4.2} 17.8 ${p.cx + 6.5} 21.2" class="lego-eye-arc"/>
+                <path d="M${p.cx - 4.5} 24.5 Q${p.cx} 30 ${p.cx + 4.5} 24.5 Z" class="lego-mouth-open"/>
             `;
 
-            // Ekspresi 3: Sedih (mata T_T + air mata + cemberut)
+            // Ekspresi 3: Sedih (T_T + air mata)
             const exprSad = document.createElementNS(ns, 'g');
             exprSad.setAttribute('class', 'expr expr-sad');
             exprSad.innerHTML = `
-                <path d="M${p.cx - 7.2} 20.5 Q${p.cx - 4.8} 22.5 ${p.cx - 2.4} 21.5" class="robot-eye-sad"/>
-                <path d="M${p.cx + 2.4} 21.5 Q${p.cx + 4.8} 22.5 ${p.cx + 7.2} 20.5" class="robot-eye-sad"/>
-                <circle cx="${p.cx - 6.5}" cy="24.2" r="1.1" class="robot-tear"/>
-                <circle cx="${p.cx + 6.5}" cy="24.2" r="1.1" class="robot-tear"/>
-                <path d="M${p.cx - 3.2} 27.5 Q${p.cx} 25 ${p.cx + 3.2} 27.5" class="robot-mouth-sad"/>
+                <path d="M${p.cx - 6.5} 19.8 Q${p.cx - 4.2} 22 ${p.cx - 1.9} 20.8" class="lego-eye-sad"/>
+                <path d="M${p.cx + 1.9} 20.8 Q${p.cx + 4.2} 22 ${p.cx + 6.5} 19.8" class="lego-eye-sad"/>
+                <circle cx="${p.cx - 5.8}" cy="23.8" r="1.2" class="lego-tear"/>
+                <circle cx="${p.cx + 5.8}" cy="23.8" r="1.2" class="lego-tear"/>
+                <path d="M${p.cx - 3.5} 27.8 Q${p.cx} 24.8 ${p.cx + 3.5} 27.8" class="lego-mouth-sad"/>
             `;
 
-            // Ekspresi 4: Salah / Kaget (X X + mulut O)
+            // Ekspresi 4: Salah / Kaget (X X + O)
             const exprShock = document.createElementNS(ns, 'g');
             exprShock.setAttribute('class', 'expr expr-shock');
             exprShock.innerHTML = `
-                <path d="M${p.cx - 6.8} 19.6 L${p.cx - 2.8} 23.2 M${p.cx - 2.8} 19.6 L${p.cx - 6.8} 23.2" class="robot-eye-x"/>
-                <path d="M${p.cx + 2.8} 19.6 L${p.cx + 6.8} 23.2 M${p.cx + 6.8} 19.6 L${p.cx + 2.8} 23.2" class="robot-eye-x"/>
-                <ellipse cx="${p.cx}" cy="26.5" rx="2.4" ry="1.8" class="robot-mouth-shock"/>
+                <path d="M${p.cx - 6} 18.8 L${p.cx - 2.4} 22.2 M${p.cx - 2.4} 18.8 L${p.cx - 6} 22.2" class="lego-eye-x"/>
+                <path d="M${p.cx + 2.4} 18.8 L${p.cx + 6} 22.2 M${p.cx + 6} 18.8 L${p.cx + 2.4} 22.2" class="lego-eye-x"/>
+                <ellipse cx="${p.cx}" cy="26.5" rx="2.3" ry="1.8" class="lego-mouth-shock"/>
             `;
 
-            // Leher & Badan 3D
+            // Leher LEGO
             const neck = document.createElementNS(ns, 'rect');
-            neck.setAttribute('x', String(p.cx - 3.5));
-            neck.setAttribute('y', '33.5');
-            neck.setAttribute('width', '7');
+            neck.setAttribute('x', String(p.cx - 4));
+            neck.setAttribute('y', '32');
+            neck.setAttribute('width', '8');
             neck.setAttribute('height', '4');
-            neck.setAttribute('class', 'robot-neck');
+            neck.setAttribute('class', 'lego-neck');
 
+            // Torso Trapezoid Khas LEGO
             const body = document.createElementNS(ns, 'path');
-            body.setAttribute('d', `M${p.cx - 14} 78 L${p.cx - 11.5} 39 C${p.cx - 11.5} 36, ${p.cx + 11.5} 36, ${p.cx + 11.5} 39 L${p.cx + 14} 78 Z`);
+            body.setAttribute('d', `M${p.cx - 10} 36 L${p.cx + 10} 36 L${p.cx + 13} 67 L${p.cx - 13} 67 Z`);
             body.setAttribute('class', `person-body ${p.shirt}`);
 
-            const core = document.createElementNS(ns, 'circle');
-            core.setAttribute('cx', String(p.cx));
-            core.setAttribute('cy', '49');
-            core.setAttribute('r', '2.8');
-            core.setAttribute('class', 'robot-core');
+            // Garis kerah baju LEGO
+            const collar = document.createElementNS(ns, 'path');
+            collar.setAttribute('d', `M${p.cx - 5} 36 L${p.cx} 42 L${p.cx + 5} 36`);
+            collar.setAttribute('class', 'lego-collar');
 
+            // Pinggang & Kaki LEGO
+            const legs = document.createElementNS(ns, 'rect');
+            legs.setAttribute('x', String(p.cx - 12));
+            legs.setAttribute('y', '67');
+            legs.setAttribute('width', '24');
+            legs.setAttribute('height', '15');
+            legs.setAttribute('class', 'lego-legs');
+
+            // Lengan & Tangan Capit C Khas LEGO
             const armL = document.createElementNS(ns, 'path');
-            armL.setAttribute('d', `M${p.cx - 11.5} 42 Q${p.cx - 17} 48 ${p.cx - 15.5} 55`);
-            armL.setAttribute('class', 'robot-arm robot-arm-l');
+            armL.setAttribute('d', `M${p.cx - 10} 38 L${p.cx - 16} 53`);
+            armL.setAttribute('class', `lego-arm lego-arm-l ${p.shirt}`);
+
+            const clawL = document.createElementNS(ns, 'path');
+            clawL.setAttribute('d', `M${p.cx - 17.5} 52 A2.8 2.8 0 1 0 ${p.cx - 14.5} 56`);
+            clawL.setAttribute('class', 'lego-claw');
 
             const armR = document.createElementNS(ns, 'path');
-            armR.setAttribute('d', `M${p.cx + 11.5} 42 Q${p.cx + 17} 48 ${p.cx + 15.5} 55`);
-            armR.setAttribute('class', 'robot-arm robot-arm-r');
+            armR.setAttribute('d', `M${p.cx + 10} 38 L${p.cx + 16} 53`);
+            armR.setAttribute('class', `lego-arm lego-arm-r ${p.shirt}`);
 
-            g.append(ant, bulb, earL, earR, neck, armL, armR, body, core, head, headShine, visor, blushL, blushR, exprIdle, exprHappy, exprSad, exprShock);
+            const clawR = document.createElementNS(ns, 'path');
+            clawR.setAttribute('d', `M${p.cx + 14.5} 56 A2.8 2.8 0 1 0 ${p.cx + 17.5} 52`);
+            clawR.setAttribute('class', 'lego-claw');
+
+            g.append(stud, neck, legs, armL, clawL, armR, clawR, body, collar, head, headShine, hair, blushL, blushR, exprIdle, exprHappy, exprSad, exprShock);
             svg.appendChild(g);
         });
 
