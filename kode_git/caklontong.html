@@ -41,6 +41,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: inherit;
             font-size: clamp(1.5rem, 2.4vw, 2.2rem);
             font-weight: 900;
             border-radius: 12px;
@@ -49,7 +50,13 @@
             color: #FFFFFF;
             box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
             text-transform: uppercase;
-            transition: transform 0.22s ease, background 0.22s ease;
+            cursor: pointer;
+            transition: transform 0.18s ease, background 0.22s ease, box-shadow 0.18s ease;
+        }
+        .cl-tile.hidden-letter:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 18px rgba(2, 132, 199, 0.32);
+            color: rgba(255, 255, 255, 0.75);
         }
         .cl-tile.clue {
             background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
@@ -60,9 +67,22 @@
             background: linear-gradient(180deg, #10B981 0%, #059669 100%);
             border-color: #6EE7B7;
             animation: flipReveal 0.45s ease;
+            cursor: default;
         }
         .cl-tile.hidden-letter {
             color: rgba(255, 255, 255, 0.35);
+        }
+        .cl-clue-btn {
+            font-family: inherit;
+            cursor: pointer;
+            background: #FFFBEB;
+            border-color: #FDE68A;
+            color: #92400E;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+        .cl-clue-btn:hover {
+            background: #FEF3C7;
+            transform: translateY(-1px);
         }
         .cl-reason-box {
             padding: 12px 16px;
@@ -152,7 +172,7 @@
 
                         <div class="cl-meta-chips">
                             <span class="cl-chip" id="cl-length-chip">Panjang: 6 Huruf</span>
-                            <span class="cl-chip" id="cl-clue-chip" style="background: #fffbeb; border-color: #fde68a; color: #92400e;">🤫 Clue &amp; Contekan ada di HP Host</span>
+                            <button type="button" class="cl-chip cl-clue-btn" id="cl-clue-chip" title="Klik untuk membuka clue sedikit demi sedikit">🤫 Clue Tersembunyi (Klik buka 1/2)</button>
                         </div>
 
                         <div id="cl-hp-cheat-card" class="cl-reason-box" style="background: #f0fdf4; border-color: #86efac; text-align: left;" hidden>
@@ -160,7 +180,8 @@
                             <div style="display:flex; flex-direction:column; gap:4px; font-size:0.86rem; line-height:1.45;">
                                 <strong style="color:#166534;">CONTEKAN HP HOST (RAHASIA)</strong>
                                 <div><strong>Jawaban Asli:</strong> <span id="cl-hp-answer" style="font-weight:800; color:#b91c1c; letter-spacing:1px;">-</span></div>
-                                <div><strong>Clue Lisan Host:</strong> <span id="cl-hp-clue">-</span></div>
+                                <div><strong>Clue 1 (Tipis):</strong> <span id="cl-hp-clue1">-</span></div>
+                                <div><strong>Clue 2 (Mengarah):</strong> <span id="cl-hp-clue2">-</span></div>
                                 <div><strong>Alasan Mind-Blowing:</strong> <span id="cl-hp-reason">-</span></div>
                             </div>
                         </div>
@@ -235,6 +256,6 @@
         </div>
     </div>
 
-    <script src="caklontong.js?v=2"></script>
+    <script src="caklontong.js?v=3"></script>
 </body>
 </html>
