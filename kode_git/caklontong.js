@@ -200,28 +200,30 @@
         {
             id: 16,
             category: 'Lingkungan Kantor',
-            question: 'Biar cepat naik gaji dan dianggap rajin oleh atasan, setiap pagi kita harus...',
-            answer: 'DATANG',
-            trap: 'DOKTER',
-            openIndices: [0, 5],
+            question: 'Satu-satunya pekerjaan di dunia yang kalau karyawannya ketiduran malah dianggap sukses?',
+            answer: 'TESTER KASUR',
+            isTwist: true,
+            trap: 'TUKANG KABUR',
+            openIndices: [0, 7, 11],
             clues: [
-                'Syarat paling dasar sebelum absen fingerprint dan nyalain laptop.',
-                'Kalau nggak muncul di kantor ya gimana mau kerja?!'
+                'Bukan satpam atau penjaga malam yang kena SP.',
+                'Semakin pulas tidurnya, semakin bagus review produknya!'
             ],
-            reason: 'Kalau nggak DATANG ke kantor terus absennya bolong, ya jangankan naik gaji!'
+            reason: 'TESTER KASUR! Satu-satunya profesi di mana ngorok di jam kerja justru dapat bonus performa!'
         },
         {
             id: 17,
             category: 'Lingkungan Kantor',
-            question: 'Kenapa suara peserta meeting online sering nggak kedengaran di laptop kita?',
-            answer: 'DIEM',
-            trap: 'DIAM',
-            openIndices: [0, 3],
+            question: 'Benda di kantor yang paling jujur tapi paling sering dimarahin bos dan karyawan?',
+            answer: 'JAM DINDING',
+            isTwist: true,
+            trap: 'JAM ISTIRAHAT',
+            openIndices: [0, 1, 2, 4, 10],
             clues: [
-                'Bukan salah mic ke-mute atau sinyal WiFi kantor yang lemot.',
-                'Semua peserta lagi saling tunggu siapa yang ngomong duluan!'
+                'Nggak pernah telat dan nggak pernah bohong.',
+                'Tiap dilihat selalu dibilang: "Kok baru jam segini sih?!" atau "Kok udah jam segini?!"'
             ],
-            reason: 'Ya karena peserta lain lagi pada DIEM semua nunggu ada yang bersuara duluan!'
+            reason: 'JAM DINDING! Salahnya cuma muter terus, tapi tiap hari disalahin karena waktu terasa cepat atau lambat!'
         },
         {
             id: 18,
@@ -265,67 +267,72 @@
         {
             id: 21,
             category: 'Klasik WIB',
-            question: 'Orang yang biasanya paling tahu jalan tikus di seluruh kota adalah...',
-            answer: 'NYASAR',
-            trap: 'NYUPIR',
-            openIndices: [0, 1, 5],
+            question: 'Orang yang paling berani menatap mata harimau dari jarak satu jengkal tanpa berkedip adalah...',
+            answer: 'BUTA',
+            isTwist: true,
+            trap: 'BISA',
+            openIndices: [0, 3],
             clues: [
-                'Kondisi orang yang sok tahu jalan pintas tanpa Google Maps.',
-                'Biasanya baru sadar setelah masuk gang buntu tiga kali!'
+                'Bukan pawang atau pelatih sirkus yang nyalinya gede.',
+                'Dia tenang banget karena nggak tahu di depannya ada apa!'
             ],
-            reason: 'N-Y-?-?-?-R bukan NYUPIR! Justru orang yang paling sering NYASAR yang paling banyak nemu jalan tikus!'
+            reason: 'B-?-?-A bukan pawang! Ya karena dia BUTA jadi nggak lihat kalau di depannya ada harimau!'
         },
         {
             id: 22,
             category: 'Klasik WIB',
-            question: 'Supaya nggak jatuh saat naik motor berdua di tikungan tajam, kita harus...',
-            answer: 'BERDIRI',
-            trap: 'BERHENTI',
-            openIndices: [0, 1, 2, 6],
+            question: 'Kalau ada 5 burung bertengger di kabel listrik lalu ditembak 1, sisa berapa burung di kabel?',
+            answer: 'NOL',
+            isTwist: false,
+            trap: 'LIMA',
+            openIndices: [0],
             clues: [
-                'Posisi wajib sebelum kaki mengangkang ke atas jok motor.',
-                'Kalau duduk terus di teras, kapan naiknya?!'
+                'Bukan 4! Bayangkan suara senapannya di dunia nyata!',
+                'Empat burung yang lain nggak bakal diam aja nunggu giliran!'
             ],
-            reason: 'Kalau nggak BERDIRI dulu gimana mau naik ke atas jok motornya?! Masa ngesot dari ruang tamu?!'
+            reason: 'NOL! Yang satu jatuh, empat lainnya langsung terbang kabur kaget dengar suara tembakan!'
         },
         {
             id: 23,
             category: 'Klasik WIB',
-            question: 'Benda yang paling dicari orang kalau lagi kepanasan di kamar tapi listrik padam?',
-            answer: 'ANGIN',
-            trap: 'ADUAN',
+            question: 'Alasan ilmiah kenapa nyamuk selalu bunyi "ngiiing" pas dekat telinga kita di malam hari?',
+            answer: 'PAMER',
+            isTwist: true,
+            trap: 'LAPAR',
             openIndices: [0, 4],
             clues: [
-                'Yang bikin adem, bukan kipasnya yang lagi mati total.',
-                'Adanya di teras rumah sambil kibas-kibas kardus!'
+                'Bukan nyari darah doang, dia lagi sombong.',
+                'Dia mau nunjukin kalau dia bisa terbang sementara kita cuma bisa rebahan!'
             ],
-            reason: 'Kipasnya kan mati kena mati lampu, jadi yang dicari ya ANGIN-nya langsung di luar rumah!'
+            reason: 'Nyamuk cuma mau PAMER kalau dia bisa terbang sambil nyanyi, sementara kita cuma bisa tepuk tangan di udara!'
         },
         {
             id: 24,
             category: 'Klasik WIB',
-            question: 'Satu kata yang paling sering diucapkan orang saat ditanya "Mau tambah nasi?" padahal masih lapar?',
-            answer: 'TIDAK',
-            trap: 'TAMBAH',
-            openIndices: [0, 3],
+            question: 'Bulan apa di kalender masehi yang punya tanggal 28?',
+            answer: 'SEMUA',
+            isTwist: true,
+            trap: 'SATU',
+            openIndices: [0, 4],
             clues: [
-                'Jawabannya sok jaim depan gebetan atau calon mertua.',
-                'Mulut menolak, padahal perut teriak minta nambah dua piring!'
+                'Jangan langsung jawab Februari!',
+                'Coba cek Januari, Maret, April, sampai Desember...'
             ],
-            reason: 'Mulut bilang TIDAK, padahal perut keroncongan! Gengsi sering mengalahkan logika!'
+            reason: 'SEMUA bulan punya tanggal 28! Malah ada yang punya 30 dan 31 juga!'
         },
         {
             id: 25,
             category: 'Klasik WIB',
-            question: 'Aktivitas paling produktif yang bisa dilakukan manusia dengan mata tertutup selama 8 jam?',
-            answer: 'TIDUR',
-            trap: 'TAKUT',
-            openIndices: [0, 3],
+            question: 'Benda apa yang kalau dipakai makin basah, tapi tujuan kita memakainya supaya badan kering?',
+            answer: 'HANDUK',
+            isTwist: false,
+            trap: 'HUJAN',
+            openIndices: [0, 5],
             clues: [
-                'Bukan meditasi atau merem doang.',
-                'Nge-charge badan tanpa ngabisin kuota internet dan duit jajan!'
+                'Ada di kamar mandi, digantung setelah mandi.',
+                'Semakin kering badan kita, semakin basah benda ini!'
             ],
-            reason: 'TIDUR! Produktif banget karena hemat listrik, hemat kuota, dan hemat biaya hidup!'
+            reason: 'HANDUK! Kali ini jawabannya beneran lurus, peserta yang mikir aneh-aneh pasti kejebak!'
         },
         {
             id: 26,
@@ -382,15 +389,16 @@
         {
             id: 30,
             category: 'Gen Z & Sosmed',
-            question: 'Alasan utama kenapa orang betah nongkrong berjam-jam di kafe padahal kopinya udah habis?',
-            answer: 'GRATIS',
-            trap: 'GANTENG',
-            openIndices: [0, 4],
+            question: 'Apa persamaan antara mantan pacar dan WiFi tetangga?',
+            answer: 'PASSWORD',
+            isTwist: true,
+            trap: 'PERASAAN',
+            openIndices: [0, 7],
             clues: [
-                'Sifat WiFi dan AC yang bikin males pulang ke kosan.',
-                'Di kosan harus bayar token listrik, di kafe tinggal numpang!'
+                'Awalnya bikin nyaman dan selalu nyambung otomatis.',
+                'Begitu dia ganti satu hal ini, kita langsung putus koneksi!'
             ],
-            reason: 'Bukan karena estetikanya, tapi karena WiFi, colokan, dan AC-nya GRATIS!'
+            reason: 'PASSWORD! Sama-sama bikin penasaran, tapi begitu ganti PASSWORD langsung nggak bisa nyambung lagi!'
         },
         {
             id: 31,
