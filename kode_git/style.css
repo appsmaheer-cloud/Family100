@@ -3214,3 +3214,103 @@ body {
     stroke: var(--team-accent, #B45309);
     stroke-width: 1.6;
 }
+
+/* Gerakan Hidup & Berdiskusi (Huddle) untuk 5 LEGO */
+.podium-unit:not(.active):not(.celebrate):not(.sad):not(.sad-wrong) .person {
+    animation: legoIdleBreathe 2.6s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
+}
+
+.podium-unit.active .person-l2,
+.podium-unit.active .person-l1 {
+    transform-box: fill-box;
+    transform-origin: bottom center;
+    animation: huddleLeftIn 0.85s ease-in-out infinite !important;
+    animation-delay: var(--bot-delay, 0s) !important;
+}
+
+.podium-unit.active .person-r1,
+.podium-unit.active .person-r2 {
+    transform-box: fill-box;
+    transform-origin: bottom center;
+    animation: huddleRightIn 0.85s ease-in-out infinite !important;
+    animation-delay: var(--bot-delay, 0s) !important;
+}
+
+.podium-unit.active .person-center {
+    transform-box: fill-box;
+    transform-origin: bottom center;
+    animation: huddleCenterListen 0.9s ease-in-out infinite !important;
+}
+
+.podium-unit.crew-interact .person {
+    animation: crewBounce 0.38s ease-in-out 2 !important;
+    animation-delay: var(--bot-delay, 0s) !important;
+}
+
+.podium-unit:hover .podium-contestants {
+    transform: translateY(-2px);
+    transition: transform 0.18s ease;
+}
+
+@keyframes legoIdleBreathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-1.5px); }
+}
+
+@keyframes huddleLeftIn {
+    0%, 100% { transform: rotate(4deg) translateY(0); }
+    50% { transform: rotate(12deg) translateY(-2.5px); }
+}
+
+@keyframes huddleRightIn {
+    0%, 100% { transform: rotate(-4deg) translateY(0); }
+    50% { transform: rotate(-12deg) translateY(-2.5px); }
+}
+
+@keyframes huddleCenterListen {
+    0%, 100% { transform: rotate(-4deg) translateY(0); }
+    50% { transform: rotate(4deg) translateY(-3px); }
+}
+
+@keyframes crewBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+/* Adaptif untuk 5–8 Tim (Podium Kiri & Kanan menjadi Grid 2 Kolom Rapi) */
+@media (min-width: 1081px) {
+    .studio-arena.many-teams-arena {
+        grid-template-columns: clamp(260px, 21vw, 340px) 1fr clamp(260px, 21vw, 340px);
+    }
+}
+
+.wing-podiums.many-teams {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 8px;
+    align-content: center;
+}
+
+.wing-podiums.many-teams .podium-contestants,
+.wing-podiums.many-teams .contestants-svg {
+    height: 56px;
+}
+
+.wing-podiums.many-teams .podium-score {
+    font-size: 1.55rem;
+    padding: 18px 6px 6px;
+}
+
+.wing-podiums.many-teams .podium-pedestal {
+    padding: 5px 6px;
+}
+
+.wing-podiums.many-teams .team-name-input {
+    font-size: 0.78rem;
+}
+
+.wing-podiums.many-teams .discuss-bubble {
+    font-size: 0.62rem;
+    padding: 2px 6px;
+}

@@ -1022,7 +1022,7 @@
             if (isAct) {
                 const bubble = document.createElement('span');
                 bubble.className = 'discuss-bubble';
-                bubble.textContent = '🎤 MENJAWAB!';
+                bubble.textContent = '💬 DISKUSI • MENJAWAB!';
                 crew.appendChild(bubble);
             }
             crew.appendChild(createContestantsSvg());
@@ -1083,6 +1083,14 @@
                 el.teamsRight.appendChild(unit);
             }
         });
+
+        const leftCount = Math.ceil(state.teams.length / 2);
+        const rightCount = Math.floor(state.teams.length / 2);
+        el.teamsLeft.classList.toggle('many-teams', leftCount >= 3);
+        el.teamsRight.classList.toggle('many-teams', rightCount >= 3);
+        if (el.teamsContainer) {
+            el.teamsContainer.classList.toggle('many-teams-arena', state.teams.length >= 5);
+        }
 
         const activeTeamObj = state.teams[state.activeTeam];
         const activeColor = activeTeamObj?.color || 'blue';
@@ -1891,6 +1899,16 @@
             if (!card) return;
             state.activeTeam = Number(card.dataset.team) || 0;
             renderTeamScores();
+            const activeUnit = el.teamsContainer.querySelector(`.podium-unit[data-team="${state.activeTeam}"]`);
+            if (activeUnit) {
+                activeUnit.classList.add('crew-interact');
+                setTimeout(() => activeUnit.classList.remove('crew-interact'), 800);
+                const phrases = ['💬 Rembukan dulu...', '🤔 Apa ya jawabannya?', '💡 Oiya ini pasti ada!', '🔥 Ayo gas jawab!', '🗣️ Diskusi cepat!'];
+                const bubble = activeUnit.querySelector('.discuss-bubble');
+                if (bubble) {
+                    bubble.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+                }
+            }
             syncPushIfHost('update');
             if (e.target.tagName !== 'INPUT') {
                 el.input.focus();
