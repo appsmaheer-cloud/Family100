@@ -661,6 +661,62 @@
                 'Kadang lurus, kadang belok — bikin pusing tapi nagih!'
             ],
             reason: 'MIKIR KERAS! Kadang beneran lurus, kadang belok — itulah seni TTS Cak Lontong!'
+        },
+        {
+            id: 51,
+            category: 'Klasik WIB',
+            question: 'Di rumah makan Padang, selain pakai sendok, biasanya orang makan pakai...',
+            answer: 'TENAGA',
+            isTwist: true,
+            trap: 'TANGAN',
+            openIndices: [0, 2, 5],
+            clues: [
+                'Bukan anggota tubuh di ujung lengan.',
+                'Kalau lagi lemas nggak punya ini, nyuap nasi pun nggak kuat!'
+            ],
+            reason: 'T-?-N-?-?-A bukan TANGAN! Pakai sendok atau nggak, makannya tetap butuh TENAGA!'
+        },
+        {
+            id: 52,
+            category: 'Klasik WIB',
+            question: 'Seorang tukang cukur memotong rambut pelanggannya dengan...',
+            answer: 'GANTIAN',
+            isTwist: true,
+            trap: 'GUNTING',
+            openIndices: [0, 2, 3, 6],
+            clues: [
+                'Bukan alat tajam yang bunyinya krek-krek.',
+                'Kalau pelanggannya ada lima orang, masa dicukur barengan semua?!'
+            ],
+            reason: 'G-?-N-T-?-?-N bukan GUNTING! Kalau pelanggannya banyak ya dicukurnya GANTIAN satu per satu!'
+        },
+        {
+            id: 53,
+            category: 'Klasik WIB',
+            question: 'Tamu yang berkunjung ke rumah orang lain lebih dari 2x24 jam harus...',
+            answer: 'PAMIT',
+            isTwist: true,
+            trap: 'PULANG',
+            openIndices: [0, 4],
+            clues: [
+                'Bukan lapor Pak RT dulu.',
+                'Masa nginep dua hari dua malam nggak bilang-bilang pas mau keluar rumah?!'
+            ],
+            reason: 'Sudah 2x24 jam nginep ya wajib PAMIT! Jangan ngilang gitu aja kayak tuyul!'
+        },
+        {
+            id: 54,
+            category: 'Klasik WIB',
+            question: 'Burung bisa terbang bebas di langit karena memiliki...',
+            answer: 'WAKTU',
+            isTwist: true,
+            trap: 'SAYAP',
+            openIndices: [0, 4],
+            clues: [
+                'Bukan bagian tubuh yang berbulu di kanan kiri badannya.',
+                'Kalau lagi sibuk banget atau udah jadi ayam bakar, mana sempat terbang!'
+            ],
+            reason: 'Punya sayap doang kalau nggak punya WAKTU luang ya nggak terbang-terbang! (Atau udah di piring!)'
         }
     ];
 
