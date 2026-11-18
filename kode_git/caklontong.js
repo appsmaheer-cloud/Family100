@@ -2,873 +2,686 @@
     'use strict';
 
     const CAK_LONTONG_QUESTIONS = [
-        {
-            id: 1,
-            category: 'Klasik WIB',
-            question: 'Sebelum diperiksa dokter di puskesmas atau rumah sakit, pasien harus...',
-            answer: 'DAFTAR',
-            trap: 'DOKTER',
-            openIndices: [0, 3, 5],
-            clues: [
-                'Bukan langsung masuk ruangan, ada satu langkah wajib di loket depan.',
-                'Kalau nggak lakukan ini, namamu nggak bakal dipanggil suster!'
-            ],
-            reason: 'Hurufnya D-?-?-T-?-R memang mirip DOKTER, padahal DAFTAR dulu di loket baru diperiksa!'
-        },
-        {
-            id: 2,
-            category: 'Klasik WIB',
-            question: 'Orang yang mengendarai bus antar kota saat jalan tol macet total harus...',
-            answer: 'SABAR',
-            trap: 'SOPIR',
-            openIndices: [0, 4],
-            clues: [
-                'Bukan profesinya, tapi kondisi mental menghadapi kemacetan.',
-                'Kalau emosian di tol, bisa-bisa klakson terus nggak ada gunanya!'
-            ],
-            reason: 'S-?-?-?-R bukan SOPIR! Sopirnya kalau nggak SABAR malah turun dorong bus!'
-        },
-        {
-            id: 3,
-            category: 'Klasik WIB',
-            question: 'Saat lampu merah menyala di perempatan jalan, pengendara harus...',
-            answer: 'LIHAT',
-            trap: 'LEWAT',
-            openIndices: [0, 4],
-            clues: [
-                'Pakai mata dulu biar nggak salah sangka.',
-                'Kalau langsung jalan pas lampu merah ya kena tilang!'
-            ],
-            reason: 'L-?-?-?-T bukan LEWAT! Lampu merah itu di-LIHAT dulu, jangan main terobos!'
-        },
-        {
-            id: 4,
-            category: 'Gen Z & Sosmed',
-            question: 'Hal pertama yang dilakukan anak Gen Z begitu bangun tidur di pagi hari adalah...',
-            answer: 'MEREM',
-            trap: 'MINUM',
-            openIndices: [0, 4],
-            clues: [
-                'Bukan langsung minum air putih atau buka TikTok.',
-                'Dilakukan selama 5 menit lagi buat ngumpulin nyawa!'
-            ],
-            reason: 'M-?-?-?-M bukan MINUM! Pasti MEREM lagi lima menit sambil bilang "bentar lagi deh"!'
-        },
-        {
-            id: 5,
-            category: 'Lingkungan Kantor',
-            question: 'Saat meeting Zoom berlangsung, bagian tubuh yang paling sering menatap kamera penuh kepalsuan adalah...',
-            answer: 'MATA',
-            trap: 'MUKA',
-            openIndices: [0, 3],
-            clues: [
-                'Keliatannya fokus ke layar, padahal lagi lirik tab belanja online.',
-                'Ada sepasang di wajah dan sering pura-pura menyimak bos!'
-            ],
-            reason: 'M-?-?-A bukan cuma MUKA, tapi MATA yang menatap kamera seolah fokus padahal baca chat gosip!'
-        },
-        {
-            id: 6,
-            category: 'Lingkungan Kantor',
-            question: 'Karyawan kalau akhir bulan, isi saldo ATM-nya biasanya tinggal...',
-            answer: 'ADA',
-            trap: 'APA',
-            openIndices: [0, 2],
-            clues: [
-                'Bukan nol atau seratus ribu, ini soal status keberadaannya.',
-                'Yang penting rekeningnya belum keblokir bank!'
-            ],
-            reason: 'A-?-A bukan APA! Yang penting saldonya masih ADA meski cuma Rp 12.400!'
-        },
-        {
-            id: 7,
-            category: 'Klasik WIB',
-            question: 'Kalau lagi sakit gigi malam-malam dan tidak tahan lagi, orang langsung lari ke...',
-            answer: 'KASUR',
-            trap: 'KABUR',
-            openIndices: [0, 1, 4],
-            clues: [
-                'Bukan ke klinik atau apotek yang sudah tutup.',
-                'Tempat paling empuk buat meringkuk sambil megangin pipi!'
-            ],
-            reason: 'K-A-?-?-R bukan KABUR! Malam-malam klinik tutup, ya langsung guling-guling di KASUR!'
-        },
-        {
-            id: 8,
-            category: 'Bapak-bapak',
-            question: 'Saat istri tiba-tiba bilang "Terserah Mas mau makan di mana", jawaban paling aman adalah...',
-            answer: 'PULANG',
-            trap: 'PUSING',
-            openIndices: [0, 1, 4, 5],
-            clues: [
-                'Daripada salah tebak restoran dan bikin perang dingin di mobil.',
-                'Ujung-ujungnya masak mie instan di dapur sendiri!'
-            ],
-            reason: 'P-?-?-?-?-G memang bikin PUSING, tapi solusi paling aman adalah langsung PULANG!'
-        },
-        {
-            id: 9,
-            category: 'Ice Breaking',
-            question: 'Saat MC ice breaking bilang "Ayo semuanya berdiri!", yang tidak punya kursi langsung...',
-            answer: 'BERDIRI',
-            trap: 'BERLARI',
-            openIndices: [0, 1, 2, 5, 6],
-            clues: [
-                'Nggak usah lari keliling ruangan kayak lomba lari.',
-                'Ikuti saja instruksi MC-nya dengan tenang!'
-            ],
-            reason: 'B-?-R-?-?-R-I bukan BERLARI! Kan MC-nya nyuruh BERDIRI, ngapain lari?!'
-        },
-        {
-            id: 10,
-            category: 'Ice Breaking',
-            question: 'Supaya peserta seminar yang ngantuk berat mendadak melek semua, pembicara harus bikin...',
-            answer: 'KETAWA',
-            trap: 'KEPALA',
-            openIndices: [0, 1, 3, 5],
-            clues: [
-                'Reaksi spontan kalau dengar jokes bapak-bapak atau tebak-tebakan nyeleneh.',
-                'Gratis, menular, dan bikin suasana ruangan langsung cair!'
-            ],
-            reason: 'K-E-?-?-?-A bukan KEPALA! Kalau udah KETAWA bareng, ngantuknya langsung hilang!'
-        },
-        {
-            id: 11,
-            category: 'Ice Breaking',
-            question: 'Di akhir acara kantor, semua peserta berdiri rapat menghadap kamera sambil teriak "Satu, dua, tiga..." karena mau...',
-            answer: 'KEDIP',
-            isTwist: true,
-            trap: 'KELIP',
-            openIndices: [0, 1, 3, 4],
-            clues: [
-                'Momen paling ngeselin pas hasil fotonya baru dilihat.',
-                'Yang lain udah senyum maksimal, eh satu orang matanya ketutup!'
-            ],
-            reason: 'Selalu ada satu orang yang KEDIP pas jepretan kamera, terus minta ulang sepuluh kali!'
-        },
-        {
-            id: 12,
-            category: 'Ice Breaking',
-            question: 'Hal yang paling ditunggu peserta saat sesi game ice breaking hampir selesai adalah...',
-            answer: 'PULANG',
-            isTwist: true,
-            trap: 'PINANG',
-            openIndices: [0, 5],
-            clues: [
-                'Bukan hadiah atau doorprize dari panitia.',
-                'Semua udah lirik jam tangan pengen segera ke parkiran!'
-            ],
-            reason: 'P-?-?-?-?-G! Doorprize sih bonus, tapi di hati paling dalam semua peserta cuma nungguin kata PULANG!'
-        },
-        {
-            id: 13,
-            category: 'Ice Breaking',
-            question: 'Alasan utama kenapa peserta acara kantor semangat banget teriak yel-yel di depan juri adalah...',
-            answer: 'MALU',
-            isTwist: true,
-            trap: 'MAJU',
-            openIndices: [0, 1, 3],
-            clues: [
-                'Kalau teriak sendirian jelas nggak berani.',
-                'Karena rame-rame, rasa ini mendadak hilang entah ke mana!'
-            ],
-            reason: 'M-?-?-U bukan MAJU! Justru karena kalau nggak teriak bareng malah MALU dilihat divisi sebelah!'
-        },
-        {
-            id: 14,
-            category: 'Lingkungan Kantor',
-            question: 'Hari Senin pagi di kantor, karyawan baru datang langsung dikasih bos...',
-            answer: 'SARAN',
-            trap: 'SENIN',
-            openIndices: [0, 4],
-            clues: [
-                'Bukan nama harinya lagi, ini kalimat pembuka dari atasan.',
-                'Biasanya diawali kata "Bagus sih, tapi kayaknya lebih oke kalau..."'
-            ],
-            reason: 'S-?-?-?-N bukan SENIN! Baru duduk udah dikasih SARAN revisi sama bos!'
-        },
-        {
-            id: 15,
-            category: 'Lingkungan Kantor',
-            question: 'Minuman penyelamat karyawan saat jam 2 siang ngantuk berat cukup diminum...',
-            answer: 'SATU',
-            trap: 'SUSU',
-            openIndices: [0, 3],
-            clues: [
-                'Bukan jenis minumannya, tapi jumlah gelasnya biar nggak kembung.',
-                'Kalau sepuluh gelas nanti jantungnya kayak konser rock!'
-            ],
-            reason: 'S-?-?-U bukan SUSU! Mau kopi atau teh, cukup SATU gelas aja biar nggak begadang!'
-        },
-        {
-            id: 16,
-            category: 'Lingkungan Kantor',
-            question: 'Satu-satunya pekerjaan di dunia yang kalau karyawannya ketiduran malah dianggap sukses?',
-            answer: 'TESTER KASUR',
-            isTwist: true,
-            trap: 'TUKANG KABUR',
-            openIndices: [0, 7, 11],
-            clues: [
-                'Bukan satpam atau penjaga malam yang kena SP.',
-                'Semakin pulas tidurnya, semakin bagus review produknya!'
-            ],
-            reason: 'TESTER KASUR! Satu-satunya profesi di mana ngorok di jam kerja justru dapat bonus performa!'
-        },
-        {
-            id: 17,
-            category: 'Lingkungan Kantor',
-            question: 'Benda di kantor yang paling jujur tapi paling sering dimarahin bos dan karyawan?',
-            answer: 'JAM DINDING',
-            isTwist: true,
-            trap: 'JAM ISTIRAHAT',
-            openIndices: [0, 1, 2, 4, 10],
-            clues: [
-                'Nggak pernah telat dan nggak pernah bohong.',
-                'Tiap dilihat selalu dibilang: "Kok baru jam segini sih?!" atau "Kok udah jam segini?!"'
-            ],
-            reason: 'JAM DINDING! Salahnya cuma muter terus, tapi tiap hari disalahin karena waktu terasa cepat atau lambat!'
-        },
-        {
-            id: 18,
-            category: 'Lingkungan Kantor',
-            question: 'Alat tulis kantor yang paling sering hilang misterius padahal baru dibeli kemarin?',
-            answer: 'DIPINJAM',
-            trap: 'DIKLAIM',
-            openIndices: [0, 1, 7],
-            clues: [
-                'Nasib pulpen di meja kerja sebelah.',
-                'Bukan hilang ditelan bumi, tapi dibawa teman dan lupa dibalikin!'
-            ],
-            reason: 'Pulpen nggak pernah punya kaki, tapi selalu DIPINJAM teman dan pindah kewarganegaraan!'
-        },
-        {
-            id: 19,
-            category: 'Lingkungan Kantor',
-            question: 'Sikap paling bijaksana saat revisi desain dari klien sudah masuk versi "FINAL_BENERAN_V9"?',
-            answer: 'PASRAH',
-            trap: 'PINDAH',
-            openIndices: [0, 4, 5],
-            clues: [
-                'Level tertinggi kesabaran anak agensi dan desainer.',
-                'Sudah lewat tahap ikhlas, tinggal menunggu takdir V10!'
-            ],
-            reason: 'P-?-?-?-A-H bukan PINDAH kantor dulu, tapi PASRAH! Karena habis V9 masih ada V9_REVISI_DIKIT!'
-        },
-        {
-            id: 20,
-            category: 'Lingkungan Kantor',
-            question: 'Kalau laptop kantor tiba-tiba lemot parah pas lagi dikejar deadline, tombol paling ampuh adalah...',
-            answer: 'DIMATIKAN',
-            trap: 'DIABAIKAN',
-            openIndices: [0, 1, 7, 8],
-            clues: [
-                'Bukan F5 atau Ctrl+Alt+Del, ini langkah terakhir pasrah.',
-                'Setelah itu tinggal bilang ke bos: "Maaf Pak, lagi update Windows!"'
-            ],
-            reason: 'D-I-?-?-?-?-?-A-N bukan DIABAIKAN! DIMATIKAN sekalian laptopnya lalu seduh kopi!'
-        },
-        {
-            id: 21,
-            category: 'Klasik WIB',
-            question: 'Orang yang paling berani menatap mata harimau dari jarak satu jengkal tanpa berkedip adalah...',
-            answer: 'BUTA',
-            isTwist: true,
-            trap: 'BISA',
-            openIndices: [0, 3],
-            clues: [
-                'Bukan pawang atau pelatih sirkus yang nyalinya gede.',
-                'Dia tenang banget karena nggak tahu di depannya ada apa!'
-            ],
-            reason: 'B-?-?-A bukan pawang! Ya karena dia BUTA jadi nggak lihat kalau di depannya ada harimau!'
-        },
-        {
-            id: 22,
-            category: 'Klasik WIB',
-            question: 'Kalau ada 5 burung bertengger di kabel listrik lalu ditembak 1, sisa berapa burung di kabel?',
-            answer: 'NOL',
-            isTwist: false,
-            trap: 'LIMA',
-            openIndices: [0],
-            clues: [
-                'Bukan 4! Bayangkan suara senapannya di dunia nyata!',
-                'Empat burung yang lain nggak bakal diam aja nunggu giliran!'
-            ],
-            reason: 'NOL! Yang satu jatuh, empat lainnya langsung terbang kabur kaget dengar suara tembakan!'
-        },
-        {
-            id: 23,
-            category: 'Klasik WIB',
-            question: 'Alasan ilmiah kenapa nyamuk selalu bunyi "ngiiing" pas dekat telinga kita di malam hari?',
-            answer: 'PAMER',
-            isTwist: true,
-            trap: 'LAPAR',
-            openIndices: [0, 4],
-            clues: [
-                'Bukan nyari darah doang, dia lagi sombong.',
-                'Dia mau nunjukin kalau dia bisa terbang sementara kita cuma bisa rebahan!'
-            ],
-            reason: 'Nyamuk cuma mau PAMER kalau dia bisa terbang sambil nyanyi, sementara kita cuma bisa tepuk tangan di udara!'
-        },
-        {
-            id: 24,
-            category: 'Klasik WIB',
-            question: 'Bulan apa di kalender masehi yang punya tanggal 28?',
-            answer: 'SEMUA',
-            isTwist: true,
-            trap: 'SATU',
-            openIndices: [0, 4],
-            clues: [
-                'Jangan langsung jawab Februari!',
-                'Coba cek Januari, Maret, April, sampai Desember...'
-            ],
-            reason: 'SEMUA bulan punya tanggal 28! Malah ada yang punya 30 dan 31 juga!'
-        },
-        {
-            id: 25,
-            category: 'Klasik WIB',
-            question: 'Pedagang kaki lima di pinggir jalan langsung bubar berhamburan karena ada...',
-            answer: 'RAMAI',
-            isTwist: true,
-            trap: 'RAZIA',
-            openIndices: [0, 1, 4],
-            clues: [
-                'Bukan Satpol PP atau hujan badai!',
-                'Justru ini kondisi yang paling didoakan semua pedagang!'
-            ],
-            reason: 'R-A-?-?-I bukan RAZIA! Karena dagangannya RAMAI pembeli, langsung ludes habis terus bubar pulang lebih cepat!'
-        },
-        {
-            id: 26,
-            category: 'Klasik WIB',
-            question: 'Pelukis yang biasa menggambar pemandangan indah di atas kanvas disebut...',
-            answer: 'SERIUS',
-            trap: 'SENIMAN',
-            openIndices: [0, 1, 4],
-            clues: [
-                'Sikap wajib biar gambarnya nggak berantakan.',
-                'Kalau sambil bercanda terus, catnya tumpah semua!'
-            ],
-            reason: 'Kalau nggak SERIUS gambarnya ya nggak jadi-jadi, malah coret-coret nggak jelas!'
-        },
-        {
-            id: 27,
-            category: 'Klasik WIB',
-            question: 'Bendera Indonesia warnanya merah dan...',
-            answer: 'KAIN',
-            trap: 'PUTIH',
-            openIndices: [1, 3],
-            clues: [
-                'Bukan warna putih, ini bahan dasarnya waktu dijahit.',
-                'Kalau nggak ada bahannya, mau dijahit pakai daun pisang?!'
-            ],
-            reason: 'Merah itu warnanya, dan KAIN itu bahan dasarnya biar bisa berkibar di tiang!'
-        },
-        {
-            id: 28,
-            category: 'Klasik WIB',
-            question: 'Orang yang biasa mengendarai pesawat terbang di udara disebut...',
-            answer: 'BERANI',
-            trap: 'BUPATI',
-            openIndices: [0, 5],
-            clues: [
-                'Bukan profesinya, tapi mental wajib sebelum duduk di kokpit.',
-                'Kalau penakut mana mau terbang tinggi-tinggi!'
-            ],
-            reason: 'Kalau penakut mana BERANI bawa pesawat melayang di atas awan!'
-        },
-        {
-            id: 29,
-            category: 'Klasik WIB',
-            question: 'Makanan yang paling enak dimakan pas lagi hujan deras dan cuaca dingin?',
-            answer: 'LAPER',
-            trap: 'LUPAR',
-            openIndices: [0, 2, 4],
-            clues: [
-                'Kondisi perut sebelum makan apa pun.',
-                'Mau bakso atau mie rebus, kalau nggak kondisi ini tetap hambar!'
-            ],
-            reason: 'Mau hujan kek, panas kek, kalau nggak LAPER ya tetap nggak enak makannya!'
-        },
-        {
-            id: 30,
-            category: 'Gen Z & Sosmed',
-            question: 'Apa persamaan antara mantan pacar dan WiFi tetangga?',
-            answer: 'PASSWORD',
-            isTwist: true,
-            trap: 'PERASAAN',
-            openIndices: [0, 7],
-            clues: [
-                'Awalnya bikin nyaman dan selalu nyambung otomatis.',
-                'Begitu dia ganti satu hal ini, kita langsung putus koneksi!'
-            ],
-            reason: 'PASSWORD! Sama-sama bikin penasaran, tapi begitu ganti PASSWORD langsung nggak bisa nyambung lagi!'
-        },
-        {
-            id: 31,
-            category: 'Gen Z & Sosmed',
-            question: 'Kenapa video TikTok kita yang niat banget ngeditnya malah kalah views sama video kucing tidur?',
-            answer: 'SEPI',
-            trap: 'SAPI',
-            openIndices: [0, 3],
-            clues: [
-                'Nasib kolom komentar dan penonton kita.',
-                'Kebalikan dari ramai!'
-            ],
-            reason: 'S-?-?-I bukan SAPI! Karena yang nonton SEPI! Kucing tidur aja lebih punya karisma daripada transisi CapCut kita!'
-        },
-        {
-            id: 32,
-            category: 'Gen Z & Sosmed',
-            question: 'Gerakan jari paling refleks anak muda saat lagi bosan nunggu antrean sambil pegang HP adalah...',
-            answer: 'SCROLL',
-            trap: 'SEKOLAH',
-            openIndices: [0, 4, 5],
-            clues: [
-                'Naik turun layar TikTok atau Instagram tanpa tujuan jelas.',
-                'Tahu-tahu udah habis 2 jam padahal cuma lihat video random!'
-            ],
-            reason: 'SCROLL terus sampai jempol pegal padahal nggak nyari apa-apa!'
-        },
-        {
-            id: 33,
-            category: 'Gen Z & Sosmed',
-            question: 'Anak muda kalau lagi butuh healing di kafe, yang paling pertama dipesan adalah...',
-            answer: 'MEJA',
-            trap: 'MOKA',
-            openIndices: [0, 3],
-            clues: [
-                'Kalau nggak ada ini mau duduk dan naruh kopi di mana?!',
-                'Wajib yang dekat colokan dan cahayanya estetik!'
-            ],
-            reason: 'M-?-?-A bukan MOKA! Pesan kopi bisa belakangan, yang penting dapat MEJA dulu!'
-        },
-        {
-            id: 34,
-            category: 'Milenial & Boomers',
-            question: 'Hal yang paling sering bikin orang lupa diri saat lagi asyik nonton konser?',
-            answer: 'NAPAS',
-            trap: 'NANAS',
-            openIndices: [0, 1, 3, 4],
-            clues: [
-                'Dilakukan otomatis tanpa sadar saking teriak-teriak nyanyi.',
-                'Baru kerasa pas lagunya selesai dan dada mulai bengek!'
-            ],
-            reason: 'Saking asyiknya teriak bareng, kita sampai lupa kalau lagi NAPAS — sadar-sadar udah ngos-ngosan!'
-        },
-        {
-            id: 35,
-            category: 'Milenial & Boomers',
-            question: 'Beda tipis antara orang kaya dan orang biasa saat makan di warteg adalah...',
-            answer: 'SAMA',
-            trap: 'SOTO',
-            openIndices: [0, 2],
-            clues: [
-                'Cara masukin nasi ke mulutnya nggak ada bedanya.',
-                'Tidak ada perbedaan sama sekali!'
-            ],
-            reason: 'Ya SAMA aja makannya pakai sendok atau tangan kanan, masa orang kaya makannya pakai remote TV?!'
-        },
-        {
-            id: 36,
-            category: 'Milenial & Boomers',
-            question: 'Barang yang paling sering dibeli orang pas lagi tanggal muda tapi nyesel di tanggal tua?',
-            answer: 'BARU',
-            trap: 'BAJU',
-            openIndices: [0, 1, 3],
-            clues: [
-                'Status barangnya waktu baru di-unboxing dari paket kurir.',
-                'Kebalikan dari bekas atau second!'
-            ],
-            reason: 'B-A-?-U bukan cuma BAJU! Semua yang dibeli pas tanggal muda itu pasti statusnya barang BARU!'
-        },
-        {
-            id: 37,
-            category: 'Milenial & Boomers',
-            question: 'Grup WhatsApp keluarga paling sering ramai di jam 6 pagi gara-gara ada yang kirim...',
-            answer: 'GAMBAR',
-            trap: 'GOSIP',
-            openIndices: [0, 5],
-            clues: [
-                'Isinya bunga mawar, secangkir kopi, dan tulisan Selamat Pagi.',
-                'Biasanya dikirim om atau tante lengkap dengan doa pagi!'
-            ],
-            reason: 'GAMBAR bunga mawar + ucapan "Selamat Pagi Semoga Berkah" yang resolusinya udah pecah di-forward berkali-kali!'
-        },
-        {
-            id: 38,
-            category: 'Bapak-bapak',
-            question: 'Organ tubuh bapak-bapak yang paling berdebar kencang saat ditanya istri "HP-nya mana Mas?"',
-            answer: 'JANTUNG',
-            trap: 'JEMPOL',
-            openIndices: [0, 6],
-            clues: [
-                'Bukan tangan yang gemetar, tapi yang berdetak di dalam dada.',
-                'Langsung lari maraton 100 km/jam padahal isi HP cuma grup mancing!'
-            ],
-            reason: 'JANTUNG langsung deg-degan kencang padahal isi chat cuma info umpan lele sama meme bapak-bapak!'
-        },
-        {
-            id: 39,
-            category: 'Bapak-bapak',
-            question: 'Kalau motor mogok di tengah jalan dan bensinnya habis, tindakan paling cepat supaya sampai rumah adalah...',
-            answer: 'JALAN',
-            trap: 'JUAL',
-            openIndices: [0, 1, 4],
-            clues: [
-                'Pakai dua kaki sambil nuntun motor pelan-pelan.',
-                'Masa nunggu motornya tumbuh sayap?!'
-            ],
-            reason: 'Ya JALAN kaki sambil dorong motor ke pom bensin terdekat!'
-        },
-        {
-            id: 40,
-            category: 'Bapak-bapak',
-            question: 'Saat istri bilang "Terserah", bapak-bapak yang bijaksana harus langsung...',
-            answer: 'MIKIR',
-            trap: 'MAKAN',
-            openIndices: [0, 4],
-            clues: [
-                'Sesuai slogan legendaris Cak Lontong!',
-                'Karena ada jawaban benar yang sengaja tidak disebutkan!'
-            ],
-            reason: 'MIKIR keras! Karena kata "terserah" sebenarnya adalah kode rahasia yang harus dipecahkan!'
-        },
-        {
-            id: 41,
-            category: 'Lingkungan Kantor',
-            question: 'Hal paling pertama yang dilakukan karyawan begitu sampai di meja kerja sebelum mulai mengetik?',
-            answer: 'TARIK KURSI',
-            isTwist: true,
-            trap: 'TEKAN TOMBOL',
-            openIndices: [0, 6, 10],
-            clues: [
-                'Bukan langsung nyalain laptop atau baca email.',
-                'Kalau nggak lakukan ini, mau kerja sambil berdiri seharian?!'
-            ],
-            reason: 'T-?-?-?-?-K K-?-?-?-I! TARIK KURSI dulu biar bisa duduk nyaman sebelum nyalain laptop!'
-        },
-        {
-            id: 42,
-            category: 'Lingkungan Kantor',
-            question: 'Bencana paling menegangkan di hari Senin pagi sebelum sempat kerja adalah...',
-            answer: 'LUPA PASSWORD',
-            isTwist: true,
-            trap: 'LUPA SARAPAN',
-            openIndices: [0, 5, 12],
-            clues: [
-                'Bukan urusan perut, tapi urusan login ke laptop kantor.',
-                'Apalagi kalau tiga kali salah langsung kekunci IT!'
-            ],
-            reason: 'Bukan LUPA SARAPAN, tapi LUPA PASSWORD! Baru Senin pagi aja udah disuruh reset sama tim IT!'
-        },
-        {
-            id: 43,
-            category: 'Klasik WIB',
-            question: 'Sebelum menyuap nasi goreng pakai tangan kosong, hal wajib yang harus dipastikan adalah...',
-            answer: 'SUDAH MATANG',
-            isTwist: true,
-            trap: 'SUDAH BERSIH',
-            openIndices: [0, 6, 11],
-            clues: [
-                'Bukan soal cuci tangan pakai sabun dulu.',
-                'Kalau masih beras mentah ya sakit perut!'
-            ],
-            reason: 'S-?-?-?-?-H M-?-?-?-?-G! Pastikan nasi gorengnya SUDAH MATANG dulu, masa makan beras mentah!'
-        },
-        {
-            id: 44,
-            category: 'Lingkungan Kantor',
-            question: 'Alasan paling jujur kenapa karyawan mendadak rajin senyum dan ramah di jam 12 siang?',
-            answer: 'LAPAR BANGET',
-            isTwist: true,
-            trap: 'LIBUR DATANG',
-            openIndices: [0, 6, 11],
-            clues: [
-                'Bukan karena kerjaan udah kelar semua.',
-                'Senyumnya senyum nahan bunyi perut sambil ngajak temen ke kantin!'
-            ],
-            reason: 'LAPAR BANGET! Senyumnya bukan karena bahagia lihat Excel, tapi karena butuh temen patungan makan siang!'
-        },
-        {
-            id: 45,
-            category: 'Gen Z & Sosmed',
-            question: 'Momen paling bikin jantung berhenti sepersekian detik saat lagi chat di grup kantor adalah...',
-            answer: 'SALAH KIRIM',
-            isTwist: true,
-            trap: 'SALAH PAHAM',
-            openIndices: [0, 6, 10],
-            clues: [
-                'Niatnya ngirim ke grup gosip, eh malah masuk ke grup yang ada bosnya!',
-                'Langsung panik nyari tombol "Hapus untuk semua orang"!'
-            ],
-            reason: 'SALAH KIRIM! Lebih horor daripada film hantu, apalagi kalau udah ke-read sama HRD!'
-        },
-        {
-            id: 46,
-            category: 'Lingkungan Kantor',
-            question: 'Penyebab utama tanggal 20 ke atas anak kantor mendadak hobi bawa bekal dari rumah adalah...',
-            answer: 'GAJI HABIS',
-            isTwist: true,
-            trap: 'GAYA HIDUP',
-            openIndices: [0, 5, 9],
-            clues: [
-                'Bukan karena lagi diet sehat atau ikut tren gaya hidup.',
-                'Dompetnya udah ngasih sinyal darurat!'
-            ],
-            reason: 'Bukan GAYA HIDUP sehat, tapi GAJI HABIS! Tanggal tua mengubah semua orang jadi chef dadakan!'
-        },
-        {
-            id: 47,
-            category: 'Gen Z & Sosmed',
-            question: 'Setelah alarm HP berbunyi nyaring jam 6 pagi di hari libur, tindakan paling mulia adalah...',
-            answer: 'TIDUR LAGI',
-            isTwist: true,
-            trap: 'TEPAT WAKTU',
-            openIndices: [0, 6, 9],
-            clues: [
-                'Ngakunya mau olahraga pagi, tapi kasur memanggil lebih keras.',
-                'Matikan alarm, tarik selimut, lalu...'
-            ],
-            reason: 'TIDUR LAGI! Alarm hari libur cuma berfungsi sebagai pengingat bahwa kita masih boleh lanjut mimpi!'
-        },
-        {
-            id: 48,
-            category: 'Ice Breaking',
-            question: 'Hal yang diam-diam paling bikin karyawan bahagia kalau rapat sore dibatalkan mendadak adalah...',
-            answer: 'PULANG CEPAT',
-            isTwist: true,
-            trap: 'PUJIAN BOS',
-            openIndices: [0, 7, 11],
-            clues: [
-                'Bisa langsung beresin tas sebelum jam macet dimulai.',
-                'Senyumnya nggak bisa disembunyikan waktu keluar lift!'
-            ],
-            reason: 'PULANG CEPAT! Nggak ada yang lebih indah daripada notif "Meeting kita reschedule besok ya"!'
-        },
-        {
-            id: 49,
-            category: 'Ice Breaking',
-            question: 'Minuman hangat yang paling sering bikin peserta seminar pagi mendadak salah fokus adalah...',
-            answer: 'KETINGGALAN',
-            isTwist: true,
-            trap: 'KOPI HITAM',
-            openIndices: [0, 10],
-            clues: [
-                'Bukan kopi atau teh manisnya.',
-                'Udah duduk manis di meja, eh gelasnya malah tertinggal di meja coffee break!'
-            ],
-            reason: 'KETINGGALAN di meja belakang! Mau minum eh tangannya megang pulpen doang!'
-        },
-        {
-            id: 50,
-            category: 'Bapak-bapak',
-            question: 'Saat ditanya "Gimana soal-soal Cak Lontong hari ini?", semua peserta pasti langsung...',
-            answer: 'MIKIR KERAS',
-            isTwist: true,
-            trap: 'MARAH BESAR',
-            openIndices: [0, 6, 10],
-            clues: [
-                'Gabungan slogan Cak Lontong + usaha maksimal otak peserta.',
-                'Kadang lurus, kadang belok — bikin pusing tapi nagih!'
-            ],
-            reason: 'MIKIR KERAS! Kadang beneran lurus, kadang belok — itulah seni TTS Cak Lontong!'
-        },
-        {
-            id: 51,
-            category: 'Klasik WIB',
-            question: 'Di rumah makan Padang, selain pakai sendok, biasanya orang makan pakai...',
-            answer: 'TENAGA',
-            isTwist: true,
-            trap: 'TANGAN',
-            openIndices: [0, 2, 4, 5],
-            clues: [
-                'Bukan anggota tubuh di ujung lengan.',
-                'Kalau lagi lemas nggak punya ini, nyuap nasi pun nggak kuat!'
-            ],
-            reason: 'T-?-N-?-?-A bukan TANGAN! Pakai sendok atau nggak, makannya tetap butuh TENAGA!'
-        },
-        {
-            id: 52,
-            category: 'Klasik WIB',
-            question: 'Seorang tukang cukur memotong rambut pelanggannya dengan...',
-            answer: 'GANTIAN',
-            isTwist: true,
-            trap: 'GUNTING',
-            openIndices: [0, 2, 3, 4, 6],
-            clues: [
-                'Bukan alat tajam yang bunyinya krek-krek.',
-                'Kalau pelanggannya ada lima orang, masa dicukur barengan semua?!'
-            ],
-            reason: 'G-?-N-T-?-?-N bukan GUNTING! Kalau pelanggannya banyak ya dicukurnya GANTIAN satu per satu!'
-        },
-        {
-            id: 53,
-            category: 'Klasik WIB',
-            question: 'Tamu yang berkunjung ke rumah orang lain lebih dari 2x24 jam harus...',
-            answer: 'PAMIT',
-            isTwist: true,
-            trap: 'PULANG',
-            openIndices: [0, 4],
-            clues: [
-                'Bukan lapor Pak RT dulu.',
-                'Masa nginep dua hari dua malam nggak bilang-bilang pas mau keluar rumah?!'
-            ],
-            reason: 'Sudah 2x24 jam nginep ya wajib PAMIT! Jangan ngilang gitu aja kayak tuyul!'
-        },
-        {
-            id: 54,
-            category: 'Klasik WIB',
-            question: 'Burung bisa terbang bebas di langit karena memiliki...',
-            answer: 'WAKTU',
-            isTwist: true,
-            trap: 'SAYAP',
-            openIndices: [0, 4],
-            clues: [
-                'Bukan bagian tubuh yang berbulu di kanan kiri badannya.',
-                'Kalau lagi sibuk banget atau udah jadi ayam bakar, mana sempat terbang!'
-            ],
-            reason: 'Punya sayap doang kalau nggak punya WAKTU luang ya nggak terbang-terbang! (Atau udah di piring!)'
-        },
-        {
-            id: 55,
-            category: 'Soal Cerita',
-            question: 'Pak RT memasang bel rumah baru yang super canggih. Kalau dipencet bunyinya "TING TONG". Pertanyaannya: kalau seharian nggak ada tamu yang pencet bel itu, dia tetap...',
-            answer: 'NEMPEL',
-            isTwist: true,
-            trap: 'NEKAD',
-            openIndices: [0, 1, 3, 4, 5],
-            clues: [
-                'Bukan soal bunyi atau diamnya bel itu!',
-                'Posisinya di tembok pagar depan rumah Pak RT!'
-            ],
-            reason: 'N-E-?-P-E-L! Mau dipencet atau nggak seharian, belnya tetap NEMPEL di tembok rumah!'
-        },
-        {
-            id: 56,
-            category: 'Soal Cerita',
-            question: 'Di dalam kulkas dua pintu ada apel, jeruk, mangga, dan botol air mineral. Ketika pintu kulkas baru saja dibuka lebar, hal pertama yang keluar dari kulkas adalah...',
-            answer: 'DINGIN',
-            isTwist: true,
-            trap: 'DAGING',
-            openIndices: [0, 1, 3, 4, 5],
-            clues: [
-                'Bukan buah-buahan atau botol minumnya.',
-                'Langsung terasa di muka pas pintu kulkas dibuka!'
-            ],
-            reason: 'D-I-?-G-I-N bukan DAGING! Hawa DINGIN-nya langsung keluar duluan sebelum tangan kita ambil apa-apa!'
-        },
-        {
-            id: 57,
-            category: 'Soal Cerita',
-            question: 'Di gedung kantor lantai 12, Rudi selalu naik lift sampai lantai 8 lalu jalan kaki lewat tangga ke lantai 12 setiap pagi. Padahal lift-nya tidak rusak dan bisa langsung ke lantai 12. Kenapa Rudi melakukan itu?',
-            answer: 'PENDEK',
-            isTwist: true,
-            trap: 'PENGEN',
-            openIndices: [0, 5],
-            clues: [
-                'Bukan karena Rudi pengen olahraga atau diet.',
-                'Saat pulang ke lantai 1, Rudi bisa langsung pencet tombol lift paling bawah!'
-            ],
-            reason: 'Karena badan Rudi PENDEK! Tangannya cuma nyampe pencet tombol angka 8 di panel lift, nggak nyampe angka 12!'
-        },
-        {
-            id: 58,
-            category: 'Soal Cerita',
-            question: 'Sebuah kapal pesiar mewah berlayar di tengah Samudra Pasifik dengan 200 penumpang. Tiba-tiba badai datang dan kapal oleng hebat. Ajaibnya, tidak ada satu pun orang yang sendirian jatuh ke laut. Kenapa?',
-            answer: 'MENIKAH',
-            isTwist: true,
-            trap: 'SELAMAT',
-            openIndices: [0, 6],
-            clues: [
-                'Perhatikan kata kuncinya: tidak ada satu pun orang yang "sendirian"!',
-                'Semua penumpangnya sudah punya pasangan sah!'
-            ],
-            reason: 'Karena semua penumpangnya sudah MENIKAH! Tidak ada yang "single" (sendirian)! Haha!'
-        },
-        {
-            id: 59,
-            category: 'Soal Cerita',
-            question: 'Ibu menyuruh Dodi ke warung beli garam. Di jalan Dodi ketemu teman lalu ngobrol 15 menit, mampir lihat layangan 10 menit, dan beli es cendol. Sampai di depan ibu warung, kata pertama yang keluar dari mulut Dodi adalah...',
-            answer: 'LUPA',
-            isTwist: true,
-            trap: 'LAMA',
-            openIndices: [0, 3],
-            clues: [
-                'Saking kelamaan ngobrol di jalan.',
-                'Pas ditanya "Beli apa Le?", Dodi cuma garuk kepala!'
-            ],
-            reason: 'L-?-?-A! Saking asyiknya mampir di jalan, sampai warung Dodi langsung bilang: "Bu, saya LUPA disuruh beli apa!"'
-        },
-        {
-            id: 60,
-            category: 'Soal Cerita',
-            question: 'Seorang manajer HRD mewawancarai 3 kandidat. Kandidat A jago Excel, kandidat B jago presentasi, dan kandidat C paling rapi. Setelah 2 jam diskusi, manajer HRD memutuskan memilih kandidat yang...',
-            answer: 'BELUM KERJA',
-            isTwist: true,
-            trap: 'BAGUS KERJA',
-            openIndices: [0, 6, 10],
-            clues: [
-                'Kalau kandidatnya udah punya pekerjaan tetap di tempat lain, ngapain diterima?',
-                'Syarat paling masuk akal seorang pelamar kerja!'
-            ],
-            reason: 'Ya dipilih yang BELUM KERJA! Kalau sudah bekerja di kantor lain kan nggak butuh lowongan!'
-        },
-        {
-            id: 61,
-            category: 'Soal Cerita',
-            question: 'Tiga sahabat — Eko, Budi, dan Toni — makan bersama di restoran mewah dengan total tagihan Rp 300.000. Setelah selesai makan dan mengobrol, orang yang paling terakhir berdiri meninggalkan meja makan selalu orang yang...',
-            answer: 'BAYAR',
-            isTwist: true,
-            trap: 'BESAR',
-            openIndices: [0, 4],
-            clues: [
-                'Yang lain udah duluan ke parkiran pura-pura ambil motor.',
-                'Dia masih duduk nunggu struk dari kasir!'
-            ],
-            reason: 'B-?-?-?-R! Yang lain udah kabur duluan ke parkiran, yang paling terakhir berdiri ya yang lagi BAYAR tagihan!'
-        },
-        {
-            id: 62,
-            category: 'Soal Cerita',
-            question: 'Saat acara team building di villa, Budi kebagian sekamar sama temannya yang tidur ngorok suaranya mirip mesin diesel. Sudah tutup kuping pakai bantal tapi tetap tembus. Cara paling ampuh supaya Budi nggak dengar ngoroknya lagi adalah...',
-            answer: 'PINDAH',
-            isTwist: true,
-            trap: 'PISAH',
-            openIndices: [0, 1, 3, 4, 5],
-            clues: [
-                'Jangan bangunin orangnya nanti malah berantem!',
-                'Budi sendiri yang ambil tindakan keluar dari kamar itu!'
-            ],
-            reason: 'P-I-?-D-A-H! PINDAH kamar aja ke sofa ruang tamu, daripada ngoroknya dilawan pakai suara lebih keras!'
-        },
-        {
-            id: 63,
-            category: 'Soal Cerita',
-            question: 'Hari Minggu pagi, ayah mengajak keluarga ke kebun binatang. Di kandang pertama ada gajah, di kandang kedua ada singa, dan di kandang ketiga bertuliskan "Hewan Paling Berbahaya di Dunia". Saat melongok ke dalam, pengunjung malah tertawa karena di dalamnya cuma ada...',
-            answer: 'CERMIN',
-            isTwist: true,
-            trap: 'CICAK',
-            openIndices: [0, 5],
-            clues: [
-                'Bukan binatang buas, tapi benda kaca yang memantulkan bayangan.',
-                'Pas melongok, yang kelihatan adalah wajah pengunjung sendiri!'
-            ],
-            reason: 'C-?-?-?-?-N! Di dalamnya ada CERMIN! Jadi saat pengunjung melongok, mereka langsung lihat diri sendiri sebagai makhluk paling berbahaya!'
-        },
-        {
-            id: 64,
-            category: 'Soal Cerita',
-            question: 'Rina punya uang Rp 50.000 di dompet. Ia naik angkot ke pasar bayar Rp 5.000, lalu beli sayur Rp 15.000 dan beli gorengan Rp 5.000. Di tengah jalan pulang, sopir angkot menoleh ke Rina dan bertanya "Berapa orang, Neng?". Rina menjawab...',
-            answer: 'SENDIRI',
-            isTwist: true,
-            trap: 'SEPULUH',
-            openIndices: [0, 6],
-            clues: [
-                'Jangan hitung sisa uang belanja Rina!',
-                'Perhatikan pertanyaan terakhir sopir angkotnya!'
-            ],
-            reason: 'S-?-?-?-?-?-I! Yang ditanya sopir angkot itu "Berapa orang?", bukan "Berapa sisa uang Rina?!" Ya jawabnya SENDIRI!'
-        }
+            {
+                    "id": 1,
+                    "category": "Klasik WIB",
+                    "question": "Orang yang paling sering datang terlambat ke acara pernikahan mantan adalah...",
+                    "answer": "DIUNDANG",
+                    "isTwist": true,
+                    "trap": "DATANG",
+                    "openIndices": [
+                            0,
+                            7
+                    ],
+                    "clues": [
+                            "Syarat mutlak sebelum boleh masuk ke gedung resepsi.",
+                            "Kalau nggak terima kartu ini, ngapain nekat datang ke nikahan mantan?!"
+                    ],
+                    "reason": "D-?-?-?-?-?-?-G! Yang datang aja berarti memang DIUNDANG, kalau nggak diundang ya jadi tamu tak diundang!"
+            },
+            {
+                    "id": 2,
+                    "category": "Klasik WIB",
+                    "question": "Alat musik tradisional yang dipukul sekeras apa pun tetap nggak bunyi sama sekali adalah...",
+                    "answer": "RUSAK",
+                    "isTwist": true,
+                    "trap": "REBANA",
+                    "openIndices": [
+                            0,
+                            4
+                    ],
+                    "clues": [
+                            "Bukan jenis alat musiknya, tapi kondisinya.",
+                            "Mau gendang, gong, atau angklung, kalau udah kondisi ini ya bisu!"
+                    ],
+                    "reason": "R-?-?-?-K! Mau dipukul pakai palu juga kalau alat musiknya udah RUSAK ya tetap nggak bunyi!"
+            },
+            {
+                    "id": 3,
+                    "category": "Klasik WIB",
+                    "question": "Kenapa di Indonesia orang kalau makan bakso kuah selalu pakai mangkok?",
+                    "answer": "PANAS",
+                    "isTwist": true,
+                    "trap": "PEDAS",
+                    "openIndices": [
+                            0,
+                            4
+                    ],
+                    "clues": [
+                            "Bukan soal rasa sambalnya.",
+                            "Coba tuang kuah bakso mendidih langsung ke telapak tangan!"
+                    ],
+                    "reason": "P-?-?-?-S! Kalau ditaruh di tangan langsung ya PANAS melepuh, makanya pakai mangkok!"
+            },
+            {
+                    "id": 4,
+                    "category": "Klasik WIB",
+                    "question": "Benda paling berharga yang kalau jatuh ke trotoar nggak pernah pecah, tapi bikin pemiliknya langsung lemas dan pengen pulang?",
+                    "answer": "HARGA DIRI",
+                    "isTwist": true,
+                    "trap": "HARTA BENDA",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Tidak berbentuk fisik tapi langsung hilang pas kesandung depan gebetan.",
+                            "Apalagi kalau jatuhnya sambil bawa nampan makanan!"
+                    ],
+                    "reason": "HARGA DIRI! Jatuh di depan umum nggak bunyi \"prang\", tapi bikin pengen pindah planet!"
+            },
+            {
+                    "id": 5,
+                    "category": "Klasik WIB",
+                    "question": "Hewan yang kalau tidur matanya tetap terbuka lebar tidak pernah merem adalah...",
+                    "answer": "LUPA MEREM",
+                    "isTwist": true,
+                    "trap": "IKAN MAS",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Nggak usah cari teori biologi di Google!",
+                            "Kenapa matanya terbuka pas tidur? Ya karena dia..."
+                    ],
+                    "reason": "LUPA MEREM! Udah capek banget berenang seharian sampai ketiduran dan LUPA MEREM!"
+            },
+            {
+                    "id": 6,
+                    "category": "Klasik WIB",
+                    "question": "Satu-satunya tempat di mana orang masuk bayar, keluarnya pengen nangis, tapi pas ditanya masnya tetap jawab \"Bagus banget!\" adalah...",
+                    "answer": "POTONG RAMBUT",
+                    "isTwist": true,
+                    "trap": "PANTAI BARAT",
+                    "openIndices": [
+                            0,
+                            7
+                    ],
+                    "clues": [
+                            "Niatnya minta model oppa Korea, hasilnya malah kayak mangkok bakso.",
+                            "Tapi pas ditanya \"Udah oke Mas?\", mulut tetap refleks bilang bagus!"
+                    ],
+                    "reason": "POTONG RAMBUT! Nyeselnya setengah mati, tapi nggak enak ngomongnya ke tukang cukur!"
+            },
+            {
+                    "id": 7,
+                    "category": "Klasik WIB",
+                    "question": "Kenapa Superman kalau terbang di langit tangannya selalu lurus ke depan?",
+                    "answer": "TAKUT NABRAK",
+                    "isTwist": true,
+                    "trap": "TERBANG CEPAT",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Di atas awan nggak ada spion dan nggak ada lampu sein.",
+                            "Jaga-jaga kalau mendadak ada tiang sutet atau burung lewat!"
+                    ],
+                    "reason": "TAKUT NABRAK! Kecepatan supersonik tanpa rem ABS, ya tangannya buat tameng depan!"
+            },
+            {
+                    "id": 8,
+                    "category": "Klasik WIB",
+                    "question": "Kenapa kalau di mulut kita lagi ada sariawan, lidah selalu iseng nyenggol-nyenggol sariawannya terus padahal tahu perih?",
+                    "answer": "KEPO",
+                    "isTwist": true,
+                    "trap": "KAKU",
+                    "openIndices": [
+                            0,
+                            3
+                    ],
+                    "clues": [
+                            "Sifat dasar lidah yang nggak bisa lihat ada benjolan aneh.",
+                            "Empat huruf bahasa gaul: selalu pengen tahu!"
+                    ],
+                    "reason": "K-?-?-O! Lidah itu organ tubuh paling KEPO sedunia — tahu sakit tetap aja dicek tiap lima detik!"
+            },
+            {
+                    "id": 9,
+                    "category": "Lingkungan Kantor",
+                    "question": "Karyawan yang paling disayang bos karena nggak pernah minta naik gaji, nggak pernah cuti, dan nggak pernah protes lembur adalah...",
+                    "answer": "PRINTER",
+                    "isTwist": true,
+                    "trap": "PEKERJA",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Kerjanya nyetak laporan dari pagi sampai malam.",
+                            "Tapi sekalinya ngambek kertasnya nyangkut, satu kantor panik!"
+                    ],
+                    "reason": "P-?-?-?-?-?-R bukan PEKERJA! Itu PRINTER kantor — kerja keras tanpa gaji, tapi kalau error dimarahin semua divisi!"
+            },
+            {
+                    "id": 10,
+                    "category": "Lingkungan Kantor",
+                    "question": "Kalimat paling horor di chat WhatsApp dari atasan yang bikin jantung turun ke dengkul adalah...",
+                    "answer": "SEBENTAR YA",
+                    "isTwist": true,
+                    "trap": "SEMUANYA KE",
+                    "openIndices": [
+                            0,
+                            9
+                    ],
+                    "clues": [
+                            "Kelihatannya sopan dan singkat, cuma dua kata.",
+                            "Biasanya diikuti dengan: \"...saya cek dulu datanya di sistem.\""
+                    ],
+                    "reason": "SEBENTAR YA! Dua kata paling menegangkan di dunia kerja — bikin kita langsung ngecek ulang semua file seminggu terakhir!"
+            },
+            {
+                    "id": 11,
+                    "category": "Lingkungan Kantor",
+                    "question": "Kenapa di setiap kantor selalu ada satu orang yang mejanya paling rapi bersih tanpa selembar kertas pun?",
+                    "answer": "BARU MASUK",
+                    "isTwist": true,
+                    "trap": "BERSIH RAJIN",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Bukan karena dia karyawan paling rapi sedunia.",
+                            "Belum dikasih kerjaan apa-apa sama manajernya!"
+                    ],
+                    "reason": "BARU MASUK hari pertama! (Atau barangnya udah di-packing semua karena hari terakhir sebelum resign!)"
+            },
+            {
+                    "id": 12,
+                    "category": "Lingkungan Kantor",
+                    "question": "Alasan rahasia kenapa AC ruang meeting kantor selalu disetel sedingin kutub utara?",
+                    "answer": "BIAR CEPAT",
+                    "isTwist": true,
+                    "trap": "BIAR SEGAR",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Bukan supaya karyawan nggak ngantuk.",
+                            "Kalau semua udah menggigil kedinginan, nggak ada yang berani nambah pertanyaan!"
+                    ],
+                    "reason": "BIAR CEPAT selesai rapatnya! Kalau ruangannya hangat dan nyaman, nanti diskusi malah molor sampai magrib!"
+            },
+            {
+                    "id": 13,
+                    "category": "Lingkungan Kantor",
+                    "question": "Saat presentasi PowerPoint panjang di depan direksi, slide yang paling ditunggu dan bikin ruangan langsung ceria adalah...",
+                    "answer": "TERIMA KASIH",
+                    "isTwist": true,
+                    "trap": "TARGET KERJA",
+                    "openIndices": [
+                            0,
+                            7
+                    ],
+                    "clues": [
+                            "Letaknya selalu di urutan paling buncit.",
+                            "Tidak ada grafik, tidak ada tabel, cuma dua kata penutup!"
+                    ],
+                    "reason": "Slide TERIMA KASIH! Semua peserta rapat langsung narik napas lega karena sebentar lagi bubar!"
+            },
+            {
+                    "id": 14,
+                    "category": "Lingkungan Kantor",
+                    "question": "Aktivitas di meja kerja yang jari tangannya mengetik super cepat bunyi tek-tek-tek, tapi laporan Excel-nya nggak nambah satu baris pun?",
+                    "answer": "CHATTINGAN",
+                    "isTwist": true,
+                    "trap": "CORETAN",
+                    "openIndices": [
+                            0,
+                            9
+                    ],
+                    "clues": [
+                            "Begitu bos lewat belakang kursi, langsung refleks pencet Alt+Tab!",
+                            "Sering senyum-senyum sendiri menghadap monitor!"
+                    ],
+                    "reason": "CHATTINGAN di WhatsApp Web! Wajah serius banget kayak lagi ngitung pajak, padahal lagi gibah di grup!"
+            },
+            {
+                    "id": 15,
+                    "category": "Ice Breaking",
+                    "question": "Dalam acara tebak-tebakan, kenapa peserta yang paling keras ketawanya justru yang paling nggak ngerti maksud jokes-nya?",
+                    "answer": "IKUTAN",
+                    "isTwist": true,
+                    "trap": "INGIN",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Takut ketahuan lemot sama teman sebelahnya.",
+                            "Jadi begitu dengar orang lain ketawa, dia langsung..."
+                    ],
+                    "reason": "I-?-?-?-?-N! Dia cuma IKUTAN ketawa paling kencang biar dianggap nyambung!"
+            },
+            {
+                    "id": 16,
+                    "category": "Ice Breaking",
+                    "question": "Momen paling ajaib yang bikin peserta acara kantor mendadak punya bakat akting tingkat Oscar adalah saat...",
+                    "answer": "DITUNJUK MC",
+                    "isTwist": true,
+                    "trap": "DAPAT HADIAH",
+                    "openIndices": [
+                            0,
+                            9
+                    ],
+                    "clues": [
+                            "Tiba-tiba pura-pura sibuk minum air, ikat tali sepatu, atau angkat telepon penting.",
+                            "Semua dilakukan supaya nggak disuruh maju ke panggung!"
+                    ],
+                    "reason": "Saat hampir DITUNJUK MC untuk maju ke depan! Mendadak semua punya urusan darurat di HP!"
+            },
+            {
+                    "id": 17,
+                    "category": "Ice Breaking",
+                    "question": "Satu-satunya momen di mana orang dewasa rela lari sprint kayak atlet Olimpiade tanpa dibayar sepeser pun?",
+                    "answer": "REBUTAN KURSI",
+                    "isTwist": true,
+                    "trap": "RUANG MAKAN",
+                    "openIndices": [
+                            0,
+                            8
+                    ],
+                    "clues": [
+                            "Terjadi begitu musik permainan dihentikan oleh panitia.",
+                            "Harga diri langsung hilang demi satu tempat duduk plastik!"
+                    ],
+                    "reason": "REBUTAN KURSI! Game klasik paling brutal — teman sekantor pun disenggol demi duduk!"
+            },
+            {
+                    "id": 18,
+                    "category": "Ice Breaking",
+                    "question": "Kenapa saat acara tukar kado kantor, orang yang paling semangat buka kado duluan justru yang kadonya paling...",
+                    "answer": "MURAH",
+                    "isTwist": true,
+                    "trap": "MEWAH",
+                    "openIndices": [
+                            0,
+                            4
+                    ],
+                    "clues": [
+                            "Bungkusnya tebal banget pakai koran berlapis-lapis, isinya ternyata sabun batang.",
+                            "Tapi dia berharap banget dapat voucher belanja!"
+                    ],
+                    "reason": "M-?-?-?-H bukan MEWAH! Justru yang modal kadonya paling MURAH yang paling agresif ngincer kado paling gede!"
+            },
+            {
+                    "id": 19,
+                    "category": "Ice Breaking",
+                    "question": "Penyakit menular paling cepat di ruangan seminar ber-AC yang bukan disebabkan oleh virus atau bakteri adalah...",
+                    "answer": "NGUAP",
+                    "isTwist": true,
+                    "trap": "NYIAP",
+                    "openIndices": [
+                            0,
+                            4
+                    ],
+                    "clues": [
+                            "Satu orang di pojok melakukannya lebar-lebar.",
+                            "Tiga detik kemudian satu ruangan ikut mangap semua!"
+                    ],
+                    "reason": "N-?-?-?-P! NGUAP itu menular lewat tatapan mata — lebih cepat dari WiFi 5G!"
+            },
+            {
+                    "id": 20,
+                    "category": "Gen Z & Sosmed",
+                    "question": "Kenapa anak Gen Z kalau lagi patah hati bukannya tidur malah bikin story Instagram galau?",
+                    "answer": "BIAR DILIHAT",
+                    "isTwist": true,
+                    "trap": "BUTUH TEMAN",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Bukan buat curhat ke semua followers.",
+                            "Setiap 5 menit dicek daftar viewers-nya buat nyari satu nama!"
+                    ],
+                    "reason": "BIAR DILIHAT sama satu orang spesifik itu! Kalau dia udah view, story-nya langsung di-delete!"
+            },
+            {
+                    "id": 21,
+                    "category": "Gen Z & Sosmed",
+                    "question": "Alasan paling jujur kenapa orang rela antre 2 jam di kafe baru yang rasa kopinya biasa aja?",
+                    "answer": "KONTEN",
+                    "isTwist": true,
+                    "trap": "KOPI",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Yang dibeli bukan rasa minumannya.",
+                            "Wajib foto gelas di depan cermin estetik sebelum es batunya mencair!"
+                    ],
+                    "reason": "K-?-?-?-?-N! Kopinya diminum dua teguk doang, sisanya buat KONTEN biar dianggap paling update!"
+            },
+            {
+                    "id": 22,
+                    "category": "Gen Z & Sosmed",
+                    "question": "Kenapa fitur \"Last Seen\" di WhatsApp paling sering dimatikan sama orang yang ngakunya lagi sibuk banget?",
+                    "answer": "ONLINE TERUS",
+                    "isTwist": true,
+                    "trap": "ORANG SIBUK",
+                    "openIndices": [
+                            0,
+                            7
+                    ],
+                    "clues": [
+                            "Bilangnya lagi lembur nggak pegang HP.",
+                            "Padahal jam 2 pagi masih aktif balesin komentar TikTok dan checkout Shopee!"
+                    ],
+                    "reason": "Karena dia sebenarnya ONLINE TERUS! Kalau Last Seen dinyalain nanti ketahuan nggak balas chat kerjaan!"
+            },
+            {
+                    "id": 23,
+                    "category": "Milenial & Boomers",
+                    "question": "Benda legendaris di rumah orang tua kita yang umurnya lebih tua dari kita sendiri, tapi isinya nggak pernah sesuai gambar di luarnya?",
+                    "answer": "TOPLES KHONG GUAN",
+                    "isTwist": true,
+                    "trap": "TEMPAT MAKAN",
+                    "openIndices": [
+                            0,
+                            7
+                    ],
+                    "clues": [
+                            "Di luar gambarnya keluarga bahagia makan biskuit.",
+                            "Begitu dibuka isinya jarum jahit, benang, atau kerupuk melempem!"
+                    ],
+                    "reason": "TOPLES KHONG GUAN! Sumber kekecewaan masa kecil paling ikonik di seluruh Indonesia!"
+            },
+            {
+                    "id": 24,
+                    "category": "Milenial & Boomers",
+                    "question": "Kenapa kalau ibu-ibu naik motor mau belok ke kanan, lampu sein-nya sering nyala ke kiri?",
+                    "answer": "BIAR PENASARAN",
+                    "isTwist": true,
+                    "trap": "BINGUNG ARAH",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Bukan karena lupa matikan saklar.",
+                            "Taktik psikologis biar pengendara di belakang nggak bisa nebak pergerakan selanjutnya!"
+                    ],
+                    "reason": "BIAR PENASARAN! Supaya orang di belakang tetap waspada dan nggak lengah!"
+            },
+            {
+                    "id": 25,
+                    "category": "Milenial & Boomers",
+                    "question": "Satu-satunya bunyi di tubuh yang langsung bikin anak Milenial sadar bahwa dirinya sudah tidak muda lagi?",
+                    "answer": "BUNYI LUTUT",
+                    "isTwist": true,
+                    "trap": "BANYAK UTANG",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Terjadi pas jongkok ngambil barang jatuh di bawah meja.",
+                            "Suaranya \"KRETEK\" lebih keras dari suara TV!"
+                    ],
+                    "reason": "BUNYI LUTUT! Umur boleh 28, tapi lutut udah ngasih bunyi peringatan kayak engsel pintu tua!"
+            },
+            {
+                    "id": 26,
+                    "category": "Bapak-bapak",
+                    "question": "Alasan paling jujur kenapa bapak-bapak kalau nyetir mobil dan nyasar tetap nggak mau tanya orang di pinggir jalan?",
+                    "answer": "GENGSI",
+                    "isTwist": true,
+                    "trap": "GRATIS",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Lebih rela muter komplek 4 kali sambil bilang \"Ini jalan tembusannya nih!\"",
+                            "Padahal bensin udah sekarat!"
+                    ],
+                    "reason": "G-?-?-?-?-I! Harga diri seorang kepala keluarga nggak boleh turun cuma gara-gara nanya arah!"
+            },
+            {
+                    "id": 27,
+                    "category": "Bapak-bapak",
+                    "question": "Tempat paling damai di rumah bagi seorang suami untuk merenungkan makna hidup selama 30 menit sambil bawa HP?",
+                    "answer": "KAMAR MANDI",
+                    "isTwist": true,
+                    "trap": "KURSI TAMU",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Bukan lagi sakit perut.",
+                            "Satu-satunya ruangan di rumah yang pintunya boleh dikunci tanpa dicurigai!"
+                    ],
+                    "reason": "KAMAR MANDI! Surga keheningan 30 menit buat nonton reels mancing tanpa disuruh beli galon!"
+            },
+            {
+                    "id": 28,
+                    "category": "Bapak-bapak",
+                    "question": "Kenapa bapak-bapak kalau lagi nonton bola di TV teriaknya lebih keras daripada pelatih di pinggir lapangan?",
+                    "answer": "NGGAK KEDENGARAN",
+                    "isTwist": true,
+                    "trap": "NONTON BARENG",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Pemainnya lagi lari di stadion Eropa.",
+                            "Yang teriak duduk di sofa Bekasi!"
+                    ],
+                    "reason": "Ya karena jaraknya jauh banget jadi NGGAK KEDENGARAN! Makanya bapak-bapak teriak sekuat tenaga!"
+            },
+            {
+                    "id": 29,
+                    "category": "Bapak-bapak",
+                    "question": "Jawaban paling aman dan bijaksana bagi suami saat istri pamer baju baru dan tanya \"Mas, aku kelihatan gendutan nggak?\"",
+                    "answer": "DIAM SAJA",
+                    "isTwist": true,
+                    "trap": "DIET AJA",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Jangan jawab \"Iya dikit\" dan jangan jawab \"Nggak kok\" terlalu cepat!",
+                            "Salah nada sedikit bisa jadi pembahasan tiga hari tiga malam!"
+                    ],
+                    "reason": "DIAM SAJA sambil senyum tipis dan pura-pura batuk adalah kunci keselamatan rumah tangga!"
+            },
+            {
+                    "id": 30,
+                    "category": "Klasik WIB",
+                    "question": "Pedagang kaki lima di pinggir jalan langsung bubar berhamburan karena ada...",
+                    "answer": "RAMAI",
+                    "isTwist": true,
+                    "trap": "RAZIA",
+                    "openIndices": [
+                            0,
+                            4
+                    ],
+                    "clues": [
+                            "Bukan Satpol PP atau hujan badai!",
+                            "Justru kondisi yang paling didoakan semua pedagang!"
+                    ],
+                    "reason": "R-?-?-?-I bukan RAZIA! Karena pembelinya RAMAI banget, dagangannya langsung ludes habis terus bubar pulang!"
+            },
+            {
+                    "id": 31,
+                    "category": "Soal Cerita",
+                    "question": "Di ruang rapat lantai 5, 6 manajer sedang diskusi serius. Tiba-tiba listrik padam total dan ruangan gelap gulita. Semua manajer langsung refleks keluarkan HP masing-masing. Bukan untuk menyalakan senter, tapi untuk...",
+                    "answer": "CEK WIFI",
+                    "isTwist": true,
+                    "trap": "CARI SINYAL",
+                    "openIndices": [
+                            0,
+                            4
+                    ],
+                    "clues": [
+                            "Lampu mati nggak masalah bagi orang kantor.",
+                            "Yang penting koneksi internet dan grup WhatsApp tetap jalan!"
+                    ],
+                    "reason": "CEK WIFI! Gelap bisa ditahan, tapi kalau internet putus serasa kiamat!"
+            },
+            {
+                    "id": 32,
+                    "category": "Soal Cerita",
+                    "question": "Pak Joko pergi memancing dari jam 6 pagi sampai jam 5 sore dengan pancingan mahal. Sepanjang hari kailnya nggak pernah dimakan ikan satu ekor pun. Anehnya, saat pulang ke rumah dengan ember kosong, Pak Joko tetap tersenyum puas. Kenapa?",
+                    "answer": "BEBAS OMELAN",
+                    "isTwist": true,
+                    "trap": "BANYAK IKAN",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Dapat ikan atau nggak urusan belakangan.",
+                            "Yang penting seharian penuh dia tenang di tepi danau!"
+                    ],
+                    "reason": "BEBAS OMELAN seharian di rumah! Dapat ikan cuma bonus, ketenangan jiwa adalah tujuan utama!"
+            },
+            {
+                    "id": 33,
+                    "category": "Soal Cerita",
+                    "question": "Seorang mahasiswa kosan membeli mie instan 5 bungkus untuk stok akhir bulan. Hari pertama ia makan 1 bungkus, hari kedua 1 bungkus. Pada hari ketiga, mie-nya tinggal bungkusnya saja tanpa isi. Kenapa?",
+                    "answer": "DIMAKAN TEMAN",
+                    "isTwist": true,
+                    "trap": "DIAMBIL TIKUS",
+                    "openIndices": [
+                            0,
+                            8
+                    ],
+                    "clues": [
+                            "Bukan dimakan tikus atau semut.",
+                            "Di kosan, barang tanpa gembok otomatis jadi hak milik bersama!"
+                    ],
+                    "reason": "DIMAKAN TEMAN sekosan! Bahkan air panasnya pun pakai dispenser dia!"
+            },
+            {
+                    "id": 34,
+                    "category": "Soal Cerita",
+                    "question": "Rani pesan ojek online karena udah telat kerja. Begitu motor berhenti di depan pagar, Rani langsung naik ke jok belakang tanpa tanya apa-apa. Setelah 5 menit jalan, motor berhenti mendadak karena ternyata...",
+                    "answer": "SALAH DRIVER",
+                    "isTwist": true,
+                    "trap": "SOLAR HABIS",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Bukan bensin habis atau ban bocor.",
+                            "Abang ojeknya bingung kenapa ada orang asing tiba-tiba naik di belakang!"
+                    ],
+                    "reason": "SALAH DRIVER! Ternyata itu tetangga atau ojek yang lagi nunggu orderan rumah sebelah!"
+            },
+            {
+                    "id": 35,
+                    "category": "Soal Cerita",
+                    "question": "Dalam lomba lari maraton 10 km, Doni berlari sangat kencang hingga berhasil menyalip pelari di posisi ke-2 tepat sebelum garis finis. Di posisi ke berapakah Doni sekarang?",
+                    "answer": "KEDUA",
+                    "isTwist": true,
+                    "trap": "KESATU",
+                    "openIndices": [
+                            0,
+                            4
+                    ],
+                    "clues": [
+                            "Jangan buru-buru jawab juara satu!",
+                            "Yang disalip itu pelari posisi ke-2, pelari ke-1 masih di depan!"
+                    ],
+                    "reason": "K-?-?-?-A! Kalau kamu nyalip orang di posisi ke-2, kamu menempati posisi KEDUA, bukan kesatu!"
+            },
+            {
+                    "id": 36,
+                    "category": "Soal Cerita",
+                    "question": "Ayah Rina punya 4 anak: Senin, Selasa, Rabu, dan satu anak bungsu yang lahir di hari Minggu pagi. Siapakah nama anak keempat ayah Rina?",
+                    "answer": "RINA",
+                    "isTwist": true,
+                    "trap": "RABU",
+                    "openIndices": [
+                            0,
+                            3
+                    ],
+                    "clues": [
+                            "Jangan jawab Kamis atau Minggu!",
+                            "Baca lagi dua kata paling awal di soalnya!"
+                    ],
+                    "reason": "R-?-?-A! Kalimat pertamanya jelas bilang \"Ayah RINA\"! Jadi anak keempatnya ya RINA!"
+            },
+            {
+                    "id": 37,
+                    "category": "Soal Cerita",
+                    "question": "Pak Amir berjualan es teh manis Rp 5.000 per gelas di siang bolong yang sangat panas. Ada 20 orang antre mau beli, tapi Pak Amir malah menolak semua pembeli sambil tersenyum. Kenapa?",
+                    "answer": "ESNYA HABIS",
+                    "isTwist": true,
+                    "trap": "ENAK TIDUR",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Bukan karena uangnya sudah banyak atau lagi malas.",
+                            "Tehnya masih penuh satu termos, tapi komponen utamanya kosong!"
+                    ],
+                    "reason": "ESNYA HABIS! Gimana mau jualan es teh kalau es batunya udah cair semua jadi air hangat!"
+            },
+            {
+                    "id": 38,
+                    "category": "Soal Cerita",
+                    "question": "Setiap pagi sebelum berangkat kerja, Pak Darto selalu mengunci pintu depan dari luar, mengecek kompor, lalu pamit ke istrinya. Namun pagi ini Pak Darto keluar rumah tanpa mengunci pintu depan. Kenapa?",
+                    "answer": "MASIH DI DALAM",
+                    "isTwist": true,
+                    "trap": "MARAH BESAR",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Bukan karena lupa atau buru-buru.",
+                            "Pikirkan nasib istrinya yang lagi mandi di rumah!"
+                    ],
+                    "reason": "Istrinya MASIH DI DALAM rumah! Kalau pintunya dikunci dari luar, nanti istrinya nggak bisa keluar!"
+            },
+            {
+                    "id": 39,
+                    "category": "Soal Cerita",
+                    "question": "Pak RT memasang bel rumah baru yang bunyinya \"TING TONG\". Kalau dipencet tamu, belnya langsung bunyi nyaring. Pertanyaannya: kalau seharian penuh nggak ada satu pun tamu yang datang pencet bel, dia tetap...",
+                    "answer": "NEMPEL",
+                    "isTwist": true,
+                    "trap": "NEKAD",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Bukan soal bunyi atau diamnya bel itu.",
+                            "Posisinya di tembok pagar depan rumah Pak RT!"
+                    ],
+                    "reason": "N-?-?-?-?-L! Mau dipencet atau nggak seharian, belnya tetap NEMPEL di tembok rumah!"
+            },
+            {
+                    "id": 40,
+                    "category": "Soal Cerita",
+                    "question": "Di acara team building kantor, Budi kebagian sekamar sama temannya yang tidur ngorok suaranya mirip mesin diesel. Sudah tutup kuping pakai bantal tapi tetap tembus. Cara paling ampuh supaya Budi nggak dengar ngoroknya lagi adalah...",
+                    "answer": "PINDAH",
+                    "isTwist": true,
+                    "trap": "PISAH",
+                    "openIndices": [
+                            0,
+                            5
+                    ],
+                    "clues": [
+                            "Jangan bangunin orangnya nanti malah berantem!",
+                            "Budi sendiri yang ambil langkah keluar dari kamar itu!"
+                    ],
+                    "reason": "P-?-?-?-?-H! PINDAH kamar aja ke sofa ruang tamu, daripada ngoroknya dilawan pakai suara lebih keras!"
+            }
     ];
 
     const TEAM_THEMES = [
