@@ -5,182 +5,162 @@
         {
             id: 1,
             category: 'Klasik WIB',
-            question: 'Pelukis yang biasa menggambar pemandangan indah di kanvas disebut...',
-            answer: 'SERIUS',
-            clue: 'Kalau nggak gitu gambarnya nggak jadi-jadi!',
-            openIndices: [0, 3],
-            reason: 'Kalau nggak SERIUS gambarnya ya nggak jadi-jadi, malah coret-coret!'
+            question: 'Orang yang biasanya paling tahu jalan tikus di seluruh kota adalah...',
+            answer: 'NYASAR',
+            clue: 'Kondisi orang yang sok tahu jalan pintas tapi nggak pakai Maps!',
+            reason: 'Lah iya! Justru orang yang paling sering NYASAR itu yang paling banyak nemu jalan tikus nggak jelas!'
         },
         {
             id: 2,
-            category: 'Klasik WIB',
-            question: 'Bendera Indonesia warnanya merah dan...',
-            answer: 'KAIN',
-            clue: 'Bahan dasarnya kalau dijahit penjahit!',
-            openIndices: [0],
-            reason: 'Kalau nggak ada KAIN-nya mau dijahit pakai apa, masa daun pisang?!'
+            category: 'Lingkungan Kantor',
+            question: 'Saat meeting Zoom berlangsung, bagian tubuh yang paling sering berbohong adalah...',
+            answer: 'MATA',
+            clue: 'Keliatannya menatap layar penuh konsentrasi, padahal...',
+            reason: 'MATA-nya menatap kamera seolah menyimak presentasi bos, padahal lagi baca tab sebelah atau belanja online!'
         },
         {
             id: 3,
-            category: 'Klasik WIB',
-            question: 'Orang yang biasa mengendarai pesawat terbang disebut...',
-            answer: 'BERANI',
-            clue: 'Sifat wajib sebelum duduk di kokpit!',
-            openIndices: [0, 4],
-            reason: 'Kalau penakut mana BERANI naik pesawat tinggi-tinggi!'
+            category: 'Lingkungan Kantor',
+            question: 'Karyawan kalau akhir bulan, saldo ATM-nya biasanya tinggal...',
+            answer: 'ADA',
+            clue: 'Bukan nol atau seratus ribu, yang penting statusnya masih...',
+            reason: 'Yang penting mah masih ADA di sistem bank meski cuma Rp 12.400, daripada keblokir!'
         },
         {
             id: 4,
-            category: 'Klasik WIB',
-            question: 'Makanan yang paling enak dimakan pas lagi hujan dan dingin?',
-            answer: 'LAPER',
-            clue: 'Kondisi perut sebelum makan apa pun!',
-            openIndices: [0],
-            reason: 'Mau hujan kek, panas kek, kalau nggak LAPER ya tetap nggak enak makannya!'
+            category: 'Gen Z & Sosmed',
+            question: 'Hal pertama yang dilakukan anak Gen Z begitu bangun tidur di pagi hari adalah...',
+            answer: 'MEREM',
+            clue: 'Sebelum buka HP, sebelum melek, detik pertama pas baru sadar...',
+            reason: 'Nggak mungkin langsung buka TikTok sambil melek penuh! Pasti MEREM lagi 5 menit buat ngumpulin nyawa!'
         },
         {
             id: 5,
             category: 'Lingkungan Kantor',
-            question: 'Sebelum mengetik laporan di laptop kantor, sebaiknya kita...',
-            answer: 'HIDUPKAN',
-            clue: 'Langkah pertama sebelum keyboard ditekan!',
-            openIndices: [0, 5],
-            reason: 'Kalau laptopnya nggak di-HIDUPKAN dulu mau ngetik di layar hitam?!'
+            question: 'Kenapa suara peserta meeting online sering nggak kedengaran di laptop kita?',
+            answer: 'DIEM',
+            clue: 'Bukan masalah mic ke-mute atau WiFi lemot...',
+            reason: 'Ya karena peserta lain lagi pada DIEM semua nunggu ada yang ngomong duluan!'
         },
         {
             id: 6,
             category: 'Klasik WIB',
-            question: 'Apa yang dilakukan orang kalau ban motornya bocor di tengah jalan?',
-            answer: 'BERHENTI',
-            clue: 'Pasti terjadi setelah ban kempes!',
-            openIndices: [0, 4],
-            reason: 'Ya iyalah BERHENTI, masa tetap ngebut sambil nyeret velg?!'
+            question: 'Supaya nggak jatuh saat naik motor berdua di tikungan tajam, kita harus...',
+            answer: 'BERDIRI',
+            clue: 'Posisi sebelum naik ke atas jok motor!',
+            reason: 'Kalau nggak BERDIRI dulu gimana mau ngangkang naik ke jok motornya?! Masa ngesot?!'
         },
         {
             id: 7,
-            category: 'Klasik WIB',
-            question: 'Selain di rumah, biasanya orang tidur di...',
-            answer: 'KASUR',
-            clue: 'Empuk dan ada bantalnya!',
-            openIndices: [0, 3],
-            reason: 'Mau di hotel kek, di kosan kek, tidurnya tetep di atas KASUR!'
+            category: 'Bapak-bapak',
+            question: 'Kalau istri tiba-tiba bilang "Terserah Mas mau makan di mana", sebenarnya jawaban paling aman adalah...',
+            answer: 'PULANG',
+            clue: 'Daripada salah tebak dan bikin perang dingin di mobil...',
+            reason: 'Mending PULANG masak mie instan aja! Karena "terserah" itu jebakan psikologis tingkat tinggi!'
         },
         {
             id: 8,
-            category: 'Klasik WIB',
-            question: 'Saat lampu merah menyala di perempatan jalan, pengendara harus...',
-            answer: 'LIHAT',
-            clue: 'Pakai mata biar nggak salah!',
-            openIndices: [0, 3],
-            reason: 'Kalau nggak di-LIHAT mana tahu lampunya lagi merah atau hijau!'
+            category: 'Milenial & Boomers',
+            question: 'Hal yang paling sering bikin orang lupa diri saat lagi asyik nonton konser?',
+            answer: 'NAPAS',
+            clue: 'Dilakukan otomatis tanpa sadar saking teriak-teriak!',
+            reason: 'Saking asyiknya nyanyi bareng, kita sampai lupa kalau lagi NAPAS — sadar-sadar udah bengek!'
         },
         {
             id: 9,
-            category: 'Lingkungan Kantor',
-            question: 'Karyawan kantor kalau tanggal tua biasanya dompetnya...',
-            answer: 'ADA',
-            clue: 'Bentuk fisiknya masih di saku!',
-            openIndices: [0],
-            reason: 'Dompetnya sih tetep ADA, cuma isinya aja yang lagi healing!'
+            category: 'Gen Z & Sosmed',
+            question: 'Alasan utama kenapa orang betah nongkrong berjam-jam di kafe padahal kopinya udah habis?',
+            answer: 'GRATIS',
+            clue: 'Sifat WiFi dan AC yang bikin males pulang ke kosan!',
+            reason: 'Bukan karena estetikanya, tapi karena WiFi dan AC-nya GRATIS! Di kosan bayar token listrik!'
         },
         {
             id: 10,
-            category: 'Bapak-bapak',
-            question: 'Benda yang paling sering dicari bapak-bapak kalau mau berangkat kerja tapi selalu lupa taruh?',
-            answer: 'KETEMU',
-            clue: 'Harapan terakhir setelah ubek-ubek rumah!',
-            openIndices: [0, 4],
-            reason: 'Kalau dicari terus ya harapannya KETEMU, masa dicari biar makin hilang!'
+            category: 'Lingkungan Kantor',
+            question: 'Biar cepat naik gaji dan dianggap rajin oleh atasan, setiap pagi kita harus...',
+            answer: 'BANGUN',
+            clue: 'Syarat paling dasar sebelum mandi dan berangkat ngantor!',
+            reason: 'Mau lembur kek, mau jago presentasi kek, kalau nggak BANGUN dari kasur ya dipecat!'
         },
         {
             id: 11,
-            category: 'Lingkungan Kantor',
-            question: 'Biasanya kalau lagi meeting online, suara peserta sering tidak terdengar karena...',
-            answer: 'DIEM',
-            clue: 'Bukan salah mic atau WiFi!',
-            openIndices: [0],
-            reason: 'Kalau DIEM semua ya jelas nggak ada suaranya, nggak usah nyalahin sinyal!'
+            category: 'Milenial & Boomers',
+            question: 'Beda tipis antara orang kaya dan orang biasa saat makan di warteg adalah...',
+            answer: 'SAMA',
+            clue: 'Cara masukin nasi ke mulutnya nggak ada bedanya!',
+            reason: 'Ya SAMA aja makannya pakai sendok atau tangan kanan, masa orang kaya makannya pakai remote TV?!'
         },
         {
             id: 12,
-            category: 'Milenial & Boomers',
-            question: 'Minuman yang paling sering bikin orang begadang semalaman?',
-            answer: 'BANYAK',
-            clue: 'Jumlahnya berlebihan sebelum tidur!',
-            openIndices: [0, 4],
-            reason: 'Minum kopi kek, air putih kek, kalau minumnya BANYAK ya bolak-balik ke WC semalaman!'
+            category: 'Klasik WIB',
+            question: 'Benda yang paling dicari orang kalau lagi kepanasan di kamar tapi listrik padam?',
+            answer: 'ANGIN',
+            clue: 'Yang bikin adem, bukan kipasnya yang lagi mati!',
+            reason: 'Kipasnya kan mati kena mati lampu, jadi yang dicari ya ANGIN-nya langsung di teras rumah!'
         },
         {
             id: 13,
             category: 'Lingkungan Kantor',
-            question: 'Kalau data Excel sudah dikerjakan seharian tapi tiba-tiba hilang, orang langsung...',
-            answer: 'KAGET',
-            clue: 'Reaksi pertama sebelum nangis!',
-            openIndices: [0, 3],
-            reason: 'Jantung langsung deg-degan, refleks KAGET dulu sebelum nyari tombol Undo!'
+            question: 'Kalau laptop kantor tiba-tiba lemot parah pas lagi dikejar deadline, tombol paling ampuh adalah...',
+            answer: 'DIMATIKAN',
+            clue: 'Bukan F5 atau Ctrl+Alt+Del, langkah terakhir pasrah!',
+            reason: 'DIMATIKAN sekalian laptopnya, terus bilang ke bos "Maaf Pak, lagi update Windows!"'
         },
         {
             id: 14,
-            category: 'Milenial & Boomers',
-            question: 'Apa yang selalu bertambah setiap tahun tapi nggak pernah berkurang?',
-            answer: 'ANGKA',
-            clue: '2024, 2025, 2026...',
-            openIndices: [0, 3],
-            reason: 'Tahun 2024, 2025, 2026... ANGKA-nya nambah terus nggak pernah mundur!'
+            category: 'Bapak-bapak',
+            question: 'Organ tubuh bapak-bapak yang paling berdebar kencang saat ditanya istri "HP-nya mana Mas?"',
+            answer: 'JANTUNG',
+            clue: 'Bukan tangan yang gemetar, tapi yang di dalam dada!',
+            reason: 'JANTUNG langsung lari maraton 100 km/jam padahal isi HP cuma grup mancing sama meme bapak-bapak!'
         },
         {
             id: 15,
-            category: 'Lingkungan Kantor',
-            question: 'Supaya cepat kaya dan banyak uang, setiap pagi kita harus rajin...',
-            answer: 'BANGUN',
-            clue: 'Dilakukan setelah alarm berbunyi!',
-            openIndices: [0, 4],
-            reason: 'Kalau tidur terus sampai siang ya kapan kerjanya?! BANGUN dulu!'
+            category: 'Klasik WIB',
+            question: 'Satu kata yang paling sering diucapkan orang saat ditanya "Mau tambah nasi?" padahal masih lapar?',
+            answer: 'TIDAK',
+            clue: 'Jawabannya sok jaim depan gebetan atau mertua!',
+            reason: 'Mulut bilang TIDAK, padahal perut teriak minta nambah dua piring! Gengsi mengalahkan logika!'
         },
         {
             id: 16,
             category: 'Gen Z & Sosmed',
-            question: 'Anak muda kalau lagi butuh healing di kafe, yang paling pertama dipesan adalah...',
-            answer: 'MEJA',
-            clue: 'Kalau nggak ada ini mau duduk di mana?!',
-            openIndices: [0, 2],
-            reason: 'Pesan kopi bisa belakangan, yang penting dapat MEJA dulu buat foto estetik!'
+            question: 'Kenapa video TikTok kita yang niat banget ngeditnya malah kalah views sama video kucing tidur?',
+            answer: 'SEPI',
+            clue: 'Nasib kolom komentar dan penonton kita!',
+            reason: 'Karena yang nonton SEPI! Kucing tidur aja lebih punya karisma daripada transisi CapCut kita!'
         },
         {
             id: 17,
-            category: 'Gen Z & Sosmed',
-            question: 'Kenapa video TikTok orang lain sering masuk FYP sementara video kita sepi?',
-            answer: 'NONTON',
-            clue: 'Yang dilakukan orang di HP!',
-            openIndices: [0, 4],
-            reason: 'Soalnya banyak yang NONTON video dia, video kita yang nonton cuma diri sendiri!'
+            category: 'Milenial & Boomers',
+            question: 'Barang yang paling sering dibeli orang pas lagi tanggal muda tapi nyesel di tanggal tua?',
+            answer: 'BARU',
+            clue: 'Status barangnya waktu baru di-unboxing dari paket kurir!',
+            reason: 'Semua yang dibeli pas tanggal muda itu pasti statusnya barang BARU, pas tanggal tua jadi barang gadaian!'
         },
         {
             id: 18,
-            category: 'Bapak-bapak',
-            question: 'Saat istri bilang "terserah mau makan di mana", sebenarnya suami harus...',
-            answer: 'MIKIR',
-            clue: 'Sesuai slogan Cak Lontong!',
-            openIndices: [0, 3],
-            reason: 'MIKIR keras! Karena kata "terserah" artinya ada jawaban benar yang dirahasiakan!'
+            category: 'Lingkungan Kantor',
+            question: 'Sikap paling bijaksana saat revisi desain dari klien sudah masuk versi "FINAL_BENERAN_V9"?',
+            answer: 'PASRAH',
+            clue: 'Level tertinggi kesabaran anak agensi dan desainer!',
+            reason: 'Sudah bukan sabar lagi, tapi PASRAH! Karena habis V9 masih ada V9_REVISI_DIKIT!'
         },
         {
             id: 19,
-            category: 'Milenial & Boomers',
-            question: 'Grup WhatsApp keluarga paling sering ramai di jam 6 pagi gara-gara ada yang kirim...',
-            answer: 'GAMBAR',
-            clue: 'Isinya bunga mawar dan tulisan Selamat Pagi!',
-            openIndices: [0, 4],
-            reason: 'GAMBAR bunga mawar + kopi + tulisan "Selamat Pagi Semoga Berkah" dari om/tante!'
+            category: 'Bapak-bapak',
+            question: 'Kalau motor mogok di tengah jalan dan bensinnya habis, tindakan paling cepat supaya sampai rumah adalah...',
+            answer: 'JALAN',
+            clue: 'Pakai dua kaki sambil nuntun motor!',
+            reason: 'Ya JALAN kaki sambil dorong motor ke pom bensin terdekat, masa nunggu motornya tumbuh sayap?!'
         },
         {
             id: 20,
-            category: 'Lingkungan Kantor',
-            question: 'Alat kantor yang paling sering hilang padahal baru dibeli kemarin?',
-            answer: 'DIPINJAM',
-            clue: 'Nasib pulpen di meja kerja!',
-            openIndices: [0, 4],
-            reason: 'Bukan hilang ditelan bumi, tapi DIPINJAM teman sebelah dan lupa dikembalikan!'
+            category: 'Klasik WIB',
+            question: 'Aktivitas paling produktif yang bisa dilakukan manusia dengan mata tertutup selama 8 jam?',
+            answer: 'TIDUR',
+            clue: 'Bukan meditasi atau merem doang!',
+            reason: 'TIDUR! Produktif banget karena nge-charge badan tanpa ngabisin kuota internet dan duit jajan!'
         }
     ];
 
@@ -210,9 +190,21 @@
         audioCtx: null,
     };
 
+    const isHostMode = new URLSearchParams(window.location.search).get('mode') === 'host';
+
     const el = {
         select: document.getElementById('cl-select'),
         btnRandom: document.getElementById('cl-random'),
+        btnHp: document.getElementById('cl-hp-btn'),
+        hpModal: document.getElementById('cl-hp-modal'),
+        hpClose: document.getElementById('cl-hp-close'),
+        hpUrl: document.getElementById('cl-hp-url'),
+        btnCopyHpUrl: document.getElementById('cl-copy-hp-url'),
+        openHpTab: document.getElementById('cl-open-hp-tab'),
+        hpCheatCard: document.getElementById('cl-hp-cheat-card'),
+        hpAnswer: document.getElementById('cl-hp-answer'),
+        hpClue: document.getElementById('cl-hp-clue'),
+        hpReason: document.getElementById('cl-hp-reason'),
         btnSound: document.getElementById('cl-sound'),
         btnFullscreen: document.getElementById('cl-fullscreen'),
         qNum: document.getElementById('cl-q-num'),
@@ -606,17 +598,29 @@
         el.qNum.textContent = `Soal #${state.currentIndex + 1} / ${CAK_LONTONG_QUESTIONS.length}`;
         el.qText.textContent = q.question;
         el.lengthChip.textContent = `Panjang: ${q.answer.length} Huruf`;
-        el.clueChip.textContent = `Clue: ${q.clue}`;
+        if (el.clueChip) {
+            el.clueChip.textContent = isHostMode
+                ? `📱 Mode HP Host Aktif`
+                : `🤫 Clue & Contekan ada di HP Host`;
+        }
+
+        if (el.hpCheatCard) {
+            el.hpCheatCard.hidden = !isHostMode;
+            if (isHostMode) {
+                if (el.hpAnswer) el.hpAnswer.textContent = q.answer;
+                if (el.hpClue) el.hpClue.textContent = q.clue;
+                if (el.hpReason) el.hpReason.textContent = q.reason;
+            }
+        }
 
         el.tiles.textContent = '';
         for (let i = 0; i < q.answer.length; i++) {
             const tile = document.createElement('div');
             const isOpen = state.isSolved || state.openedLetters.has(i);
-            const isInitialClue = q.openIndices.includes(i);
             let cls = 'cl-tile';
             if (state.isSolved) cls += ' revealed';
-            else if (isInitialClue && isOpen) cls += ' clue';
-            else if (!isOpen) cls += ' hidden-letter';
+            else if (isOpen) cls += ' clue';
+            else cls += ' hidden-letter';
             tile.className = cls;
             tile.textContent = isOpen ? q.answer[i] : '?';
             el.tiles.appendChild(tile);
@@ -633,8 +637,7 @@
 
     function loadQuestion(idx) {
         state.currentIndex = idx;
-        const q = CAK_LONTONG_QUESTIONS[idx];
-        state.openedLetters = new Set(q ? q.openIndices : []);
+        state.openedLetters = new Set();
         state.isSolved = false;
         el.feedback.textContent = '';
         el.feedback.className = 'feedback-msg';
@@ -795,6 +798,32 @@
             if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
             else document.exitFullscreen?.();
         });
+        if (el.btnHp && el.hpModal) {
+            const getHostUrl = () => {
+                const u = new URL(window.location.href);
+                u.searchParams.set('mode', 'host');
+                return u.toString();
+            };
+            el.btnHp.addEventListener('click', () => {
+                const url = getHostUrl();
+                if (el.hpUrl) el.hpUrl.value = url;
+                if (el.openHpTab) el.openHpTab.href = url;
+                el.hpModal.hidden = false;
+            });
+            el.hpClose?.addEventListener('click', () => { el.hpModal.hidden = true; });
+            el.hpModal.addEventListener('click', (e) => {
+                if (e.target === el.hpModal) el.hpModal.hidden = true;
+            });
+            el.btnCopyHpUrl?.addEventListener('click', () => {
+                const url = el.hpUrl?.value || getHostUrl();
+                navigator.clipboard?.writeText(url).then(() => {
+                    el.btnCopyHpUrl.textContent = 'Tersalin!';
+                    setTimeout(() => { el.btnCopyHpUrl.textContent = 'Salin Link'; }, 1500);
+                }).catch(() => {
+                    el.hpUrl?.select();
+                });
+            });
+        }
         el.form.addEventListener('submit', handleGuess);
         el.teamsContainer.addEventListener('click', (e) => {
             const rm = e.target.closest('[data-remove-team]');
