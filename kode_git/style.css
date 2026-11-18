@@ -3205,9 +3205,28 @@ body {
     stroke-linecap: round;
 }
 
-.podium-unit.active .lego-arm-l,
-.podium-unit.active .lego-arm-r {
-    animation: armWaveL 0.65s ease-in-out infinite;
+.lego-eyes-blink {
+    animation: legoBlink 3.4s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
+}
+
+.lego-mouth-talk {
+    display: none;
+    fill: #B91C1C;
+    stroke: #0F172A;
+    stroke-width: 1.1;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.podium-unit.active .lego-mouth {
+    display: none;
+}
+
+.podium-unit.active .lego-mouth-talk {
+    display: inline;
+    animation: legoTalk 0.34s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
 }
 
 .podium-unit.active .lego-head {
@@ -3215,7 +3234,48 @@ body {
     stroke-width: 1.6;
 }
 
-/* Gerakan Hidup & Berdiskusi (Huddle) untuk 5 LEGO */
+/* Gerakan Sendi Bahu Lengan LEGO (Naik Turun Seperti LEGO Asli) */
+.podium-unit.active .lego-arm-l {
+    animation: legoArmSwingL 0.65s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
+}
+
+.podium-unit.active .lego-arm-r {
+    animation: legoArmSwingR 0.65s ease-in-out infinite;
+    animation-delay: calc(var(--bot-delay, 0s) + 0.15s);
+}
+
+.podium-unit.celebrate .lego-arm-l {
+    animation: legoArmCheerL 0.35s ease-in-out infinite !important;
+}
+
+.podium-unit.celebrate .lego-arm-r {
+    animation: legoArmCheerR 0.35s ease-in-out infinite !important;
+}
+
+/* Gerakan Kepala Menoleh Saat Berdiskusi */
+.podium-unit:not(.active) .lego-head-group {
+    animation: legoHeadIdle 3.2s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
+}
+
+.podium-unit.active .person-l2 .lego-head-group,
+.podium-unit.active .person-l1 .lego-head-group {
+    animation: legoHeadTurnR 0.75s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
+}
+
+.podium-unit.active .person-r1 .lego-head-group,
+.podium-unit.active .person-r2 .lego-head-group {
+    animation: legoHeadTurnL 0.75s ease-in-out infinite;
+    animation-delay: var(--bot-delay, 0s);
+}
+
+.podium-unit.active .person-center .lego-head-group {
+    animation: legoHeadScan 1.1s ease-in-out infinite;
+}
+
+/* Gerakan Badan Huddle Berdiskusi */
 .podium-unit:not(.active):not(.celebrate):not(.sad):not(.sad-wrong) .person {
     animation: legoIdleBreathe 2.6s ease-in-out infinite;
     animation-delay: var(--bot-delay, 0s);
@@ -3223,28 +3283,25 @@ body {
 
 .podium-unit.active .person-l2,
 .podium-unit.active .person-l1 {
-    transform-box: fill-box;
-    transform-origin: bottom center;
+    transform-origin: center 75px;
     animation: huddleLeftIn 0.85s ease-in-out infinite !important;
     animation-delay: var(--bot-delay, 0s) !important;
 }
 
 .podium-unit.active .person-r1,
 .podium-unit.active .person-r2 {
-    transform-box: fill-box;
-    transform-origin: bottom center;
+    transform-origin: center 75px;
     animation: huddleRightIn 0.85s ease-in-out infinite !important;
     animation-delay: var(--bot-delay, 0s) !important;
 }
 
 .podium-unit.active .person-center {
-    transform-box: fill-box;
-    transform-origin: bottom center;
+    transform-origin: center 75px;
     animation: huddleCenterListen 0.9s ease-in-out infinite !important;
 }
 
 .podium-unit.crew-interact .person {
-    animation: crewBounce 0.38s ease-in-out 2 !important;
+    animation: crewBounce 0.36s ease-in-out 2 !important;
     animation-delay: var(--bot-delay, 0s) !important;
 }
 
@@ -3253,24 +3310,74 @@ body {
     transition: transform 0.18s ease;
 }
 
+@keyframes legoBlink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    96% { transform: scaleY(0.12); }
+}
+
+@keyframes legoTalk {
+    0%, 100% { transform: scaleY(0.35); }
+    50% { transform: scaleY(1.15); }
+}
+
+@keyframes legoArmSwingL {
+    0%, 100% { transform: rotate(8deg); }
+    50% { transform: rotate(52deg); }
+}
+
+@keyframes legoArmSwingR {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(-52deg); }
+}
+
+@keyframes legoArmCheerL {
+    0%, 100% { transform: rotate(75deg); }
+    50% { transform: rotate(125deg); }
+}
+
+@keyframes legoArmCheerR {
+    0%, 100% { transform: rotate(-75deg); }
+    50% { transform: rotate(-125deg); }
+}
+
+@keyframes legoHeadIdle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+@keyframes legoHeadTurnR {
+    0%, 100% { transform: rotate(4deg); }
+    50% { transform: rotate(14deg); }
+}
+
+@keyframes legoHeadTurnL {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(-14deg); }
+}
+
+@keyframes legoHeadScan {
+    0%, 100% { transform: rotate(-11deg); }
+    50% { transform: rotate(11deg); }
+}
+
 @keyframes legoIdleBreathe {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-1.5px); }
 }
 
 @keyframes huddleLeftIn {
-    0%, 100% { transform: rotate(4deg) translateY(0); }
-    50% { transform: rotate(12deg) translateY(-2.5px); }
+    0%, 100% { transform: rotate(3deg) translateY(0); }
+    50% { transform: rotate(9deg) translateY(-2px); }
 }
 
 @keyframes huddleRightIn {
-    0%, 100% { transform: rotate(-4deg) translateY(0); }
-    50% { transform: rotate(-12deg) translateY(-2.5px); }
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(-9deg) translateY(-2px); }
 }
 
 @keyframes huddleCenterListen {
-    0%, 100% { transform: rotate(-4deg) translateY(0); }
-    50% { transform: rotate(4deg) translateY(-3px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
 
 @keyframes crewBounce {

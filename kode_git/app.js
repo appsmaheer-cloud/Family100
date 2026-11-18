@@ -853,12 +853,71 @@
         ];
 
         figures.forEach((p, idx) => {
+            const outer = document.createElementNS(ns, 'g');
+            outer.setAttribute('transform', `translate(${p.cx}, ${p.dy}) scale(${p.scale}) translate(${-p.cx}, 0)`);
+
             const g = document.createElementNS(ns, 'g');
             g.setAttribute('class', p.cls);
-            g.setAttribute('transform', `translate(${p.cx}, ${p.dy}) scale(${p.scale}) translate(${-p.cx}, 0)`);
-            g.style.setProperty('--bot-delay', `${(idx * 0.07).toFixed(2)}s`);
+            g.style.setProperty('--bot-delay', `${(idx * 0.11).toFixed(2)}s`);
 
-            // LEGO Top Stud
+            // Pinggang & Kaki LEGO
+            const legs = document.createElementNS(ns, 'rect');
+            legs.setAttribute('x', String(p.cx - 12));
+            legs.setAttribute('y', '67');
+            legs.setAttribute('width', '24');
+            legs.setAttribute('height', '15');
+            legs.setAttribute('class', 'lego-legs');
+
+            // Lengan Kiri Group (sendi bahu di cx-10, 38)
+            const armGroupL = document.createElementNS(ns, 'g');
+            armGroupL.setAttribute('class', 'lego-arm-group lego-arm-l');
+            armGroupL.style.transformOrigin = `${p.cx - 10}px 38px`;
+
+            const armL = document.createElementNS(ns, 'path');
+            armL.setAttribute('d', `M${p.cx - 10} 38 L${p.cx - 16} 53`);
+            armL.setAttribute('class', `lego-arm ${p.shirt}`);
+
+            const clawL = document.createElementNS(ns, 'path');
+            clawL.setAttribute('d', `M${p.cx - 17.5} 52 A2.8 2.8 0 1 0 ${p.cx - 14.5} 56`);
+            clawL.setAttribute('class', 'lego-claw');
+            armGroupL.append(armL, clawL);
+
+            // Lengan Kanan Group (sendi bahu di cx+10, 38)
+            const armGroupR = document.createElementNS(ns, 'g');
+            armGroupR.setAttribute('class', 'lego-arm-group lego-arm-r');
+            armGroupR.style.transformOrigin = `${p.cx + 10}px 38px`;
+
+            const armR = document.createElementNS(ns, 'path');
+            armR.setAttribute('d', `M${p.cx + 10} 38 L${p.cx + 16} 53`);
+            armR.setAttribute('class', `lego-arm ${p.shirt}`);
+
+            const clawR = document.createElementNS(ns, 'path');
+            clawR.setAttribute('d', `M${p.cx + 14.5} 56 A2.8 2.8 0 1 0 ${p.cx + 17.5} 52`);
+            clawR.setAttribute('class', 'lego-claw');
+            armGroupR.append(armR, clawR);
+
+            // Torso Trapezoid Khas LEGO
+            const body = document.createElementNS(ns, 'path');
+            body.setAttribute('d', `M${p.cx - 10} 36 L${p.cx + 10} 36 L${p.cx + 13} 67 L${p.cx - 13} 67 Z`);
+            body.setAttribute('class', `person-body ${p.shirt}`);
+
+            const collar = document.createElementNS(ns, 'path');
+            collar.setAttribute('d', `M${p.cx - 5} 36 L${p.cx} 42 L${p.cx + 5} 36`);
+            collar.setAttribute('class', 'lego-collar');
+
+            // Leher LEGO
+            const neck = document.createElementNS(ns, 'rect');
+            neck.setAttribute('x', String(p.cx - 4));
+            neck.setAttribute('y', '32');
+            neck.setAttribute('width', '8');
+            neck.setAttribute('height', '4');
+            neck.setAttribute('class', 'lego-neck');
+
+            // Kepala Group (sendi leher di cx, 32)
+            const headGroup = document.createElementNS(ns, 'g');
+            headGroup.setAttribute('class', 'lego-head-group');
+            headGroup.style.transformOrigin = `${p.cx}px 32px`;
+
             const stud = document.createElementNS(ns, 'rect');
             stud.setAttribute('x', String(p.cx - 5));
             stud.setAttribute('y', '6');
@@ -867,7 +926,6 @@
             stud.setAttribute('rx', '1.5');
             stud.setAttribute('class', 'lego-stud');
 
-            // LEGO Classic Yellow Head
             const head = document.createElementNS(ns, 'rect');
             head.setAttribute('x', String(p.cx - 11));
             head.setAttribute('y', '10.5');
@@ -876,12 +934,10 @@
             head.setAttribute('rx', '5.5');
             head.setAttribute('class', 'lego-head');
 
-            // Highlight kilau plastik LEGO
             const headShine = document.createElementNS(ns, 'path');
             headShine.setAttribute('d', `M${p.cx - 7} 13 L${p.cx - 7} 26`);
             headShine.setAttribute('class', 'lego-shine');
 
-            // Rambut / Topi unik tiap anggota
             const hair = document.createElementNS(ns, 'path');
             hair.setAttribute('fill', p.hairColor);
             hair.setAttribute('class', 'lego-hair');
@@ -897,7 +953,6 @@
                 hair.setAttribute('d', `M${p.cx - 11.5} 15 C${p.cx - 11} 8, ${p.cx + 11} 8, ${p.cx + 11.5} 15 Q${p.cx} 12 ${p.cx - 11.5} 15 Z`);
             }
 
-            // Pipi merona
             const blushL = document.createElementNS(ns, 'ellipse');
             blushL.setAttribute('cx', String(p.cx - 6.8));
             blushL.setAttribute('cy', '24.2');
@@ -912,18 +967,21 @@
             blushR.setAttribute('ry', '1.1');
             blushR.setAttribute('class', 'lego-blush');
 
-            // Ekspresi 1: Normal / Idle
+            // Ekspresi 1: Normal / Berdiskusi (mata berkedip + mulut berbicara)
             const exprIdle = document.createElementNS(ns, 'g');
             exprIdle.setAttribute('class', 'expr expr-idle');
             exprIdle.innerHTML = `
-                <circle cx="${p.cx - 4.2}" cy="20.5" r="1.9" class="lego-eye"/>
-                <circle cx="${p.cx + 4.2}" cy="20.5" r="1.9" class="lego-eye"/>
-                <circle cx="${p.cx - 4.8}" cy="19.8" r="0.65" class="lego-eye-shine"/>
-                <circle cx="${p.cx + 3.6}" cy="19.8" r="0.65" class="lego-eye-shine"/>
+                <g class="lego-eyes-blink" style="transform-origin: ${p.cx}px 20.5px;">
+                    <circle cx="${p.cx - 4.2}" cy="20.5" r="1.9" class="lego-eye"/>
+                    <circle cx="${p.cx + 4.2}" cy="20.5" r="1.9" class="lego-eye"/>
+                    <circle cx="${p.cx - 4.8}" cy="19.8" r="0.65" class="lego-eye-shine"/>
+                    <circle cx="${p.cx + 3.6}" cy="19.8" r="0.65" class="lego-eye-shine"/>
+                </g>
                 <path d="M${p.cx - 3.5} 25.5 Q${p.cx} 28.5 ${p.cx + 3.5} 25.5" class="lego-mouth"/>
+                <ellipse cx="${p.cx}" cy="26.4" rx="2.6" ry="1.8" class="lego-mouth-talk"/>
             `;
 
-            // Ekspresi 2: Senang / Sorak (^ ^ + tertawa lebar)
+            // Ekspresi 2: Senang / Sorak
             const exprHappy = document.createElementNS(ns, 'g');
             exprHappy.setAttribute('class', 'expr expr-happy');
             exprHappy.innerHTML = `
@@ -932,7 +990,7 @@
                 <path d="M${p.cx - 4.5} 24.5 Q${p.cx} 30 ${p.cx + 4.5} 24.5 Z" class="lego-mouth-open"/>
             `;
 
-            // Ekspresi 3: Sedih (T_T + air mata)
+            // Ekspresi 3: Sedih
             const exprSad = document.createElementNS(ns, 'g');
             exprSad.setAttribute('class', 'expr expr-sad');
             exprSad.innerHTML = `
@@ -943,7 +1001,7 @@
                 <path d="M${p.cx - 3.5} 27.8 Q${p.cx} 24.8 ${p.cx + 3.5} 27.8" class="lego-mouth-sad"/>
             `;
 
-            // Ekspresi 4: Salah / Kaget (X X + O)
+            // Ekspresi 4: Salah / Kaget
             const exprShock = document.createElementNS(ns, 'g');
             exprShock.setAttribute('class', 'expr expr-shock');
             exprShock.innerHTML = `
@@ -952,51 +1010,10 @@
                 <ellipse cx="${p.cx}" cy="26.5" rx="2.3" ry="1.8" class="lego-mouth-shock"/>
             `;
 
-            // Leher LEGO
-            const neck = document.createElementNS(ns, 'rect');
-            neck.setAttribute('x', String(p.cx - 4));
-            neck.setAttribute('y', '32');
-            neck.setAttribute('width', '8');
-            neck.setAttribute('height', '4');
-            neck.setAttribute('class', 'lego-neck');
-
-            // Torso Trapezoid Khas LEGO
-            const body = document.createElementNS(ns, 'path');
-            body.setAttribute('d', `M${p.cx - 10} 36 L${p.cx + 10} 36 L${p.cx + 13} 67 L${p.cx - 13} 67 Z`);
-            body.setAttribute('class', `person-body ${p.shirt}`);
-
-            // Garis kerah baju LEGO
-            const collar = document.createElementNS(ns, 'path');
-            collar.setAttribute('d', `M${p.cx - 5} 36 L${p.cx} 42 L${p.cx + 5} 36`);
-            collar.setAttribute('class', 'lego-collar');
-
-            // Pinggang & Kaki LEGO
-            const legs = document.createElementNS(ns, 'rect');
-            legs.setAttribute('x', String(p.cx - 12));
-            legs.setAttribute('y', '67');
-            legs.setAttribute('width', '24');
-            legs.setAttribute('height', '15');
-            legs.setAttribute('class', 'lego-legs');
-
-            // Lengan & Tangan Capit C Khas LEGO
-            const armL = document.createElementNS(ns, 'path');
-            armL.setAttribute('d', `M${p.cx - 10} 38 L${p.cx - 16} 53`);
-            armL.setAttribute('class', `lego-arm lego-arm-l ${p.shirt}`);
-
-            const clawL = document.createElementNS(ns, 'path');
-            clawL.setAttribute('d', `M${p.cx - 17.5} 52 A2.8 2.8 0 1 0 ${p.cx - 14.5} 56`);
-            clawL.setAttribute('class', 'lego-claw');
-
-            const armR = document.createElementNS(ns, 'path');
-            armR.setAttribute('d', `M${p.cx + 10} 38 L${p.cx + 16} 53`);
-            armR.setAttribute('class', `lego-arm lego-arm-r ${p.shirt}`);
-
-            const clawR = document.createElementNS(ns, 'path');
-            clawR.setAttribute('d', `M${p.cx + 14.5} 56 A2.8 2.8 0 1 0 ${p.cx + 17.5} 52`);
-            clawR.setAttribute('class', 'lego-claw');
-
-            g.append(stud, neck, legs, armL, clawL, armR, clawR, body, collar, head, headShine, hair, blushL, blushR, exprIdle, exprHappy, exprSad, exprShock);
-            svg.appendChild(g);
+            headGroup.append(stud, head, headShine, hair, blushL, blushR, exprIdle, exprHappy, exprSad, exprShock);
+            g.append(neck, legs, armGroupL, armGroupR, body, collar, headGroup);
+            outer.appendChild(g);
+            svg.appendChild(outer);
         });
 
         return svg;
