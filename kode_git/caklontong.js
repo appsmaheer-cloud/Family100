@@ -209,138 +209,138 @@
             {
                     "id": 13,
                     "category": "Kata Misteri",
-                    "question": "Kata Misteri: Semakin banyak saya diambil dan dicongkel, justru semakin besar ukuran saya. Tidak ada pengendara yang senang bertemu saya di jalan raya.",
-                    "answer": "LUBANG",
+                    "question": "Kata Misteri: Ibu Ani punya 4 orang anak: Mei, Juni, Juli, dan anak bungsunya lahir tepat di bulan delapan. Siapakah nama anak keempat Ibu Ani?",
+                    "answer": "TIDAK TAHU",
                     "isTwist": true,
-                    "trap": "MACET",
+                    "trap": "AGUSTUS",
                     "openIndices": [
                             0,
-                            5
+                            6
                     ],
                     "clues": [
-                            "Bukan sesuatu yang bisa dijual.",
-                            "Sering muncul di jalan aspal setelah musim hujan!"
+                            "Jangan asal menebak nama bulan setelah Juli!",
+                            "Coba cek lagi apakah di soal ada tertulis nama anak keempatnya?"
                     ],
-                    "reason": "LUBANG! Semakin banyak tanahnya diambil, lubangnya makin gede dan bikin motor kejeglong!"
+                    "reason": "TIDAK TAHU! Di soalnya kan memang nggak dikasih tahu nama anak keempatnya, kenapa kalian asal nebak Agustus?!"
             },
             {
                     "id": 14,
                     "category": "Kata Misteri",
-                    "question": "Kata Misteri: Saya selalu berada tepat di depanmu, tapi kamu tidak akan pernah bisa menyentuh atau melihat saya sampai kapan pun.",
-                    "answer": "MASA DEPAN",
+                    "question": "Kata Misteri: Budi berlari kencang dari rumah ke sekolah selama 15 menit. Pulangnya Budi jalan kaki santai sambil beli es selama 45 menit. Siapakah nama anak di awal soal ini?",
+                    "answer": "BUDI",
                     "isTwist": true,
-                    "trap": "BAYANGAN",
+                    "trap": "ENAM PULUH",
                     "openIndices": [
                             0,
-                            5
+                            3
                     ],
                     "clues": [
-                            "Bukan benda mati atau hantu.",
-                            "Berhubungan dengan waktu yang belum terjadi!"
+                            "Berhenti menjumlahkan 15 + 45 menit!",
+                            "Jawabannya ada di kata paling pertama soal ini!"
                     ],
-                    "reason": "MASA DEPAN! Selalu ada di depan kita, tapi begitu tercapai namanya berubah jadi masa kini!"
+                    "reason": "BUDI! Peserta sibuk ngitung menit pulang-pergi, padahal yang ditanya cuma nama anaknya yang tertulis di soal!"
             },
             {
                     "id": 15,
                     "category": "Kata Misteri",
-                    "question": "Kata Misteri: Saya milikmu sendiri sejak lahir, tapi orang lain jauh lebih sering mengucapkannya daripada kamu sendiri.",
-                    "answer": "NAMAMU",
+                    "question": "Kata Misteri: Seekor sapi berdiri menghadap lurus ke arah utara. Kemudian sapi itu berputar 90 derajat ke kanan, lalu berputar 180 derajat ke belakang. Ke arah mana ujung ekor sapi itu menghadap?",
+                    "answer": "BAWAH",
                     "isTwist": true,
-                    "trap": "RAHASIA",
+                    "trap": "BARAT",
                     "openIndices": [
                             0,
-                            5
+                            4
                     ],
                     "clues": [
-                            "Tidak berbentuk fisik tapi tertulis di KTP.",
-                            "Setiap kali orang memanggilmu, mereka mengucapkan kata ini!"
+                            "Jangan pakai kompas atau hitung derajat putaran!",
+                            "Bayangkan posisi alami ekor sapi karena gravitasi!"
                     ],
-                    "reason": "NAMAMU! Kamu jarang manggil diri sendiri, tapi teman dan bosmu tiap hari manggil!"
+                    "reason": "BAWAH! Mau sapinya muter ke utara, selatan, atau joget tiktok, ujung ekor sapi tetap menjuntai ke BAWAH!"
             },
             {
                     "id": 16,
                     "category": "Kata Misteri",
-                    "question": "Kata Misteri: Saya punya kota tapi tidak punya rumah, punya gunung tapi tidak punya pohon, dan punya laut tapi tidak punya air.",
-                    "answer": "PETA",
+                    "question": "Kata Misteri: Ada 12 ekor ikan di dalam akuarium kaca. Tiba-tiba 5 ikan tenggelam, 3 ikan berenang pergi, dan 2 ikan mati mengapung. Sisa berapa ekor ikan yang masih ada di dalam akuarium?",
+                    "answer": "DUA BELAS",
                     "isTwist": true,
-                    "trap": "PULAU",
+                    "trap": "DUA",
                     "openIndices": [
                             0,
-                            3
+                            4
                     ],
                     "clues": [
-                            "Sering dibuka di buku atlas atau layar HP.",
-                            "Empat huruf: penunjuk wilayah datar!"
+                            "Jangan dikurangi 5, 3, dan 2!",
+                            "Ikan tenggelam ya memang hidup di air, yang berenang pergi juga tetap di akuarium!"
                     ],
-                    "reason": "P-?-?-A! Di PETA ada gambar kota, gunung, dan laut, tapi nggak ada airnya sama sekali!"
+                    "reason": "Tetap DUA BELAS! Yang mati belum diangkat, yang berenang pergi juga masih muter-muter di akuarium yang sama!"
             },
             {
                     "id": 17,
                     "category": "Kata Misteri",
-                    "question": "Kata Misteri: Saya sangat ringan sampai tidak terasa beratnya, tapi orang terkuat di dunia pun tidak sanggup menahan saya lebih dari 5 menit.",
-                    "answer": "NAPAS",
+                    "question": "Kata Misteri: Seorang pria berjalan santai di tengah hujan badai tanpa payung, tanpa jas hujan, dan tanpa topi. Anehnya, rambutnya tidak basah sedikit pun. Kenapa?",
+                    "answer": "BOTAK",
                     "isTwist": true,
-                    "trap": "ANGIN",
+                    "trap": "BAWA",
                     "openIndices": [
                             0,
                             4
                     ],
                     "clues": [
-                            "Keluar masuk lewat hidung setiap detik.",
-                            "Coba tahan sekarang kalau nggak percaya!"
+                            "Dia tidak berteduh di mana pun.",
+                            "Perhatikan kata kuncinya: \"rambutnya tidak basah\"!"
                     ],
-                    "reason": "NAPAS! Binaragawan paling kuat sedunia pun kalah kalau disuruh tahan napas 10 menit!"
+                    "reason": "B-?-?-?-K! Rambutnya tidak basah karena dia memang BOTAK plontos nggak punya rambut sama sekali!"
             },
             {
                     "id": 18,
                     "category": "Kata Misteri",
-                    "question": "Kata Misteri: Saya punya satu mata, tapi saya sama sekali tidak bisa melihat apa-apa.",
-                    "answer": "JARUM",
+                    "question": "Kata Misteri: Pak RT memelihara 10 ekor kambing di kandang. Suatu hari wabah datang dan semua kambingnya mati KECUALI 3 ekor. Berapa ekor kambing Pak RT yang masih hidup?",
+                    "answer": "TIGA",
                     "isTwist": true,
-                    "trap": "BADAI",
-                    "openIndices": [
-                            0,
-                            4
-                    ],
-                    "clues": [
-                            "Ukurannya kecil dan tajam, sering dicari ibu-ibu.",
-                            "Lubang kecil di ujungnya dipakai buat masukin benang!"
-                    ],
-                    "reason": "JARUM jahit! Punya lubang yang disebut \"mata jarum\", tapi nggak bisa dipakai melirik!"
-            },
-            {
-                    "id": 19,
-                    "category": "Kata Misteri",
-                    "question": "Kata Misteri: Saya selalu naik perlahan-lahan tapi tidak pernah bisa turun lagi seumur hidupmu.",
-                    "answer": "UMUR",
-                    "isTwist": true,
-                    "trap": "GAJI",
+                    "trap": "TUJUH",
                     "openIndices": [
                             0,
                             3
                     ],
                     "clues": [
-                            "Gaji dan berat badan masih bisa turun.",
-                            "Bertambah satu angka setiap kali kamu tiup lilin!"
+                            "Jangan hitung 10 dikurangi 3!",
+                            "Baca pelan-pelan kata \"semua mati KECUALI 3 ekor\"!"
                     ],
-                    "reason": "UMUR! Mau perawatan mahal kayak apa pun, angkanya tetap naik terus tiap tahun!"
+                    "reason": "T-?-?-A! Semua mati KECUALI 3 ekor — artinya yang masih hidup ya TIGA ekor, bukan tujuh!"
+            },
+            {
+                    "id": 19,
+                    "category": "Kata Misteri",
+                    "question": "Kata Misteri: Lawan kata dari \"MENANG\" adalah \"KALAH\". Lawan kata dari \"SIANG\" adalah \"MALAM\". Dalam chat WhatsApp gebetan, lawan kata dari \"DITERIMA\" biasanya adalah...",
+                    "answer": "DIREAD DOANG",
+                    "isTwist": true,
+                    "trap": "DITOLAK",
+                    "openIndices": [
+                            0,
+                            7
+                    ],
+                    "clues": [
+                            "Nggak sampai ditolak secara langsung kok.",
+                            "Cuma muncul dua centang biru tanpa ada balasan selamanya!"
+                    ],
+                    "reason": "DIREAD DOANG! Lebih menyakitkan daripada ditolak langsung — centang biru tanpa kabar!"
             },
             {
                     "id": 20,
                     "category": "Kata Misteri",
-                    "question": "Kata Misteri: Saya punya banyak gigi tajam berbaris rapi, tapi seumur hidup tidak pernah menggigit makanan apa pun.",
-                    "answer": "SISIR",
+                    "question": "Kata Misteri: Benda di rumah yang paling sering hilang saat dicari mati-matian, tapi mendadak muncul sendiri tepat setelah kita...",
+                    "answer": "BERHENTI NYARI",
                     "isTwist": true,
-                    "trap": "SIKAT",
+                    "trap": "BELI BARU",
                     "openIndices": [
                             0,
-                            4
+                            9
                     ],
                     "clues": [
-                            "Ada di meja rias atau saku celana.",
-                            "Tugasnya cuma merapikan rambut yang berantakan!"
+                            "Sering terjadi pada gunting kuku, charger HP, dan kunci motor.",
+                            "Baru kelihatan di atas meja begitu kita sudah pasrah!"
                     ],
-                    "reason": "SISIR! Giginya banyak banget tapi cuma buat ngerapihin jambul!"
+                    "reason": "BERHENTI NYARI! Hukum alam paling ngeselin: benda hilang cuma mau muncul kalau kita udah nyerah nyari!"
             },
             {
                     "id": 21,
@@ -583,36 +583,36 @@
             {
                     "id": 35,
                     "category": "Kuis Kebenaran",
-                    "question": "Kuis Kebenaran: Jika kamu melempar batu berwarna putih ke dalam Laut Merah, maka batu tersebut akan menjadi...",
-                    "answer": "BASAH",
+                    "question": "Kuis Kebenaran: Hewan peliharaan apa yang paling susah diatur saat jalan bareng karena kalau disuruh belok kanan dia tetap...",
+                    "answer": "DIAM",
                     "isTwist": true,
-                    "trap": "MERAH",
+                    "trap": "DUA",
                     "openIndices": [
                             0,
-                            4
+                            3
                     ],
                     "clues": [
-                            "Jangan tertipu nama lautnya!",
-                            "Benda apa pun yang nyemplung ke air pasti jadi..."
+                            "Jangan pikirkan hewan tertentu kayak kucing atau bebek.",
+                            "Memangnya hewan ngerti bahasa Indonesia disuruh belok kanan?!"
                     ],
-                    "reason": "BASAH! Laut Merah airnya tetap bening dan basah, bukan cat tembok warna merah!"
+                    "reason": "D-?-?-M! Hewan nggak ngerti bahasa manusia, disuruh belok kanan ya tetap DIAM atau jalan sesuka hatinya!"
             },
             {
                     "id": 36,
                     "category": "Kuis Kebenaran",
-                    "question": "Kuis Kebenaran: Kenapa burung bangau kalau tidur di rawa-rawa selalu mengangkat satu kakinya?",
-                    "answer": "JATUH",
+                    "question": "Kuis Kebenaran: Orang yang paling berani memotong pembicaraan bos yang lagi marah-marah di tengah rapat Zoom adalah...",
+                    "answer": "SINYAL JELEK",
                     "isTwist": true,
-                    "trap": "JAGA",
+                    "trap": "STAF NEKAT",
                     "openIndices": [
                             0,
-                            4
+                            7
                     ],
                     "clues": [
-                            "Jangan jawab biar nggak pegal!",
-                            "Coba bayangkan kalau dua-duanya diangkat sekaligus!"
+                            "Bukan karyawan yang berani resign.",
+                            "Tiba-tiba suara bos putus-putus kayak robot lalu layar freeze!"
                     ],
-                    "reason": "Kalau dua kakinya diangkat semua ya JATUH ke lumpur! Makanya cuma satu yang diangkat!"
+                    "reason": "SINYAL JELEK! Bos lagi ngegas marah-marah, langsung terpotong otomatis jadi \"halo... tes... suaranya putus Pak!\""
             },
             {
                     "id": 37,
@@ -685,19 +685,19 @@
             {
                     "id": 41,
                     "category": "Cerita Berlubang",
-                    "question": "Di sebuah seminar motivasi, pembicara bertanya kepada 100 peserta: \"Siapa di sini yang mau sukses dan kaya raya?\". Semua peserta serentak angkat tangan. Namun di baris paling depan, Pak Budi malah memilih _______ sambil tersenyum santai.",
-                    "answer": "MINUM TEH",
+                    "question": "Sebuah bus kota berangkat membawa 20 penumpang. Di halte pertama turun 5 orang dan naik 3 orang. Di halte kedua turun 7 orang dan naik 4 orang. Di halte ketiga turun 2 orang dan tidak ada yang naik. Jadi total halte yang dilewati bus ada _______ halte.",
+                    "answer": "TIGA",
                     "isTwist": true,
-                    "trap": "MALAS GERAK",
+                    "trap": "TIGA BELAS",
                     "openIndices": [
                             0,
-                            6
+                            3
                     ],
                     "clues": [
-                            "Pak Budi kan pemilik gedung seminarnya!",
-                            "Dia udah kaya raya, jadi santai aja menikmati jamuan!"
+                            "Jangan hitung 20 - 5 + 3 - 7 + 4 - 2!",
+                            "Perhatikan bagian yang ditanyakan di akhir cerita!"
                     ],
-                    "reason": "MINUM TEH! Orang udah kaya mah nggak perlu ikut angkat tangan, cukup nikmatin hidangan VIP!"
+                    "reason": "TIGA! Peserta sibuk ngitung sisa penumpang (13), padahal yang ditanya jumlah halte yang dilewati (pertama, kedua, ketiga)!"
             },
             {
                     "id": 42,
