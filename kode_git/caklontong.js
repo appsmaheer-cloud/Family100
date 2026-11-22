@@ -23,19 +23,20 @@
             {
                     "id": 2,
                     "category": "TTS (Teka-Teki Sulit)",
-                    "question": "Sebelum diperiksa dokter di puskesmas atau klinik, pasien wajib...",
+                    "question": "Jika sedang sakit demam tinggi dan batuk, orang yang paling ahli memeriksa kondisi kita di klinik adalah...",
                     "answer": "DAFTAR",
                     "isTwist": true,
                     "trap": "DOKTER",
                     "openIndices": [
                             0,
+                            3,
                             5
                     ],
                     "clues": [
                             "Bukan langsung masuk ruang periksa.",
-                            "Dilakukan di meja resepsionis paling depan!"
+                            "Hal pertama yang wajib dilakukan di meja depan puskesmas!"
                     ],
-                    "reason": "D-?-?-T-?-R bukan DOKTER! Sebelum ketemu dokter ya harus DAFTAR dulu di loket!"
+                    "reason": "D-?-?-T-?-R bukan DOKTER! Sebelum diperiksa dokter di klinik ya harus DAFTAR dulu di loket!"
             },
             {
                     "id": 3,
@@ -180,20 +181,18 @@
             {
                     "id": 11,
                     "category": "Kata Misteri",
-                    "question": "Ibu Ani punya 4 orang anak: Mei, Juni, Juli, dan anak bungsunya lahir tepat di bulan delapan. Siapakah nama anak keempat Ibu Ani?",
-                    "answer": "TIDAK TAHU",
+                    "question": "Ibu Ani punya 4 orang anak: Mei, Juni, Juli, dan anak bungsunya laki-laki lahir tepat di bulan delapan. Di rumah, anak keempat itu biasa dipanggil...",
+                    "answer": "ADIK",
                     "isTwist": true,
-                    "trap": "TANIA RATU",
+                    "trap": "AGUS",
                     "openIndices": [
-                            0,
-                            7,
-                            9
+                            0
                     ],
                     "clues": [
-                            "Jangan asal menebak nama bulan setelah Juli!",
-                            "Coba cek lagi apakah di soal ada tertulis nama anak keempatnya?"
+                            "Siapa bilang namanya Agus?!",
+                            "Panggilannya di keluarga karena dia anak paling bungsu!"
                     ],
-                    "reason": "TIDAK TAHU! Di soalnya memang nggak dikasih tahu nama anak keempatnya, kenapa kalian asal nebak Agustus?!"
+                    "reason": "A-?-?-? bukan AGUS! Karena dia anak bungsu, kakak-kakaknya manggil dia ADIK!"
             },
             {
                     "id": 12,
@@ -542,20 +541,21 @@
             {
                     "id": 32,
                     "category": "Cerita Berlubang",
-                    "question": "Pagi itu hujan deras mengguyur jalanan. Rina buru-buru berangkat kerja naik motor. Di tengah kemacetan, Rina bersyukur karena di dalam jok motornya ia selalu menyimpan _______ supaya tetap kuat sampai di kantor.",
-                    "answer": "DOA IBU",
+                    "question": "Pagi itu hujan deras mengguyur jalanan. Rina buru-buru berangkat kerja naik motor. Untungnya di tengah jalan ia ingat sudah menyiapkan _______ supaya tidak kehujanan.",
+                    "answer": "MANTRA",
                     "isTwist": true,
-                    "trap": "DUA ITU",
+                    "trap": "MANTEL",
                     "openIndices": [
                             0,
-                            4,
-                            6
+                            1,
+                            2,
+                            3
                     ],
                     "clues": [
-                            "Bukan benda anti air atau plastik.",
-                            "Jas hujannya ketinggalan di kosan, yang tersisa cuma restu orang tua!"
+                            "Bukan benda plastik anti-air di dalam jok motor.",
+                            "Jas hujannya ketinggalan di kosan, jadi cuma komat-kamit di dalam hati!"
                     ],
-                    "reason": "DOA IBU! Tetap basah kuyup sih, tapi hatinya hangat sampai kantor!"
+                    "reason": "M-A-N-T-?-? bukan MANTEL! Jas hujannya ketinggalan, jadi Rina baca MANTRA anti-hujan sepanjang jalan!"
             },
             {
                     "id": 33,
