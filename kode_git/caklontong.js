@@ -5,7 +5,7 @@
             {
                     "id": 1,
                     "category": "TTS (Teka-Teki Sulit)",
-                    "question": "Hujan deras biasanya turun dari...",
+                    "question": "Air hujan yang mengguyur bumi biasanya turunnya...",
                     "answer": "LAMBAT",
                     "isTwist": true,
                     "trap": "LANGIT",
@@ -16,14 +16,14 @@
                     ],
                     "clues": [
                             "Bukan tempat asalnya di atas awan.",
-                            "Kalau gerimis dulu baru deras, berarti turunnya..."
+                            "Kalau baru rintik-rintik sebelum deras, berarti turunnya..."
                     ],
-                    "reason": "L-A-?-?-?-T bukan LANGIT! Hujan deras itu awalnya rintik-rintik dulu, jadi turunnya LAMBAT!"
+                    "reason": "L-A-?-?-?-T bukan LANGIT! Hujan itu diawali gerimis pelan dulu baru deras, jadi turunnya LAMBAT!"
             },
             {
                     "id": 2,
                     "category": "TTS (Teka-Teki Sulit)",
-                    "question": "Jika sedang sakit demam tinggi dan batuk, orang yang paling ahli memeriksa kondisi kita di klinik adalah...",
+                    "question": "Jika sedang sakit demam tinggi di puskesmas atau klinik, yang paling penting dan utama untuk cepat diperiksa adalah...",
                     "answer": "DAFTAR",
                     "isTwist": true,
                     "trap": "DOKTER",
@@ -33,10 +33,10 @@
                             5
                     ],
                     "clues": [
-                            "Bukan langsung masuk ruang periksa.",
-                            "Hal pertama yang wajib dilakukan di meja depan puskesmas!"
+                            "Bukan orang yang pakai stetoskop.",
+                            "Hal pertama yang wajib dilakukan di meja loket paling depan!"
                     ],
-                    "reason": "D-?-?-T-?-R bukan DOKTER! Sebelum diperiksa dokter di klinik ya harus DAFTAR dulu di loket!"
+                    "reason": "D-?-?-T-?-R bukan DOKTER! Mau ada sepuluh dokter di dalam, kalau nggak DAFTAR dulu nggak bakal dipanggil!"
             },
             {
                     "id": 3,
@@ -181,7 +181,7 @@
             {
                     "id": 11,
                     "category": "Kata Misteri",
-                    "question": "Ibu Ani punya 4 orang anak: Mei, Juni, Juli, dan anak bungsunya laki-laki lahir tepat di bulan delapan. Di rumah, anak keempat itu biasa dipanggil...",
+                    "question": "Ibu Ani punya 4 anak: Mei, Juni, Juli, dan anak bungsunya laki-laki lahir tepat di bulan delapan. Di rumah, anak keempat itu biasa dipanggil...",
                     "answer": "ADIK",
                     "isTwist": true,
                     "trap": "AGUS",
@@ -190,66 +190,69 @@
                     ],
                     "clues": [
                             "Siapa bilang namanya Agus?!",
-                            "Panggilannya di keluarga karena dia anak paling bungsu!"
+                            "Panggilan akrab di keluarga karena dia anak paling bungsu!"
                     ],
                     "reason": "A-?-?-? bukan AGUS! Karena dia anak bungsu, kakak-kakaknya manggil dia ADIK!"
             },
             {
                     "id": 12,
                     "category": "Kata Misteri",
-                    "question": "Budi berlari kencang dari rumah ke sekolah selama 15 menit. Pulangnya Budi jalan kaki santai selama 45 menit. Siapakah nama anak di awal soal ini?",
-                    "answer": "BUDI",
-                    "isTwist": true,
-                    "trap": "RUDI",
-                    "openIndices": [
-                            1,
-                            3
-                    ],
-                    "clues": [
-                            "Berhenti menjumlahkan 15 + 45 menit!",
-                            "Jawabannya ada di kata paling pertama soal ini!"
-                    ],
-                    "reason": "BUDI! Peserta sibuk ngitung menit pulang-pergi, padahal yang ditanya cuma nama anaknya yang tertulis di soal!"
-            },
-            {
-                    "id": 13,
-                    "category": "Kata Misteri",
-                    "question": "Seekor sapi berdiri menghadap lurus ke arah utara, lalu berputar 90 derajat ke kanan dan 180 derajat ke belakang. Ke arah mana ujung ekor sapi itu menghadap?",
+                    "question": "Seekor sapi berdiri menghadap lurus ke timur, lalu memutar badan 90 derajat ke kanan. Kini ujung ekor sapi itu mengarah ke...",
                     "answer": "BAWAH",
                     "isTwist": true,
                     "trap": "BARAT",
                     "openIndices": [
                             0,
-                            1
+                            1,
+                            3
                     ],
                     "clues": [
-                            "Jangan pakai kompas atau hitung derajat putaran!",
-                            "Bayangkan posisi alami ekor sapi karena gravitasi!"
+                            "Jangan pakai kompas atau hitung arah mata angin!",
+                            "Bayangkan arah alami jatuhnya ekor sapi karena gravitasi!"
                     ],
-                    "reason": "B-A-?-A-? bukan BARAT! Mau sapinya muter ke utara atau selatan, ujung ekor sapi tetap menjuntai ke BAWAH!"
+                    "reason": "B-A-?-A-? bukan BARAT! Mau sapinya menghadap ke mana aja, ujung ekor sapi tetap menjuntai ke BAWAH!"
+            },
+            {
+                    "id": 13,
+                    "category": "Kata Misteri",
+                    "question": "Supaya tidak kalah cepat saat lomba balap karung 17-an dimulai, semua peserta di garis start wajib...",
+                    "answer": "BERDIRI",
+                    "isTwist": true,
+                    "trap": "BERLARI",
+                    "openIndices": [
+                            0,
+                            1,
+                            2,
+                            5,
+                            6
+                    ],
+                    "clues": [
+                            "Belum boleh lari sebelum peluit ditiup.",
+                            "Kalau masih duduk lesehan di dalam karung gimana mau lompat?!"
+                    ],
+                    "reason": "B-E-R-?-?-R-I bukan BERLARI! Mana bisa lari di dalam karung kalau belum BERDIRI dulu?!"
             },
             {
                     "id": 14,
                     "category": "Kata Misteri",
-                    "question": "Ada 12 ekor ikan di dalam akuarium kaca. Tiba-tiba 5 ikan tenggelam, 3 ikan berenang pergi, dan 2 ikan mati mengapung. Sisa berapa ekor ikan di dalam akuarium?",
-                    "answer": "DUA BELAS",
+                    "question": "Kalau lagi haus banget tengah malam di kosan tapi galon air habis total, langkah paling penting sebelum keluar beli minum adalah...",
+                    "answer": "MIKIR",
                     "isTwist": true,
-                    "trap": "DUA BARIS",
+                    "trap": "MINUM",
                     "openIndices": [
                             0,
-                            4,
-                            8
+                            1
                     ],
                     "clues": [
-                            "Jangan dikurangi 5, 3, dan 2!",
-                            "Ikan tenggelam ya memang hidup di air, yang berenang pergi juga tetap di akuarium!"
+                            "Airnya kan habis, jadi belum bisa langsung minum!",
+                            "Harus mempertimbangkan kondisi dompet di tanggal tua dulu!"
                     ],
-                    "reason": "Tetap DUA BELAS! Yang mati belum diangkat, yang berenang pergi juga masih muter-muter di akuarium yang sama!"
+                    "reason": "M-I-?-?-? bukan MINUM! Mikir dulu warungnya masih buka nggak dan duitnya cukup nggak!"
             },
             {
                     "id": 15,
                     "category": "Kata Misteri",
-                    "question": "Seorang pria berjalan santai di tengah hujan badai tanpa payung, tanpa jas hujan, dan tanpa topi. Anehnya, rambutnya tidak basah sedikit pun. Kenapa?",
+                    "question": "Seorang pria keluar rumah di tengah hujan badai tanpa payung dan tanpa topi. Kondisi rambutnya waktu sampai di teras ternyata...",
                     "answer": "BOTAK",
                     "isTwist": true,
                     "trap": "BASAH",
@@ -258,15 +261,15 @@
                             3
                     ],
                     "clues": [
-                            "Dia tidak berteduh di mana pun.",
-                            "Perhatikan kata kuncinya: \"rambutnya tidak basah\"!"
+                            "Dia nggak basah kuyup rambutnya.",
+                            "Ternyata rambutnya memang nggak pernah ada dari awal!"
                     ],
-                    "reason": "B-?-?-A-? bukan BASAH! Rambutnya nggak basah karena dia memang BOTAK plontos nggak punya rambut!"
+                    "reason": "B-?-?-A-? bukan BASAH! Rambutnya nggak basah sedikit pun karena kepalanya memang BOTAK plontos!"
             },
             {
                     "id": 16,
                     "category": "Kata Misteri",
-                    "question": "Pak RT memelihara 10 ekor kambing di kandang. Suatu hari wabah datang dan semua kambingnya mati KECUALI 3 ekor. Berapa ekor kambing Pak RT yang masih hidup?",
+                    "question": "Di dalam kotak pensil ada 5 pulpen biru dan 3 spidol hitam. Jika kita merogoh kotak lalu mengambil semua spidol hitamnya, benda di tangan kita ada...",
                     "answer": "TIGA",
                     "isTwist": true,
                     "trap": "LIMA",
@@ -275,118 +278,125 @@
                             3
                     ],
                     "clues": [
-                            "Jangan hitung 10 dikurangi 3!",
-                            "Baca pelan-pelan kata \"semua mati KECUALI 3 ekor\"!"
+                            "Baca lagi benda apa yang diambil dari dalam kotak!",
+                            "Yang ditanya jumlah spidol hitamnya, bukan pulpen birunya!"
                     ],
-                    "reason": "?-I-?-A bukan LIMA! Semua mati KECUALI 3 ekor — artinya yang masih hidup ya TIGA ekor!"
+                    "reason": "?-I-?-A bukan LIMA! Yang diambil itu spidol hitamnya yang berjumlah TIGA, bukan pulpen biru!"
             },
             {
                     "id": 17,
                     "category": "Kata Misteri",
-                    "question": "Benda paling sering dicari mati-matian di rumah tapi tidak ketemu, lalu mendadak muncul sendiri tepat setelah kita...",
+                    "question": "Benda kecil di rumah seperti gunting kuku atau charger HP selalu tidak ketemu saat dicari mati-matian, tapi langsung muncul di atas meja tepat setelah kita...",
                     "answer": "BERHENTI",
                     "isTwist": true,
                     "trap": "BERGANTI",
                     "openIndices": [
                             0,
+                            1,
+                            2,
                             5,
+                            6,
                             7
                     ],
                     "clues": [
-                            "Sering terjadi pada gunting kuku, charger HP, dan kunci motor.",
-                            "Baru kelihatan di atas meja begitu kita sudah pasrah nggak nyari lagi!"
+                            "Hukum alam paling ngeselin soal barang hilang.",
+                            "Munculnya pas kita sudah pasrah nggak nyari lagi!"
                     ],
-                    "reason": "B-E-R-?-?-N-T-I bukan BERGANTI! Benda hilang baru muncul tepat setelah kita BERHENTI nyari!"
+                    "reason": "B-E-R-?-?-N-T-I bukan BERGANTI! Barang hilang baru muncul sendiri tepat setelah kita BERHENTI nyari!"
             },
             {
                     "id": 18,
                     "category": "Kata Misteri",
-                    "question": "Orang yang paling jarang sakit gigi di seluruh dunia adalah orang yang...",
+                    "question": "Kakek berusia 90 tahun ini seumur-umur tidak pernah merasakan sakit gigi berlubang sama sekali karena giginya sudah...",
                     "answer": "OMPONG",
                     "isTwist": true,
                     "trap": "KOSONG",
                     "openIndices": [
                             3,
+                            4,
                             5
                     ],
                     "clues": [
-                            "Bukan karena rajin sikat gigi tiga kali sehari.",
-                            "Gimana mau sakit gigi kalau giginya aja udah nggak ada?!"
+                            "Bukan karena rajin gosok gigi tiga kali sehari.",
+                            "Istilah khusus untuk orang yang nggak punya gigi lagi!"
                     ],
-                    "reason": "?-?-?-O-N-G bukan KOSONG! Karena OMPONG nggak ada giginya, jadi nggak mungkin sakit gigi!"
+                    "reason": "?-?-?-O-N-G bukan KOSONG! Giginya udah OMPONG semua, jadi mana ada gigi yang bisa sakit!"
             },
             {
                     "id": 19,
                     "category": "Kuis Psikologi",
-                    "question": "Saat kamu masuk lift sendirian lalu ada orang asing ikut masuk, kenapa kamu tiba-tiba menatap layar HP padahal nggak ada chat masuk?",
+                    "question": "Saat masuk lift sempit sendirian lalu ada orang asing ikut masuk, tiba-tiba kita menatap layar HP padahal nggak ada chat masuk supaya nggak kelihatan...",
                     "answer": "CANGGUNG",
                     "isTwist": true,
                     "trap": "CHATTING",
                     "openIndices": [
                             0,
+                            6,
                             7
                     ],
                     "clues": [
-                            "Cuma scroll menu utama HP bolak-balik nggak jelas.",
-                            "Bingung mau lihat ke mana biar nggak tatap-tatapan!"
+                            "Cuma buka-tutup menu utama HP biar tangan ada kerjaan.",
+                            "Biar nggak tatap-tatapan diam aja di dalam lift!"
                     ],
-                    "reason": "C-?-?-?-?-?-N-G bukan CHATTING! Nggak ada chat masuk, cuma CANGGUNG aja satu lift sempit!"
+                    "reason": "C-?-?-?-?-?-N-G bukan beneran CHATTING! Cuma biar nggak kelihatan CANGGUNG aja satu lift sempit!"
             },
             {
                     "id": 20,
                     "category": "Kuis Psikologi",
-                    "question": "Jika diminta memilih antara uang Rp 100 juta tunai atau sahabat sejati seumur hidup, orang yang langsung memilih sahabat sejati biasanya...",
-                    "answer": "SUDAH KAYA",
+                    "question": "Jika diminta memilih uang Rp 100 juta tunai atau sahabat sejati seumur hidup, orang yang langsung memilih sahabat sejati tanpa mikir biasanya memang...",
+                    "answer": "ORANG KAYA",
                     "isTwist": true,
-                    "trap": "SUDAH BAIK",
+                    "trap": "ORANG BAIK",
                     "openIndices": [
                             0,
+                            4,
                             7
                     ],
                     "clues": [
-                            "Lihat isi rekeningnya dulu sebelum memuji ketulusannya.",
-                            "Yang saldonya tipis pasti ambil 100 juta dulu!"
+                            "Lihat dulu isi saldo rekeningnya sebelum terharu!",
+                            "Yang masih banyak cicilan pasti ambil 100 juta dulu!"
                     ],
-                    "reason": "S-U-D-A-H ?-A-?-? bukan SUDAH BAIK! Yang langsung pilih sahabat biasanya memang SUDAH KAYA!"
+                    "reason": "O-?-?-?-G ?-A-?-? bukan cuma ORANG BAIK! Yang langsung tolak Rp 100 juta biasanya memang sudah ORANG KAYA!"
             },
             {
                     "id": 21,
                     "category": "Kuis Psikologi",
-                    "question": "Orang yang paling jujur di dunia maya saat mengisi pendaftaran aplikasi adalah saat dia mencentang \"Saya telah membaca syarat dan ketentuan\", padahal aslinya...",
-                    "answer": "ASAL KLIK",
+                    "question": "Saat instal aplikasi baru, hampir semua orang langsung mencentang kotak \"Saya sudah membaca syarat dan ketentuan\". Padahal pengakuan itu sebenarnya...",
+                    "answer": "PALSU",
                     "isTwist": true,
-                    "trap": "AMAN BAIK",
+                    "trap": "PAHAM",
                     "openIndices": [
                             0,
-                            8
+                            1
                     ],
                     "clues": [
-                            "Tulisannya 40 halaman font kecil-kecil.",
-                            "Nggak ada satu manusia pun yang baca dari atas sampai bawah!"
+                            "Tulisannya 40 halaman huruf kecil-kecil.",
+                            "Jujur aja, nggak ada yang beneran baca dari atas sampai bawah!"
                     ],
-                    "reason": "ASAL KLIK! Kebohongan massal paling kompak di abad ke-21!"
+                    "reason": "P-A-?-?-? bukan PAHAM! Pengakuan sudah baca itu PALSU — hampir semua orang langsung asal klik setuju!"
             },
             {
                     "id": 22,
                     "category": "Kuis Psikologi",
-                    "question": "Kenapa saat acara tukar kado kantor, orang yang paling semangat buka kado duluan justru yang kadonya paling...",
+                    "question": "Saat acara tukar kado kantor, orang yang paling semangat mengincar kotak kado paling besar biasanya diam-diam membawa kado yang paling...",
                     "answer": "MURAH",
                     "isTwist": true,
                     "trap": "MEWAH",
                     "openIndices": [
                             0,
+                            3,
                             4
                     ],
                     "clues": [
-                            "Bungkusnya tebal banget pakai koran berlapis-lapis, isinya ternyata sabun batang.",
-                            "Tapi dia berharap banget dapat voucher belanja!"
+                            "Bungkusnya tebal banget pakai koran, isinya ternyata sabun batang.",
+                            "Modal kecil tapi harapannya dapat voucher belanja!"
                     ],
-                    "reason": "M-?-?-A-H bukan MEWAH! Justru yang modal kadonya paling MURAH yang paling agresif ngincer kado paling gede!"
+                    "reason": "M-?-?-A-H bukan MEWAH! Justru yang modalnya paling MURAH yang paling agresif ngincer kado paling gede!"
             },
             {
                     "id": 23,
                     "category": "Kuis Psikologi",
-                    "question": "Supaya peserta seminar yang ngantuk berat mendadak melek semua, pembicara harus bikin...",
+                    "question": "Pusat dari semua ketegangan, stres, dan kebahagiaan karyawan saat dikejar deadline kerjaan di kantor selalu berawal dari...",
                     "answer": "KETAWA",
                     "isTwist": true,
                     "trap": "KEPALA",
@@ -396,15 +406,15 @@
                             5
                     ],
                     "clues": [
-                            "Reaksi spontan kalau dengar jokes bapak-bapak atau tebak-tebakan nyeleneh.",
-                            "Gratis, menular, dan bikin suasana ruangan langsung cair!"
+                            "Bukan bagian tubuh tempat pusing berada.",
+                            "Sekali dengar jokes receh teman sebelah, stres langsung pecah!"
                     ],
-                    "reason": "K-E-?-A-?-A bukan KEPALA! Kalau udah KETAWA bareng, ngantuknya langsung hilang!"
+                    "reason": "K-E-?-?-?-A bukan KEPALA! Kalau udah bisa KETAWA bareng teman sekantor, seberat apa pun deadline langsung terasa ringan!"
             },
             {
                     "id": 24,
                     "category": "Kuis Psikologi",
-                    "question": "Alasan utama kenapa peserta acara kantor semangat banget teriak yel-yel di depan juri adalah...",
+                    "question": "Saat MC acara kantor mencari sukarelawan ke atas panggung untuk menyanyi solo, semua teman di meja serentak mendorong satu orang supaya...",
                     "answer": "MALU",
                     "isTwist": true,
                     "trap": "MAJU",
@@ -413,15 +423,15 @@
                             1
                     ],
                     "clues": [
-                            "Kalau teriak sendirian jelas nggak berani.",
-                            "Karena kalau nggak ikut teriak bareng, rasanya aneh sendiri!"
+                            "Bukan karena bangga sama suaranya yang merdu.",
+                            "Biar temannya yang salah tingkah duluan di depan bos!"
                     ],
-                    "reason": "M-A-?-U bukan MAJU! Justru karena takut kelihatan MALU kalau diam sendiri!"
+                    "reason": "M-A-?-? bukan cuma MAJU! Teman satu divisi ngedorong ke panggung justru biar dia MALU duluan!"
             },
             {
                     "id": 25,
                     "category": "Kuis Kebenaran",
-                    "question": "Jika kamu melempar batu berwarna putih ke dalam Laut Merah, maka batu tersebut akan menjadi...",
+                    "question": "Jika sebuah batu bata putih bersih dicelupkan seluruhnya ke dalam Laut Merah, maka permukaan batu itu seketika menjadi...",
                     "answer": "BASAH",
                     "isTwist": true,
                     "trap": "MERAH",
@@ -431,83 +441,84 @@
                     ],
                     "clues": [
                             "Jangan tertipu nama lautnya!",
-                            "Benda apa pun yang nyemplung ke air pasti jadi..."
+                            "Benda apa pun yang masuk ke dalam air pasti jadi..."
                     ],
-                    "reason": "?-?-?-A-H bukan MERAH! Laut Merah airnya tetap bening dan BASAH, bukan cat tembok!"
+                    "reason": "?-?-?-A-H bukan MERAH! Laut Merah airnya tetap air bening biasa — dicelupin ya jadi BASAH!"
             },
             {
                     "id": 26,
                     "category": "Kuis Kebenaran",
-                    "question": "Mana yang lebih penting bagi manusia: matahari atau bulan?",
-                    "answer": "BULAN",
+                    "question": "Kenapa matahari selalu terbit rajin di pagi hari tapi menghilang saat malam tiba?",
+                    "answer": "TIDUR",
                     "isTwist": true,
-                    "trap": "BUKAN",
+                    "trap": "TURUN",
                     "openIndices": [
                             0,
-                            4
+                            3
                     ],
                     "clues": [
-                            "Jangan jawab matahari dulu!",
-                            "Siang hari kan sudah terang, malam hari gelap gulita!"
+                            "Bayangkan sudah kerja lembur menyinari bumi 12 jam nonstop!",
+                            "Kalau manusia capek kerja seharian ya..."
                     ],
-                    "reason": "BULAN! Soalnya bulan menerangi malam yang gelap, kalau matahari cuma muncul pas siang hari yang udah terang!"
+                    "reason": "T-?-?-U-? bukan cuma TURUN! Udah kerja nonstop dari subuh sampai magrib, malemnya ya TIDUR lah istirahat!"
             },
             {
                     "id": 27,
                     "category": "Kuis Kebenaran",
-                    "question": "Kenapa burung bangau kalau tidur di rawa-rawa selalu mengangkat satu kakinya?",
-                    "answer": "JATUH",
+                    "question": "Kenapa gajah dari kebun binatang tidak pernah bisa bekerja mengetik laporan di kantor modern?",
+                    "answer": "TAKUT MOUSE",
                     "isTwist": true,
-                    "trap": "PATUH",
+                    "trap": "TAKUT MACAN",
                     "openIndices": [
-                            1,
-                            4
+                            0,
+                            6
                     ],
                     "clues": [
-                            "Jangan jawab biar nggak pegal!",
-                            "Coba bayangkan kalau dua-duanya diangkat sekaligus!"
+                            "Bukan karena badannya nggak muat masuk lift.",
+                            "Lihat salah satu perangkat kecil di samping keyboard komputer!"
                     ],
-                    "reason": "?-A-T-U-H bukan PATUH! Kalau dua kakinya diangkat semua ya JATUH ke lumpur!"
+                    "reason": "T-?-?-?-? M-?-?-?-?! Di setiap meja kantor ada MOUSE komputer — gajah kan takut sama tikus (mouse)!"
             },
             {
                     "id": 28,
                     "category": "Kuis Kebenaran",
-                    "question": "Hewan peliharaan apa yang paling susah diatur saat jalan bareng karena kalau disuruh belok kanan dia tetap...",
-                    "answer": "DIAM",
+                    "question": "Alat ramah lingkungan bebas asap knalpot dan tidak perlu isi bensin yang paling sering dipakai ke warung sebelah adalah...",
+                    "answer": "SEPATU",
                     "isTwist": true,
-                    "trap": "DIEM",
+                    "trap": "SEPEDA",
                     "openIndices": [
                             0,
-                            1
+                            1,
+                            2
                     ],
                     "clues": [
-                            "Jangan pikirkan hewan tertentu kayak kucing atau bebek.",
-                            "Memangnya hewan ngerti bahasa Indonesia disuruh belok kanan?!"
+                            "Nggak pakai rantai atau stang.",
+                            "Tinggal pasang di kaki kiri dan kanan lalu jalan!"
                     ],
-                    "reason": "D-I-?-M! Hewan nggak ngerti bahasa manusia, disuruh belok kanan ya tetap DIAM atau jalan sesuka hatinya!"
+                    "reason": "S-E-P-?-?-? bukan SEPEDA! Jalan kaki ke warung sebelah pakai SEPATU juga bebas polusi!"
             },
             {
                     "id": 29,
                     "category": "Kuis Kebenaran",
-                    "question": "Kenapa di akhir acara kantor semua peserta berdiri rapat menghadap kamera sambil teriak \"Satu, dua, tiga...\" karena pasti ada yang...",
-                    "answer": "KEDIP",
+                    "question": "Bakso urat pakai sambal tiga sendok paling nikmat disantap pelan-pelan sambil berkeringat karena rasanya...",
+                    "answer": "PANAS",
                     "isTwist": true,
-                    "trap": "KELIP",
+                    "trap": "PEDAS",
                     "openIndices": [
                             0,
-                            1,
+                            3,
                             4
                     ],
                     "clues": [
-                            "Momen paling ngeselin pas hasil fotonya baru dilihat.",
-                            "Yang lain udah senyum maksimal, eh satu orang matanya ketutup!"
+                            "Bukan cuma efek cabainya!",
+                            "Baru diangkat dari panci kuah mendidih, lidah bisa melepuh kalau nggak ditiup!"
                     ],
-                    "reason": "K-E-?-I-P bukan KELIP! Selalu ada satu orang yang KEDIP pas jepretan kamera, terus minta ulang sepuluh kali!"
+                    "reason": "P-?-?-A-S bukan cuma PEDAS! Kuah bakso baru diangkat dari panci itu masih PANAS mendidih!"
             },
             {
                     "id": 30,
                     "category": "Kuis Kebenaran",
-                    "question": "Sikap paling bijaksana saat revisi desain dari klien sudah masuk versi \"FINAL_BENERAN_V9\"?",
+                    "question": "Setelah lima kali revisi desain masih ditolak klien dengan alasan \"kurang greget\", keputusan seorang desainer biasanya langsung...",
                     "answer": "PASRAH",
                     "isTwist": true,
                     "trap": "PINDAH",
@@ -516,15 +527,15 @@
                             5
                     ],
                     "clues": [
-                            "Level tertinggi kesabaran anak agensi dan desainer.",
-                            "Sudah lewat tahap ikhlas, tinggal menunggu takdir V10!"
+                            "Belum sampai nekat keluar kantor kok.",
+                            "Sudah di titik menerima nasib apa adanya!"
                     ],
-                    "reason": "P-?-?-?-A-H bukan PINDAH kantor dulu, tapi PASRAH! Karena habis V9 masih ada V9_REVISI_DIKIT!"
+                    "reason": "P-?-?-?-?-H bukan PINDAH kantor! Desainer udah PASRAH ikutin aja mau klien sampai revisi final ke-20!"
             },
             {
                     "id": 31,
                     "category": "Cerita Berlubang",
-                    "question": "Sebuah bus kota berangkat membawa 20 penumpang. Di halte pertama turun 5 orang dan naik 3 orang. Di halte kedua turun 7 orang dan naik 4 orang. Di halte ketiga turun 2 orang. Jadi total halte yang dilewati bus ada _______ halte.",
+                    "question": "Sebuah bus kota membawa 10 penumpang. Di halte pertama turun 4 orang dan naik 2 orang. Di halte kedua turun 5 orang dan naik 3 orang. Di halte ketiga turun 1 orang dan tidak ada yang naik. Jadi total halte yang dilewati bus ada _______ halte.",
                     "answer": "TIGA",
                     "isTwist": true,
                     "trap": "LIMA",
@@ -533,10 +544,10 @@
                             3
                     ],
                     "clues": [
-                            "Jangan hitung 20 - 5 + 3 - 7 + 4 - 2!",
-                            "Perhatikan bagian yang ditanyakan di akhir cerita!"
+                            "Hitungannya memang 5, tapi jangan tulis angka 5!",
+                            "Perhatikan yang ditanya: bukan sisa penumpangnya, tapi jumlah haltenya!"
                     ],
-                    "reason": "?-I-?-A! Peserta sibuk ngitung sisa penumpang (13), padahal yang ditanya jumlah halte yang dilewati (pertama, kedua, ketiga)!"
+                    "reason": "?-I-?-A bukan LIMA! Peserta sibuk ngitung sisa penumpang (5), padahal yang ditanya jumlah halte yang dilewati (pertama, kedua, ketiga)!"
             },
             {
                     "id": 32,
@@ -560,7 +571,7 @@
             {
                     "id": 33,
                     "category": "Cerita Berlubang",
-                    "question": "Setiap tanggal tua, Budi selalu mengecek saldo ATM-nya dengan penuh harap. Begitu kartu dimasukkan dan PIN ditekan, layar ATM langsung menampilkan tulisan _______ yang bikin Budi senyum kecut lalu jalan ke warteg.",
+                    "question": "Setiap tanggal tua, Budi selalu mengecek ATM-nya dengan penuh harap. Begitu kartu dimasukkan dan PIN ditekan, layar mesin langsung menampilkan tulisan _______ yang bikin Budi senyum kecut.",
                     "answer": "SALDO KOSONG",
                     "isTwist": true,
                     "trap": "SALDO KURANG",
@@ -570,15 +581,15 @@
                             11
                     ],
                     "clues": [
-                            "Bukan cuma kurang dikit, tapi bener-bener habis.",
+                            "Bukan cuma kurang dikit, tapi benar-benar habis!",
                             "Angka di layarnya cuma nol besar!"
                     ],
-                    "reason": "S-A-L-D-O K-?-?-?-N-G! Bukan cuma kurang, tapi SALDO KOSONG melompong!"
+                    "reason": "S-?-?-?-? K-?-?-?-?-G bukan SALDO KURANG! Rekeningnya memang SALDO KOSONG melompong!"
             },
             {
                     "id": 34,
                     "category": "Cerita Berlubang",
-                    "question": "Tiga sahabat — Eko, Budi, dan Toni — makan bersama di restoran mewah. Setelah selesai makan dan mengobrol, orang yang paling terakhir berdiri meninggalkan meja makan selalu orang yang _______ di kasir.",
+                    "question": "Setelah tiga jam nongkrong asyik di kafe bareng teman lama dan kopi sudah habis semua, orang-orang akhirnya sepakat untuk _______ sebelum meninggalkan meja.",
                     "answer": "BAYAR",
                     "isTwist": true,
                     "trap": "BUBAR",
@@ -587,15 +598,15 @@
                             4
                     ],
                     "clues": [
-                            "Yang lain udah duluan ke parkiran pura-pura ambil motor.",
-                            "Dia masih duduk nunggu struk tagihan!"
+                            "Jangan langsung kabur ke parkiran!",
+                            "Masih ada tagihan bill yang menunggu di meja kasir!"
                     ],
-                    "reason": "B-?-?-A-R bukan BUBAR! Yang paling terakhir berdiri ya yang lagi BAYAR tagihan!"
+                    "reason": "B-?-?-?-R bukan langsung BUBAR! Habis nongkrong ya BAYAR dulu tagihan kopinya!"
             },
             {
                     "id": 35,
                     "category": "Cerita Berlubang",
-                    "question": "Saat acara team building di villa, Budi sekamar sama temannya yang tidur ngorok mirip mesin diesel. Sudah tutup kuping pakai bantal tapi tetap tembus. Cara paling ampuh supaya Budi nggak dengar ngoroknya lagi adalah _______ ke kamar sebelah.",
+                    "question": "Saat acara team building di villa, Budi sekamar sama temannya yang tidur ngorok mirip mesin diesel. Sudah tutup kuping pakai bantal tetap tembus, akhirnya Budi memilih _______ demi ketenangan tidur.",
                     "answer": "PINDAH",
                     "isTwist": true,
                     "trap": "PASRAH",
@@ -604,49 +615,50 @@
                             5
                     ],
                     "clues": [
-                            "Jangan bangunin orangnya nanti malah berantem!",
-                            "Budi sendiri yang ambil langkah keluar dari kamar itu!"
+                            "Budi nggak mau nyerah begitu saja sama suara ngorok.",
+                            "Masih ada sofa kosong di ruang tamu villa sebelah!"
                     ],
-                    "reason": "P-?-?-?-A-H bukan PASRAH! PINDAH kamar aja ke sofa ruang tamu daripada kuping berdenging!"
+                    "reason": "P-?-?-?-?-H bukan PASRAH! Budi langsung PINDAH kamar tidur di sofa ruang tamu daripada kuping berdenging!"
             },
             {
                     "id": 36,
                     "category": "Cerita Berlubang",
-                    "question": "Pak RT memasang bel rumah baru yang bunyinya \"TING TONG\". Kalau seharian penuh nggak ada satu pun tamu yang datang memencet bel itu, maka bel tersebut tetap _______ di tembok pagar.",
-                    "answer": "NEMPEL",
+                    "question": "Pak RT baru membeli gembok pagar baja anti-maling seharga dua juta rupiah. Setelah seminggu penuh tidak ada satu pun maling yang datang mencoba membobolnya, maka gembok Pak RT tetap...",
+                    "answer": "AWET",
                     "isTwist": true,
-                    "trap": "NORMAL",
+                    "trap": "AMAN",
                     "openIndices": [
-                            0,
-                            5
+                            0
                     ],
                     "clues": [
-                            "Bukan soal bunyi atau rusaknya bel itu.",
-                            "Posisinya di tembok pagar depan rumah Pak RT!"
+                            "Nggak ada maling yang nyentuh gemboknya sama sekali.",
+                            "Karena nggak pernah dicongkel, gembok dan pagarnya masih kayak baru terus!"
                     ],
-                    "reason": "N-?-?-?-?-L bukan NORMAL! Mau dipencet atau nggak seharian, belnya tetap NEMPEL di tembok rumah!"
+                    "reason": "A-?-?-? bukan cuma AMAN! Karena nggak ada maling yang lewat, gembok mahalnya tetap AWET mulus nggak lecet!"
             },
             {
                     "id": 37,
                     "category": "Motivasi Cak Lontong",
-                    "question": "\"Jangan pernah menyerah mengejar mimpimu, karena jika kamu terus berlari mengejarnya, suatu saat kamu pasti akan...\"",
-                    "answer": "CAPEK",
+                    "question": "\"Jangan pernah berhenti mengejar mimpimu sampai tua, karena jika kamu terus berlari mengejarnya tanpa jeda, ujung-ujungnya kamu pasti...\"",
+                    "answer": "BERHENTI",
                     "isTwist": true,
-                    "trap": "CEPAT",
+                    "trap": "BERHASIL",
                     "openIndices": [
                             0,
-                            2
+                            1,
+                            2,
+                            3
                     ],
                     "clues": [
-                            "Jangan sok puitis bilang sukses atau berhasil!",
-                            "Namanya juga lari maraton nggak berhenti-berhenti!"
+                            "Jangan terlalu optimis bilang sukses!",
+                            "Bayangkan kamu disuruh lari terus bertahun-tahun tanpa istirahat!"
                     ],
-                    "reason": "C-?-P-?-? bukan CEPAT! Kalau lari terus ya pasti CAPEK — istirahat dulu minum es teh!"
+                    "reason": "B-E-R-H-?-?-?-? bukan BERHASIL! Lari terus nggak ada jeda ujung-ujungnya pasti BERHENTI dulu buat minum es teh!"
             },
             {
                     "id": 38,
                     "category": "Motivasi Cak Lontong",
-                    "question": "\"Orang bijak selalu belajar dari kesalahan. Maka dari itu, supaya hidupmu makin bijak, sering-seringlah berbuat...\"",
+                    "question": "\"Orang bijak selalu belajar dari kesalahan. Maka dari itu, supaya hidupmu makin bijak dan penuh hikmah, sering-seringlah...\"",
                     "answer": "SALAH",
                     "isTwist": true,
                     "trap": "SABAR",
@@ -656,43 +668,43 @@
                     ],
                     "clues": [
                             "Ikuti logika kalimat pertamanya secara harfiah!",
-                            "Kalau nggak pernah melakukannya, mau belajar dari mana?!"
+                            "Kalau kamu benar terus, nanti nggak punya bahan buat belajar!"
                     ],
-                    "reason": "S-A-?-A-? bukan SABAR! Kalau kamu benar terus, nanti nggak punya bahan pelajaran buat jadi orang bijak!"
+                    "reason": "S-A-?-?-? bukan SABAR! Kalau nggak pernah berbuat SALAH, nanti mau belajar jadi orang bijak dari mana?!"
             },
             {
                     "id": 39,
                     "category": "Motivasi Cak Lontong",
-                    "question": "\"Saat istri tiba-tiba bilang 'Terserah Mas mau makan di mana', langkah paling aman bagi suami yang bijaksana adalah segera...\"",
+                    "question": "\"Saat istri tiba-tiba bilang 'Terserah Mas mau makan di mana', reaksi paling bijak dari seorang suami berpengalaman biasanya langsung...\"",
                     "answer": "PULANG",
                     "isTwist": true,
                     "trap": "PUSING",
                     "openIndices": [
                             0,
+                            4,
                             5
                     ],
                     "clues": [
-                            "Daripada salah tebak restoran dan bikin perang dingin di mobil.",
-                            "Ujung-ujungnya masak mie instan di dapur sendiri!"
+                            "Daripada salah tebak restoran lalu perang dingin di dalam mobil.",
+                            "Ujung-ujungnya paling aman masak mie instan di dapur sendiri!"
                     ],
-                    "reason": "P-?-?-?-N-G bukan cuma PUSING! Solusi paling aman menghadapi jebakan \"terserah\" adalah langsung PULANG!"
+                    "reason": "P-?-?-?-N-G bukan cuma PUSING! Menghadapi jebakan \"terserah\", solusi paling aman adalah langsung PULANG!"
             },
             {
                     "id": 40,
                     "category": "Motivasi Cak Lontong",
-                    "question": "\"Tamu yang berkunjung ke rumah orang lain lebih dari 2x24 jam wajib...\"",
+                    "question": "\"Tamu yang berkunjung ke rumah orang lain lebih dari 2x24 jam sebaiknya segera...\"",
                     "answer": "PAMIT",
                     "isTwist": true,
-                    "trap": "PATUT",
+                    "trap": "PERGI",
                     "openIndices": [
-                            0,
-                            4
+                            0
                     ],
                     "clues": [
-                            "Bukan lapor Pak RT dulu.",
-                            "Masa nginep dua hari dua malam nggak bilang-bilang pas mau keluar rumah?!"
+                            "Jangan asal menghilang kabur lewat pagar begitu saja!",
+                            "Minimal salaman dan bilang terima kasih dulu sama tuan rumah!"
                     ],
-                    "reason": "P-A-?-?-T bukan PATUT! Sudah 2x24 jam nginep ya wajib PAMIT sebelum pulang!"
+                    "reason": "P-?-?-?-? bukan langsung PERGI ngilang kayak tuyul! Udah nginep 2x24 jam ya wajib PAMIT dulu!"
             }
     ];
 
