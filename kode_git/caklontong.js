@@ -29,7 +29,6 @@
                     "trap": "DOKTER",
                     "openIndices": [
                             0,
-                            3,
                             5
                     ],
                     "clues": [
@@ -184,13 +183,9 @@
                     "question": "Ibu Ani punya 4 orang anak: Mei, Juni, Juli, dan anak bungsunya lahir tepat di bulan delapan. Siapakah nama anak keempat Ibu Ani?",
                     "answer": "TIDAK TAHU",
                     "isTwist": true,
-                    "trap": "TIDAK SATU",
+                    "trap": "TANIA RATU",
                     "openIndices": [
                             0,
-                            1,
-                            2,
-                            3,
-                            4,
                             7,
                             9
                     ],
@@ -209,7 +204,6 @@
                     "trap": "RUDI",
                     "openIndices": [
                             1,
-                            2,
                             3
                     ],
                     "clues": [
@@ -227,8 +221,7 @@
                     "trap": "BARAT",
                     "openIndices": [
                             0,
-                            1,
-                            3
+                            1
                     ],
                     "clues": [
                             "Jangan pakai kompas atau hitung derajat putaran!",
@@ -245,8 +238,6 @@
                     "trap": "DUA BARIS",
                     "openIndices": [
                             0,
-                            1,
-                            2,
                             4,
                             8
                     ],
@@ -299,10 +290,7 @@
                     "trap": "BERGANTI",
                     "openIndices": [
                             0,
-                            1,
-                            2,
                             5,
-                            6,
                             7
                     ],
                     "clues": [
@@ -320,7 +308,6 @@
                     "trap": "KOSONG",
                     "openIndices": [
                             3,
-                            4,
                             5
                     ],
                     "clues": [
@@ -338,7 +325,6 @@
                     "trap": "CHATTING",
                     "openIndices": [
                             0,
-                            6,
                             7
                     ],
                     "clues": [
@@ -356,10 +342,6 @@
                     "trap": "SUDAH BAIK",
                     "openIndices": [
                             0,
-                            1,
-                            2,
-                            3,
-                            4,
                             7
                     ],
                     "clues": [
@@ -377,7 +359,6 @@
                     "trap": "AMAN BAIK",
                     "openIndices": [
                             0,
-                            2,
                             8
                     ],
                     "clues": [
@@ -395,7 +376,6 @@
                     "trap": "MEWAH",
                     "openIndices": [
                             0,
-                            3,
                             4
                     ],
                     "clues": [
@@ -414,7 +394,6 @@
                     "openIndices": [
                             0,
                             1,
-                            3,
                             5
                     ],
                     "clues": [
@@ -432,8 +411,7 @@
                     "trap": "MAJU",
                     "openIndices": [
                             0,
-                            1,
-                            3
+                            1
                     ],
                     "clues": [
                             "Kalau teriak sendirian jelas nggak berani.",
@@ -467,8 +445,6 @@
                     "trap": "BUKAN",
                     "openIndices": [
                             0,
-                            1,
-                            3,
                             4
                     ],
                     "clues": [
@@ -486,8 +462,6 @@
                     "trap": "PATUH",
                     "openIndices": [
                             1,
-                            2,
-                            3,
                             4
                     ],
                     "clues": [
@@ -505,8 +479,7 @@
                     "trap": "DIEM",
                     "openIndices": [
                             0,
-                            1,
-                            3
+                            1
                     ],
                     "clues": [
                             "Jangan pikirkan hewan tertentu kayak kucing atau bebek.",
@@ -524,7 +497,6 @@
                     "openIndices": [
                             0,
                             1,
-                            3,
                             4
                     ],
                     "clues": [
@@ -542,7 +514,6 @@
                     "trap": "PINDAH",
                     "openIndices": [
                             0,
-                            4,
                             5
                     ],
                     "clues": [
@@ -577,7 +548,6 @@
                     "trap": "DUA ITU",
                     "openIndices": [
                             0,
-                            2,
                             4,
                             6
                     ],
@@ -596,12 +566,7 @@
                     "trap": "SALDO KURANG",
                     "openIndices": [
                             0,
-                            1,
-                            2,
-                            3,
-                            4,
                             6,
-                            10,
                             11
                     ],
                     "clues": [
@@ -619,7 +584,6 @@
                     "trap": "BUBAR",
                     "openIndices": [
                             0,
-                            3,
                             4
                     ],
                     "clues": [
@@ -637,7 +601,6 @@
                     "trap": "PASRAH",
                     "openIndices": [
                             0,
-                            4,
                             5
                     ],
                     "clues": [
@@ -689,8 +652,7 @@
                     "trap": "SABAR",
                     "openIndices": [
                             0,
-                            1,
-                            3
+                            1
                     ],
                     "clues": [
                             "Ikuti logika kalimat pertamanya secara harfiah!",
@@ -707,7 +669,6 @@
                     "trap": "PUSING",
                     "openIndices": [
                             0,
-                            4,
                             5
                     ],
                     "clues": [
@@ -725,7 +686,6 @@
                     "trap": "PATUT",
                     "openIndices": [
                             0,
-                            1,
                             4
                     ],
                     "clues": [
