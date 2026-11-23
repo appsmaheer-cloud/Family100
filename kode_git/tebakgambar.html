@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tebak Gambar — Ilusi &amp; Mind Blowing</title>
+    <link rel="icon" type="image/svg+xml" href="tebakgambar-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=26">
+    <style>
+        .tg-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 12px;
+            border-radius: 999px;
+            background: #F3E8FF;
+            border: 1px solid #DDD6FE;
+            color: #6D28D9;
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+        .tg-canvas-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 12px 16px;
+            min-height: 196px;
+            box-shadow: inset 0 2px 6px rgba(15, 23, 42, 0.03);
+        }
+        .tg-canvas-wrap svg {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            max-height: 205px;
+            display: block;
+        }
+        .tg-tiles-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px 16px;
+            padding: 12px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+        }
+        .tg-word-group {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+        }
+        .tg-tile {
+            width: clamp(38px, 4.4vw, 54px);
+            height: clamp(44px, 5vw, 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+            font-size: clamp(1.25rem, 2vw, 1.8rem);
+            font-weight: 900;
+            border-radius: 10px;
+            border: 2px solid #7C3AED;
+            background: linear-gradient(180deg, #7C3AED 0%, #5B21B6 100%);
+            color: #FFFFFF;
+            box-shadow: 0 4px 10px rgba(124, 58, 237, 0.22);
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.16s ease, background 0.2s ease;
+        }
+        .tg-tile.hidden-letter {
+            color: rgba(255, 255, 255, 0.35);
+        }
+        .tg-tile.hidden-letter:hover {
+            transform: translateY(-2px) scale(1.05);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .tg-tile.clue {
+            background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+            border-color: #FBBF24;
+            color: #FFFFFF;
+        }
+        .tg-tile.revealed {
+            background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+            border-color: #6EE7B7;
+            cursor: default;
+        }
+        .tg-reason-box {
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: #F5F3FF;
+            border: 1.5px solid #DDD6FE;
+            color: #4C1D95;
+            font-size: 0.94rem;
+            line-height: 1.45;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .tg-reason-box[hidden] { display: none; }
+        .tg-reason-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #7C3AED;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .tg-meta-chips {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .tg-chip {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: #F5F3FF;
+            border: 1px solid #DDD6FE;
+            color: #5B21B6;
+        }
+        .tg-clue-btn {
+            font-family: inherit;
+            cursor: pointer;
+            background: #FFFBEB;
+            border-color: #FDE68A;
+            color: #92400E;
+        }
+        .tg-clue-btn:hover {
+            background: #FEF3C7;
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-logo-wrap">
+                <img src="tebakgambar-logo.svg" alt="Logo Tebak Gambar Mind Blowing" class="brand-logo" style="width:auto; height:44px;">
+            </div>
+            <div>
+                <h1 class="brand-title">Tebak Gambar <span class="tg-badge">MIND BLOWING!</span></h1>
+                <p class="brand-sub">Ilusi Optik • Rebus Plesetan • Tebak Sudut Pandang</p>
+            </div>
+        </div>
+
+        <div class="topbar-controls">
+            <label for="tg-category" class="sr-only">Pilih Kategori</label>
+            <select id="tg-category" class="select-control" aria-label="Pilih Kategori Gambar" style="max-width: 190px;"></select>
+            <label for="tg-select" class="sr-only">Pilih Soal Gambar</label>
+            <select id="tg-select" class="select-control" aria-label="Pilih Soal Gambar"></select>
+            <button type="button" id="tg-random" class="btn btn-secondary">Acak Soal</button>
+            <a href="../index.html" class="btn btn-secondary" style="text-decoration:none;" title="Kembali ke Halaman Pilih Game">🏠 Pilih Game</a>
+            <a href="index.html" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Pindah ke Family 100"><img src="family100-logo.svg" alt="Family 100" style="height:22px; width:auto; border-radius:4px;"><span>Family 100</span></a>
+            <a href="caklontong.html" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Pindah ke TTS Cak Lontong"><img src="caklontong-logo.svg" alt="Cak Lontong" style="height:22px; width:auto; border-radius:4px;"><span>Cak Lontong</span></a>
+            <button type="button" id="tg-hp-btn" class="btn btn-secondary" title="Buka Contekan & Clue di HP">📱 Contekan HP</button>
+            <button type="button" id="tg-sound" class="btn btn-icon" aria-pressed="true" title="Suara Aktif">🔊</button>
+            <button type="button" id="tg-fullscreen" class="btn btn-icon" title="Layar Penuh">⛶</button>
+        </div>
+    </header>
+
+    <main class="stage">
+        <section id="studio-arena" class="studio-arena">
+            <aside class="panel studio-wing wing-left" aria-label="Podium Kiri">
+                <span class="wing-label">PODIUM KIRI</span>
+                <div id="teams-left" class="wing-podiums"></div>
+            </aside>
+
+            <div class="studio-center">
+                <section class="studio-screen tv-cabinet" aria-label="Layar TV Tebak Gambar">
+                    <div class="tv-top-bar">
+                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> MIND BLOWING • STUDIO</span>
+                        <span class="tv-brand-pill">🖼️ TEBAK GAMBAR LOGIKA &amp; ILUSI</span>
+                        <span class="tv-survey-pill" id="tg-count-badge">16 GAMBAR</span>
+                    </div>
+
+                    <div class="tv-display" style="grid-template-rows: auto auto auto auto auto auto auto auto; align-content: center; gap: 9px;">
+                        <div class="question-banner" style="padding: 10px 16px;">
+                            <span id="tg-q-num" class="question-badge">Gambar #1</span>
+                            <h2 id="tg-q-text" class="question-text" style="font-size: clamp(1rem, 1.5vw, 1.28rem);">Memuat gambar...</h2>
+                        </div>
+
+                        <div id="tg-canvas" class="tg-canvas-wrap" aria-label="Ilustrasi Tebak Gambar"></div>
+
+                        <div class="tg-meta-chips">
+                            <span class="tg-chip" id="tg-length-chip">Panjang: 0 Huruf</span>
+                            <button type="button" class="tg-chip tg-clue-btn" id="tg-clue-chip" title="Klik untuk membuka clue sedikit demi sedikit">🤫 Clue Tersembunyi (Klik buka 1/2)</button>
+                        </div>
+
+                        <div id="tg-hp-cheat-card" class="tg-reason-box" style="background: #f0fdf4; border-color: #86efac; text-align: left;" hidden>
+                            <div class="tg-reason-icon" style="background:#16a34a;">📱</div>
+                            <div style="display:flex; flex-direction:column; gap:4px; font-size:0.86rem; line-height:1.45; color:#14532d;">
+                                <strong style="color:#166534;">CONTEKAN HP HOST (RAHASIA)</strong>
+                                <div><strong>Jawaban Asli:</strong> <span id="tg-hp-answer" style="font-weight:800; color:#b91c1c; letter-spacing:1px;">-</span></div>
+                                <div><strong>Jebakan Mata:</strong> <span id="tg-hp-trap" style="font-weight:700; color:#92400e;">-</span></div>
+                                <div><strong>Clue 1:</strong> <span id="tg-hp-clue1">-</span></div>
+                                <div><strong>Clue 2:</strong> <span id="tg-hp-clue2">-</span></div>
+                                <div><strong>Fakta Mind-Blowing:</strong> <span id="tg-hp-reason">-</span></div>
+                            </div>
+                        </div>
+
+                        <div id="tg-tiles" class="tg-tiles-wrap" aria-live="polite"></div>
+
+                        <div id="tg-reason-box" class="tg-reason-box" hidden>
+                            <div class="tg-reason-icon">🤯</div>
+                            <div style="flex:1;">
+                                <strong style="display:block; margin-bottom:2px;">🤯 Kenapa Bisa Gitu?! (Fakta Mind-Blowing):</strong>
+                                <div id="tg-reason-text"></div>
+                            </div>
+                        </div>
+
+                        <div class="turn-bar" id="tg-turn-bar">
+                            <span class="turn-dot"></span>
+                            <span id="active-turn-label">Giliran Menjawab: Tim Merah</span>
+                        </div>
+
+                        <form id="tg-form" class="answer-form" autocomplete="off">
+                            <input type="text" id="tg-input" class="answer-input" placeholder="Ketik jawaban tebakan gambarnya di sini..." maxlength="60" required>
+                            <button type="submit" id="btn-submit" class="btn btn-primary">Cek Jawaban</button>
+                        </form>
+                        <p id="tg-feedback" class="feedback-msg" role="status" aria-live="polite"></p>
+                    </div>
+                </section>
+
+                <div class="panel studio-controls-bar">
+                    <button type="button" id="btn-add-team" class="btn btn-primary btn-sm">+ Tambah Tim</button>
+                    <button type="button" id="tg-hint-letter" class="btn btn-secondary btn-sm">💡 Buka 1 Huruf</button>
+                    <button type="button" id="tg-tetot" class="btn btn-danger btn-sm">✕ KENA PRANK! (Salah)</button>
+                    <button type="button" id="tg-reveal" class="btn btn-secondary btn-sm">🤯 Buka Jawaban &amp; Bukti</button>
+                    <button type="button" id="tg-next" class="btn btn-secondary btn-sm">Gambar Berikutnya ➡</button>
+                    <button type="button" id="tg-reset-scores" class="btn btn-secondary btn-sm">Reset Skor</button>
+                </div>
+            </div>
+
+            <aside class="panel studio-wing wing-right" aria-label="Podium Kanan">
+                <span class="wing-label">PODIUM KANAN</span>
+                <div id="teams-right" class="wing-podiums"></div>
+            </aside>
+        </section>
+    </main>
+
+    <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
+    <div id="wrong-overlay" class="wrong-overlay" aria-hidden="true">
+        <div class="wrong-x-wrap">
+            <div class="wrong-x">✕</div>
+            <div class="wrong-label">KETIPU MATA!</div>
+        </div>
+    </div>
+
+    <div id="tg-hp-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="tg-hp-modal-title" hidden>
+        <div class="modal-card">
+            <div class="modal-head">
+                <h2 id="tg-hp-modal-title">📱 Contekan &amp; Clue di HP Host</h2>
+                <button type="button" id="tg-hp-close" class="btn btn-icon" aria-label="Tutup">&times;</button>
+            </div>
+            <div class="modal-body" style="display:flex; flex-direction:column; gap:12px;">
+                <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">
+                    Buka link ini di HP Host untuk melihat Jawaban Asli, Jebakan Mata, Clue 1/2, dan Fakta Mind-Blowing tanpa bocor ke layar TV!
+                </p>
+                <div style="display:flex; gap:8px;">
+                    <input type="text" id="tg-hp-url" class="answer-input" readonly style="font-size:0.8rem;">
+                    <button type="button" id="tg-copy-hp-url" class="btn btn-primary btn-sm">Salin Link</button>
+                </div>
+                <div style="display:flex; justify-content:flex-end; gap:8px;">
+                    <a id="tg-open-hp-tab" href="?mode=host" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="text-decoration:none;">Buka Mode HP di Tab Baru</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="tebakgambar.js?v=1"></script>
+</body>
+</html>

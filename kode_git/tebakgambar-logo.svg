@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" role="img" aria-label="Logo Tebak Gambar Mind Blowing">
+  <defs>
+    <linearGradient id="tgBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#311042"/>
+      <stop offset="55%" stop-color="#6D28D9"/>
+      <stop offset="100%" stop-color="#DB2777"/>
+    </linearGradient>
+    <linearGradient id="tgAccent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="216" height="60" rx="14" fill="url(#tgBg)" stroke="url(#tgAccent)" stroke-width="3"/>
+  <!-- Visual Eye / Picture Frame Icon -->
+  <g transform="translate(13, 12)">
+    <rect x="0" y="0" width="42" height="40" rx="8" fill="#FFFFFF" stroke="#FDE047" stroke-width="2"/>
+    <path d="M5 32 L16 17 L24 27 L30 20 L37 32 Z" fill="#7C3AED"/>
+    <circle cx="29" cy="11" r="4.5" fill="#F59E0B"/>
+    <circle cx="38" cy="4" r="7" fill="#EC4899" stroke="#FFFFFF" stroke-width="1.5"/>
+    <text x="38" y="7.5" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="9" font-weight="900" fill="#FFFFFF">?</text>
+  </g>
+  <!-- Title -->
+  <text x="66" y="27" font-family="Arial Black, Segoe UI, sans-serif" font-size="14.5" font-weight="900" fill="#FFFFFF" letter-spacing="0.3">TEBAK GAMBAR</text>
+  <rect x="66" y="34" width="140" height="19" rx="9.5" fill="url(#tgAccent)"/>
+  <text x="136" y="47" text-anchor="middle" font-family="Arial, Segoe UI, sans-serif" font-size="10" font-weight="900" fill="#1E1B4B" letter-spacing="0.6">ILUSI &amp; MIND BLOWING</text>
+</svg>
