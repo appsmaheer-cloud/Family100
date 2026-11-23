@@ -1154,10 +1154,14 @@
         el.qNum.textContent = `Soal #${state.currentIndex + 1} / ${CAK_LONTONG_QUESTIONS.length}`;
         if (el.countBadge) el.countBadge.textContent = `${CAK_LONTONG_QUESTIONS.length} SOAL`;
 
-        if (state.questionHidden && !state.isSolved) {
-            el.qText.textContent = '🙈 Soal masih ditutup Host — buka kartu huruf dulu sebelum soal diberikan!';
+        if (state.questionHidden && !state.isSolved && !isHostMode) {
+            el.qText.textContent = '🙈 Soal masih ditutup Host — klik teks ini atau tombol Buka Soal untuk menampilkan!';
+            el.qText.style.cursor = 'pointer';
+            el.qText.title = 'Klik untuk tampilkan soal';
         } else {
             el.qText.textContent = q.question;
+            el.qText.style.cursor = '';
+            el.qText.title = '';
         }
         if (el.btnToggleQuestion) {
             el.btnToggleQuestion.textContent = state.questionHidden ? '👁️ Buka Soal' : '🙈 Tutup Soal';
@@ -1247,6 +1251,7 @@
         const q = CAK_LONTONG_QUESTIONS[idx];
         state.openedLetters = getInitialOpenedSet(q);
         state.clueStage = 0;
+        state.questionHidden = false;
         state.isSolved = false;
         el.feedback.textContent = '';
         el.feedback.className = 'feedback-msg';
@@ -1380,6 +1385,12 @@
                 renderQuestion();
             });
         }
+        el.qText?.addEventListener('click', () => {
+            if (state.questionHidden) {
+                state.questionHidden = false;
+                renderQuestion();
+            }
+        });
         el.btnHintLetter.addEventListener('click', () => {
             const q = CAK_LONTONG_QUESTIONS[state.currentIndex];
             if (!q || state.isSolved) return;
