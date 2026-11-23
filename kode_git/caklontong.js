@@ -10,7 +10,6 @@
                     "isTwist": true,
                     "trap": "LANGIT",
                     "openIndices": [
-                            0,
                             5
                     ],
                     "clues": [
@@ -27,7 +26,6 @@
                     "isTwist": true,
                     "trap": "DOKTER",
                     "openIndices": [
-                            0,
                             5
                     ],
                     "clues": [
@@ -44,7 +42,6 @@
                     "isTwist": true,
                     "trap": "GUNTING",
                     "openIndices": [
-                            0,
                             3
                     ],
                     "clues": [
@@ -61,7 +58,6 @@
                     "isTwist": true,
                     "trap": "TANGAN",
                     "openIndices": [
-                            0,
                             2
                     ],
                     "clues": [
@@ -78,7 +74,6 @@
                     "isTwist": true,
                     "trap": "RAZIA",
                     "openIndices": [
-                            0,
                             1
                     ],
                     "clues": [
@@ -95,7 +90,6 @@
                     "isTwist": true,
                     "trap": "LEWAT",
                     "openIndices": [
-                            0,
                             4
                     ],
                     "clues": [
@@ -112,7 +106,6 @@
                     "isTwist": true,
                     "trap": "SOPIR",
                     "openIndices": [
-                            0,
                             4
                     ],
                     "clues": [
@@ -129,7 +122,6 @@
                     "isTwist": true,
                     "trap": "KAMAR",
                     "openIndices": [
-                            0,
                             4
                     ],
                     "clues": [
@@ -146,7 +138,6 @@
                     "isTwist": true,
                     "trap": "MINUM",
                     "openIndices": [
-                            0,
                             4
                     ],
                     "clues": [
@@ -163,7 +154,6 @@
                     "isTwist": true,
                     "trap": "MUKA",
                     "openIndices": [
-                            0,
                             3
                     ],
                     "clues": [
@@ -196,7 +186,6 @@
                     "isTwist": true,
                     "trap": "BARAT",
                     "openIndices": [
-                            0,
                             3
                     ],
                     "clues": [
@@ -213,7 +202,6 @@
                     "isTwist": true,
                     "trap": "BERLARI",
                     "openIndices": [
-                            0,
                             6
                     ],
                     "clues": [
@@ -246,7 +234,6 @@
                     "isTwist": true,
                     "trap": "DIDORONG",
                     "openIndices": [
-                            0,
                             1
                     ],
                     "clues": [
@@ -263,7 +250,6 @@
                     "isTwist": true,
                     "trap": "SAKIT",
                     "openIndices": [
-                            0,
                             4
                     ],
                     "clues": [
@@ -280,7 +266,6 @@
                     "isTwist": true,
                     "trap": "BERGANTI",
                     "openIndices": [
-                            0,
                             7
                     ],
                     "clues": [
@@ -297,7 +282,6 @@
                     "isTwist": true,
                     "trap": "KOSONG",
                     "openIndices": [
-                            3,
                             5
                     ],
                     "clues": [
@@ -314,7 +298,6 @@
                     "isTwist": true,
                     "trap": "CHATTING",
                     "openIndices": [
-                            0,
                             7
                     ],
                     "clues": [
@@ -331,7 +314,6 @@
                     "isTwist": true,
                     "trap": "ORANG BAIK",
                     "openIndices": [
-                            0,
                             7
                     ],
                     "clues": [
@@ -348,7 +330,6 @@
                     "isTwist": true,
                     "trap": "PAHAM",
                     "openIndices": [
-                            0,
                             1
                     ],
                     "clues": [
@@ -365,7 +346,6 @@
                     "isTwist": true,
                     "trap": "MEWAH",
                     "openIndices": [
-                            0,
                             4
                     ],
                     "clues": [
@@ -382,7 +362,6 @@
                     "isTwist": true,
                     "trap": "KEPALA",
                     "openIndices": [
-                            0,
                             5
                     ],
                     "clues": [
@@ -431,7 +410,6 @@
                     "isTwist": true,
                     "trap": "TURUN",
                     "openIndices": [
-                            0,
                             3
                     ],
                     "clues": [
@@ -480,7 +458,6 @@
                     "isTwist": true,
                     "trap": "PEDAS",
                     "openIndices": [
-                            0,
                             3
                     ],
                     "clues": [
@@ -497,7 +474,6 @@
                     "isTwist": true,
                     "trap": "PINDAH",
                     "openIndices": [
-                            0,
                             5
                     ],
                     "clues": [
@@ -530,7 +506,6 @@
                     "isTwist": true,
                     "trap": "MANTEL",
                     "openIndices": [
-                            0,
                             3
                     ],
                     "clues": [
@@ -547,8 +522,7 @@
                     "isTwist": true,
                     "trap": "MAKANAN",
                     "openIndices": [
-                            0,
-                            5
+                            11
                     ],
                     "clues": [
                             "Saldonya tinggal Rp 4.000 — nggak cukup buat nasi padang!",
@@ -564,7 +538,6 @@
                     "isTwist": true,
                     "trap": "BUBAR",
                     "openIndices": [
-                            0,
                             4
                     ],
                     "clues": [
@@ -581,7 +554,6 @@
                     "isTwist": true,
                     "trap": "PASRAH",
                     "openIndices": [
-                            0,
                             5
                     ],
                     "clues": [
@@ -598,7 +570,6 @@
                     "isTwist": true,
                     "trap": "KURANG",
                     "openIndices": [
-                            0,
                             5
                     ],
                     "clues": [
@@ -615,7 +586,6 @@
                     "isTwist": true,
                     "trap": "BERHASIL",
                     "openIndices": [
-                            0,
                             3
                     ],
                     "clues": [
@@ -632,7 +602,6 @@
                     "isTwist": true,
                     "trap": "SABAR",
                     "openIndices": [
-                            0,
                             1
                     ],
                     "clues": [
@@ -649,7 +618,6 @@
                     "isTwist": true,
                     "trap": "PUSING",
                     "openIndices": [
-                            0,
                             5
                     ],
                     "clues": [

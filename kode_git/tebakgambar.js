@@ -9,7 +9,7 @@
             question: 'Perhatikan garis tengah (warna hitam) pada gambar ATAS dan BAWAH. Garis mana yang ukurannya lebih panjang?',
             answer: 'SAMA PANJANG',
             trap: 'GARIS BAWAH',
-            openIndices: [0, 5], // S ? ? ?  P ? ? ? ? ? ? ?
+            openIndices: [5], // S ? ? ?  P ? ? ? ? ? ? ?
             clues: [
                 'Jangan percaya 100% sama penglihatan mata dari panahnya!',
                 'Coba ukur ujung garis hitam kiri dan kanan kedua garis pakai jari atau penggaris!'
@@ -42,7 +42,7 @@
             question: 'Perhatikan lingkaran ORANYE di tengah KIRI dan KANAN. Lingkaran oranye mana yang diameternya lebih besar?',
             answer: 'SAMA BESAR',
             trap: 'YANG KANAN',
-            openIndices: [0, 5], // S ? ? ?  B ? ? ? ?
+            openIndices: [5], // S ? ? ?  B ? ? ? ?
             clues: [
                 'Fokus cuma ke lingkaran ORANYE-nya, abaikan bulatan biru di sekitarnya!',
                 'Tutup bulatan birunya pakai tangan — kelihatan bedanya atau sama?'
@@ -81,7 +81,7 @@
             question: 'Bandingkan warna abu-abu KOTAK A dan KOTAK B secara langsung. Mana yang kode warnanya lebih terang?',
             answer: 'SAMA WARNA',
             trap: 'KOTAK B',
-            openIndices: [0, 5],
+            openIndices: [5],
             clues: [
                 'Mata kita terkecoh karena Kotak B berada di area bayangan silinder!',
                 'Tutup kotak sekitarnya pakai kertas/jari dan lihat cuma kotak A & B!'
@@ -145,7 +145,7 @@
             question: 'Perhatikan garis abu-abu mendatar di antara kotak hitam-putih ini. Apakah garis mendatar tersebut lurus sejajar atau miring bengkok?',
             answer: 'LURUS SEJAJAR',
             trap: 'MIRING BENGKOK',
-            openIndices: [0, 6],
+            openIndices: [6],
             clues: [
                 'Jangan lihat kotak-kotak hitam putihnya!',
                 'Miringkan layar HP/kepalamu sedikit sejajar garis datar untuk melihat aslinya!'
@@ -179,7 +179,7 @@
             question: 'Perhatikan dua bentuk lengkung pelangi (ORANYE dan BIRU) yang ditumpuk ini. Bentuk mana yang ukurannya lebih besar?',
             answer: 'SAMA BESAR',
             trap: 'YANG BAWAH',
-            openIndices: [0, 5],
+            openIndices: [5],
             clues: [
                 'Sisi pendek bagian bawah ditaruh persis di atas sisi panjang gambar bawahnya!',
                 'Kalau digeser lurus sejajar, dua-duanya ukurannya...'
@@ -203,7 +203,7 @@
             question: 'Sekilas terlihat gambar PIALA PUTIH di tengah. Tapi fokuslah ke sisi hitam di kiri dan kanan... sebenarnya mereka lagi ngapain?',
             answer: 'SALING TATAP',
             trap: 'PIALA EMAS',
-            openIndices: [0, 7],
+            openIndices: [7],
             clues: [
                 'Abaikan bentuk piala putih di tengah, lihat bayangan hitam di kiri dan kanan!',
                 'Keduanya punya hidung, dagu, dan bibir yang berhadap-hadapan!'
@@ -249,7 +249,7 @@
             question: 'Si Kiri berteriak itu angka 6! Si Kanan ngotot itu angka 9! Siapa sebenarnya yang paling tahu kebenaran angka aslinya?',
             answer: 'PEMBUATNYA',
             trap: 'PENGUKUR',
-            openIndices: [0, 9],
+            openIndices: [9],
             clues: [
                 'Bukan salah satu dari dua orang yang berdebat di kiri atau kanan!',
                 'Tanyakan ke orang yang pertama kali mengecat/menulis angka itu di lantai!'
@@ -277,7 +277,7 @@
             question: 'Tiga orang menutup mata lalu meraba seekor gajah di tempat gelap. Semua punya jawaban beda tapi semua merasa benar karena...',
             answer: 'BELUM LIHAT UTUH',
             trap: 'SALAH MEGANG',
-            openIndices: [0, 12],
+            openIndices: [12],
             clues: [
                 'Yang pegang belalai dikira ular, yang pegang kaki dikira pohon, yang pegang telinga dikira kipas!',
                 'Mereka masing-masing cuma melihat sebagian kecilnya!'
@@ -307,7 +307,7 @@
             question: 'Jam weker sudah bunyi nyaring jam 06.00 pagi tepat! Tapi dari gerakan di gambar ini, kalimat yang keluar dari mulutnya pasti...',
             answer: 'LIMA MENIT LAGI',
             trap: 'BANGUN PAGI',
-            openIndices: [0, 5],
+            openIndices: [5],
             clues: [
                 'Tangannya malah nekan tombol SNOOZE terus tarik selimut lagi!',
                 'Janji palsu sejuta umat tiap pagi hari kerja!'
@@ -337,7 +337,7 @@
             question: 'Tebak ungkapan khas anak kantor dari kombinasi gambar dan kejadian berikut!',
             answer: 'KAMBING HITAM',
             trap: 'HEWAN HITAM',
-            openIndices: [0, 8],
+            openIndices: [8],
             clues: [
                 'Lihat warnanya + posisinya sebagai karyawan paling baru di rapat!',
                 'Sering dijadikan pihak yang disalahkan setiap kali ada masalah!'
@@ -368,7 +368,7 @@
             question: 'Lihat gambar pintu minimarket bertuliskan DORONG, tapi orangnya malah menarik sekuat tenaga. Kenapa?',
             answer: 'MALAS BACA',
             trap: 'BUKA PINTU',
-            openIndices: [0, 6],
+            openIndices: [6],
             clues: [
                 'Bukan karena pintunya macet atau terkunci.',
                 'Tulisannya sudah gede banget berwarna merah, tapi diabaikan matanya!'
@@ -394,7 +394,7 @@
             question: 'Dompet terbuka dengan sarang laba-laba (Rp 0) + Kalender angka 28 merah. Tebak frasanya!',
             answer: 'TANGGAL TUA',
             trap: 'DOMPET KOSONG',
-            openIndices: [0, 8],
+            openIndices: [8],
             clues: [
                 'Fokus ke angka di kalendernya + kondisi isi dompetnya!',
                 'Dua kata paling keramat bagi anak kos dan karyawan!'
@@ -420,7 +420,7 @@
             question: 'Seekor udang bersembunyi di belakang batu besar. Tebak makna peribahasa (bukan benda harfiahnya!)',
             answer: 'ADA MAUNYA',
             trap: 'UDANG BATU',
-            openIndices: [0, 4],
+            openIndices: [4],
             clues: [
                 'Peribahasanya "Ada udang di balik batu" — apa arti aslinya?',
                 'Kalau teman tiba-tiba super baik ngasih kopi gratis, tandanya...'
