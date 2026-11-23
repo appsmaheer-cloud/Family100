@@ -6,17 +6,17 @@
                     "id": 1,
                     "category": "TTS (Teka-Teki Sulit)",
                     "question": "Air hujan yang mengguyur bumi biasanya turunnya...",
-                    "answer": "LAMBAT",
+                    "answer": "DARI MAGHRIB",
                     "isTwist": true,
-                    "trap": "LANGIT",
+                    "trap": "DARI MENDUNG",
                     "openIndices": [
-                            5
+                            0
                     ],
                     "clues": [
-                            "Bukan tempat asalnya di atas awan.",
-                            "Kalau baru rintik-rintik sebelum deras, berarti turunnya..."
+                            "Bukan \"dari langit\" atau \"dari awan mendung\"!",
+                            "Ini soal jam turunnya hujan di sore hari — kalau Ashar belum turun!"
                     ],
-                    "reason": "L-?-?-?-?-T bukan LANGIT! Hujan itu diawali gerimis pelan dulu baru deras, jadi turunnya LAMBAT!"
+                    "reason": "DARI MAGHRIB! Karena waktu Ashar belum turun, masih mendung doang — pas Maghrib baru mengguyur!"
             },
             {
                     "id": 2,
@@ -641,6 +641,171 @@
                             "Minimal salaman dan bilang terima kasih dulu sama tuan rumah!"
                     ],
                     "reason": "P-?-?-?-? bukan langsung PERGI ngilang kayak tuyul! Udah nginep 2x24 jam ya wajib PAMIT dulu!"
+            },
+            {
+                    "id": 41,
+                    "category": "Ice Breaking & Kantor",
+                    "question": "Saat makanan lezat sudah tersaji di meja restoran kantor dan siap disantap, barang pertama yang paling cepat diangkat semua karyawan adalah...",
+                    "answer": "PONSEL",
+                    "isTwist": true,
+                    "trap": "PIRING",
+                    "openIndices": [
+                            0
+                    ],
+                    "clues": [
+                            "Bukan alat makan atau gelas minum!",
+                            "Harus difoto dulu dari atas biar estetik buat story sebelum dimakan!"
+                    ],
+                    "reason": "P-?-?-?-?-? bukan PIRING! Belum juga nyendok nasi, semuanya langsung angkat PONSEL buat foto makanan dulu!"
+            },
+            {
+                    "id": 42,
+                    "category": "Ice Breaking & Kantor",
+                    "question": "Bos memanggil 5 pegawai yang telat jam 9 pagi ke ruangannya. Setelah selesai dinasihati, besok paginya siapa yang paling pertama membuka pintu masuk kantor?",
+                    "answer": "PENJAGA",
+                    "isTwist": true,
+                    "trap": "PEGAWAI",
+                    "openIndices": [
+                            0,
+                            1
+                    ],
+                    "clues": [
+                            "Bukan salah satu dari 5 karyawan yang dimarahi tadi!",
+                            "Dia pegang kunci gembok gerbang kantor sejak jam 6 subuh!"
+                    ],
+                    "reason": "P-E-?-?-?-?-? bukan PEGAWAI yang telat kemarin! Yang paling pagi buka pintu kantor jelas PENJAGA / satpam kantor!"
+            },
+            {
+                    "id": 43,
+                    "category": "Ice Breaking & Kantor",
+                    "question": "Supaya rapat online selama 4 jam di luar kantor tidak putus di tengah jalan tanpa kendala, hal paling penting yang wajib diisi penuh adalah...",
+                    "answer": "PERUT",
+                    "isTwist": true,
+                    "trap": "PULSA",
+                    "openIndices": [
+                            0
+                    ],
+                    "clues": [
+                            "Bukan soal kuota internet atau baterai laptop!",
+                            "Kalau rapat 4 jam sambil kelaparan nanti pingsan duluan!"
+                    ],
+                    "reason": "P-?-?-?-? bukan PULSA! Isi PERUT dulu sebelum rapat 4 jam biar suara keroncongan nggak bocor ke mikrofon!"
+            },
+            {
+                    "id": 44,
+                    "category": "Ice Breaking & Kantor",
+                    "question": "Ketika komputer kantor mendadak macet dan tidak bergerak saat dikejar deadline 5 menit lagi, bagian yang paling cepat terpancing adalah...",
+                    "answer": "EMOSI",
+                    "isTwist": true,
+                    "trap": "ENTER",
+                    "openIndices": [
+                            0
+                    ],
+                    "clues": [
+                            "Bukan tombol keyboard atau mouse-nya!",
+                            "Detak jantung naik dan tangan langsung pengen gebrak meja!"
+                    ],
+                    "reason": "E-?-?-?-? bukan tombol ENTER! Yang langsung kepencet duluan saat komputer hang pas deadline adalah EMOSI!"
+            },
+            {
+                    "id": 45,
+                    "category": "Ice Breaking & Kantor",
+                    "question": "Dalam lomba balap lari kantor, Andi berlari super kencang hingga berhasil menyalip peserta di posisi PALING TERAKHIR. Kini Andi berada di urutan...",
+                    "answer": "MUSTAHIL",
+                    "isTwist": true,
+                    "trap": "MENANGIS",
+                    "openIndices": [
+                            0
+                    ],
+                    "clues": [
+                            "Coba pikirkan baik-baik logikanya: pelari paling terakhir kan posisi paling belakang!",
+                            "Nggak ada pelari di belakang orang yang posisinya paling buncit!"
+                    ],
+                    "reason": "MUSTAHIL! Bagaimana cara menyalip orang yang ada di posisi paling terakhir kalau di belakangnya udah nggak ada siapa-siapa?!"
+            },
+            {
+                    "id": 46,
+                    "category": "Bapak-bapak & Generasi",
+                    "question": "Saat istri mengirim foto gamis baru di WhatsApp lalu bertanya \"Bagus yang warna biru atau merah Mas?\", jawaban jujur di lubuk hati bapak-bapak adalah...",
+                    "answer": "MAHAL",
+                    "isTwist": true,
+                    "trap": "MERAH",
+                    "openIndices": [
+                            0,
+                            3
+                    ],
+                    "clues": [
+                            "Bukan soal pilihan warnanya!",
+                            "Mata bapak-bapak langsung tertuju ke label angka di pojok kanan bawah!"
+                    ],
+                    "reason": "M-?-?-A-? bukan MERAH! Di mata bapak-bapak, warna apa pun yang difoto istri di toko itu jawabannya tetap MAHAL!"
+            },
+            {
+                    "id": 47,
+                    "category": "Bapak-bapak & Generasi",
+                    "question": "Jika anak muda zaman sekarang berfoto selalu senyum santai bergaya bebas, maka pose andalan bapak-bapak saat difoto formal selalu kaku seperti...",
+                    "answer": "KAYU",
+                    "isTwist": true,
+                    "trap": "KAKU",
+                    "openIndices": [
+                            0,
+                            1,
+                            3
+                    ],
+                    "clues": [
+                            "Tangan lurus menempel di samping celana tanpa bergerak sedikit pun!",
+                            "Benda keras dari batang pohon yang nggak bisa ditekuk!"
+                    ],
+                    "reason": "K-A-?-U bukan cuma KAKU! Bapak-bapak kalau disuruh foto tegak lurusnya udah kayak batang KAYU!"
+            },
+            {
+                    "id": 48,
+                    "category": "Bapak-bapak & Generasi",
+                    "question": "Jika bapak-bapak diundang rapat RT jam 19.30 dengan catatan \"Harap membawa pulpen\", maka benda yang paling cepat habis di meja rapat adalah...",
+                    "answer": "KACANG",
+                    "isTwist": true,
+                    "trap": "KERTAS",
+                    "openIndices": [
+                            0
+                    ],
+                    "clues": [
+                            "Bukan perlengkapan tulis-menulis atau notulen!",
+                            "Isinya dua butir di dalam kulit keras rebus, dimakan sambil ngobrol!"
+                    ],
+                    "reason": "K-?-?-?-?-? bukan KERTAS! Catatan rapatnya cuma dua baris, tapi KACANG rebus dan gorengan ludes dalam 10 menit!"
+            },
+            {
+                    "id": 49,
+                    "category": "Bapak-bapak & Generasi",
+                    "question": "Setiap tanggal tua, saat anak Gen Z dan Milenial membuka aplikasi pesan-antar makanan di HP, bagian yang paling pertama dicek adalah...",
+                    "answer": "DOMPET",
+                    "isTwist": true,
+                    "trap": "DISKON",
+                    "openIndices": [
+                            0
+                    ],
+                    "clues": [
+                            "Promo ongkir gratis sudah melambai-lambai di layar.",
+                            "Tapi tetap harus mengecek isi saldo tunai di saku celana dulu!"
+                    ],
+                    "reason": "D-?-?-?-?-? bukan DISKON doang! Diskon 90% pun percuma kalau pas cek DOMPET isinya cuma struk indomaret!"
+            },
+            {
+                    "id": 50,
+                    "category": "Bapak-bapak & Generasi",
+                    "question": "Seorang ayah membelikan sepeda baru berwarna merah, tapi anaknya malah menangis kencang saat didudukkan di joknya karena ternyata anaknya belum bisa...",
+                    "answer": "BERDIRI",
+                    "isTwist": true,
+                    "trap": "BERLARI",
+                    "openIndices": [
+                            0,
+                            6
+                    ],
+                    "clues": [
+                            "Usia anaknya masih sangat kecil sekali!",
+                            "Boro-boro mengayuh pedal, berdiri tegak di lantai saja belum mampu!"
+                    ],
+                    "reason": "B-?-?-?-?-?-I bukan BERLARI! Anaknya masih bayi 4 bulan — jangankan gowes sepeda, BERDIRI aja belum bisa!"
             }
     ];
 
