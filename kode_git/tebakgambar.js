@@ -15,25 +15,26 @@
     }
 
     const TEBAK_GAMBAR_QUESTIONS = [
-        // === 1. Foto Asli Hewan Menipu & Kamuflase (dengan Bukti Zoom/Spotlight!) ===
+        // === 1. Foto Asli Hewan Menipu & Kamuflase ===
         {
             id: 1,
             category: 'Foto Hewan Menipu',
-            question: 'Sekilas di foto ini terlihat seekor KUCING HITAM lagi menoleh ke samping! Coba perhatikan dua "telinga" runcing dan matanya lebih teliti... ternyata hewan asli di foto ini adalah seekor...',
+            question: 'Perhatikan foto halaman belakang rumah ini! Hewan apakah yang sebenarnya sedang menoleh di gambar?',
             answer: 'BURUNG',
+            acceptedAnswers: ['BURUNG', 'BURUNG GAGAK', 'GAGAK'],
             trap: 'KUCING',
-            openIndices: [5], // ? ? ? ? ? G (cocok untuk KUCING & BURUNG!)
+            openIndices: [5],
             clues: [
-                'Dua ujung runcing ke atas itu bukan telinga yang sedang tegak!',
-                'Itu adalah PARUH yang sedang menganga terbuka ke atas!'
+                'Coba zoom tatapan ke dua ujung runcing hitam yang menghadap ke atas!',
+                'Itu bukan telinga berbulu — melainkan paruh yang sedang menganga!'
             ],
-            reason: 'MIND BLOWING! Ternyata ini bukan KUCING HITAM, melainkan BURUNG GAGAK yang menengok ke samping dengan paruh terbuka ke atas mirip telinga kucing!',
+            reason: 'MIND BLOWING! Ternyata bukan KUCING HITAM, melainkan BURUNG GAGAK yang menengok ke samping dengan paruh terbuka ke atas mirip telinga kucing!',
             renderSvg: (solved) => renderPhotoStage({
                 src: 'hewan-crow-cat.jpg',
-                alt: 'Foto burung gagak tampak seperti kucing hitam',
+                alt: 'Foto sudut pandang hewan menipu',
                 solved,
-                preStyle: 'object-position: 55% 42%; filter: contrast(1.06) brightness(0.95);',
-                postStyle: 'object-position: 55% 42%; filter: contrast(1.05) brightness(1.12); transform: scale(1.04);',
+                preStyle: 'object-position: 62% 38%; transform: scale(1.36); transform-origin: 62% 40%; filter: contrast(1.08) brightness(0.92);',
+                postStyle: 'object-position: 50% 50%; transform: scale(1); filter: contrast(1.04) brightness(1.12);',
                 spotStyle: 'width: 78px; height: 78px; top: 24px; left: 53%;',
                 caption: 'BUKAN TELINGA KUCING — INI PARUH BURUNG GAGAK!'
             })
@@ -41,82 +42,86 @@
         {
             id: 2,
             category: 'Foto Hewan Menipu',
-            question: 'Jangan langsung teriak kaget melihat foto close-up di ranting hijau ini! Banyak yang mengira ini kepala ULAR HIJAU berbisa, padahal aslinya adalah seekor...',
+            question: 'Foto close-up di atas dahan hijau! Hewan apakah yang sedang berada tepat di depan kamera ini?',
             answer: 'ULAT',
+            acceptedAnswers: ['ULAT', 'ULAT BULU', 'LARVA'],
             trap: 'ULAR',
-            openIndices: [1], // ? L ? ? (cocok untuk ULAR & ULAT!)
+            openIndices: [1],
             clues: [
-                'Coba lihat ke bagian bawah lehernya: ada kaki-kaki mungil bergaris!',
-                'Dua "mata besar" hitam kuning itu cuma corak kamuflase kulit untuk menakuti predator!'
+                'Saat kamera dijauhkan nanti, terlihat kaki-kaki mungil di bagian bawah!',
+                'Mata hitam kuningnya cuma corak kulit palsu untuk menakuti predator!'
             ],
-            reason: 'MIND BLOWING! Ini bukan ULAR berbisa, melainkan ULAT hijau yang kepalanya menggembung bermotif mata palsu mirip kepala ular viper!',
+            reason: 'MIND BLOWING! Saat di-zoom memang 100% mirip kepala ULAR VIPER HIJAU, padahal aslinya adalah ULAT yang punya corak mata palsu di punggungnya!',
             renderSvg: (solved) => renderPhotoStage({
                 src: 'hewan-caterpillar-snake.jpg',
-                alt: 'Ulat bermotif mirip kepala ular',
+                alt: 'Foto close-up hewan di dahan',
                 solved,
-                preStyle: 'object-position: 45% 45%; transform: scale(1.12); transform-origin: 42% 48%;',
-                postStyle: 'object-position: 50% 50%; transform: scale(1);',
+                preStyle: 'transform: scale(1.88); transform-origin: 41% 45%;',
+                postStyle: 'transform: scale(1); transform-origin: 50% 50%;',
                 spotStyle: 'width: 84px; height: 64px; top: 108px; left: 37%;',
-                caption: 'LIHAT KAKI KECILNYA — INI ULAT, BUKAN ULAR!'
+                caption: 'ZOOM OUT: ADA KAKI MUNGILNYA — INI ULAT!'
             })
         },
         {
             id: 3,
             category: 'Foto Hewan Menipu',
-            question: 'Dua mata tajam yang menatap dari batang pohon gelap ini sekilas terlihat seperti wajah BURUNG HANTU! Jika kamera dijauhkan ke foto aslinya, hewan apakah sebenarnya ini?',
+            question: 'Wajah hewan apakah yang sedang menatap tajam ke arah kamera di foto ini?',
             answer: 'KUPU KUPU',
+            acceptedAnswers: ['KUPU KUPU', 'KUPU-KUPU', 'NGENGAT'],
             trap: 'BURUNG HANTU',
-            openIndices: [8], // ? ? ? ?  ? ? ? ? U
+            openIndices: [8],
             clues: [
-                'Itu bukan mata sungguhan — hanya bercak lingkaran simetris!',
-                'Ketika kamera dijauhkan, tampak sepasang sayap lebar bermotif mata!'
+                'Dua mata itu bukan bola mata asli — cuma motif lingkaran simetris!',
+                'Kalau kamera di-zoom out dan diputar, kelihatan sepasang sayap lebar!'
             ],
-            reason: 'MIND BLOWING! Saat di-zoom memang mirip wajah BURUNG HANTU, tapi aslinya adalah KUPU KUPU (Owl Butterfly) dengan motif mata palsu di sayapnya!',
+            reason: 'MIND BLOWING! Yang menatap kamera ternyata bukan BURUNG HANTU, melainkan sayap KUPU KUPU (Owl Butterfly) yang terbalik & di-zoom!',
             renderSvg: (solved) => renderPhotoStage({
                 src: 'hewan-butterfly-owl.jpg',
-                alt: 'Kupu-kupu bermotif mata burung hantu',
+                alt: 'Foto mata menatap kamera',
                 solved,
-                preStyle: 'transform: scale(1.75) rotate(180deg); transform-origin: 50% 60%; filter: brightness(0.92);',
+                preStyle: 'transform: scale(1.82) rotate(180deg); transform-origin: 50% 62%; filter: brightness(0.92);',
                 postStyle: 'transform: scale(1) rotate(0deg); transform-origin: 50% 50%; filter: brightness(1.05);',
-                caption: 'ZOOM OUT: TERNYATA KUPU-KUPU BERMOTIF MATA!'
+                caption: 'ZOOM OUT: TERNYATA SAYAP KUPU-KUPU!'
             })
         },
         {
             id: 4,
             category: 'Foto Hewan Menipu',
-            question: 'Foto asli tebing batu gunung salju ini terlihat kosong cuma isi batu abu-abu. Tapi ada satu hewan pemburu yang bersembunyi sempurna di tengah bebatuan! Hewan apakah itu?',
+            question: 'Foto tebing batu gunung salju! Ada 1 hewan liar yang bersembunyi dan ikut menatap ke kamera — hewan apakah itu?',
             answer: 'MACAN TUTUL',
+            acceptedAnswers: ['MACAN TUTUL', 'MACAN TUTUL SALJU', 'MACAN', 'LEOPARD'],
             trap: 'KAMBING GUNUNG',
-            openIndices: [10], // ? ? ? ? ?  ? ? ? ? L
+            openIndices: [10],
             clues: [
                 'Fokuslah ke area bebatuan tengah agak ke kanan atas!',
-                'Motif totol abu-abunya menyatu 99% dengan corak batu gunung!'
+                'Motif totol abu-abunya menyatu sempurna dengan batu gunung!'
             ],
-            reason: 'MIND BLOWING! Di tengah tebing batu itu ternyata ada MACAN TUTUL SALJU yang sedang menatap lurus ke arah kamera!',
+            reason: 'MIND BLOWING! Di tengah tebing batu itu ternyata ada MACAN TUTUL SALJU yang berkamuflase 99% sambil menatap lurus ke kamera!',
             renderSvg: (solved) => renderPhotoStage({
                 src: 'hewan-leopard-rock.jpg',
-                alt: 'Macan tutul salju berkamuflase di tebing batu',
+                alt: 'Tebing batu gunung',
                 solved,
                 preStyle: 'object-position: 50% 50%; transform: scale(1);',
-                postStyle: 'transform: scale(2.25); transform-origin: 62% 38%;',
+                postStyle: 'transform: scale(2.3); transform-origin: 62% 38%;',
                 caption: 'ZOOM KE TENGAH-KANAN: MACAN TUTUL SALJU!'
             })
         },
         {
             id: 5,
             category: 'Foto Hewan Menipu',
-            question: 'Sekilas terlihat cuma foto batang pohon berkulit kasar biasa. Padahal tepat di tengah celah kayu ada hewan bertelinga yang menyamar 99%! Hewan apakah itu?',
+            question: 'Foto batang pohon berkulit kasar di hutan. Tepat di tengah foto tersembunyi satu hewan — hewan apakah itu?',
             answer: 'BURUNG HANTU',
-            trap: 'CICAK POHON',
-            openIndices: [11], // ? ? ? ? ? ?  ? ? ? ? U
+            acceptedAnswers: ['BURUNG HANTU', 'SCREECH OWL'],
+            trap: 'TOKEK POHON',
+            openIndices: [11],
             clues: [
-                'Lihat tepat di rongga tengah vertikal: ada dua mata menyipit!',
-                'Aktif di malam hari, bulunya abu-abu persis guratan kulit kayu!'
+                'Lihat tepat di rongga tengah vertikal: ada dua mata sedang menyipit!',
+                'Bulunya abu-abu berpola persis guratan kulit batang kayu!'
             ],
             reason: 'MIND BLOWING! Seekor BURUNG HANTU sedang tidur menyipitkan mata tepat di celah batang pohon, nyaris tak terlihat dari kulit kayu!',
             renderSvg: (solved) => renderPhotoStage({
                 src: 'hewan-owl-bark.jpg',
-                alt: 'Burung hantu berkamuflase di kulit kayu pohon',
+                alt: 'Kulit batang pohon',
                 solved,
                 preStyle: 'object-position: 50% 45%; transform: scale(1);',
                 postStyle: 'transform: scale(1.45); transform-origin: 50% 44%;',
@@ -127,18 +132,19 @@
         {
             id: 6,
             category: 'Foto Hewan Menipu',
-            question: 'Sekilas cuma foto kelopak bunga anggrek pink yang mekar cantik di taman! Tapi coba perhatikan tepat di tengah kelopaknya... ternyata ada seekor...',
+            question: 'Perhatikan kelopak bunga anggrek pink di foto ini! Makhluk hidup apakah yang sebenarnya hinggap tepat di tengahnya?',
             answer: 'BELALANG',
-            trap: 'KUMBANG',
-            openIndices: [7], // ? ? ? ? ? ? ? G (cocok BELALANG & KUMBANG!)
+            acceptedAnswers: ['BELALANG', 'BELALANG SEMBAH', 'BELALANG ANGGREK', 'MANTIS'],
+            trap: 'BUNGA ANGGREK',
+            openIndices: [7],
             clues: [
-                'Keempat kakinya berbentuk pipih warna pink persis seperti kelopak bunga!',
-                'Namanya diawali B, dikenal sebagai serangga sembah pemburu!'
+                'Keempat kakinya berbentuk pipih warna pink persis kelopak bunga!',
+                'Dia dikenal sebagai serangga pemburu (belalang sembah)!'
             ],
-            reason: 'MIND BLOWING! Di atas bunga itu bersembunyi BELALANG SEMBAH ANGGREK berwarna putih-pink yang kakinya menyamar sempurna menjadi kelopak bunga!',
+            reason: 'MIND BLOWING! Di atas bunga itu hinggap BELALANG SEMBAH ANGGREK berwarna putih-pink yang kakinya menyamar sempurna menjadi kelopak bunga!',
             renderSvg: (solved) => renderPhotoStage({
                 src: 'hewan-mantis-orchid.jpg',
-                alt: 'Belalang sembah anggrek menyamar di bunga',
+                alt: 'Kelopak bunga anggrek pink',
                 solved,
                 preStyle: 'object-position: 50% 48%; transform: scale(1);',
                 postStyle: 'transform: scale(1.55); transform-origin: 50% 44%;',
@@ -149,18 +155,19 @@
         {
             id: 7,
             category: 'Foto Hewan Menipu',
-            question: 'Terlihat cuma tumpukan daun kering cokelat yang gugur di lantai hutan! Padahal di antara daun kering itu ada satu hewan bertanduk yang menyamar jadi daun, yaitu...',
+            question: 'Di antara tumpukan daun kering cokelat ini ada satu hewan yang tubuhnya 99% menyamar jadi daun gugur. Hewan apakah itu?',
             answer: 'KATAK',
+            acceptedAnswers: ['KATAK', 'KATAK DAUN', 'KODOK'],
             trap: 'TOKEK',
-            openIndices: [4], // ? ? ? ? K (cocok TOKEK, KODOK, CICAK, KATAK!)
+            openIndices: [4],
             clues: [
-                'Bukan reptil berekor panjang — dia bertubuh segitiga pipih bermata hitam!',
-                'Sering lompat di tempat lembap setelah hujan!'
+                'Bukan kadal atau ular — tubuhnya segitiga pipih dengan dua tanduk di atas mata!',
+                'Hewan amfibi yang melompat di lantai hutan!'
             ],
             reason: 'MIND BLOWING! Itu adalah KATAK DAUN BERTANDUK (Megophrys nasuta) yang punggungnya punya guratan mirip persis tulang daun kering!',
             renderSvg: (solved) => renderPhotoStage({
                 src: 'hewan-leaf-frog.jpg',
-                alt: 'Katak daun bertanduk berkamuflase di daun kering',
+                alt: 'Tumpukan daun kering hutan',
                 solved,
                 preStyle: 'object-position: 52% 52%; transform: scale(1);',
                 postStyle: 'transform: scale(1.38); transform-origin: 60% 52%;',
@@ -169,17 +176,18 @@
             })
         },
 
-        // === 2. Ilusi Optik Menipu (dengan Bukti Visual!) ===
+        // === 2. Ilusi Optik Menipu ===
         {
             id: 8,
             category: 'Ilusi Optik Menipu',
             question: 'Perhatikan garis tengah (warna hitam) pada gambar ATAS dan BAWAH. Garis mana yang ukurannya lebih panjang?',
             answer: 'SAMA PANJANG',
+            acceptedAnswers: ['SAMA PANJANG', 'SAMA'],
             trap: 'GARIS BAWAH',
             openIndices: [5],
             clues: [
-                'Jangan percaya 100% sama penglihatan mata dari panahnya!',
-                'Ukur ujung garis hitam kiri dan kanan kedua garis pakai jari atau penggaris!'
+                'Jangan percaya penglihatan mata gara-gara ujung panahnya!',
+                'Ukur ujung garis hitam kiri dan kanan kedua garis!'
             ],
             reason: 'MIND BLOWING! Panjang garis hitam ATAS dan BAWAH tepat 180px — SAMA PANJANG 100%! Panah keluar-masuk (Ilusi Muller-Lyer) menipu otak kita!',
             renderSvg: (solved) => `
@@ -206,13 +214,14 @@
             category: 'Ilusi Optik Menipu',
             question: 'Perhatikan lingkaran ORANYE di tengah KIRI dan KANAN. Lingkaran oranye mana yang diameternya lebih besar?',
             answer: 'SAMA BESAR',
+            acceptedAnswers: ['SAMA BESAR', 'SAMA'],
             trap: 'YANG KANAN',
             openIndices: [5],
             clues: [
-                'Fokus cuma ke lingkaran ORANYE-nya, abaikan bulatan biru di sekitarnya!',
-                'Tutup bulatan birunya pakai tangan — kelihatan bedanya atau sama?'
+                'Abaikan lingkaran biru besar/kecil di sekitarnya!',
+                'Fokus cuma ke dua titik oranye di tengah — ternyata...'
             ],
-            reason: 'MIND BLOWING! Kedua lingkaran oranye punya jari-jari 18px yang SAMA BESAR 100% (Ilusi Ebbinghaus)! Lingkaran biru raksasa di kiri menipu mata!',
+            reason: 'MIND BLOWING! Kedua lingkaran oranye punya jari-jari 18px yang SAMA BESAR 100% (Ilusi Ebbinghaus)!',
             renderSvg: (solved) => {
                 const bigAround = [0, 60, 120, 180, 240, 300].map((deg) => {
                     const rad = deg * Math.PI / 180;
@@ -245,6 +254,7 @@
             category: 'Ilusi Optik Menipu',
             question: 'Bandingkan warna abu-abu KOTAK A dan KOTAK B secara langsung. Mana yang kode warnanya lebih terang?',
             answer: 'SAMA WARNA',
+            acceptedAnswers: ['SAMA WARNA', 'SAMA'],
             trap: 'KOTAK B',
             openIndices: [5],
             clues: [
@@ -266,7 +276,7 @@
                     <ellipse cx="365" cy="115" rx="28" ry="11" fill="#047857"/>
                     <rect x="337" y="45" width="56" height="70" fill="#10B981"/>
                     <ellipse cx="365" cy="45" rx="28" ry="11" fill="#34D399"/>
-                    <text x="230" y="154" text-anchor="middle" font-family="Arial" font-size="11.5" font-weight="800" fill="#334155">Kotak A vs Kotak B (di samping bayangan silinder)</text>
+                    <text x="230" y="154" text-anchor="middle" font-family="Arial" font-size="11.5" font-weight="800" fill="#334155">Kotak A vs Kotak B</text>
                     ${solved ? `
                         <polygon points="205,65 295,65 295,90 205,90" fill="#787878" stroke="#F59E0B" stroke-width="2.5"/>
                         <rect x="160" y="128" width="140" height="22" rx="11" fill="#10B981"/>
@@ -277,8 +287,9 @@
         {
             id: 11,
             category: 'Ilusi Optik Menipu',
-            question: 'Lihatlah ke tengah gambar! Berapa jumlah garis SEGITIGA PUTIH yang benar-benar digambar di gambar ini?',
+            question: 'Berapa jumlah garis SEGITIGA PUTIH yang benar-benar digambar di tengah gambar ini?',
             answer: 'NOL',
+            acceptedAnswers: ['NOL', '0', 'TIDAK ADA', 'KOSONG'],
             trap: 'TIGA',
             openIndices: [0],
             clues: [
@@ -302,13 +313,14 @@
         {
             id: 12,
             category: 'Ilusi Optik Menipu',
-            question: 'Perhatikan garis abu-abu mendatar di antara kotak hitam-putih ini. Apakah garis mendatar tersebut lurus sejajar atau miring bengkok?',
+            question: 'Garis abu-abu mendatar di antara kotak hitam-putih ini lurus sejajar atau miring bengkok?',
             answer: 'LURUS SEJAJAR',
-            trap: 'MIRING BENGKOK',
+            acceptedAnswers: ['LURUS SEJAJAR', 'LURUS', 'SEJAJAR'],
+            trap: 'MIRING',
             openIndices: [6],
             clues: [
                 'Jangan lihat kotak-kotak hitam putihnya!',
-                'Miringkan layar HP/kepalamu sedikit sejajar garis datar untuk melihat aslinya!'
+                'Miringkan layar atau lihat dari samping untuk bukti aslinya!'
             ],
             reason: 'MIND BLOWING! Semua garis mendatarnya 100% LURUS SEJAJAR sempurna! Pergeseran pola kotak hitam-putih (Ilusi Cafe Wall) bikin mata melihatnya miring!',
             renderSvg: (solved) => {
@@ -336,15 +348,16 @@
         {
             id: 13,
             category: 'Ilusi Optik Menipu',
-            question: 'Perhatikan dua bentuk lengkung pelangi (ORANYE dan BIRU) yang ditumpuk ini. Bentuk mana yang ukurannya lebih besar?',
+            question: 'Dua bentuk lengkung ORANYE dan BIRU yang ditumpuk ini: mana yang ukurannya lebih besar?',
             answer: 'SAMA BESAR',
+            acceptedAnswers: ['SAMA BESAR', 'SAMA'],
             trap: 'YANG BAWAH',
             openIndices: [5],
             clues: [
                 'Sisi pendek bagian bawah ditaruh persis di atas sisi panjang gambar bawahnya!',
                 'Kalau digeser lurus sejajar, dua-duanya ukurannya...'
             ],
-            reason: 'MIND BLOWING! Bentuk oranye dan biru ukurannya 100% IDENTIK / SAMA BESAR (Ilusi Jastrow)! Otak tertipu membandingkan lengkungan pendek dan panjang!',
+            reason: 'MIND BLOWING! Bentuk oranye dan biru ukurannya 100% IDENTIK / SAMA BESAR (Ilusi Jastrow)!',
             renderSvg: (solved) => `
                 <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                     <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
@@ -354,16 +367,17 @@
                 </svg>`
         },
 
-        // === 3. Sudut Pandang & Rebus Plesetan ===
+        // === 3. Sudut Pandang & Rebus ===
         {
             id: 14,
             category: 'Tebak Sudut Pandang',
-            question: 'Sekilas terlihat gambar PIALA PUTIH di tengah. Tapi fokuslah ke sisi hitam di kiri dan kanan... sebenarnya mereka lagi ngapain?',
+            question: 'Ada dua hal di dalam gambar hitam-putih ini! Selain piala putih di tengah, adegan apakah yang sebenarnya terjadi di gambar ini?',
             answer: 'SALING TATAP',
-            trap: 'PIALA EMAS',
+            acceptedAnswers: ['SALING TATAP', 'TATAPAN', 'DUA WAJAH'],
+            trap: 'PIALA PUTIH',
             openIndices: [7],
             clues: [
-                'Abaikan bentuk piala putih di tengah, lihat bayangan hitam di kiri dan kanan!',
+                'Abaikan bentuk piala putih di tengah, lihat sisi hitam di kiri dan kanan!',
                 'Keduanya punya hidung, dagu, dan bibir yang berhadap-hadapan!'
             ],
             reason: 'MIND BLOWING! Ini ilusi Vas Rubin — bayangan hitam kiri dan kanan adalah dua wajah manusia yang lagi SALING TATAP jarak dekat!',
@@ -383,6 +397,7 @@
             category: 'Tebak Sudut Pandang',
             question: 'Si Kiri berteriak itu angka 6! Si Kanan ngotot itu angka 9! Siapa sebenarnya yang paling tahu kebenaran angka aslinya?',
             answer: 'PEMBUATNYA',
+            acceptedAnswers: ['PEMBUATNYA', 'YANG MENULIS', 'PENULISNYA'],
             trap: 'PENGUKUR',
             openIndices: [9],
             clues: [
@@ -406,13 +421,14 @@
         {
             id: 16,
             category: 'Rebus Plesetan Kantor',
-            question: 'Lihat gambar pintu minimarket bertuliskan DORONG, tapi orangnya malah menarik sekuat tenaga. Apa penyebab kejadian sehari-hari di gambar ini?',
+            question: 'Lihat gambar pintu minimarket ini: ada tulisan merah besar di kaca, tapi orangnya tetap menarik sekuat tenaga. Penyakit apa itu?',
             answer: 'MALAS BACA',
+            acceptedAnswers: ['MALAS BACA', 'MALES BACA', 'TIDAK BACA'],
             trap: 'BUKA PINTU',
             openIndices: [6],
             clues: [
                 'Bukan karena pintunya macet atau terkunci.',
-                'Tulisannya sudah gede banget berwarna merah, tapi diabaikan matanya!'
+                'Tulisannya sudah gede banget bertuliskan DORONG!'
             ],
             reason: 'MALAS BACA! Penyakit umum di pintu kaca seluruh minimarket — udah tertulis DORONG huruf kapital tetep aja ditarik sampai bunyi brak!',
             renderSvg: () => `
@@ -444,6 +460,7 @@
         selectedCategory: 'ALL',
         currentIndex: 0,
         openedLetters: new Set(),
+        showTiles: false, // Hides letter/word count spoilers by default!
         clueStage: 0,
         isSolved: false,
         teams: [
@@ -493,6 +510,7 @@
         teamsLeft: document.getElementById('teams-left'),
         teamsRight: document.getElementById('teams-right'),
         btnAddTeam: document.getElementById('btn-add-team'),
+        btnToggleTiles: document.getElementById('tg-toggle-tiles'),
         btnHintLetter: document.getElementById('tg-hint-letter'),
         btnTetot: document.getElementById('tg-tetot'),
         btnReveal: document.getElementById('tg-reveal'),
@@ -788,13 +806,27 @@
         if (!q) return;
         const words = q.answer.split(' ').filter(Boolean);
         const letterCount = q.answer.replace(/\s+/g, '').length;
+        const tilesVisible = state.isSolved || state.showTiles;
 
         el.qNum.textContent = `Gambar #${state.currentIndex + 1} / ${TEBAK_GAMBAR_QUESTIONS.length}`;
         el.qText.textContent = q.question;
         el.canvas.innerHTML = q.renderSvg(state.isSolved);
-        el.lengthChip.textContent = words.length > 1
-            ? `Panjang: ${letterCount} Huruf (${words.length} Kata)`
-            : `Panjang: ${letterCount} Huruf`;
+
+        if (tilesVisible) {
+            el.lengthChip.textContent = words.length > 1
+                ? `Panjang: ${letterCount} Huruf (${words.length} Kata)`
+                : `Panjang: ${letterCount} Huruf`;
+            el.lengthChip.style.cursor = 'pointer';
+            el.lengthChip.title = 'Klik untuk sembunyikan kotak huruf lagi';
+        } else {
+            el.lengthChip.textContent = '🔒 Jumlah & Kotak Huruf Disembunyikan';
+            el.lengthChip.style.cursor = 'pointer';
+            el.lengthChip.title = 'Klik untuk memunculkan kotak huruf sebagai bantuan';
+        }
+
+        if (el.btnToggleTiles) {
+            el.btnToggleTiles.textContent = tilesVisible ? '🙈 Sembunyikan Kotak Huruf' : '🔡 Tampilkan Kotak Huruf';
+        }
 
         if (el.clueChip) {
             if (state.clueStage === 0) {
@@ -819,38 +851,41 @@
             }
         }
 
+        el.tiles.hidden = !tilesVisible;
         el.tiles.textContent = '';
-        let group = document.createElement('div');
-        group.className = 'tg-word-group';
-        for (let i = 0; i < q.answer.length; i++) {
-            if (q.answer[i] === ' ') {
-                if (group.childNodes.length > 0) {
-                    el.tiles.appendChild(group);
-                    group = document.createElement('div');
-                    group.className = 'tg-word-group';
+        if (tilesVisible) {
+            let group = document.createElement('div');
+            group.className = 'tg-word-group';
+            for (let i = 0; i < q.answer.length; i++) {
+                if (q.answer[i] === ' ') {
+                    if (group.childNodes.length > 0) {
+                        el.tiles.appendChild(group);
+                        group = document.createElement('div');
+                        group.className = 'tg-word-group';
+                    }
+                    continue;
                 }
-                continue;
+                const tile = document.createElement('button');
+                tile.type = 'button';
+                const isOpen = state.isSolved || state.openedLetters.has(i);
+                let cls = 'tg-tile';
+                if (state.isSolved) cls += ' revealed';
+                else if (isOpen) cls += ' clue';
+                else cls += ' hidden-letter';
+                tile.className = cls;
+                tile.textContent = isOpen ? q.answer[i] : '?';
+                if (!state.isSolved) {
+                    tile.title = isOpen ? 'Klik untuk tutup huruf ini lagi' : 'Klik untuk buka huruf ini';
+                    tile.addEventListener('click', () => {
+                        if (state.openedLetters.has(i)) state.openedLetters.delete(i);
+                        else state.openedLetters.add(i);
+                        renderQuestion();
+                    });
+                }
+                group.appendChild(tile);
             }
-            const tile = document.createElement('button');
-            tile.type = 'button';
-            const isOpen = state.isSolved || state.openedLetters.has(i);
-            let cls = 'tg-tile';
-            if (state.isSolved) cls += ' revealed';
-            else if (isOpen) cls += ' clue';
-            else cls += ' hidden-letter';
-            tile.className = cls;
-            tile.textContent = isOpen ? q.answer[i] : '?';
-            if (!state.isSolved) {
-                tile.title = isOpen ? 'Klik untuk tutup huruf ini lagi' : 'Klik untuk buka huruf ini';
-                tile.addEventListener('click', () => {
-                    if (state.openedLetters.has(i)) state.openedLetters.delete(i);
-                    else state.openedLetters.add(i);
-                    renderQuestion();
-                });
-            }
-            group.appendChild(tile);
+            if (group.childNodes.length > 0) el.tiles.appendChild(group);
         }
-        if (group.childNodes.length > 0) el.tiles.appendChild(group);
 
         if (state.isSolved) {
             el.reasonBox.hidden = false;
@@ -865,6 +900,7 @@
         state.currentIndex = idx;
         const q = TEBAK_GAMBAR_QUESTIONS[idx];
         state.openedLetters = new Set(Array.isArray(q?.openIndices) ? q.openIndices : []);
+        state.showTiles = false;
         state.clueStage = 0;
         state.isSolved = false;
         el.feedback.textContent = '';
@@ -923,11 +959,15 @@
         const q = TEBAK_GAMBAR_QUESTIONS[state.currentIndex];
         if (!q || state.isSolved) return;
 
-        const guess = el.input.value.trim().toUpperCase().replace(/\s+/g, '');
+        const guess = el.input.value.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
         if (!guess) return;
 
-        const targetAnswer = q.answer.toUpperCase().replace(/\s+/g, '');
-        if (guess === targetAnswer) {
+        const validList = Array.isArray(q.acceptedAnswers) && q.acceptedAnswers.length
+            ? q.acceptedAnswers
+            : [q.answer];
+        const isMatch = validList.some((ans) => ans.toUpperCase().replace(/[^A-Z0-9]/g, '') === guess);
+
+        if (isMatch) {
             state.isSolved = true;
             const bonus = Math.max(40, 100 - Math.max(0, state.openedLetters.size - (q.openIndices?.length || 0)) * 10);
             state.teams[state.activeTeam].score += bonus;
@@ -983,16 +1023,25 @@
             state.clueStage = (state.clueStage + 1) % (maxStage + 1);
             renderQuestion();
         });
+        const toggleTilesFn = () => {
+            state.showTiles = !state.showTiles;
+            renderQuestion();
+        };
+        el.btnToggleTiles?.addEventListener('click', toggleTilesFn);
+        el.lengthChip?.addEventListener('click', toggleTilesFn);
+
         el.btnHintLetter.addEventListener('click', () => {
             const q = TEBAK_GAMBAR_QUESTIONS[state.currentIndex];
             if (!q || state.isSolved) return;
+            state.showTiles = true;
             const closed = [];
             for (let i = 0; i < q.answer.length; i++) {
                 if (q.answer[i] !== ' ' && !state.openedLetters.has(i)) closed.push(i);
             }
-            if (closed.length === 0) return;
-            const pick = closed[Math.floor(Math.random() * closed.length)];
-            state.openedLetters.add(pick);
+            if (closed.length > 0) {
+                const pick = closed[Math.floor(Math.random() * closed.length)];
+                state.openedLetters.add(pick);
+            }
             renderQuestion();
         });
         el.btnReveal.addEventListener('click', () => {
