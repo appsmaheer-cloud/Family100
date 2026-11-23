@@ -15,7 +15,7 @@
     }
 
     const TEBAK_GAMBAR_QUESTIONS = [
-        // === 1. Hitung Alfabet + Gambar Viral ===
+        // === 1. Hitung Alfabet + Gambar ===
         {
             id: 1,
             category: 'Hitung Alfabet + Gambar',
@@ -166,10 +166,10 @@
             }
         },
 
-        // === 2. Logika Talkshow TV & Ilusi Optik ===
+        // === 2. Logika & Ilusi Optik ===
         {
             id: 6,
-            category: 'Logika Talkshow & Ilusi',
+            category: 'Logika & Ilusi Optik',
             question: 'Berapakah nomor slot parkir yang sedang tertutup oleh mobil merah pada gambar ini?',
             answer: '87',
             acceptedAnswers: ['87', 'DELAPAN PULUH TUJUH'],
@@ -203,7 +203,7 @@
         },
         {
             id: 7,
-            category: 'Logika Talkshow & Ilusi',
+            category: 'Logika & Ilusi Optik',
             question: 'Perhatikan dua garis mendatar HITAM (ATAS vs BAWAH). Mana yang lebih panjang?',
             answer: 'SAMA PANJANG',
             acceptedAnswers: ['SAMA PANJANG', 'SAMA'],
@@ -235,7 +235,7 @@
         },
         {
             id: 8,
-            category: 'Logika Talkshow & Ilusi',
+            category: 'Logika & Ilusi Optik',
             question: 'Bandingkan warna abu-abu KOTAK A dan KOTAK B secara langsung. Mana yang kode warnanya lebih terang?',
             answer: 'SAMA WARNA',
             acceptedAnswers: ['SAMA WARNA', 'SAMA'],
