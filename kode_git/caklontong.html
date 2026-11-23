@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TTS Cak Lontong — Kuis Teka-Teki Sulit WIB</title>
+    <title>TTS Cak Lontong — Teka-Teki Logika &amp; Ketelitian</title>
     <link rel="icon" type="image/svg+xml" href="caklontong-logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,8 +139,8 @@
                 <img src="caklontong-logo.svg" alt="Logo TTS Cak Lontong" class="brand-logo" style="width:auto; height:44px;">
             </div>
             <div>
-                <h1 class="brand-title">TTS Cak Lontong <span class="cl-badge-wib">MIKIRRR!</span></h1>
-                <p class="brand-sub">Kuis Teka-Teki Sulit • Waktu Indonesia Bercanda</p>
+                <h1 class="brand-title">TTS Cak Lontong <span class="cl-badge-wib">EDISI LOGIKA</span></h1>
+                <p class="brand-sub">Teka-Teki Logika &amp; Ketelitian</p>
             </div>
         </div>
 
@@ -148,9 +148,9 @@
             <select id="cl-category" class="select-control" aria-label="Pilih Kategori Cak Lontong" style="max-width: 195px;"></select>
             <select id="cl-select" class="select-control" aria-label="Pilih Soal Cak Lontong"></select>
             <button type="button" id="cl-random" class="btn btn-secondary">Acak Soal</button>
-            <a href="../index.html" class="btn btn-secondary" style="text-decoration:none;" title="Kembali ke Halaman Pilih Game">🏠 Pilih Game</a>
-            <a href="index.html" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Kembali ke Family 100"><img src="family100-logo.svg" alt="Family 100" style="height:22px; width:auto; border-radius:4px;"><span>Family 100</span></a>
-            <a href="tebakgambar.html" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Mainkan Tebak Gambar Mind Blowing"><img src="tebakgambar-logo.svg" alt="Tebak Gambar" style="height:22px; width:auto; border-radius:4px;"><span>Tebak Gambar</span></a>
+            <a href="pilih-game.html" class="btn btn-secondary" style="text-decoration:none;" title="Kembali ke Halaman Pilih Game">🏠 Pilih Game</a>
+            <a href="index.html?play=1" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Mainkan Family 100"><img src="family100-logo.svg" alt="Family 100" style="height:22px; width:auto; border-radius:4px;"><span>Family 100</span></a>
+            <a href="tebakgambar.html" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Mainkan Tebak Gambar"><img src="tebakgambar-logo.svg" alt="Tebak Gambar" style="height:22px; width:auto; border-radius:4px;"><span>Tebak Gambar</span></a>
             <button type="button" id="cl-hp-btn" class="btn btn-secondary" title="Buka Contekan & Clue di HP">📱 Contekan HP</button>
             <button type="button" id="cl-sound" class="btn btn-icon" aria-pressed="true" title="Suara Aktif">🔊</button>
             <button type="button" id="cl-fullscreen" class="btn btn-icon" title="Layar Penuh">⛶</button>
@@ -167,8 +167,8 @@
             <div class="studio-center">
                 <section class="studio-screen tv-cabinet" aria-label="Papan TTS Cak Lontong">
                     <div class="tv-top-bar">
-                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> WIB • STUDIO</span>
-                        <span class="tv-brand-pill">🧩 TEKA-TEKI SULIT CAK LONTONG</span>
+                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> LIVE • STUDIO</span>
+                        <span class="tv-brand-pill">🧩 PAPAN KUIS TTS CAK LONTONG</span>
                         <span class="tv-survey-pill" id="cl-count-badge">15 SOAL</span>
                     </div>
 
@@ -279,6 +279,7 @@
         </div>
     </div>
 
-    <script src="caklontong.js?v=18"></script>
+    <script src="shared-scoreboard.js?v=1"></script>
+    <script src="caklontong.js?v=19"></script>
 </body>
 </html>

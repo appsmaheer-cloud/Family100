@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tebak Gambar — Ilusi &amp; Mind Blowing</title>
+    <title>Tebak Gambar — Ilusi Optik &amp; Teka-Teki Visual</title>
     <link rel="icon" type="image/svg+xml" href="tebakgambar-logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -193,11 +193,11 @@
     <header class="topbar">
         <div class="brand">
             <div class="brand-logo-wrap">
-                <img src="tebakgambar-logo.svg" alt="Logo Tebak Gambar Mind Blowing" class="brand-logo" style="width:auto; height:44px;">
+                <img src="tebakgambar-logo.svg" alt="Logo Tebak Gambar" class="brand-logo" style="width:auto; height:44px;">
             </div>
             <div>
-                <h1 class="brand-title">Tebak Gambar <span class="tg-badge">MIND BLOWING!</span></h1>
-                <p class="brand-sub">Ilusi Optik • Rebus Plesetan • Tebak Sudut Pandang</p>
+                <h1 class="brand-title">Tebak Gambar <span class="tg-badge">VISUAL &amp; ILUSI</span></h1>
+                <p class="brand-sub">Ilusi Optik • Pola Visual • Paduan Kata</p>
             </div>
         </div>
 
@@ -207,9 +207,9 @@
             <label for="tg-select" class="sr-only">Pilih Soal Gambar</label>
             <select id="tg-select" class="select-control" aria-label="Pilih Soal Gambar"></select>
             <button type="button" id="tg-random" class="btn btn-secondary">Acak Soal</button>
-            <a href="../index.html" class="btn btn-secondary" style="text-decoration:none;" title="Kembali ke Halaman Pilih Game">🏠 Pilih Game</a>
-            <a href="index.html" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Pindah ke Family 100"><img src="family100-logo.svg" alt="Family 100" style="height:22px; width:auto; border-radius:4px;"><span>Family 100</span></a>
-            <a href="caklontong.html" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Pindah ke TTS Cak Lontong"><img src="caklontong-logo.svg" alt="Cak Lontong" style="height:22px; width:auto; border-radius:4px;"><span>Cak Lontong</span></a>
+            <a href="pilih-game.html" class="btn btn-secondary" style="text-decoration:none;" title="Kembali ke Halaman Pilih Game">🏠 Pilih Game</a>
+            <a href="index.html?play=1" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Mainkan Family 100"><img src="family100-logo.svg" alt="Family 100" style="height:22px; width:auto; border-radius:4px;"><span>Family 100</span></a>
+            <a href="caklontong.html" class="btn btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;" title="Mainkan TTS Cak Lontong"><img src="caklontong-logo.svg" alt="TTS Cak Lontong" style="height:22px; width:auto; border-radius:4px;"><span>TTS Cak Lontong</span></a>
             <button type="button" id="tg-hp-btn" class="btn btn-secondary" title="Buka Contekan & Clue di HP">📱 Contekan HP</button>
             <button type="button" id="tg-sound" class="btn btn-icon" aria-pressed="true" title="Suara Aktif">🔊</button>
             <button type="button" id="tg-fullscreen" class="btn btn-icon" title="Layar Penuh">⛶</button>
@@ -226,8 +226,8 @@
             <div class="studio-center">
                 <section class="studio-screen tv-cabinet" aria-label="Layar TV Tebak Gambar">
                     <div class="tv-top-bar">
-                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> MIND BLOWING • STUDIO</span>
-                        <span class="tv-brand-pill">🖼️ TEBAK GAMBAR LOGIKA &amp; ILUSI</span>
+                        <span class="tv-live-pill"><i class="tv-live-dot" aria-hidden="true"></i> LIVE • STUDIO</span>
+                        <span class="tv-brand-pill">🖼️ PAPAN VISUAL TEBAK GAMBAR</span>
                         <span class="tv-survey-pill" id="tg-count-badge">16 GAMBAR</span>
                     </div>
 
@@ -259,9 +259,9 @@
                         <div id="tg-tiles" class="tg-tiles-wrap" aria-live="polite"></div>
 
                         <div id="tg-reason-box" class="tg-reason-box" hidden>
-                            <div class="tg-reason-icon">🤯</div>
+                            <div class="tg-reason-icon">💡</div>
                             <div style="flex:1;">
-                                <strong style="display:block; margin-bottom:2px;">🤯 Kenapa Bisa Gitu?! (Fakta Mind-Blowing):</strong>
+                                <strong style="display:block; margin-bottom:2px;">💡 Penjelasan &amp; Pembuktian Visual:</strong>
                                 <div id="tg-reason-text"></div>
                             </div>
                         </div>
@@ -283,8 +283,8 @@
                     <button type="button" id="btn-add-team" class="btn btn-primary btn-sm">+ Tambah Tim</button>
                     <button type="button" id="tg-toggle-tiles" class="btn btn-secondary btn-sm">🔡 Tampilkan Kotak Huruf</button>
                     <button type="button" id="tg-hint-letter" class="btn btn-secondary btn-sm">💡 Buka 1 Huruf</button>
-                    <button type="button" id="tg-tetot" class="btn btn-danger btn-sm">✕ KENA PRANK! (Salah)</button>
-                    <button type="button" id="tg-reveal" class="btn btn-secondary btn-sm">🤯 Buka Jawaban &amp; Bukti</button>
+                    <button type="button" id="tg-tetot" class="btn btn-danger btn-sm">✕ KURANG TEPAT! (Salah)</button>
+                    <button type="button" id="tg-reveal" class="btn btn-secondary btn-sm">💡 Buka Jawaban &amp; Bukti</button>
                     <button type="button" id="tg-next" class="btn btn-secondary btn-sm">Gambar Berikutnya ➡</button>
                     <button type="button" id="tg-reset-scores" class="btn btn-secondary btn-sm">Reset Skor</button>
                 </div>
@@ -302,7 +302,7 @@
     <div id="wrong-overlay" class="wrong-overlay" aria-hidden="true">
         <div class="wrong-x-wrap">
             <div class="wrong-x">✕</div>
-            <div class="wrong-label">KETIPU MATA!</div>
+            <div class="wrong-label">BELUM TEPAT!</div>
         </div>
     </div>
 
@@ -314,7 +314,7 @@
             </div>
             <div class="modal-body" style="display:flex; flex-direction:column; gap:12px;">
                 <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">
-                    Buka link ini di HP Host untuk melihat Jawaban Asli, Jebakan Mata, Clue 1/2, dan Fakta Mind-Blowing tanpa bocor ke layar TV!
+                    Buka link ini di HP Host untuk melihat Kunci Jawaban, Jebakan Visual, Clue 1/2, dan Penjelasan Pembuktian tanpa bocor ke layar utama.
                 </p>
                 <div style="display:flex; gap:8px;">
                     <input type="text" id="tg-hp-url" class="answer-input" readonly style="font-size:0.8rem;">
@@ -328,6 +328,7 @@
         </div>
     </div>
 
-    <script src="tebakgambar.js?v=6"></script>
+    <script src="shared-scoreboard.js?v=1"></script>
+    <script src="tebakgambar.js?v=7"></script>
 </body>
 </html>

@@ -481,22 +481,43 @@
         { color: 'indigo', icon: '🌟', defaultName: 'Tim Indigo' },
     ];
 
+    const initialBoard = window.QuizScoreboard
+        ? window.QuizScoreboard.load()
+        : {
+            teams: [
+                { name: 'Tim Merah', score: 0, color: 'red', icon: '🔥' },
+                { name: 'Tim Biru', score: 0, color: 'blue', icon: '⚡' },
+                { name: 'Tim Emas', score: 0, color: 'gold', icon: '👑' },
+            ],
+            activeTeam: 0,
+        };
+
     const state = {
         gasUrl: localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GAS_URL,
         questions: [],
         selectedCategory: 'ALL',
         currentIndex: 0,
         revealedIds: new Set(),
-        teams: [
-            { name: 'Tim Merah', score: 0, color: 'red', icon: '🔥' },
-            { name: 'Tim Biru', score: 0, color: 'blue', icon: '⚡' },
-            { name: 'Tim Emas', score: 0, color: 'gold', icon: '👑' },
-        ],
-        activeTeam: 0,
+        teams: initialBoard.teams,
+        activeTeam: initialBoard.activeTeam,
         strikes: 0,
         soundEnabled: true,
         audioCtx: null,
     };
+
+    function persistTeams() {
+        if (!window.QuizScoreboard) return;
+        const saved = window.QuizScoreboard.save(state.teams, state.activeTeam);
+        state.teams = saved.teams;
+        state.activeTeam = saved.activeTeam;
+    }
+
+    function syncTeamsFromShared() {
+        if (!window.QuizScoreboard) return;
+        const board = window.QuizScoreboard.load();
+        state.teams = board.teams;
+        state.activeTeam = board.activeTeam;
+    }
 
     const el = {
         modeIndicator: document.getElementById('mode-indicator'),
@@ -1384,6 +1405,7 @@
                 const teamName = getTeamName(state.activeTeam);
                 state.revealedIds.add(Number(data.answer.id));
                 state.teams[state.activeTeam].score += Number(data.answer.points);
+                persistTeams();
                 playCorrectSound();
                 spawnConfetti();
                 renderBoard();
@@ -1644,6 +1666,7 @@
             state.teams = remote.teams;
         }
         state.activeTeam = Number(remote.activeTeam || 0);
+        persistTeams();
         renderBoard();
 
         if (el.hostSpeech && remote.hostSpeech) {
@@ -1797,6 +1820,19 @@
             state.gasUrl = params.get('gasUrl');
             localStorage.setItem(STORAGE_KEY_GAS_URL, state.gasUrl);
         }
+        if (params.get('play') === '1' && el.startOverlay) {
+            el.startOverlay.classList.add('hidden');
+        }
+
+        syncTeamsFromShared();
+        if (window.QuizScoreboard) {
+            window.QuizScoreboard.subscribe((board) => {
+                if (liveSync.mode === 'display') return;
+                state.teams = board.teams;
+                state.activeTeam = board.activeTeam;
+                renderTeamScores();
+            });
+        }
 
         [100, 90, 80, 70].forEach((p) => addAnswerInputRow(p));
         loadQuestions();
@@ -1851,14 +1887,6 @@
                 el.startOverlay.classList.add('hidden');
                 playStartFanfare();
                 el.input.focus();
-            });
-        }
-
-        if (el.teamsContainer) {
-            el.teamsContainer.addEventListener('input', (e) => {
-                if (e.target.classList.contains('team-name-input') && el.activeTurnLabel) {
-                    el.activeTurnLabel.textContent = `Giliran Menjawab: ${getTeamName(state.activeTeam)}`;
-                }
             });
         }
 
@@ -1945,8 +1973,9 @@
         });
         el.btnResetScores.addEventListener('click', () => {
             state.teams.forEach((t) => { t.score = 0; });
+            persistTeams();
             renderTeamScores();
-            setFeedback('Skor semua tim direset ke 0.', 'ok');
+            setFeedback('Skor semua tim direset ke 0 (berlaku untuk semua game).', 'ok');
             syncPushIfHost('update', 'Skor semua tim direset ke 0.', 'ok');
         });
         if (el.btnAddTeam) {
@@ -1957,6 +1986,7 @@
                 const nextNum = state.teams.length + 1;
                 state.teams.push({ name: `Tim ${nextNum}`, score: 0, color: theme.color, icon: theme.icon });
                 state.activeTeam = state.teams.length - 1;
+                persistTeams();
                 renderTeamScores();
                 setFeedback(`${theme.icon} Tim ${nextNum} ditambahkan.`, 'ok');
                 syncPushIfHost('update', `${theme.icon} Tim ${nextNum} ditambahkan.`, 'ok');
@@ -1979,6 +2009,7 @@
                 if (state.activeTeam >= state.teams.length) {
                     state.activeTeam = state.teams.length - 1;
                 }
+                persistTeams();
                 renderTeamScores();
                 syncPushIfHost('update');
                 return;
@@ -1986,6 +2017,7 @@
             const card = e.target.closest('.podium-unit');
             if (!card) return;
             state.activeTeam = Number(card.dataset.team) || 0;
+            persistTeams();
             renderTeamScores();
             const activeUnit = el.teamsContainer.querySelector(`.podium-unit[data-team="${state.activeTeam}"]`);
             if (activeUnit) {
@@ -2007,9 +2039,13 @@
                 const idx = Number(e.target.dataset.teamNameIdx);
                 if (state.teams[idx]) {
                     state.teams[idx].name = e.target.value;
+                    if (window.QuizScoreboard) {
+                        window.QuizScoreboard.save(state.teams, state.activeTeam);
+                    }
                 }
                 if (el.activeTurnLabel) {
-                    el.activeTurnLabel.textContent = `Giliran Menjawab: ${getTeamName(state.activeTeam)}`;
+                    const activeIcon = state.teams[state.activeTeam]?.icon || '';
+                    el.activeTurnLabel.textContent = `Giliran Menjawab: ${activeIcon} ${getTeamName(state.activeTeam)}`;
                 }
             }
         });
@@ -2020,6 +2056,7 @@
                 if (card) {
                     e.preventDefault();
                     state.activeTeam = Number(card.dataset.team) || 0;
+                    persistTeams();
                     renderTeamScores();
                 }
             }

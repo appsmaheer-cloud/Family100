@@ -820,6 +820,17 @@
         { color: 'indigo', icon: '🌟', defaultName: 'Tim Indigo' },
     ];
 
+    const initialBoard = window.QuizScoreboard
+        ? window.QuizScoreboard.load()
+        : {
+            teams: [
+                { name: 'Tim Merah', score: 0, color: 'red', icon: '🔥' },
+                { name: 'Tim Biru', score: 0, color: 'blue', icon: '⚡' },
+                { name: 'Tim Emas', score: 0, color: 'gold', icon: '👑' },
+            ],
+            activeTeam: 0,
+        };
+
     const state = {
         selectedCategory: 'ALL',
         currentIndex: 0,
@@ -828,15 +839,30 @@
         preOpenMode: 'default',
         questionHidden: false,
         isSolved: false,
-        teams: [
-            { name: 'Tim Merah', score: 0, color: 'red', icon: '🔥' },
-            { name: 'Tim Biru', score: 0, color: 'blue', icon: '⚡' },
-            { name: 'Tim Emas', score: 0, color: 'gold', icon: '👑' },
-        ],
-        activeTeam: 0,
+        teams: initialBoard.teams,
+        activeTeam: initialBoard.activeTeam,
         soundEnabled: true,
         audioCtx: null,
     };
+
+    function persistTeams() {
+        if (!window.QuizScoreboard) return;
+        const saved = window.QuizScoreboard.save(state.teams, state.activeTeam);
+        state.teams = saved.teams;
+        state.activeTeam = saved.activeTeam;
+    }
+
+    function syncTeamsFromShared() {
+        if (!window.QuizScoreboard) return;
+        const board = window.QuizScoreboard.load();
+        state.teams = board.teams;
+        state.activeTeam = board.activeTeam;
+    }
+
+    function getTeamName(index) {
+        const team = state.teams[index];
+        return (team && team.name && team.name.trim()) ? team.name.trim() : `Tim ${index + 1}`;
+    }
 
     const isHostMode = new URLSearchParams(window.location.search).get('mode') === 'host';
 
@@ -1209,7 +1235,7 @@
         const activeColor = activeObj?.color || 'blue';
         if (el.turnBar) el.turnBar.setAttribute('data-active-color', activeColor);
         if (el.form) el.form.setAttribute('data-active-color', activeColor);
-        if (el.activeTurnLabel) el.activeTurnLabel.textContent = `Giliran Menjawab: ${activeObj?.icon || ''} ${activeObj?.name || ''}`;
+        if (el.activeTurnLabel) el.activeTurnLabel.textContent = `Giliran Menjawab: ${activeObj?.icon || ''} ${getTeamName(state.activeTeam)}`;
         if (el.btnAddTeam) el.btnAddTeam.disabled = state.teams.length >= 8;
     }
 
@@ -1456,11 +1482,12 @@
             state.questionHidden = false;
             const bonus = Math.max(40, 100 - Math.max(0, state.openedLetters.size - (q.openIndices?.length || 0)) * 10);
             state.teams[state.activeTeam].score += bonus;
+            persistTeams();
             playCorrectSound();
             spawnConfetti();
             renderQuestion();
             triggerTeamReactions('correct');
-            el.feedback.textContent = `BENAR! "${q.answer}" (+${bonus} poin untuk ${state.teams[state.activeTeam].name})`;
+            el.feedback.textContent = `BENAR! "${q.answer}" (+${bonus} poin untuk ${getTeamName(state.activeTeam)})`;
             el.feedback.className = 'feedback-msg ok';
         } else {
             playWrongSound();
@@ -1475,6 +1502,14 @@
     }
 
     function init() {
+        syncTeamsFromShared();
+        if (window.QuizScoreboard) {
+            window.QuizScoreboard.subscribe((board) => {
+                state.teams = board.teams;
+                state.activeTeam = board.activeTeam;
+                renderTeams();
+            });
+        }
         populateSelect();
         loadQuestion(0);
 
@@ -1575,11 +1610,15 @@
             const theme = TEAM_THEMES.find((th) => !used.has(th.color)) || TEAM_THEMES[state.teams.length % TEAM_THEMES.length];
             state.teams.push({ name: `Tim ${state.teams.length + 1}`, score: 0, color: theme.color, icon: theme.icon });
             state.activeTeam = state.teams.length - 1;
+            persistTeams();
             renderTeams();
         });
         el.btnResetScores.addEventListener('click', () => {
             state.teams.forEach((t) => { t.score = 0; });
+            persistTeams();
             renderTeams();
+            el.feedback.textContent = 'Skor semua tim direset ke 0 (berlaku untuk semua game).';
+            el.feedback.className = 'feedback-msg ok';
         });
         el.btnSound.addEventListener('click', () => {
             state.soundEnabled = !state.soundEnabled;
@@ -1631,20 +1670,29 @@
                 if (state.teams.length <= 1) return;
                 state.teams.splice(Number(rm.dataset.removeTeam), 1);
                 if (state.activeTeam >= state.teams.length) state.activeTeam = state.teams.length - 1;
+                persistTeams();
                 renderTeams();
                 return;
             }
             const card = e.target.closest('.podium-unit');
             if (!card) return;
             state.activeTeam = Number(card.dataset.team) || 0;
+            persistTeams();
             renderTeams();
             if (e.target.tagName !== 'INPUT') el.input.focus();
         });
         el.teamsContainer.addEventListener('input', (e) => {
             if (e.target.classList.contains('team-name-input')) {
                 const idx = Number(e.target.dataset.teamNameIdx);
-                if (state.teams[idx]) state.teams[idx].name = e.target.value;
-                renderTeams();
+                if (state.teams[idx]) {
+                    state.teams[idx].name = e.target.value;
+                    if (window.QuizScoreboard) {
+                        window.QuizScoreboard.save(state.teams, state.activeTeam);
+                    }
+                }
+                if (el.activeTurnLabel) {
+                    el.activeTurnLabel.textContent = `Giliran Menjawab: ${state.teams[state.activeTeam]?.icon || ''} ${getTeamName(state.activeTeam)}`;
+                }
             }
         });
     }
