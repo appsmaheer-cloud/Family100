@@ -1,30 +1,195 @@
 (() => {
     'use strict';
 
+    const IMG_DIR = (document.querySelector('link[rel="icon"]')?.getAttribute('href') || '').includes('assets/')
+        ? 'assets/img/'
+        : 'img/';
+
+    function renderPhotoStage({ src, alt, solved, preStyle = '', postStyle = '', spotStyle = '', caption = '' }) {
+        return `
+            <div class="tg-photo-frame">
+                <img src="${IMG_DIR}${src}" alt="${alt}" class="tg-photo-img" style="${solved ? postStyle : preStyle}">
+                ${solved && spotStyle ? `<div class="tg-photo-spot" style="${spotStyle}"></div>` : ''}
+                ${solved && caption ? `<div class="tg-photo-caption">${caption}</div>` : ''}
+            </div>`;
+    }
+
     const TEBAK_GAMBAR_QUESTIONS = [
-        // === 1. Ilusi Optik Menipu (dengan Bukti Visual saat dibuka!) ===
+        // === 1. Foto Asli Hewan Menipu & Kamuflase (dengan Bukti Zoom/Spotlight!) ===
         {
             id: 1,
+            category: 'Foto Hewan Menipu',
+            question: 'Sekilas di foto ini terlihat seekor KUCING HITAM lagi menoleh ke samping! Coba perhatikan dua "telinga" runcing dan matanya lebih teliti... ternyata hewan asli di foto ini adalah seekor...',
+            answer: 'BURUNG',
+            trap: 'KUCING',
+            openIndices: [5], // ? ? ? ? ? G (cocok untuk KUCING & BURUNG!)
+            clues: [
+                'Dua ujung runcing ke atas itu bukan telinga yang sedang tegak!',
+                'Itu adalah PARUH yang sedang menganga terbuka ke atas!'
+            ],
+            reason: 'MIND BLOWING! Ternyata ini bukan KUCING HITAM, melainkan BURUNG GAGAK yang menengok ke samping dengan paruh terbuka ke atas mirip telinga kucing!',
+            renderSvg: (solved) => renderPhotoStage({
+                src: 'hewan-crow-cat.jpg',
+                alt: 'Foto burung gagak tampak seperti kucing hitam',
+                solved,
+                preStyle: 'object-position: 55% 42%; filter: contrast(1.06) brightness(0.95);',
+                postStyle: 'object-position: 55% 42%; filter: contrast(1.05) brightness(1.12); transform: scale(1.04);',
+                spotStyle: 'width: 78px; height: 78px; top: 24px; left: 53%;',
+                caption: 'BUKAN TELINGA KUCING — INI PARUH BURUNG GAGAK!'
+            })
+        },
+        {
+            id: 2,
+            category: 'Foto Hewan Menipu',
+            question: 'Jangan langsung teriak kaget melihat foto close-up di ranting hijau ini! Banyak yang mengira ini kepala ULAR HIJAU berbisa, padahal aslinya adalah seekor...',
+            answer: 'ULAT',
+            trap: 'ULAR',
+            openIndices: [1], // ? L ? ? (cocok untuk ULAR & ULAT!)
+            clues: [
+                'Coba lihat ke bagian bawah lehernya: ada kaki-kaki mungil bergaris!',
+                'Dua "mata besar" hitam kuning itu cuma corak kamuflase kulit untuk menakuti predator!'
+            ],
+            reason: 'MIND BLOWING! Ini bukan ULAR berbisa, melainkan ULAT hijau yang kepalanya menggembung bermotif mata palsu mirip kepala ular viper!',
+            renderSvg: (solved) => renderPhotoStage({
+                src: 'hewan-caterpillar-snake.jpg',
+                alt: 'Ulat bermotif mirip kepala ular',
+                solved,
+                preStyle: 'object-position: 45% 45%; transform: scale(1.12); transform-origin: 42% 48%;',
+                postStyle: 'object-position: 50% 50%; transform: scale(1);',
+                spotStyle: 'width: 84px; height: 64px; top: 108px; left: 37%;',
+                caption: 'LIHAT KAKI KECILNYA — INI ULAT, BUKAN ULAR!'
+            })
+        },
+        {
+            id: 3,
+            category: 'Foto Hewan Menipu',
+            question: 'Dua mata tajam yang menatap dari batang pohon gelap ini sekilas terlihat seperti wajah BURUNG HANTU! Jika kamera dijauhkan ke foto aslinya, hewan apakah sebenarnya ini?',
+            answer: 'KUPU KUPU',
+            trap: 'BURUNG HANTU',
+            openIndices: [8], // ? ? ? ?  ? ? ? ? U
+            clues: [
+                'Itu bukan mata sungguhan — hanya bercak lingkaran simetris!',
+                'Ketika kamera dijauhkan, tampak sepasang sayap lebar bermotif mata!'
+            ],
+            reason: 'MIND BLOWING! Saat di-zoom memang mirip wajah BURUNG HANTU, tapi aslinya adalah KUPU KUPU (Owl Butterfly) dengan motif mata palsu di sayapnya!',
+            renderSvg: (solved) => renderPhotoStage({
+                src: 'hewan-butterfly-owl.jpg',
+                alt: 'Kupu-kupu bermotif mata burung hantu',
+                solved,
+                preStyle: 'transform: scale(1.75) rotate(180deg); transform-origin: 50% 60%; filter: brightness(0.92);',
+                postStyle: 'transform: scale(1) rotate(0deg); transform-origin: 50% 50%; filter: brightness(1.05);',
+                caption: 'ZOOM OUT: TERNYATA KUPU-KUPU BERMOTIF MATA!'
+            })
+        },
+        {
+            id: 4,
+            category: 'Foto Hewan Menipu',
+            question: 'Foto asli tebing batu gunung salju ini terlihat kosong cuma isi batu abu-abu. Tapi ada satu hewan pemburu yang bersembunyi sempurna di tengah bebatuan! Hewan apakah itu?',
+            answer: 'MACAN TUTUL',
+            trap: 'KAMBING GUNUNG',
+            openIndices: [10], // ? ? ? ? ?  ? ? ? ? L
+            clues: [
+                'Fokuslah ke area bebatuan tengah agak ke kanan atas!',
+                'Motif totol abu-abunya menyatu 99% dengan corak batu gunung!'
+            ],
+            reason: 'MIND BLOWING! Di tengah tebing batu itu ternyata ada MACAN TUTUL SALJU yang sedang menatap lurus ke arah kamera!',
+            renderSvg: (solved) => renderPhotoStage({
+                src: 'hewan-leopard-rock.jpg',
+                alt: 'Macan tutul salju berkamuflase di tebing batu',
+                solved,
+                preStyle: 'object-position: 50% 50%; transform: scale(1);',
+                postStyle: 'transform: scale(2.25); transform-origin: 62% 38%;',
+                caption: 'ZOOM KE TENGAH-KANAN: MACAN TUTUL SALJU!'
+            })
+        },
+        {
+            id: 5,
+            category: 'Foto Hewan Menipu',
+            question: 'Sekilas terlihat cuma foto batang pohon berkulit kasar biasa. Padahal tepat di tengah celah kayu ada hewan bertelinga yang menyamar 99%! Hewan apakah itu?',
+            answer: 'BURUNG HANTU',
+            trap: 'CICAK POHON',
+            openIndices: [11], // ? ? ? ? ? ?  ? ? ? ? U
+            clues: [
+                'Lihat tepat di rongga tengah vertikal: ada dua mata menyipit!',
+                'Aktif di malam hari, bulunya abu-abu persis guratan kulit kayu!'
+            ],
+            reason: 'MIND BLOWING! Seekor BURUNG HANTU sedang tidur menyipitkan mata tepat di celah batang pohon, nyaris tak terlihat dari kulit kayu!',
+            renderSvg: (solved) => renderPhotoStage({
+                src: 'hewan-owl-bark.jpg',
+                alt: 'Burung hantu berkamuflase di kulit kayu pohon',
+                solved,
+                preStyle: 'object-position: 50% 45%; transform: scale(1);',
+                postStyle: 'transform: scale(1.45); transform-origin: 50% 44%;',
+                spotStyle: 'width: 112px; height: 145px; top: 26px; left: 38%; border-radius: 28px;',
+                caption: 'TEPAT DI CELAH KAYU: BURUNG HANTU!'
+            })
+        },
+        {
+            id: 6,
+            category: 'Foto Hewan Menipu',
+            question: 'Sekilas cuma foto kelopak bunga anggrek pink yang mekar cantik di taman! Tapi coba perhatikan tepat di tengah kelopaknya... ternyata ada seekor...',
+            answer: 'BELALANG',
+            trap: 'KUMBANG',
+            openIndices: [7], // ? ? ? ? ? ? ? G (cocok BELALANG & KUMBANG!)
+            clues: [
+                'Keempat kakinya berbentuk pipih warna pink persis seperti kelopak bunga!',
+                'Namanya diawali B, dikenal sebagai serangga sembah pemburu!'
+            ],
+            reason: 'MIND BLOWING! Di atas bunga itu bersembunyi BELALANG SEMBAH ANGGREK berwarna putih-pink yang kakinya menyamar sempurna menjadi kelopak bunga!',
+            renderSvg: (solved) => renderPhotoStage({
+                src: 'hewan-mantis-orchid.jpg',
+                alt: 'Belalang sembah anggrek menyamar di bunga',
+                solved,
+                preStyle: 'object-position: 50% 48%; transform: scale(1);',
+                postStyle: 'transform: scale(1.55); transform-origin: 50% 44%;',
+                spotStyle: 'width: 110px; height: 96px; top: 44px; left: 37%;',
+                caption: 'DI TENGAH BUNGA: BELALANG ANGGREK!'
+            })
+        },
+        {
+            id: 7,
+            category: 'Foto Hewan Menipu',
+            question: 'Terlihat cuma tumpukan daun kering cokelat yang gugur di lantai hutan! Padahal di antara daun kering itu ada satu hewan bertanduk yang menyamar jadi daun, yaitu...',
+            answer: 'KATAK',
+            trap: 'TOKEK',
+            openIndices: [4], // ? ? ? ? K (cocok TOKEK, KODOK, CICAK, KATAK!)
+            clues: [
+                'Bukan reptil berekor panjang — dia bertubuh segitiga pipih bermata hitam!',
+                'Sering lompat di tempat lembap setelah hujan!'
+            ],
+            reason: 'MIND BLOWING! Itu adalah KATAK DAUN BERTANDUK (Megophrys nasuta) yang punggungnya punya guratan mirip persis tulang daun kering!',
+            renderSvg: (solved) => renderPhotoStage({
+                src: 'hewan-leaf-frog.jpg',
+                alt: 'Katak daun bertanduk berkamuflase di daun kering',
+                solved,
+                preStyle: 'object-position: 52% 52%; transform: scale(1);',
+                postStyle: 'transform: scale(1.38); transform-origin: 60% 52%;',
+                spotStyle: 'width: 155px; height: 112px; top: 46px; left: 42%;',
+                caption: 'KATAK DAUN BERTANDUK BERKAMUFLASE!'
+            })
+        },
+
+        // === 2. Ilusi Optik Menipu (dengan Bukti Visual!) ===
+        {
+            id: 8,
             category: 'Ilusi Optik Menipu',
             question: 'Perhatikan garis tengah (warna hitam) pada gambar ATAS dan BAWAH. Garis mana yang ukurannya lebih panjang?',
             answer: 'SAMA PANJANG',
             trap: 'GARIS BAWAH',
-            openIndices: [5], // S ? ? ?  P ? ? ? ? ? ? ?
+            openIndices: [5],
             clues: [
                 'Jangan percaya 100% sama penglihatan mata dari panahnya!',
-                'Coba ukur ujung garis hitam kiri dan kanan kedua garis pakai jari atau penggaris!'
+                'Ukur ujung garis hitam kiri dan kanan kedua garis pakai jari atau penggaris!'
             ],
-            reason: 'MIND BLOWING! Panjang garis hitam ATAS dan BAWAH tepat 180px — SAMA PANJANG 100%! Panah keluar dan ke dalam (Ilusi Muller-Lyer) menipu otak kita!',
+            reason: 'MIND BLOWING! Panjang garis hitam ATAS dan BAWAH tepat 180px — SAMA PANJANG 100%! Panah keluar-masuk (Ilusi Muller-Lyer) menipu otak kita!',
             renderSvg: (solved) => `
                 <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                     <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
                     <text x="24" y="48" font-family="Plus Jakarta Sans, Arial" font-size="13" font-weight="800" fill="#64748B">ATAS</text>
                     <text x="24" y="128" font-family="Plus Jakarta Sans, Arial" font-size="13" font-weight="800" fill="#64748B">BAWAH</text>
-                    <!-- Garis Atas (180px dari x=140 ke x=320) -->
                     <line x1="140" y1="44" x2="320" y2="44" stroke="#0F172A" stroke-width="5" stroke-linecap="round"/>
                     <path d="M115 24 L140 44 L115 64" fill="none" stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M345 24 L320 44 L345 64" fill="none" stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <!-- Garis Bawah (180px persis dari x=140 ke x=320!) -->
                     <line x1="140" y1="124" x2="320" y2="124" stroke="#0F172A" stroke-width="5" stroke-linecap="round"/>
                     <path d="M165 104 L140 124 L165 144" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M295 104 L320 124 L295 144" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -37,17 +202,17 @@
                 </svg>`
         },
         {
-            id: 2,
+            id: 9,
             category: 'Ilusi Optik Menipu',
             question: 'Perhatikan lingkaran ORANYE di tengah KIRI dan KANAN. Lingkaran oranye mana yang diameternya lebih besar?',
             answer: 'SAMA BESAR',
             trap: 'YANG KANAN',
-            openIndices: [5], // S ? ? ?  B ? ? ? ?
+            openIndices: [5],
             clues: [
                 'Fokus cuma ke lingkaran ORANYE-nya, abaikan bulatan biru di sekitarnya!',
                 'Tutup bulatan birunya pakai tangan — kelihatan bedanya atau sama?'
             ],
-            reason: 'MIND BLOWING! Kedua lingkaran oranye punya jari-jari 18px yang SAMA BESAR 100% (Ilusi Ebbinghaus)! Lingkaran biru raksasa di kiri bikin otak mengira pusatnya kecil!',
+            reason: 'MIND BLOWING! Kedua lingkaran oranye punya jari-jari 18px yang SAMA BESAR 100% (Ilusi Ebbinghaus)! Lingkaran biru raksasa di kiri menipu mata!',
             renderSvg: (solved) => {
                 const bigAround = [0, 60, 120, 180, 240, 300].map((deg) => {
                     const rad = deg * Math.PI / 180;
@@ -76,7 +241,7 @@
             }
         },
         {
-            id: 3,
+            id: 10,
             category: 'Ilusi Optik Menipu',
             question: 'Bandingkan warna abu-abu KOTAK A dan KOTAK B secara langsung. Mana yang kode warnanya lebih terang?',
             answer: 'SAMA WARNA',
@@ -84,23 +249,20 @@
             openIndices: [5],
             clues: [
                 'Mata kita terkecoh karena Kotak B berada di area bayangan silinder!',
-                'Tutup kotak sekitarnya pakai kertas/jari dan lihat cuma kotak A & B!'
+                'Tutup kotak sekitarnya pakai jari — terlihat kotak A dan B ternyata...'
             ],
             reason: 'MIND BLOWING! Kotak A dan Kotak B memakai kode warna #787878 yang 100% IDENTIK! Saat dihubungkan garis #787878, mata langsung sadar keduanya SAMA WARNA!',
             renderSvg: (solved) => `
                 <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                     <rect width="460" height="170" rx="12" fill="#E2E8F0"/>
-                    <!-- Papan atas terang -->
                     <rect x="70" y="20" width="90" height="55" fill="#F1F5F9" stroke="#94A3B8"/>
                     <rect x="160" y="20" width="90" height="55" fill="#787878" stroke="#475569"/>
                     <text x="205" y="52" text-anchor="middle" font-family="Arial Black" font-size="18" fill="#FFFFFF">A</text>
                     <rect x="250" y="20" width="90" height="55" fill="#F1F5F9" stroke="#94A3B8"/>
-                    <!-- Area bayangan -->
                     <rect x="70" y="75" width="90" height="55" fill="#787878" stroke="#475569"/>
                     <rect x="160" y="75" width="90" height="55" fill="#334155" stroke="#1E293B"/>
                     <rect x="250" y="75" width="90" height="55" fill="#787878" stroke="#475569"/>
                     <text x="295" y="108" text-anchor="middle" font-family="Arial Black" font-size="18" fill="#FFFFFF">B</text>
-                    <!-- Silinder hijau pembuat efek bayangan -->
                     <ellipse cx="365" cy="115" rx="28" ry="11" fill="#047857"/>
                     <rect x="337" y="45" width="56" height="70" fill="#10B981"/>
                     <ellipse cx="365" cy="45" rx="28" ry="11" fill="#34D399"/>
@@ -113,7 +275,7 @@
                 </svg>`
         },
         {
-            id: 4,
+            id: 11,
             category: 'Ilusi Optik Menipu',
             question: 'Lihatlah ke tengah gambar! Berapa jumlah garis SEGITIGA PUTIH yang benar-benar digambar di gambar ini?',
             answer: 'NOL',
@@ -127,11 +289,9 @@
             renderSvg: (solved) => `
                 <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                     <rect width="460" height="170" rx="12" fill="#FFFFFF"/>
-                    <!-- 3 Pac-Man circles forming illusory white triangle -->
                     <circle cx="230" cy="36" r="24" fill="${solved ? '#94A3B8' : '#0F172A'}"/>
                     <circle cx="155" cy="136" r="24" fill="${solved ? '#94A3B8' : '#0F172A'}"/>
                     <circle cx="305" cy="136" r="24" fill="${solved ? '#94A3B8' : '#0F172A'}"/>
-                    <!-- Inner white mask polygon (drawn WITHOUT any border!) -->
                     <polygon points="230,36 155,136 305,136" fill="#FFFFFF"/>
                     ${solved ? `
                         <text x="230" y="106" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#EF4444">0 GARIS SEGITIGA!</text>
@@ -140,7 +300,7 @@
                 </svg>`
         },
         {
-            id: 5,
+            id: 12,
             category: 'Ilusi Optik Menipu',
             question: 'Perhatikan garis abu-abu mendatar di antara kotak hitam-putih ini. Apakah garis mendatar tersebut lurus sejajar atau miring bengkok?',
             answer: 'LURUS SEJAJAR',
@@ -174,7 +334,7 @@
             }
         },
         {
-            id: 6,
+            id: 13,
             category: 'Ilusi Optik Menipu',
             question: 'Perhatikan dua bentuk lengkung pelangi (ORANYE dan BIRU) yang ditumpuk ini. Bentuk mana yang ukurannya lebih besar?',
             answer: 'SAMA BESAR',
@@ -184,21 +344,19 @@
                 'Sisi pendek bagian bawah ditaruh persis di atas sisi panjang gambar bawahnya!',
                 'Kalau digeser lurus sejajar, dua-duanya ukurannya...'
             ],
-            reason: 'MIND BLOWING! Bentuk oranye dan biru ukurannya 100% IDENTIK / SAMA BESAR (Ilusi Jastrow)! Otak tertipu membandingkan lengkungan pendek dan lengkungan panjang yang bersebelahan!',
+            reason: 'MIND BLOWING! Bentuk oranye dan biru ukurannya 100% IDENTIK / SAMA BESAR (Ilusi Jastrow)! Otak tertipu membandingkan lengkungan pendek dan panjang!',
             renderSvg: (solved) => `
                 <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                     <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <!-- Top curved trapezoid -->
                     <path d="M135 55 Q230 22 325 55 L308 82 Q230 56 152 82 Z" fill="#F97316" stroke="#C2410C" stroke-width="2"/>
-                    <!-- Bottom identical curved trapezoid shifted slightly right -->
                     <path d="${solved ? 'M135 100 Q230 67 325 100 L308 127 Q230 101 152 127 Z' : 'M152 100 Q247 67 342 100 L325 127 Q247 101 169 127 Z'}" fill="#0284C7" stroke="#0369A1" stroke-width="2"/>
                     ${solved ? `<text x="230" y="155" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#059669">BUKTI: DIGESER LURUS 100% SAMA BESAR!</text>` : ''}
                 </svg>`
         },
 
-        // === 2. Tebak Sudut Pandang ===
+        // === 3. Sudut Pandang & Rebus Plesetan ===
         {
-            id: 7,
+            id: 14,
             category: 'Tebak Sudut Pandang',
             question: 'Sekilas terlihat gambar PIALA PUTIH di tengah. Tapi fokuslah ke sisi hitam di kiri dan kanan... sebenarnya mereka lagi ngapain?',
             answer: 'SALING TATAP',
@@ -212,7 +370,6 @@
             renderSvg: (solved) => `
                 <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                     <rect width="460" height="170" rx="12" fill="#FFFFFF"/>
-                    <!-- Two facing silhouettes in black -->
                     <path d="M120 20 L205 20 C198 40, 212 52, 200 66 C214 78, 218 85, 202 92 C210 98, 202 104, 198 108 C208 114, 194 128, 196 150 L120 150 Z" fill="${solved ? '#6D28D9' : '#0F172A'}"/>
                     <path d="M340 20 L255 20 C262 40, 248 52, 260 66 C246 78, 242 85, 258 92 C250 98, 258 104, 262 108 C252 114, 266 128, 264 150 L340 150 Z" fill="${solved ? '#DB2777' : '#0F172A'}"/>
                     ${solved ? `
@@ -222,29 +379,7 @@
                 </svg>`
         },
         {
-            id: 8,
-            category: 'Tebak Sudut Pandang',
-            question: 'Fokus pada WARNA TINTA tulisan pertama (bukan kata yang tertulis!). Apa warna tinta kata pertama tersebut?',
-            answer: 'BIRU',
-            trap: 'MERAH',
-            openIndices: [0],
-            clues: [
-                'Otakmu otomatis membaca teksnya, padahal yang ditanya WARNA TINTA-nya!',
-                'Tulisannya berbunyi "MERAH", tapi warnanya kayak langit cerah!'
-            ],
-            reason: 'Efek Stroop! Tulisan pertamanya memang berbunyi MERAH, tapi warna tintanya BIRU! Otak langsung bentrok pas disuruh nyebut cepat!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#0F172A"/>
-                    <text x="145" y="75" text-anchor="middle" font-family="Arial Black" font-size="34" fill="#38BDF8">MERAH</text>
-                    <text x="320" y="75" text-anchor="middle" font-family="Arial Black" font-size="34" fill="#FACC15">HIJAU</text>
-                    <text x="145" y="135" text-anchor="middle" font-family="Arial Black" font-size="34" fill="#EF4444">BIRU</text>
-                    <text x="320" y="135" text-anchor="middle" font-family="Arial Black" font-size="34" fill="#22C55E">KUNING</text>
-                    <rect x="65" y="34" width="160" height="54" rx="10" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="6 4"/>
-                </svg>`
-        },
-        {
-            id: 9,
+            id: 15,
             category: 'Tebak Sudut Pandang',
             question: 'Si Kiri berteriak itu angka 6! Si Kanan ngotot itu angka 9! Siapa sebenarnya yang paling tahu kebenaran angka aslinya?',
             answer: 'PEMBUATNYA',
@@ -252,120 +387,26 @@
             openIndices: [9],
             clues: [
                 'Bukan salah satu dari dua orang yang berdebat di kiri atau kanan!',
-                'Tanyakan ke orang yang pertama kali mengecat/menulis angka itu di lantai!'
+                'Tanyakan ke orang yang pertama kali mengecat angka itu di lantai!'
             ],
             reason: 'MIND BLOWING! Keduanya cuma berdebat dari sudut pandang masing-masing — yang paling tahu apakah itu 6 atau 9 adalah PEMBUATNYA!',
             renderSvg: () => `
                 <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                     <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <!-- Left stick figure -->
                     <circle cx="95" cy="60" r="16" fill="#2563EB"/>
                     <rect x="83" y="80" width="24" height="45" rx="6" fill="#2563EB"/>
                     <text x="95" y="148" text-anchor="middle" font-family="Arial Black" font-size="14" fill="#1E40AF">"ITU 6!"</text>
-                    <!-- Number in center lying sideways/vertical -->
                     <ellipse cx="230" cy="116" rx="64" ry="20" fill="#E2E8F0"/>
                     <text x="230" y="102" text-anchor="middle" font-family="Arial Black" font-size="76" fill="#0F172A">6</text>
-                    <!-- Right stick figure -->
                     <circle cx="365" cy="60" r="16" fill="#DC2626"/>
                     <rect x="353" y="80" width="24" height="45" rx="6" fill="#DC2626"/>
                     <text x="365" y="148" text-anchor="middle" font-family="Arial Black" font-size="14" fill="#B91C1C">"ITU 9!"</text>
                 </svg>`
         },
         {
-            id: 10,
-            category: 'Tebak Sudut Pandang',
-            question: 'Tiga orang menutup mata lalu meraba seekor gajah di tempat gelap. Semua punya jawaban beda tapi semua merasa benar karena...',
-            answer: 'BELUM LIHAT UTUH',
-            trap: 'SALAH MEGANG',
-            openIndices: [12],
-            clues: [
-                'Yang pegang belalai dikira ular, yang pegang kaki dikira pohon, yang pegang telinga dikira kipas!',
-                'Mereka masing-masing cuma melihat sebagian kecilnya!'
-            ],
-            reason: 'Mereka semua merasa paling benar karena BELUM LIHAT UTUH gambar gajahnya! Pelajaran hidup sekaligus jebakan sudut pandang!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <!-- Stylized Elephant Silhouette -->
-                    <rect x="165" y="55" width="125" height="65" rx="22" fill="#64748B"/>
-                    <rect x="175" y="110" width="22" height="38" rx="6" fill="#64748B"/>
-                    <rect x="255" y="110" width="22" height="38" rx="6" fill="#64748B"/>
-                    <path d="M165 72 Q125 75 130 112 Q132 124 144 120" fill="none" stroke="#64748B" stroke-width="16" stroke-linecap="round"/>
-                    <ellipse cx="205" cy="76" rx="18" ry="24" fill="#94A3B8"/>
-                    <!-- Speech bubbles -->
-                    <rect x="26" y="25" width="95" height="30" rx="8" fill="#FEE2E2" stroke="#EF4444"/>
-                    <text x="73" y="45" text-anchor="middle" font-family="Arial Black" font-size="11" fill="#B91C1C">"ULAR!"</text>
-                    <rect x="182" y="12" width="95" height="28" rx="8" fill="#FEF3C7" stroke="#F59E0B"/>
-                    <text x="230" y="30" text-anchor="middle" font-family="Arial Black" font-size="11" fill="#92400E">"KIPAS!"</text>
-                    <rect x="330" y="65" width="104" height="30" rx="8" fill="#DBEAFE" stroke="#2563EB"/>
-                    <text x="382" y="85" text-anchor="middle" font-family="Arial Black" font-size="11" fill="#1E40AF">"TEMBOK!"</text>
-                </svg>`
-        },
-        {
-            id: 11,
-            category: 'Tebak Sudut Pandang',
-            question: 'Jam weker sudah bunyi nyaring jam 06.00 pagi tepat! Tapi dari gerakan di gambar ini, kalimat yang keluar dari mulutnya pasti...',
-            answer: 'LIMA MENIT LAGI',
-            trap: 'BANGUN PAGI',
-            openIndices: [5],
-            clues: [
-                'Tangannya malah nekan tombol SNOOZE terus tarik selimut lagi!',
-                'Janji palsu sejuta umat tiap pagi hari kerja!'
-            ],
-            reason: 'LIMA MENIT LAGI! Janji paling bohong di pagi hari — tahu-tahu melek lagi udah jam 08.15 lewat rapat pagi!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#EFF6FF"/>
-                    <!-- Alarm clock shaking -->
-                    <circle cx="120" cy="85" r="36" fill="#EF4444"/>
-                    <circle cx="120" cy="85" r="28" fill="#FFFFFF"/>
-                    <line x1="120" y1="85" x2="120" y2="66" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
-                    <line x1="120" y1="85" x2="136" y2="85" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
-                    <text x="120" y="34" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#DC2626">KRINGGG! 06:00</text>
-                    <!-- Arrow to Snooze & Sleeping Blanket -->
-                    <path d="M175 85 L220 85" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
-                    <rect x="240" y="96" width="170" height="44" rx="14" fill="#3B82F6"/>
-                    <circle cx="385" cy="85" r="18" fill="#FDE047"/>
-                    <text x="315" y="72" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#1E3A8A">Zzz...</text>
-                </svg>`
-        },
-
-        // === 3. Rebus Plesetan Kantor ===
-        {
-            id: 12,
+            id: 16,
             category: 'Rebus Plesetan Kantor',
-            question: 'Tebak ungkapan khas anak kantor dari kombinasi gambar dan kejadian berikut!',
-            answer: 'KAMBING HITAM',
-            trap: 'HEWAN HITAM',
-            openIndices: [8],
-            clues: [
-                'Lihat warnanya + posisinya sebagai karyawan paling baru di rapat!',
-                'Sering dijadikan pihak yang disalahkan setiap kali ada masalah!'
-            ],
-            reason: 'KAMBING HITAM! Klasik di kantor maupun pergaulan: tiap proyek error, yang paling gampang disalahin ya si anak baru!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <!-- Black Goat Silhouette -->
-                    <ellipse cx="120" cy="95" rx="45" ry="28" fill="#0F172A"/>
-                    <circle cx="164" cy="72" r="18" fill="#0F172A"/>
-                    <path d="M162 56 Q150 38 136 46" fill="none" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
-                    <path d="M170 56 Q182 38 190 48" fill="none" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
-                    <rect x="92" y="114" width="10" height="32" rx="4" fill="#0F172A"/>
-                    <rect x="138" y="114" width="10" height="32" rx="4" fill="#0F172A"/>
-                    <text x="120" y="162" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#475569">Mbeee...</text>
-                    <!-- Arrow = Salah Semua -->
-                    <text x="235" y="98" text-anchor="middle" font-family="Arial Black" font-size="30" fill="#EF4444">=</text>
-                    <!-- Blamed New Intern -->
-                    <circle cx="345" cy="58" r="20" fill="#FDE047" stroke="#0F172A" stroke-width="2"/>
-                    <rect x="320" y="82" width="50" height="48" rx="10" fill="#EF4444"/>
-                    <text x="345" y="152" text-anchor="middle" font-family="Arial Black" font-size="11" fill="#B91C1C">"SALAH ANAK BARU!"</text>
-                </svg>`
-        },
-        {
-            id: 13,
-            category: 'Rebus Plesetan Kantor',
-            question: 'Lihat gambar pintu minimarket bertuliskan DORONG, tapi orangnya malah menarik sekuat tenaga. Kenapa?',
+            question: 'Lihat gambar pintu minimarket bertuliskan DORONG, tapi orangnya malah menarik sekuat tenaga. Apa penyebab kejadian sehari-hari di gambar ini?',
             answer: 'MALAS BACA',
             trap: 'BUKA PINTU',
             openIndices: [6],
@@ -377,91 +418,13 @@
             renderSvg: () => `
                 <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                     <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <!-- Glass Door with big DORONG sign -->
                     <rect x="165" y="18" width="130" height="136" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="4"/>
                     <rect x="188" y="42" width="84" height="32" rx="6" fill="#EF4444"/>
                     <text x="230" y="63" text-anchor="middle" font-family="Arial Black" font-size="15" fill="#FFFFFF">DORONG</text>
-                    <!-- Door Handle + Hand Pulling Left -->
                     <rect x="274" y="88" width="8" height="32" rx="4" fill="#334155"/>
                     <path d="M350 104 L288 104" stroke="#F59E0B" stroke-width="6" stroke-linecap="round"/>
                     <path d="M335 90 L355 104 L335 118" fill="none" stroke="#F59E0B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
                     <text x="368" y="78" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#B45309">TARIKK!!</text>
-                </svg>`
-        },
-        {
-            id: 14,
-            category: 'Rebus Plesetan Kantor',
-            question: 'Dompet terbuka dengan sarang laba-laba (Rp 0) + Kalender angka 28 merah. Tebak frasanya!',
-            answer: 'TANGGAL TUA',
-            trap: 'DOMPET KOSONG',
-            openIndices: [8],
-            clues: [
-                'Fokus ke angka di kalendernya + kondisi isi dompetnya!',
-                'Dua kata paling keramat bagi anak kos dan karyawan!'
-            ],
-            reason: 'TANGGAL TUA! Tanggal 28 dompet udah isi sarang laba-laba, gajian masih minggu depan!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#FEF2F2"/>
-                    <!-- Empty Wallet -->
-                    <rect x="58" y="48" width="120" height="82" rx="12" fill="#78350F" stroke="#451A03" stroke-width="3"/>
-                    <text x="118" y="96" text-anchor="middle" font-family="Arial Black" font-size="24" fill="#FCA5A5">Rp 0</text>
-                    <text x="225" y="98" text-anchor="middle" font-family="Arial Black" font-size="30" fill="#64748B">+</text>
-                    <!-- Calendar 28 -->
-                    <rect x="275" y="34" width="115" height="106" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="3"/>
-                    <rect x="275" y="34" width="115" height="32" rx="10" fill="#EF4444"/>
-                    <text x="332" y="55" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#FFFFFF">AKHIR BULAN</text>
-                    <text x="332" y="118" text-anchor="middle" font-family="Arial Black" font-size="48" fill="#0F172A">28</text>
-                </svg>`
-        },
-        {
-            id: 15,
-            category: 'Rebus Plesetan Kantor',
-            question: 'Seekor udang bersembunyi di belakang batu besar. Tebak makna peribahasa (bukan benda harfiahnya!)',
-            answer: 'ADA MAUNYA',
-            trap: 'UDANG BATU',
-            openIndices: [4],
-            clues: [
-                'Peribahasanya "Ada udang di balik batu" — apa arti aslinya?',
-                'Kalau teman tiba-tiba super baik ngasih kopi gratis, tandanya...'
-            ],
-            reason: 'ADA MAUNYA! Bukan nyari udang beneran, biasanya temenmu lagi mau nitip absen atau minjam duit!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#F0FDF4"/>
-                    <!-- Shrimp behind Rock -->
-                    <path d="M290 65 Q340 40 345 85 Q345 110 315 115" fill="none" stroke="#F97316" stroke-width="18" stroke-linecap="round"/>
-                    <circle cx="332" cy="60" r="3" fill="#0F172A"/>
-                    <path d="M135 135 Q145 45 230 48 Q310 50 325 135 Z" fill="#64748B" stroke="#475569" stroke-width="3"/>
-                    <text x="230" y="102" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#F8FAFC">BATU</text>
-                    <text x="360" y="45" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#EA580C">Ngintip...</text>
-                </svg>`
-        },
-        {
-            id: 16,
-            category: 'Rebus Plesetan Kantor',
-            question: 'Laporan penting belum diklik SAVE, tiba-tiba gelas kopi tumpah membanjiri keyboard laptop! Satu kata refleks karyawan saat itu adalah...',
-            answer: 'PANIK',
-            trap: 'PASRAH',
-            openIndices: [0],
-            clues: [
-                'Jantung berhenti sepersekian detik melihat air kopi masuk sela-sela tombol!',
-                'Lima huruf diawali P, langsung cabut colokan listrik!'
-            ],
-            reason: 'PANIK! Lebih ngeri daripada film horor — kerjaan seharian hilang dalam dua detik karena segelas es kopi susu!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#FFFBEB"/>
-                    <!-- Laptop Screen saying UNSAVED -->
-                    <rect x="135" y="22" width="160" height="92" rx="8" fill="#1E293B"/>
-                    <rect x="145" y="32" width="140" height="72" rx="4" fill="#FFFFFF"/>
-                    <text x="215" y="64" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#EF4444">BELUM DI-SAVE!</text>
-                    <text x="215" y="85" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#64748B">Laporan_Final_V9</text>
-                    <!-- Keyboard base -->
-                    <polygon points="115,118 315,118 335,148 95,148" fill="#64748B"/>
-                    <!-- Spilling Coffee Mug -->
-                    <rect x="305" y="42" width="46" height="36" rx="6" transform="rotate(-45 328 60)" fill="#B45309"/>
-                    <path d="M295 72 Q265 95 245 128 Q270 135 285 130 Q300 115 305 85 Z" fill="#78350F" opacity="0.85"/>
                 </svg>`
         }
     ];

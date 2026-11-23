@@ -42,6 +42,49 @@
             max-height: 205px;
             display: block;
         }
+        .tg-photo-frame {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            height: 215px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #0F172A;
+            border: 1px solid #CBD5E1;
+        }
+        .tg-photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+        }
+        .tg-photo-spot {
+            position: absolute;
+            border: 3px dashed #FDE047;
+            border-radius: 50%;
+            box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.42);
+            pointer-events: none;
+            animation: pulseSpot 1.6s infinite;
+        }
+        .tg-photo-caption {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(16, 185, 129, 0.94);
+            color: #FFFFFF;
+            padding: 3px 12px;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 800;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+        @keyframes pulseSpot {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
         .tg-tiles-wrap {
             display: flex;
             flex-wrap: wrap;
@@ -283,6 +326,6 @@
         </div>
     </div>
 
-    <script src="tebakgambar.js?v=2"></script>
+    <script src="tebakgambar.js?v=3"></script>
 </body>
 </html>
