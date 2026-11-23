@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contekan Rahasia Host — TTS Cak Lontong &amp; Tebak Gambar</title>
+    <link rel="icon" type="image/svg+xml" href="caklontong-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background: #F1F5F9;
+            color: #0F172A;
+            padding: 16px;
+        }
+        .wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+        .top-card {
+            background: #0F172A;
+            color: #FFFFFF;
+            padding: 18px 20px;
+            border-radius: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        .top-card h1 { margin: 0; font-size: 1.25rem; }
+        .top-card p { margin: 4px 0 0; font-size: 0.84rem; color: #CBD5E1; }
+        .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn-link {
+            padding: 8px 14px;
+            border-radius: 9px;
+            background: #1E293B;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            border: 1px solid #334155;
+            cursor: pointer;
+        }
+        .btn-link.primary { background: #10B981; border-color: #10B981; color: #052E16; }
+        .search-bar {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1.5px solid #CBD5E1;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: #FFFFFF;
+        }
+        .sec-title {
+            margin: 8px 0 0;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: #FFFFFF;
+            border-left: 5px solid #F59E0B;
+            font-size: 1.08rem;
+            font-weight: 800;
+        }
+        .sec-title.tg { border-left-color: #7C3AED; }
+        .cheat-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+        .cheat-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.84rem;
+            line-height: 1.45;
+        }
+        .cheat-card[hidden] { display: none; }
+        .cheat-head { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+        .cheat-num { font-weight: 800; color: #0F172A; font-size: 0.85rem; }
+        .cheat-cat {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: #F1F5F9;
+            color: #475569;
+        }
+        .cheat-q { margin: 0; font-weight: 700; color: #1E293B; }
+        .cheat-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4px;
+            padding: 8px 10px;
+            border-radius: 9px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+        }
+        .cheat-ans span { font-weight: 900; color: #B91C1C; letter-spacing: 0.5px; }
+        .cheat-trap span { font-weight: 800; color: #92400E; }
+        .cheat-clues { color: #334155; display: flex; flex-direction: column; gap: 3px; }
+        .cheat-reason {
+            padding: 7px 10px;
+            border-radius: 8px;
+            background: #FEFCE8;
+            border: 1px solid #FEF08A;
+            color: #713F12;
+        }
+        @media print {
+            body { background: #FFFFFF; padding: 0; }
+            .actions, .search-bar { display: none; }
+            .cheat-list { grid-template-columns: 1fr 1fr; }
+            .cheat-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <header class="top-card">
+            <div>
+                <h1>📱 Buku Contekan Rahasia Host</h1>
+                <p>Berisi kunci jawaban, pancingan jebakan, clue bertahap, dan penjelasan anti-protes untuk semua soal.</p>
+            </div>
+            <div class="actions">
+                <a href="caklontong.html?mode=host" class="btn-link">Mode HP Cak Lontong</a>
+                <a href="tebakgambar.html?mode=host" class="btn-link">Mode HP Tebak Gambar</a>
+                <button type="button" onclick="window.print()" class="btn-link primary">🖨️ Cetak / Simpan PDF</button>
+            </div>
+        </header>
+
+        <input type="search" id="search-box" class="search-bar" placeholder="Cari soal, kata kunci jawaban, kategori, atau jebakan...">
+
+        <h2 id="caklontong" class="sec-title">🧩 TTS Cak Lontong — 50 Soal Lengkap</h2>
+        <section class="cheat-list">
+            
+        <article class="cheat-card" data-search="tts (teka-teki sulit) air hujan yang mengguyur bumi biasanya turunnya... dari maghrib dari mendung dari maghrib! karena waktu ashar belum turun, masih mendung doang — pas maghrib baru mengguyur!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #1</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Air hujan yang mengguyur bumi biasanya turunnya...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>DARI MAGHRIB</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>DARI MENDUNG</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan &quot;dari langit&quot; atau &quot;dari awan mendung&quot;!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Ini soal jam turunnya hujan di sore hari — kalau Ashar belum turun!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> DARI MAGHRIB! Karena waktu Ashar belum turun, masih mendung doang — pas Maghrib baru mengguyur!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) jika sedang sakit demam tinggi di puskesmas atau klinik, yang paling penting dan utama untuk cepat diperiksa adalah... daftar dokter d-?-?-?-?-r bukan dokter! mau ada sepuluh dokter di dalam, kalau nggak daftar dulu nggak bakal dipanggil!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #2</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Jika sedang sakit demam tinggi di puskesmas atau klinik, yang paling penting dan utama untuk cepat diperiksa adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>DAFTAR</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>DOKTER</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan orang yang pakai stetoskop.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Hal pertama yang wajib dilakukan di meja loket paling depan!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> D-?-?-?-?-R bukan DOKTER! Mau ada sepuluh dokter di dalam, kalau nggak DAFTAR dulu nggak bakal dipanggil!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) seorang tukang cukur memotong rambut pelanggannya dengan... gantian gunting g-?-?-t-?-?-? bukan gunting! kalau pelanggannya ramai ya dicukurnya gantian satu per satu!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #3</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Seorang tukang cukur memotong rambut pelanggannya dengan...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>GANTIAN</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>GUNTING</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan alat tajam yang bunyinya krek-krek.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kalau ada lima pelanggan datang bareng, masa dicukur sekaligus?!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> G-?-?-T-?-?-? bukan GUNTING! Kalau pelanggannya ramai ya dicukurnya GANTIAN satu per satu!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) di rumah makan padang, selain pakai sendok, biasanya orang makan pakai... tenaga tangan t-?-n-?-?-? bukan tangan! pakai sendok atau nggak, makannya tetap butuh tenaga!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #4</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Di rumah makan Padang, selain pakai sendok, biasanya orang makan pakai...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>TENAGA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>TANGAN</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan anggota tubuh di ujung lengan.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kalau lagi lemas nggak punya ini, nyuap nasi pun nggak kuat!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> T-?-N-?-?-? bukan TANGAN! Pakai sendok atau nggak, makannya tetap butuh TENAGA!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) pedagang kaki lima di pinggir jalan langsung bubar berhamburan karena ada... ramai razia r-a-?-?-? bukan razia! karena pembelinya ramai banget, dagangannya langsung ludes habis terus bubar pulang!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #5</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Pedagang kaki lima di pinggir jalan langsung bubar berhamburan karena ada...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>RAMAI</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>RAZIA</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan Satpol PP atau hujan badai!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Justru kondisi yang paling didoakan semua pedagang!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> R-A-?-?-? bukan RAZIA! Karena pembelinya RAMAI banget, dagangannya langsung ludes habis terus bubar pulang!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) saat lampu merah menyala di perempatan jalan, pengendara harus... lihat lewat l-?-?-?-t bukan lewat! lampu merah itu di-lihat dulu, jangan main terobos!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #6</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Saat lampu merah menyala di perempatan jalan, pengendara harus...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>LIHAT</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>LEWAT</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Pakai mata dulu biar nggak salah sangka.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kalau langsung jalan pas lampu merah ya kena tilang!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> L-?-?-?-T bukan LEWAT! Lampu merah itu di-LIHAT dulu, jangan main terobos!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) orang yang mengendarai bus antar kota saat jalan tol macet total harus... sabar sopir s-?-?-?-r bukan sopir! sopirnya kalau nggak sabar malah turun dorong bus!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #7</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Orang yang mengendarai bus antar kota saat jalan tol macet total harus...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>SABAR</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>SOPIR</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan profesinya, tapi kondisi mental menghadapi kemacetan.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kalau emosian di tol, bisa-bisa klakson terus nggak ada gunanya!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> S-?-?-?-R bukan SOPIR! Sopirnya kalau nggak SABAR malah turun dorong bus!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) kalau lagi sakit gigi malam-malam dan tidak tahan lagi, orang langsung lari ke... kasur kamar k-?-?-?-r bukan cuma kamar! malam-malam klinik tutup, ya langsung guling-guling di kasur!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #8</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Kalau lagi sakit gigi malam-malam dan tidak tahan lagi, orang langsung lari ke...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>KASUR</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KAMAR</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Lebih spesifik dari nama ruangannya.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Tempat paling empuk buat meringkuk sambil megangin pipi!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> K-?-?-?-R bukan cuma KAMAR! Malam-malam klinik tutup, ya langsung guling-guling di KASUR!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) hal pertama yang dilakukan anak gen z begitu bangun tidur di pagi hari adalah... merem minum m-?-?-?-m bukan minum! pasti merem lagi lima menit sambil bilang &quot;bentar lagi deh&quot;!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #9</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Hal pertama yang dilakukan anak Gen Z begitu bangun tidur di pagi hari adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MEREM</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>MINUM</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan langsung minum air putih atau buka TikTok.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Dilakukan selama 5 menit lagi buat ngumpulin nyawa!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> M-?-?-?-M bukan MINUM! Pasti MEREM lagi lima menit sambil bilang &quot;bentar lagi deh&quot;!</div>
+        </article>
+        <article class="cheat-card" data-search="tts (teka-teki sulit) saat meeting zoom berlangsung, bagian tubuh yang paling sering menatap kamera penuh kepalsuan adalah... mata muka m-?-?-a bukan cuma muka, tapi mata yang menatap kamera seolah fokus padahal baca chat gosip!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #10</span>
+                <span class="cheat-cat">TTS (Teka-Teki Sulit)</span>
+            </div>
+            <p class="cheat-q">Saat meeting Zoom berlangsung, bagian tubuh yang paling sering menatap kamera penuh kepalsuan adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MATA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>MUKA</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Keliatannya fokus ke layar, padahal lagi lirik tab belanja online.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Ada sepasang di wajah dan sering pura-pura menyimak bos!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> M-?-?-A bukan cuma MUKA, tapi MATA yang menatap kamera seolah fokus padahal baca chat gosip!</div>
+        </article>
+        <article class="cheat-card" data-search="kata misteri ibu ani punya 4 anak: mei, juni, juli, dan anak bungsunya laki-laki lahir tepat di bulan delapan. di rumah, anak keempat itu biasa dipanggil... adik agus a-?-?-? bukan agus! karena dia anak bungsu, kakak-kakaknya manggil dia adik!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #11</span>
+                <span class="cheat-cat">Kata Misteri</span>
+            </div>
+            <p class="cheat-q">Ibu Ani punya 4 anak: Mei, Juni, Juli, dan anak bungsunya laki-laki lahir tepat di bulan delapan. Di rumah, anak keempat itu biasa dipanggil...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>ADIK</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>AGUS</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Siapa bilang namanya Agus?!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Panggilan akrab di keluarga karena dia anak paling bungsu!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> A-?-?-? bukan AGUS! Karena dia anak bungsu, kakak-kakaknya manggil dia ADIK!</div>
+        </article>
+        <article class="cheat-card" data-search="kata misteri seekor sapi berdiri menghadap lurus ke timur, lalu memutar badan 90 derajat ke kanan. kini ujung ekor sapi itu mengarah ke... bawah barat b-?-?-a-? bukan barat! mau sapinya menghadap ke mana aja, ujung ekor sapi tetap menjuntai ke bawah!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #12</span>
+                <span class="cheat-cat">Kata Misteri</span>
+            </div>
+            <p class="cheat-q">Seekor sapi berdiri menghadap lurus ke timur, lalu memutar badan 90 derajat ke kanan. Kini ujung ekor sapi itu mengarah ke...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BAWAH</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>BARAT</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Jangan pakai kompas atau hitung arah mata angin!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Bayangkan arah alami jatuhnya ekor sapi karena gravitasi!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> B-?-?-A-? bukan BARAT! Mau sapinya menghadap ke mana aja, ujung ekor sapi tetap menjuntai ke BAWAH!</div>
+        </article>
+        <article class="cheat-card" data-search="kata misteri supaya tidak kalah cepat saat lomba balap karung 17-an dimulai, semua peserta di garis start wajib... berdiri berlari b-?-?-?-?-?-i bukan berlari! mana bisa lari di dalam karung kalau belum berdiri dulu?!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #13</span>
+                <span class="cheat-cat">Kata Misteri</span>
+            </div>
+            <p class="cheat-q">Supaya tidak kalah cepat saat lomba balap karung 17-an dimulai, semua peserta di garis start wajib...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BERDIRI</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>BERLARI</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Belum boleh lari sebelum peluit ditiup.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kalau masih duduk lesehan di dalam karung gimana mau lompat?!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> B-?-?-?-?-?-I bukan BERLARI! Mana bisa lari di dalam karung kalau belum BERDIRI dulu?!</div>
+        </article>
+        <article class="cheat-card" data-search="kata misteri saat listrik padam total di kosan tengah malam, benda yang paling sering dicari dan langsung dinyalakan pertama kali oleh penghuni kos adalah... layar lilin l-?-?-?-? bukan lilin! anak zaman sekarang langsung nyalain layar hp dulu buat ngecek status wifi!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #14</span>
+                <span class="cheat-cat">Kata Misteri</span>
+            </div>
+            <p class="cheat-q">Saat listrik padam total di kosan tengah malam, benda yang paling sering dicari dan langsung dinyalakan pertama kali oleh penghuni kos adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>LAYAR</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>LILIN</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan benda yang pakai korek api atau sumbu.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Langsung ditekan tombol samping HP buat tanya grup kos &quot;mati lampu ya guys?&quot;</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> L-?-?-?-? bukan LILIN! Anak zaman sekarang langsung nyalain LAYAR HP dulu buat ngecek status WiFi!</div>
+        </article>
+        <article class="cheat-card" data-search="kata misteri jika sebuah sepeda motor tiba-tiba mogok di tengah jalan tol bebas hambatan, maka motor tersebut pasti langsung... ditilang didorong d-i-?-?-?-?-?-? bukan cuma didorong! motor kan dilarang masuk jalan tol — baru masuk aja udah pasti ditilang!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #15</span>
+                <span class="cheat-cat">Kata Misteri</span>
+            </div>
+            <p class="cheat-q">Jika sebuah sepeda motor tiba-tiba mogok di tengah jalan tol bebas hambatan, maka motor tersebut pasti langsung...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>DITILANG</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>DIDORONG</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Jangan cuma bayangkan mesinnya yang rusak!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Ingat aturan lalu lintas tentang kendaraan roda dua di jalan tol!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> D-I-?-?-?-?-?-? bukan cuma DIDORONG! Motor kan dilarang masuk jalan tol — baru masuk aja udah pasti DITILANG!</div>
+        </article>
+        <article class="cheat-card" data-search="kata misteri sehebat apa pun dokter bedah terbaik di dunia, ada satu kondisi orang yang mustahil bisa dioperasi olehnya, yaitu orang yang... sehat sakit s-?-?-?-t bukan sakit! orang lagi sehat walafiat ngapain naik ke meja operasi?!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #16</span>
+                <span class="cheat-cat">Kata Misteri</span>
+            </div>
+            <p class="cheat-q">Sehebat apa pun dokter bedah terbaik di dunia, ada satu kondisi orang yang mustahil bisa dioperasi olehnya, yaitu orang yang...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>SEHAT</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>SAKIT</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Nggak ada dokter yang mau membedah kalau nggak ada penyakitnya.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kondisi tubuhnya justru sedang baik-baik saja!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> S-?-?-?-T bukan SAKIT! Orang lagi SEHAT walafiat ngapain naik ke meja operasi?!</div>
+        </article>
+        <article class="cheat-card" data-search="kata misteri benda kecil di rumah seperti gunting kuku atau charger hp selalu tidak ketemu saat dicari mati-matian, tapi langsung muncul di atas meja tepat setelah kita... berhenti berganti b-?-?-?-?-?-?-i bukan berganti! barang hilang baru muncul sendiri tepat setelah kita berhenti nyari!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #17</span>
+                <span class="cheat-cat">Kata Misteri</span>
+            </div>
+            <p class="cheat-q">Benda kecil di rumah seperti gunting kuku atau charger HP selalu tidak ketemu saat dicari mati-matian, tapi langsung muncul di atas meja tepat setelah kita...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BERHENTI</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>BERGANTI</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Hukum alam paling ngeselin soal barang hilang.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Munculnya pas kita sudah pasrah nggak nyari lagi!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> B-?-?-?-?-?-?-I bukan BERGANTI! Barang hilang baru muncul sendiri tepat setelah kita BERHENTI nyari!</div>
+        </article>
+        <article class="cheat-card" data-search="kata misteri kakek berusia 90 tahun ini seumur-umur tidak pernah merasakan sakit gigi berlubang sama sekali karena mulutnya sudah... ompong kosong ?-?-?-o-?-g bukan kosong! giginya udah ompong semua, jadi mana ada gigi yang bisa sakit!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #18</span>
+                <span class="cheat-cat">Kata Misteri</span>
+            </div>
+            <p class="cheat-q">Kakek berusia 90 tahun ini seumur-umur tidak pernah merasakan sakit gigi berlubang sama sekali karena mulutnya sudah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>OMPONG</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KOSONG</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan karena rajin gosok gigi tiga kali sehari.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Istilah khusus untuk orang yang nggak punya gigi lagi!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> ?-?-?-O-?-G bukan KOSONG! Giginya udah OMPONG semua, jadi mana ada gigi yang bisa sakit!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis psikologi saat masuk lift sempit sendirian lalu ada orang asing ikut masuk, tiba-tiba kita menatap layar hp padahal nggak ada chat masuk supaya nggak kelihatan... canggung chatting c-?-?-?-?-?-?-g bukan beneran chatting! cuma biar nggak kelihatan canggung aja satu lift sempit!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #19</span>
+                <span class="cheat-cat">Kuis Psikologi</span>
+            </div>
+            <p class="cheat-q">Saat masuk lift sempit sendirian lalu ada orang asing ikut masuk, tiba-tiba kita menatap layar HP padahal nggak ada chat masuk supaya nggak kelihatan...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>CANGGUNG</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>CHATTING</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Cuma buka-tutup menu utama HP biar tangan ada kerjaan.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Biar nggak tatap-tatapan diam aja di dalam lift!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> C-?-?-?-?-?-?-G bukan beneran CHATTING! Cuma biar nggak kelihatan CANGGUNG aja satu lift sempit!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis psikologi jika diminta memilih uang rp 100 juta tunai atau sahabat sejati seumur hidup, orang yang langsung memilih sahabat sejati tanpa mikir biasanya memang... orang kaya orang baik o-?-?-?-? ?-a-?-? bukan cuma orang baik! yang langsung tolak rp 100 juta biasanya memang sudah orang kaya!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #20</span>
+                <span class="cheat-cat">Kuis Psikologi</span>
+            </div>
+            <p class="cheat-q">Jika diminta memilih uang Rp 100 juta tunai atau sahabat sejati seumur hidup, orang yang langsung memilih sahabat sejati tanpa mikir biasanya memang...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>ORANG KAYA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>ORANG BAIK</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Lihat dulu isi saldo rekeningnya sebelum terharu!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Yang masih banyak cicilan pasti ambil 100 juta dulu!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> O-?-?-?-? ?-A-?-? bukan cuma ORANG BAIK! Yang langsung tolak Rp 100 juta biasanya memang sudah ORANG KAYA!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis psikologi saat instal aplikasi baru, hampir semua orang langsung mencentang kotak &quot;saya sudah membaca syarat dan ketentuan&quot;. padahal pengakuan itu sebenarnya... palsu paham p-a-?-?-? bukan paham! pengakuan sudah baca itu palsu — hampir semua orang langsung asal klik setuju!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #21</span>
+                <span class="cheat-cat">Kuis Psikologi</span>
+            </div>
+            <p class="cheat-q">Saat instal aplikasi baru, hampir semua orang langsung mencentang kotak &quot;Saya sudah membaca syarat dan ketentuan&quot;. Padahal pengakuan itu sebenarnya...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PALSU</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PAHAM</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Tulisannya 40 halaman huruf kecil-kecil.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Jujur aja, nggak ada yang beneran baca dari atas sampai bawah!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-A-?-?-? bukan PAHAM! Pengakuan sudah baca itu PALSU — hampir semua orang langsung asal klik setuju!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis psikologi saat acara tukar kado kantor, orang yang paling semangat mengincar kotak kado paling besar biasanya diam-diam membawa kado yang paling... murah mewah m-?-?-?-h bukan mewah! justru yang modalnya paling murah yang paling agresif ngincer kado paling gede!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #22</span>
+                <span class="cheat-cat">Kuis Psikologi</span>
+            </div>
+            <p class="cheat-q">Saat acara tukar kado kantor, orang yang paling semangat mengincar kotak kado paling besar biasanya diam-diam membawa kado yang paling...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MURAH</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>MEWAH</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bungkusnya tebal banget pakai koran, isinya ternyata sabun batang.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Modal kecil tapi harapannya dapat voucher belanja!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> M-?-?-?-H bukan MEWAH! Justru yang modalnya paling MURAH yang paling agresif ngincer kado paling gede!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis psikologi pusat dari semua ketegangan, stres, dan kebahagiaan karyawan saat dikejar deadline kerjaan di kantor selalu berawal dari... ketawa kepala k-?-?-?-?-a bukan kepala! kalau udah bisa ketawa bareng teman sekantor, seberat apa pun deadline langsung terasa ringan!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #23</span>
+                <span class="cheat-cat">Kuis Psikologi</span>
+            </div>
+            <p class="cheat-q">Pusat dari semua ketegangan, stres, dan kebahagiaan karyawan saat dikejar deadline kerjaan di kantor selalu berawal dari...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>KETAWA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KEPALA</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan bagian tubuh tempat pusing berada.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Sekali dengar jokes receh teman sebelah, stres langsung pecah!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> K-?-?-?-?-A bukan KEPALA! Kalau udah bisa KETAWA bareng teman sekantor, seberat apa pun deadline langsung terasa ringan!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis psikologi di restoran modern, setelah duduk di kursi dan memesan menu makanan, benda pertama yang langsung dipegang anak muda sebelum makanan tiba adalah... ponsel piring p-?-?-?-?-? bukan piring! makanannya belum datang, tangannya udah sibuk megang ponsel terus!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #24</span>
+                <span class="cheat-cat">Kuis Psikologi</span>
+            </div>
+            <p class="cheat-q">Di restoran modern, setelah duduk di kursi dan memesan menu makanan, benda pertama yang langsung dipegang anak muda sebelum makanan tiba adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PONSEL</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PIRING</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan peralatan makan yang ditaruh di meja.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Buat scroll TikTok atau foto meja kosong sambil nunggu pesanan!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-?-?-? bukan PIRING! Makanannya belum datang, tangannya udah sibuk megang PONSEL terus!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis kebenaran saat ronda malam melewati rumah tua yang angker dan sunyi senyap, tiba-tiba terdengar suara keras &quot;kriuuuk&quot; dari sudut gelap, ternyata itu bunyi... perut pintu p-?-?-?-? bukan pintu berderit! itu bunyi perut bapak-bapak ronda yang belum makan malam!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #25</span>
+                <span class="cheat-cat">Kuis Kebenaran</span>
+            </div>
+            <p class="cheat-q">Saat ronda malam melewati rumah tua yang angker dan sunyi senyap, tiba-tiba terdengar suara keras &quot;KRIUUUK&quot; dari sudut gelap, ternyata itu bunyi...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PERUT</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PINTU</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan kayu berderit atau hal mistis.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Efek begadang jaga pos ronda sejak jam 10 tanpa beli nasi goreng!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-?-? bukan PINTU berderit! Itu bunyi PERUT bapak-bapak ronda yang belum makan malam!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis kebenaran kenapa matahari selalu terbit rajin di pagi hari tapi menghilang saat malam tiba? tidur turun t-?-?-u-? bukan cuma turun! udah kerja nonstop dari subuh sampai magrib, malemnya ya tidur lah istirahat!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #26</span>
+                <span class="cheat-cat">Kuis Kebenaran</span>
+            </div>
+            <p class="cheat-q">Kenapa matahari selalu terbit rajin di pagi hari tapi menghilang saat malam tiba?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>TIDUR</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>TURUN</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bayangkan sudah kerja lembur menyinari bumi 12 jam nonstop!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kalau manusia capek kerja seharian ya...</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> T-?-?-U-? bukan cuma TURUN! Udah kerja nonstop dari subuh sampai magrib, malemnya ya TIDUR lah istirahat!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis kebenaran cara paling ampuh dan gratis agar pengendara tidak pernah kena tilang razia ganjil-genap ataupun lampu merah seumur hidup adalah... tidur taati t-?-?-?-? bukan cuma taati aturan! kalau tidur seharian di rumah nggak keluar ke jalan raya, mana bisa ditilang!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #27</span>
+                <span class="cheat-cat">Kuis Kebenaran</span>
+            </div>
+            <p class="cheat-q">Cara paling ampuh dan gratis agar pengendara tidak pernah kena tilang razia ganjil-genap ataupun lampu merah seumur hidup adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>TIDUR</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>TAATI</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan mematuhi rambu di jalan raya.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Tinggal merem di atas kasur di rumah, dijamin nol pelanggaran!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> T-?-?-?-? bukan cuma TAATI aturan! Kalau TIDUR seharian di rumah nggak keluar ke jalan raya, mana bisa ditilang!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis kebenaran dalam pertandingan bola basket resmi antar tim juara, kenapa sepuluh pemain berbadan tinggi di lapangan semuanya rela berlari mengejar satu bola yang sama? miskin menang m-?-?-?-?-? bukan cuma mau menang! kasihan banget, satu lapangan isi 10 orang cuma mampu beli satu bola!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #28</span>
+                <span class="cheat-cat">Kuis Kebenaran</span>
+            </div>
+            <p class="cheat-q">Dalam pertandingan bola basket resmi antar tim juara, kenapa sepuluh pemain berbadan tinggi di lapangan semuanya rela berlari mengejar satu bola yang sama?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MISKIN</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>MENANG</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Jangan pikirkan skor atau piala kejuaraan!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Bayangkan kalau mereka punya cukup uang buat beli bola masing-masing!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> M-?-?-?-?-? bukan cuma mau MENANG! Kasihan banget, satu lapangan isi 10 orang cuma mampu beli satu bola!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis kebenaran bakso urat pakai sambal tiga sendok paling nikmat disantap pelan-pelan sambil berkeringat karena rasanya... panas pedas p-?-?-a-? bukan cuma pedas! kuah bakso baru diangkat dari panci itu masih panas mendidih!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #29</span>
+                <span class="cheat-cat">Kuis Kebenaran</span>
+            </div>
+            <p class="cheat-q">Bakso urat pakai sambal tiga sendok paling nikmat disantap pelan-pelan sambil berkeringat karena rasanya...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PANAS</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PEDAS</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan cuma efek cabainya!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Baru diangkat dari panci kuah mendidih, lidah bisa melepuh kalau nggak ditiup!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-A-? bukan cuma PEDAS! Kuah bakso baru diangkat dari panci itu masih PANAS mendidih!</div>
+        </article>
+        <article class="cheat-card" data-search="kuis kebenaran setelah lima kali revisi desain masih ditolak klien dengan alasan &quot;kurang greget&quot;, keputusan seorang desainer biasanya langsung... pasrah pindah p-?-?-?-?-h bukan pindah kantor! desainer udah pasrah ikutin aja mau klien sampai revisi final ke-20!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #30</span>
+                <span class="cheat-cat">Kuis Kebenaran</span>
+            </div>
+            <p class="cheat-q">Setelah lima kali revisi desain masih ditolak klien dengan alasan &quot;kurang greget&quot;, keputusan seorang desainer biasanya langsung...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PASRAH</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PINDAH</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Belum sampai nekat keluar kantor kok.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Sudah di titik menerima nasib apa adanya!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-?-?-H bukan PINDAH kantor! Desainer udah PASRAH ikutin aja mau klien sampai revisi final ke-20!</div>
+        </article>
+        <article class="cheat-card" data-search="cerita berlubang setiap malam saat lampu kamar sudah dimatikan gelap gulita, nyamuk selalu berbunyi &quot;ngiiing&quot; dekat telinga kita karena dia lagi _______ di ruangan gelap. lewat lapar l-?-?-?-? bukan lapar! lampu kamar kan mati gelap gulita, nyamuknya lagi lewat sambil bunyiin klakson biar nggak nabrak kuping!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #31</span>
+                <span class="cheat-cat">Cerita Berlubang</span>
+            </div>
+            <p class="cheat-q">Setiap malam saat lampu kamar sudah dimatikan gelap gulita, nyamuk selalu berbunyi &quot;ngiiing&quot; dekat telinga kita karena dia lagi _______ di ruangan gelap.</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>LEWAT</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>LAPAR</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Nggak selalu mau mengisap darah!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Bayangkan dia lagi terbang di tempat gelap — bunyinya kayak klakson biar nggak tabrakan!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> L-?-?-?-? bukan LAPAR! Lampu kamar kan mati gelap gulita, nyamuknya lagi LEWAT sambil bunyiin klakson biar nggak nabrak kuping!</div>
+        </article>
+        <article class="cheat-card" data-search="cerita berlubang pagi itu hujan deras mengguyur jalanan. rina buru-buru berangkat kerja naik motor. untungnya di tengah jalan ia ingat sudah menyiapkan _______ supaya tidak kehujanan. mantra mantel m-?-?-t-?-? bukan mantel! jas hujannya ketinggalan, jadi rina baca mantra anti-hujan sepanjang jalan!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #32</span>
+                <span class="cheat-cat">Cerita Berlubang</span>
+            </div>
+            <p class="cheat-q">Pagi itu hujan deras mengguyur jalanan. Rina buru-buru berangkat kerja naik motor. Untungnya di tengah jalan ia ingat sudah menyiapkan _______ supaya tidak kehujanan.</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MANTRA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>MANTEL</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan benda plastik anti-air di dalam jok motor.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Jas hujannya ketinggalan di kosan, jadi cuma komat-kamit di dalam hati!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> M-?-?-T-?-? bukan MANTEL! Jas hujannya ketinggalan, jadi Rina baca MANTRA anti-hujan sepanjang jalan!</div>
+        </article>
+        <article class="cheat-card" data-search="cerita berlubang setiap tanggal 28 akhir bulan, andi mengecek saldo atm-nya dengan tegang. begitu layar muncul, untungnya saldonya masih cukup untuk membeli _______ di pinggir jalan. minuman makanan m-?-?-?-?-a-? bukan makanan berat! saldo rp 4.000 paling cuma cukup beli minuman es teh manis!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #33</span>
+                <span class="cheat-cat">Cerita Berlubang</span>
+            </div>
+            <p class="cheat-q">Setiap tanggal 28 akhir bulan, Andi mengecek saldo ATM-nya dengan tegang. Begitu layar muncul, untungnya saldonya masih cukup untuk membeli _______ di pinggir jalan.</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MINUMAN</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>MAKANAN</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Saldonya tinggal Rp 4.000 — nggak cukup buat nasi padang!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Paling cukup buat segelas es teh tawar atau air mineral!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> M-?-?-?-?-A-? bukan MAKANAN berat! Saldo Rp 4.000 paling cuma cukup beli MINUMAN es teh manis!</div>
+        </article>
+        <article class="cheat-card" data-search="cerita berlubang setelah tiga jam nongkrong asyik di kafe bareng teman lama dan kopi sudah habis semua, orang-orang akhirnya sepakat untuk _______ sebelum meninggalkan meja. bayar bubar b-?-?-?-r bukan langsung bubar! habis nongkrong ya bayar dulu tagihan kopinya!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #34</span>
+                <span class="cheat-cat">Cerita Berlubang</span>
+            </div>
+            <p class="cheat-q">Setelah tiga jam nongkrong asyik di kafe bareng teman lama dan kopi sudah habis semua, orang-orang akhirnya sepakat untuk _______ sebelum meninggalkan meja.</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BAYAR</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>BUBAR</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Jangan langsung kabur ke parkiran!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Masih ada tagihan bill yang menunggu di meja kasir!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> B-?-?-?-R bukan langsung BUBAR! Habis nongkrong ya BAYAR dulu tagihan kopinya!</div>
+        </article>
+        <article class="cheat-card" data-search="cerita berlubang saat acara team building di villa, budi sekamar sama temannya yang tidur ngorok mirip mesin diesel. sudah tutup kuping pakai bantal tetap tembus, akhirnya budi memilih _______ demi ketenangan tidur. pindah pasrah p-?-?-?-?-h bukan pasrah! budi langsung pindah kamar tidur di sofa ruang tamu daripada kuping berdenging!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #35</span>
+                <span class="cheat-cat">Cerita Berlubang</span>
+            </div>
+            <p class="cheat-q">Saat acara team building di villa, Budi sekamar sama temannya yang tidur ngorok mirip mesin diesel. Sudah tutup kuping pakai bantal tetap tembus, akhirnya Budi memilih _______ demi ketenangan tidur.</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PINDAH</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PASRAH</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Budi nggak mau nyerah begitu saja sama suara ngorok.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Masih ada sofa kosong di ruang tamu villa sebelah!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-?-?-H bukan PASRAH! Budi langsung PINDAH kamar tidur di sofa ruang tamu daripada kuping berdenging!</div>
+        </article>
+        <article class="cheat-card" data-search="cerita berlubang karyawan baru itu selalu membawa buku catatan tebal setiap ikut rapat penting bersama direksi supaya kelihatan rajin, padahal isi halamannya selalu _______ sampai rapat bubar. kosong kurang k-?-?-?-?-g bukan kurang lengkap! isi bukunya memang kosong melompong dari halaman pertama sampai terakhir!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #36</span>
+                <span class="cheat-cat">Cerita Berlubang</span>
+            </div>
+            <p class="cheat-q">Karyawan baru itu selalu membawa buku catatan tebal setiap ikut rapat penting bersama direksi supaya kelihatan rajin, padahal isi halamannya selalu _______ sampai rapat bubar.</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>KOSONG</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KURANG</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Pulpennya aja cuma diputar-putar di jari tangan.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Nggak ada satu kata pun yang beneran ditulis!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> K-?-?-?-?-G bukan KURANG lengkap! Isi bukunya memang KOSONG melompong dari halaman pertama sampai terakhir!</div>
+        </article>
+        <article class="cheat-card" data-search="motivasi cak lontong &quot;jangan pernah berhenti mengejar mimpimu sampai tua, karena jika kamu terus berlari mengejarnya tanpa jeda, ujung-ujungnya kamu pasti...&quot; berhenti berhasil b-?-?-h-?-?-?-? bukan berhasil! lari terus nggak ada jeda ujung-ujungnya pasti berhenti dulu buat minum es teh!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #37</span>
+                <span class="cheat-cat">Motivasi Cak Lontong</span>
+            </div>
+            <p class="cheat-q">&quot;Jangan pernah berhenti mengejar mimpimu sampai tua, karena jika kamu terus berlari mengejarnya tanpa jeda, ujung-ujungnya kamu pasti...&quot;</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BERHENTI</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>BERHASIL</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Jangan terlalu optimis bilang sukses!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Bayangkan kamu disuruh lari terus bertahun-tahun tanpa istirahat!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> B-?-?-H-?-?-?-? bukan BERHASIL! Lari terus nggak ada jeda ujung-ujungnya pasti BERHENTI dulu buat minum es teh!</div>
+        </article>
+        <article class="cheat-card" data-search="motivasi cak lontong &quot;orang bijak selalu belajar dari kesalahan. maka dari itu, supaya hidupmu makin bijak dan penuh hikmah, sering-seringlah...&quot; salah sabar s-a-?-?-? bukan sabar! kalau nggak pernah berbuat salah, nanti mau belajar jadi orang bijak dari mana?!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #38</span>
+                <span class="cheat-cat">Motivasi Cak Lontong</span>
+            </div>
+            <p class="cheat-q">&quot;Orang bijak selalu belajar dari kesalahan. Maka dari itu, supaya hidupmu makin bijak dan penuh hikmah, sering-seringlah...&quot;</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>SALAH</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>SABAR</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Ikuti logika kalimat pertamanya secara harfiah!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kalau kamu benar terus, nanti nggak punya bahan buat belajar!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> S-A-?-?-? bukan SABAR! Kalau nggak pernah berbuat SALAH, nanti mau belajar jadi orang bijak dari mana?!</div>
+        </article>
+        <article class="cheat-card" data-search="motivasi cak lontong &quot;saat istri tiba-tiba bilang 'terserah mas mau makan di mana', reaksi paling bijak dari seorang suami berpengalaman biasanya langsung...&quot; pulang pusing p-?-?-?-?-g bukan cuma pusing! menghadapi jebakan &quot;terserah&quot;, solusi paling aman adalah langsung pulang!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #39</span>
+                <span class="cheat-cat">Motivasi Cak Lontong</span>
+            </div>
+            <p class="cheat-q">&quot;Saat istri tiba-tiba bilang 'Terserah Mas mau makan di mana', reaksi paling bijak dari seorang suami berpengalaman biasanya langsung...&quot;</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PULANG</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PUSING</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Daripada salah tebak restoran lalu perang dingin di dalam mobil.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Ujung-ujungnya paling aman masak mie instan di dapur sendiri!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-?-?-G bukan cuma PUSING! Menghadapi jebakan &quot;terserah&quot;, solusi paling aman adalah langsung PULANG!</div>
+        </article>
+        <article class="cheat-card" data-search="motivasi cak lontong &quot;tamu yang berkunjung ke rumah orang lain lebih dari 2x24 jam sebaiknya segera...&quot; pamit pergi p-?-?-?-? bukan langsung pergi ngilang kayak tuyul! udah nginep 2x24 jam ya wajib pamit dulu!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #40</span>
+                <span class="cheat-cat">Motivasi Cak Lontong</span>
+            </div>
+            <p class="cheat-q">&quot;Tamu yang berkunjung ke rumah orang lain lebih dari 2x24 jam sebaiknya segera...&quot;</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PAMIT</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PERGI</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Jangan asal menghilang kabur lewat pagar begitu saja!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Minimal salaman dan bilang terima kasih dulu sama tuan rumah!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-?-? bukan langsung PERGI ngilang kayak tuyul! Udah nginep 2x24 jam ya wajib PAMIT dulu!</div>
+        </article>
+        <article class="cheat-card" data-search="ice breaking &amp; kantor saat makanan lezat sudah tersaji di meja restoran kantor dan siap disantap, barang pertama yang paling cepat diangkat semua karyawan adalah... ponsel piring p-?-?-?-?-? bukan piring! belum juga nyendok nasi, semuanya langsung angkat ponsel buat foto makanan dulu!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #41</span>
+                <span class="cheat-cat">Ice Breaking &amp; Kantor</span>
+            </div>
+            <p class="cheat-q">Saat makanan lezat sudah tersaji di meja restoran kantor dan siap disantap, barang pertama yang paling cepat diangkat semua karyawan adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PONSEL</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PIRING</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan alat makan atau gelas minum!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Harus difoto dulu dari atas biar estetik buat story sebelum dimakan!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-?-?-? bukan PIRING! Belum juga nyendok nasi, semuanya langsung angkat PONSEL buat foto makanan dulu!</div>
+        </article>
+        <article class="cheat-card" data-search="ice breaking &amp; kantor bos memanggil 5 pegawai yang telat jam 9 pagi ke ruangannya. setelah selesai dinasihati, besok paginya siapa yang paling pertama membuka pintu masuk kantor? penjaga pegawai p-e-?-?-?-?-? bukan pegawai yang telat kemarin! yang paling pagi buka pintu kantor jelas penjaga / satpam kantor!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #42</span>
+                <span class="cheat-cat">Ice Breaking &amp; Kantor</span>
+            </div>
+            <p class="cheat-q">Bos memanggil 5 pegawai yang telat jam 9 pagi ke ruangannya. Setelah selesai dinasihati, besok paginya siapa yang paling pertama membuka pintu masuk kantor?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PENJAGA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PEGAWAI</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan salah satu dari 5 karyawan yang dimarahi tadi!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Dia pegang kunci gembok gerbang kantor sejak jam 6 subuh!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-E-?-?-?-?-? bukan PEGAWAI yang telat kemarin! Yang paling pagi buka pintu kantor jelas PENJAGA / satpam kantor!</div>
+        </article>
+        <article class="cheat-card" data-search="ice breaking &amp; kantor supaya rapat online selama 4 jam di luar kantor tidak putus di tengah jalan tanpa kendala, hal paling penting yang wajib diisi penuh adalah... perut pulsa p-?-?-?-? bukan pulsa! isi perut dulu sebelum rapat 4 jam biar suara keroncongan nggak bocor ke mikrofon!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #43</span>
+                <span class="cheat-cat">Ice Breaking &amp; Kantor</span>
+            </div>
+            <p class="cheat-q">Supaya rapat online selama 4 jam di luar kantor tidak putus di tengah jalan tanpa kendala, hal paling penting yang wajib diisi penuh adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>PERUT</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PULSA</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan soal kuota internet atau baterai laptop!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kalau rapat 4 jam sambil kelaparan nanti pingsan duluan!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> P-?-?-?-? bukan PULSA! Isi PERUT dulu sebelum rapat 4 jam biar suara keroncongan nggak bocor ke mikrofon!</div>
+        </article>
+        <article class="cheat-card" data-search="ice breaking &amp; kantor ketika komputer kantor mendadak macet dan tidak bergerak saat dikejar deadline 5 menit lagi, bagian yang paling cepat terpancing adalah... emosi enter e-?-?-?-? bukan tombol enter! yang langsung kepencet duluan saat komputer hang pas deadline adalah emosi!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #44</span>
+                <span class="cheat-cat">Ice Breaking &amp; Kantor</span>
+            </div>
+            <p class="cheat-q">Ketika komputer kantor mendadak macet dan tidak bergerak saat dikejar deadline 5 menit lagi, bagian yang paling cepat terpancing adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>EMOSI</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>ENTER</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan tombol keyboard atau mouse-nya!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Detak jantung naik dan tangan langsung pengen gebrak meja!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> E-?-?-?-? bukan tombol ENTER! Yang langsung kepencet duluan saat komputer hang pas deadline adalah EMOSI!</div>
+        </article>
+        <article class="cheat-card" data-search="ice breaking &amp; kantor dalam lomba balap lari kantor, andi berlari super kencang hingga berhasil menyalip peserta di posisi paling terakhir. kini andi berada di urutan... mustahil menangis mustahil! bagaimana cara menyalip orang yang ada di posisi paling terakhir kalau di belakangnya udah nggak ada siapa-siapa?!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #45</span>
+                <span class="cheat-cat">Ice Breaking &amp; Kantor</span>
+            </div>
+            <p class="cheat-q">Dalam lomba balap lari kantor, Andi berlari super kencang hingga berhasil menyalip peserta di posisi PALING TERAKHIR. Kini Andi berada di urutan...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MUSTAHIL</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>MENANGIS</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Coba pikirkan baik-baik logikanya: pelari paling terakhir kan posisi paling belakang!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Nggak ada pelari di belakang orang yang posisinya paling buncit!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MUSTAHIL! Bagaimana cara menyalip orang yang ada di posisi paling terakhir kalau di belakangnya udah nggak ada siapa-siapa?!</div>
+        </article>
+        <article class="cheat-card" data-search="bapak-bapak &amp; generasi saat istri mengirim foto gamis baru di whatsapp lalu bertanya &quot;bagus yang warna biru atau merah mas?&quot;, jawaban jujur di lubuk hati bapak-bapak adalah... mahal merah m-?-?-a-? bukan merah! di mata bapak-bapak, warna apa pun yang difoto istri di toko itu jawabannya tetap mahal!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #46</span>
+                <span class="cheat-cat">Bapak-bapak &amp; Generasi</span>
+            </div>
+            <p class="cheat-q">Saat istri mengirim foto gamis baru di WhatsApp lalu bertanya &quot;Bagus yang warna biru atau merah Mas?&quot;, jawaban jujur di lubuk hati bapak-bapak adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MAHAL</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>MERAH</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan soal pilihan warnanya!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Mata bapak-bapak langsung tertuju ke label angka di pojok kanan bawah!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> M-?-?-A-? bukan MERAH! Di mata bapak-bapak, warna apa pun yang difoto istri di toko itu jawabannya tetap MAHAL!</div>
+        </article>
+        <article class="cheat-card" data-search="bapak-bapak &amp; generasi jika anak muda zaman sekarang berfoto selalu senyum santai bergaya bebas, maka pose andalan bapak-bapak saat difoto formal selalu kaku seperti... kayu kaku k-a-?-u bukan cuma kaku! bapak-bapak kalau disuruh foto tegak lurusnya udah kayak batang kayu!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #47</span>
+                <span class="cheat-cat">Bapak-bapak &amp; Generasi</span>
+            </div>
+            <p class="cheat-q">Jika anak muda zaman sekarang berfoto selalu senyum santai bergaya bebas, maka pose andalan bapak-bapak saat difoto formal selalu kaku seperti...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>KAYU</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KAKU</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Tangan lurus menempel di samping celana tanpa bergerak sedikit pun!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Benda keras dari batang pohon yang nggak bisa ditekuk!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> K-A-?-U bukan cuma KAKU! Bapak-bapak kalau disuruh foto tegak lurusnya udah kayak batang KAYU!</div>
+        </article>
+        <article class="cheat-card" data-search="bapak-bapak &amp; generasi jika bapak-bapak diundang rapat rt jam 19.30 dengan catatan &quot;harap membawa pulpen&quot;, maka benda yang paling cepat habis di meja rapat adalah... kacang kertas k-?-?-?-?-? bukan kertas! catatan rapatnya cuma dua baris, tapi kacang rebus dan gorengan ludes dalam 10 menit!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #48</span>
+                <span class="cheat-cat">Bapak-bapak &amp; Generasi</span>
+            </div>
+            <p class="cheat-q">Jika bapak-bapak diundang rapat RT jam 19.30 dengan catatan &quot;Harap membawa pulpen&quot;, maka benda yang paling cepat habis di meja rapat adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>KACANG</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KERTAS</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan perlengkapan tulis-menulis atau notulen!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Isinya dua butir di dalam kulit keras rebus, dimakan sambil ngobrol!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> K-?-?-?-?-? bukan KERTAS! Catatan rapatnya cuma dua baris, tapi KACANG rebus dan gorengan ludes dalam 10 menit!</div>
+        </article>
+        <article class="cheat-card" data-search="bapak-bapak &amp; generasi setiap tanggal tua, saat anak gen z dan milenial membuka aplikasi pesan-antar makanan di hp, bagian yang paling pertama dicek adalah... dompet diskon d-?-?-?-?-? bukan diskon doang! diskon 90% pun percuma kalau pas cek dompet isinya cuma struk indomaret!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #49</span>
+                <span class="cheat-cat">Bapak-bapak &amp; Generasi</span>
+            </div>
+            <p class="cheat-q">Setiap tanggal tua, saat anak Gen Z dan Milenial membuka aplikasi pesan-antar makanan di HP, bagian yang paling pertama dicek adalah...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>DOMPET</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>DISKON</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Promo ongkir gratis sudah melambai-lambai di layar.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Tapi tetap harus mengecek isi saldo tunai di saku celana dulu!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> D-?-?-?-?-? bukan DISKON doang! Diskon 90% pun percuma kalau pas cek DOMPET isinya cuma struk indomaret!</div>
+        </article>
+        <article class="cheat-card" data-search="bapak-bapak &amp; generasi seorang ayah membelikan sepeda baru berwarna merah, tapi anaknya malah menangis kencang saat didudukkan di joknya karena ternyata anaknya belum bisa... berdiri berlari b-?-?-?-?-?-i bukan berlari! anaknya masih bayi 4 bulan — jangankan gowes sepeda, berdiri aja belum bisa!">
+            <div class="cheat-head">
+                <span class="cheat-num">Cak Lontong #50</span>
+                <span class="cheat-cat">Bapak-bapak &amp; Generasi</span>
+            </div>
+            <p class="cheat-q">Seorang ayah membelikan sepeda baru berwarna merah, tapi anaknya malah menangis kencang saat didudukkan di joknya karena ternyata anaknya belum bisa...</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BERDIRI</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>BERLARI</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Usia anaknya masih sangat kecil sekali!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Boro-boro mengayuh pedal, berdiri tegak di lantai saja belum mampu!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> B-?-?-?-?-?-I bukan BERLARI! Anaknya masih bayi 4 bulan — jangankan gowes sepeda, BERDIRI aja belum bisa!</div>
+        </article>
+        </section>
+
+        <h2 id="tebakgambar" class="sec-title tg">🖼️ Tebak Gambar Mind Blowing — 18 Gambar Lengkap</h2>
+        <section class="cheat-list">
+            
+        <article class="cheat-card" data-search="hitung alfabet + gambar pecahkan kode urutan alfabet (a=1, b=2, ..., z=26) di sisi kiri lalu gabungkan dengan gambar di sebelah kanan! jam karet waktu melar kode 10 - 1 - 13 adalah j - a - m (&quot;jam&quot;), digabung dengan gambar karet gelang = jam karet (kebiasaan ngaret)!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #1</span>
+                <span class="cheat-cat">Hitung Alfabet + Gambar</span>
+            </div>
+            <p class="cheat-q">Pecahkan kode urutan alfabet (A=1, B=2, ..., Z=26) di sisi kiri lalu gabungkan dengan gambar di sebelah kanan!</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>JAM KARET / JAMKARET</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>WAKTU MELAR</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Hitung huruf ke-10, ke-1, dan ke-13 dalam alfabet A=1..Z=26!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> 10=J, 1=A, 13=M → &quot;JAM&quot;, digabung benda di kanan (gelang lentur)!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> Kode 10 - 1 - 13 adalah J - A - M (&quot;JAM&quot;), digabung dengan gambar KARET GELANG = JAM KARET (kebiasaan ngaret)!</div>
+        </article>
+        <article class="cheat-card" data-search="hitung alfabet + gambar hitung kode alfabet (a=1..z=26) di kiri, lalu gabungkan dengan angka besar di kanan. ungkapan apakah ini? kaki lima lima huruf 11-1-11-9 = k-a-k-i (&quot;kaki&quot;), ditambah angka 5 (&quot;lima&quot;) = kaki lima (pedagang kaki lima)!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #2</span>
+                <span class="cheat-cat">Hitung Alfabet + Gambar</span>
+            </div>
+            <p class="cheat-q">Hitung kode alfabet (A=1..Z=26) di kiri, lalu gabungkan dengan angka besar di kanan. Ungkapan apakah ini?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>KAKI LIMA / KAKILIMA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>LIMA HURUF</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Hitung huruf ke-11, ke-1, ke-11, ke-9 dalam alfabet!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> 11=K, 1=A, 11=K, 9=I → digabung dengan angka 5!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> 11-1-11-9 = K-A-K-I (&quot;KAKI&quot;), ditambah angka 5 (&quot;LIMA&quot;) = KAKI LIMA (pedagang kaki lima)!</div>
+        </article>
+        <article class="cheat-card" data-search="hitung alfabet + gambar pecahkan kode alfabet di kiri lalu gabungkan dengan gambar batangan berkilau di kanan! anak emas emas murni 1-14-1-11 = a-n-a-k (&quot;anak&quot;) + batangan emas = anak emas (anak kesayangan/orang kepercayaan bos)!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #3</span>
+                <span class="cheat-cat">Hitung Alfabet + Gambar</span>
+            </div>
+            <p class="cheat-q">Pecahkan kode alfabet di kiri lalu gabungkan dengan gambar batangan berkilau di kanan!</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>ANAK EMAS / ANAKEMAS</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>EMAS MURNI</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Hitung urutan ke-1, ke-14, ke-1, dan ke-11 di alfabet!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> 1=A, 14=N, 1=A, 11=K + logam mulia kuning!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> 1-14-1-11 = A-N-A-K (&quot;ANAK&quot;) + batangan EMAS = ANAK EMAS (anak kesayangan/orang kepercayaan bos)!</div>
+        </article>
+        <article class="cheat-card" data-search="hitung alfabet + gambar berdasarkan logika pada tiga baris pertama, angka berapakah yang tepat menggantikan tanda tanya (?) 7 10 mind blowing! satu = 4 huruf, dua = 3 huruf, empat = 5 huruf, maka s-e-p-u-l-u-h terdiri dari 7 huruf!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #4</span>
+                <span class="cheat-cat">Hitung Alfabet + Gambar</span>
+            </div>
+            <p class="cheat-q">Berdasarkan logika pada tiga baris pertama, angka berapakah yang tepat menggantikan tanda tanya (?)</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>7 / TUJUH</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>10</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Bukan nilai matematikanya! Jangan langsung jawab 10!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Hitung JUMLAH HURUF pada setiap kata bilangannya!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! SATU = 4 huruf, DUA = 3 huruf, EMPAT = 5 huruf, maka S-E-P-U-L-U-H terdiri dari 7 huruf!</div>
+        </article>
+        <article class="cheat-card" data-search="hitung alfabet + gambar huruf tunggal apakah yang paling tepat mengisi tanda tanya (?) di akhir deretan kotak ini? m n m (minggu)! deretan s - s - r - k - j - s - m adalah inisial nama-nama hari senin sampai minggu!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #5</span>
+                <span class="cheat-cat">Hitung Alfabet + Gambar</span>
+            </div>
+            <p class="cheat-q">Huruf tunggal apakah yang paling tepat mengisi tanda tanya (?) di akhir deretan kotak ini?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>M / MINGGU</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>N</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Ini bukan deretan urutan huruf A-B-C biasa — baca seperti nama hari dalam seminggu!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, lalu...</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> M (MINGGU)! Deretan S - S - R - K - J - S - M adalah inisial nama-nama hari Senin sampai Minggu!</div>
+        </article>
+        <article class="cheat-card" data-search="logika talkshow &amp; ilusi berapakah nomor slot parkir yang sedang tertutup oleh mobil merah pada gambar ini? 87 67 mind blowing! jika gambarnya diputar 180 derajat (sesuai arah sopir masuk parkir), deretan nomornya adalah 86, 87, 88, 89, 90, 91! jadi yang tertutup mobil adalah 87!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #6</span>
+                <span class="cheat-cat">Logika Talkshow &amp; Ilusi</span>
+            </div>
+            <p class="cheat-q">Berapakah nomor slot parkir yang sedang tertutup oleh mobil merah pada gambar ini?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>87 / DELAPAN PULUH TUJUH</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>67</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Jangan baca angkanya tegak dari layar! Coba balikkan kepalamu / lihat dari atas ke bawah (180 derajat)!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Jika diputar terbalik seperti pandangan sopir saat mau parkir: 86, [?], 88, 89, 90, 91!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Jika gambarnya diputar 180 derajat (sesuai arah sopir masuk parkir), deretan nomornya adalah 86, 87, 88, 89, 90, 91! Jadi yang tertutup mobil adalah 87!</div>
+        </article>
+        <article class="cheat-card" data-search="logika talkshow &amp; ilusi perhatikan dua garis mendatar hitam (atas vs bawah). mana yang lebih panjang? sama panjang garis bawah mind blowing! panjang garis hitam atas dan bawah tepat 180px — sama panjang 100% (ilusi muller-lyer)!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #7</span>
+                <span class="cheat-cat">Logika Talkshow &amp; Ilusi</span>
+            </div>
+            <p class="cheat-q">Perhatikan dua garis mendatar HITAM (ATAS vs BAWAH). Mana yang lebih panjang?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>SAMA PANJANG / SAMA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>GARIS BAWAH</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Jangan tertipu ujung panah merah dan biru!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Keduanya membentang persis dari x=140 ke x=320!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Panjang garis hitam ATAS dan BAWAH tepat 180px — SAMA PANJANG 100% (Ilusi Muller-Lyer)!</div>
+        </article>
+        <article class="cheat-card" data-search="logika talkshow &amp; ilusi bandingkan warna abu-abu kotak a dan kotak b secara langsung. mana yang kode warnanya lebih terang? sama warna kotak b mind blowing! kotak a dan kotak b memakai kode warna #787878 yang 100% identik! saat dihubungkan jembatan #787878, mata langsung sadar keduanya sama warna!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #8</span>
+                <span class="cheat-cat">Logika Talkshow &amp; Ilusi</span>
+            </div>
+            <p class="cheat-q">Bandingkan warna abu-abu KOTAK A dan KOTAK B secara langsung. Mana yang kode warnanya lebih terang?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>SAMA WARNA / SAMA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KOTAK B</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Kotak B dikelilingi bayangan gelap sehingga terlihat terang.</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Tutup kotak sekitarnya pakai jari — A dan B ternyata...</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Kotak A dan Kotak B memakai kode warna #787878 yang 100% IDENTIK! Saat dihubungkan jembatan #787878, mata langsung sadar keduanya SAMA WARNA!</div>
+        </article>
+        <article class="cheat-card" data-search="rebus tebak gambar resmi gabungkan kedua gambar rebus ini (ikuti aturan ganti huruf di tiap ikon) menjadi frasa tempat nongkrong favorit! warung kopi sarung topi sarung (s→w) = warung + topi (t→k) = kopi → warung kopi! format resmi game tebak gambar indonesia!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #9</span>
+                <span class="cheat-cat">Rebus Tebak Gambar Resmi</span>
+            </div>
+            <p class="cheat-q">Gabungkan kedua gambar rebus ini (ikuti aturan ganti huruf di tiap ikon) menjadi frasa tempat nongkrong favorit!</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>WARUNG KOPI</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>SARUNG TOPI</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Ikon kiri adalah kain SARUNG (ganti huruf S jadi W) + ikon kanan TOPI (ganti T jadi K)!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Tempat ngobrol santai sambil pesan es kopi atau gorengan!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> SARUNG (S→W) = WARUNG + TOPI (T→K) = KOPI → WARUNG KOPI! Format resmi game Tebak Gambar Indonesia!</div>
+        </article>
+        <article class="cheat-card" data-search="rebus tebak gambar resmi gabungkan dua ikon ini (ikuti aturan ganti hurufnya) menjadi satu ungkapan dagang laris manis! laku keras paku batu paku (p→l) = laku + batu (sifatnya keras) = laku keras!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #10</span>
+                <span class="cheat-cat">Rebus Tebak Gambar Resmi</span>
+            </div>
+            <p class="cheat-q">Gabungkan dua ikon ini (ikuti aturan ganti hurufnya) menjadi satu ungkapan dagang laris manis!</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>LAKU KERAS</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>PAKU BATU</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Ikon kiri adalah PAKU (ganti huruf P jadi L) + sifat fisik batu di sebelah kanan!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Kondisi toko online yang pesanannya membludak habis terjual!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> PAKU (P→L) = LAKU + BATU (sifatnya KERAS) = LAKU KERAS!</div>
+        </article>
+        <article class="cheat-card" data-search="rebus tebak gambar resmi pecahkan gabungan dua ikon dan aturan huruf ini menjadi ungkapan perasaan sedih! makan hati ikan cinta ikan (i→ma) = makan + simbol hati = makan hati!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #11</span>
+                <span class="cheat-cat">Rebus Tebak Gambar Resmi</span>
+            </div>
+            <p class="cheat-q">Pecahkan gabungan dua ikon dan aturan huruf ini menjadi ungkapan perasaan sedih!</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MAKAN HATI</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>IKAN CINTA</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Ikon kiri adalah IKAN (ganti huruf I dengan MA) + simbol HATI merah!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Perasaan saat tersakiti atau kesal terus dipendam di dalam!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> IKAN (I→MA) = MAKAN + simbol HATI = MAKAN HATI!</div>
+        </article>
+        <article class="cheat-card" data-search="rebus tebak gambar resmi gabungkan ikon di kiri dan gambar bulat beraroma wangi + rasa di kanan menjadi nama jajanan masa kecil! harum manis jarum gula jarum (j→h) = harum + rasa gula (manis) = harum manis!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #12</span>
+                <span class="cheat-cat">Rebus Tebak Gambar Resmi</span>
+            </div>
+            <p class="cheat-q">Gabungkan ikon di kiri dan gambar bulat beraroma wangi + rasa di kanan menjadi nama jajanan masa kecil!</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>HARUM MANIS / ARUM MANIS</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>JARUM GULA</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Ikon kiri adalah JARUM (ganti J jadi H) + sifat rasa gula di sebelah kanan!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Jajanan gulali kapas warna pink yang dijual abang keliling!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> JARUM (J→H) = HARUM + rasa gula (MANIS) = HARUM MANIS!</div>
+        </article>
+        <article class="cheat-card" data-search="foto hewan menipu perhatikan foto halaman belakang rumah ini! hewan apakah yang sebenarnya sedang menoleh di gambar? burung kucing mind blowing! ternyata bukan kucing hitam, melainkan burung gagak yang menengok ke samping dengan paruh terbuka ke atas mirip telinga kucing!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #13</span>
+                <span class="cheat-cat">Foto Hewan Menipu</span>
+            </div>
+            <p class="cheat-q">Perhatikan foto halaman belakang rumah ini! Hewan apakah yang sebenarnya sedang menoleh di gambar?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BURUNG / BURUNG GAGAK / GAGAK</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KUCING</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Coba perhatikan dua ujung runcing hitam yang menghadap ke atas!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Itu bukan telinga berbulu — melainkan paruh yang sedang menganga!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Ternyata bukan KUCING HITAM, melainkan BURUNG GAGAK yang menengok ke samping dengan paruh terbuka ke atas mirip telinga kucing!</div>
+        </article>
+        <article class="cheat-card" data-search="foto hewan menipu foto close-up di atas dahan hijau! hewan apakah yang sedang berada tepat di depan kamera ini? ulat ular mind blowing! saat di-zoom memang 100% mirip kepala ular viper hijau, padahal aslinya adalah ulat yang punya corak mata palsu di punggungnya!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #14</span>
+                <span class="cheat-cat">Foto Hewan Menipu</span>
+            </div>
+            <p class="cheat-q">Foto close-up di atas dahan hijau! Hewan apakah yang sedang berada tepat di depan kamera ini?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>ULAT / ULAT BULU / LARVA</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>ULAR</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Saat kamera dijauhkan nanti, terlihat kaki-kaki mungil di bagian bawah!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Mata hitam kuningnya cuma corak kulit palsu untuk menakuti predator!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Saat di-zoom memang 100% mirip kepala ULAR VIPER HIJAU, padahal aslinya adalah ULAT yang punya corak mata palsu di punggungnya!</div>
+        </article>
+        <article class="cheat-card" data-search="foto hewan menipu wajah hewan apakah yang sedang menatap tajam ke arah kamera di foto ini? kupu kupu burung hantu mind blowing! yang menatap kamera ternyata bukan burung hantu, melainkan sayap kupu kupu (owl butterfly) yang terbalik &amp; di-zoom!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #15</span>
+                <span class="cheat-cat">Foto Hewan Menipu</span>
+            </div>
+            <p class="cheat-q">Wajah hewan apakah yang sedang menatap tajam ke arah kamera di foto ini?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>KUPU KUPU / KUPU-KUPU / NGENGAT</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>BURUNG HANTU</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Dua mata itu bukan bola mata asli — cuma motif lingkaran simetris!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Ketika kamera di-zoom out dan diputar, kelihatan sepasang sayap lebar!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Yang menatap kamera ternyata bukan BURUNG HANTU, melainkan sayap KUPU KUPU (Owl Butterfly) yang terbalik &amp; di-zoom!</div>
+        </article>
+        <article class="cheat-card" data-search="foto hewan menipu foto tebing batu gunung salju! ada 1 hewan liar yang bersembunyi dan ikut menatap ke kamera — hewan apakah itu? macan tutul kambing gunung mind blowing! di tengah tebing batu itu ternyata ada macan tutul salju yang berkamuflase 99% sambil menatap lurus ke kamera!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #16</span>
+                <span class="cheat-cat">Foto Hewan Menipu</span>
+            </div>
+            <p class="cheat-q">Foto tebing batu gunung salju! Ada 1 hewan liar yang bersembunyi dan ikut menatap ke kamera — hewan apakah itu?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>MACAN TUTUL / MACAN TUTUL SALJU / MACAN / LEOPARD</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>KAMBING GUNUNG</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Fokuslah ke area bebatuan tengah agak ke kanan atas!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Motif totol abu-abunya menyatu sempurna dengan batu gunung!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Di tengah tebing batu itu ternyata ada MACAN TUTUL SALJU yang berkamuflase 99% sambil menatap lurus ke kamera!</div>
+        </article>
+        <article class="cheat-card" data-search="foto hewan menipu foto batang pohon berkulit kasar di hutan. tepat di tengah foto tersembunyi satu hewan — hewan apakah itu? burung hantu tokek pohon mind blowing! seekor burung hantu sedang tidur menyipitkan mata tepat di celah batang pohon, nyaris tak terlihat dari kulit kayu!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #17</span>
+                <span class="cheat-cat">Foto Hewan Menipu</span>
+            </div>
+            <p class="cheat-q">Foto batang pohon berkulit kasar di hutan. Tepat di tengah foto tersembunyi satu hewan — hewan apakah itu?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BURUNG HANTU / SCREECH OWL</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>TOKEK POHON</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Lihat tepat di rongga tengah vertikal: ada dua mata sedang menyipit!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Bulunya abu-abu berpola persis guratan kulit batang kayu!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Seekor BURUNG HANTU sedang tidur menyipitkan mata tepat di celah batang pohon, nyaris tak terlihat dari kulit kayu!</div>
+        </article>
+        <article class="cheat-card" data-search="foto hewan menipu perhatikan kelopak bunga anggrek pink di foto ini! makhluk hidup apakah yang sebenarnya hinggap tepat di tengahnya? belalang bunga anggrek mind blowing! di atas bunga itu hinggap belalang sembah anggrek berwarna putih-pink yang kakinya menyamar sempurna menjadi kelopak bunga!">
+            <div class="cheat-head">
+                <span class="cheat-num">Tebak Gambar #18</span>
+                <span class="cheat-cat">Foto Hewan Menipu</span>
+            </div>
+            <p class="cheat-q">Perhatikan kelopak bunga anggrek pink di foto ini! Makhluk hidup apakah yang sebenarnya hinggap tepat di tengahnya?</p>
+            <div class="cheat-grid">
+                <div class="cheat-ans"><strong>✅ Kunci Jawaban:</strong> <span>BELALANG / BELALANG SEMBAH / BELALANG ANGGREK / MANTIS</span></div>
+                <div class="cheat-trap"><strong>🪤 Jebakan Peserta:</strong> <span>BUNGA ANGGREK</span></div>
+            </div>
+            <div class="cheat-clues">
+                <div><strong>💡 Clue 1 (Tipis):</strong> Keempat kakinya berbentuk pipih warna pink persis kelopak bunga!</div>
+                <div><strong>💡 Clue 2 (Mengarah):</strong> Dia dikenal sebagai serangga pemburu (belalang sembah)!</div>
+            </div>
+            <div class="cheat-reason"><strong>🗣️ Penjelasan / Pembelaan Host:</strong> MIND BLOWING! Di atas bunga itu hinggap BELALANG SEMBAH ANGGREK berwarna putih-pink yang kakinya menyamar sempurna menjadi kelopak bunga!</div>
+        </article>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('search-box').addEventListener('input', function (e) {
+            const q = e.target.value.trim().toLowerCase();
+            document.querySelectorAll('.cheat-card').forEach(function (card) {
+                card.hidden = q && !card.dataset.search.includes(q);
+            });
+        });
+    </script>
+</body>
+</html>

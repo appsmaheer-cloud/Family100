@@ -114,7 +114,7 @@
         {
             id: 4,
             category: 'Hitung Alfabet + Gambar',
-            question: 'Perhatikan pola hitungan viral ini! Berdasarkan pola pada tiga baris pertama, berapakah angka pengganti tanda tanya (?)',
+            question: 'Berdasarkan logika pada tiga baris pertama, angka berapakah yang tepat menggantikan tanda tanya (?)',
             answer: '7',
             acceptedAnswers: ['7', 'TUJUH'],
             trap: '10',
@@ -140,7 +140,7 @@
         {
             id: 5,
             category: 'Hitung Alfabet + Gambar',
-            question: 'Teka-teki pola alfabet viral di talkshow TV! Huruf tunggal apakah yang tepat mengisi tanda tanya (?) di akhir deretan ini?',
+            question: 'Huruf tunggal apakah yang paling tepat mengisi tanda tanya (?) di akhir deretan kotak ini?',
             answer: 'M',
             acceptedAnswers: ['M', 'MINGGU'],
             trap: 'N',
@@ -159,7 +159,7 @@
                 return `
                     <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
                         <rect width="460" height="175" rx="12" fill="#F8FAFC"/>
-                        <text x="230" y="34" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#475569">DERETAN INISIAL HARI / POLA VIRAL</text>
+                        <text x="230" y="34" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#475569">LENGKAPI DERETAN HURUF INI</text>
                         ${blocks}
                         ${solved ? `<text x="230" y="146" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#059669">Senin • Selasa • Rabu • Kamis • Jumat • Sabtu • MINGGU!</text>` : ''}
                     </svg>`;
@@ -170,7 +170,7 @@
         {
             id: 6,
             category: 'Logika Talkshow & Ilusi',
-            question: 'Tebak-tebakan viral talkshow & tes logika! Berapakah nomor slot parkir yang sedang tertutup mobil merah di gambar ini?',
+            question: 'Berapakah nomor slot parkir yang sedang tertutup oleh mobil merah pada gambar ini?',
             answer: '87',
             acceptedAnswers: ['87', 'DELAPAN PULUH TUJUH'],
             trap: '67',
