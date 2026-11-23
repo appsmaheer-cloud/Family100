@@ -15,9 +15,387 @@
     }
 
     const TEBAK_GAMBAR_QUESTIONS = [
-        // === 1. Foto Asli Hewan Menipu & Kamuflase ===
+        // === 1. Hitung Alfabet + Gambar Viral ===
         {
             id: 1,
+            category: 'Hitung Alfabet + Gambar',
+            question: 'Pecahkan kode urutan alfabet (A=1, B=2, ..., Z=26) di sisi kiri lalu gabungkan dengan gambar di sebelah kanan!',
+            answer: 'JAM KARET',
+            acceptedAnswers: ['JAM KARET', 'JAMKARET'],
+            trap: 'WAKTU MELAR',
+            openIndices: [4],
+            clues: [
+                'Hitung huruf ke-10, ke-1, dan ke-13 dalam alfabet A=1..Z=26!',
+                '10=J, 1=A, 13=M → "JAM", digabung benda di kanan (gelang lentur)!'
+            ],
+            reason: 'Kode 10 - 1 - 13 adalah J - A - M ("JAM"), digabung dengan gambar KARET GELANG = JAM KARET (kebiasaan ngaret)!',
+            renderSvg: () => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#0F172A"/>
+                    <text x="115" y="34" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#94A3B8">HITUNG ALFABET (A=1..Z=26)</text>
+                    <rect x="28" y="48" width="46" height="58" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="2.5"/>
+                    <text x="51" y="86" text-anchor="middle" font-family="Arial Black" font-size="24" fill="#FDE047">10</text>
+                    <rect x="86" y="48" width="46" height="58" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="2.5"/>
+                    <text x="109" y="86" text-anchor="middle" font-family="Arial Black" font-size="24" fill="#FDE047">1</text>
+                    <rect x="144" y="48" width="46" height="58" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="2.5"/>
+                    <text x="167" y="86" text-anchor="middle" font-family="Arial Black" font-size="24" fill="#FDE047">13</text>
+                    <text x="109" y="138" text-anchor="middle" font-family="Arial" font-size="11.5" font-weight="700" fill="#CBD5E1">Petunjuk: B = 2, C = 3</text>
+                    <text x="225" y="88" text-anchor="middle" font-family="Arial Black" font-size="28" fill="#38BDF8">+</text>
+                    <!-- Rubber Band Icon -->
+                    <rect x="262" y="32" width="166" height="114" rx="14" fill="#FFFFFF"/>
+                    <ellipse cx="345" cy="88" rx="48" ry="22" transform="rotate(-18 345 88)" fill="none" stroke="#D97706" stroke-width="10"/>
+                    <ellipse cx="348" cy="92" rx="44" ry="18" transform="rotate(14 348 92)" fill="none" stroke="#F59E0B" stroke-width="8"/>
+                    <text x="345" y="135" text-anchor="middle" font-family="Arial" font-size="10.5" font-weight="800" fill="#64748B">(Benda lentur pengikat nasi bungkus)</text>
+                </svg>`
+        },
+        {
+            id: 2,
+            category: 'Hitung Alfabet + Gambar',
+            question: 'Hitung kode alfabet (A=1..Z=26) di kiri, lalu gabungkan dengan angka besar di kanan. Ungkapan apakah ini?',
+            answer: 'KAKI LIMA',
+            acceptedAnswers: ['KAKI LIMA', 'KAKILIMA'],
+            trap: 'LIMA HURUF',
+            openIndices: [5],
+            clues: [
+                'Hitung huruf ke-11, ke-1, ke-11, ke-9 dalam alfabet!',
+                '11=K, 1=A, 11=K, 9=I → digabung dengan angka 5!'
+            ],
+            reason: '11-1-11-9 = K-A-K-I ("KAKI"), ditambah angka 5 ("LIMA") = KAKI LIMA (pedagang kaki lima)!',
+            renderSvg: () => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#1E1B4B"/>
+                    <text x="128" y="34" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#A5B4FC">A=1, B=2, C=3 ... Z=26</text>
+                    <rect x="20" y="52" width="44" height="56" rx="9" fill="#312E81" stroke="#38BDF8" stroke-width="2"/>
+                    <text x="42" y="88" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#FFFFFF">11</text>
+                    <rect x="72" y="52" width="44" height="56" rx="9" fill="#312E81" stroke="#38BDF8" stroke-width="2"/>
+                    <text x="94" y="88" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#FFFFFF">1</text>
+                    <rect x="124" y="52" width="44" height="56" rx="9" fill="#312E81" stroke="#38BDF8" stroke-width="2"/>
+                    <text x="146" y="88" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#FFFFFF">11</text>
+                    <rect x="176" y="52" width="44" height="56" rx="9" fill="#312E81" stroke="#38BDF8" stroke-width="2"/>
+                    <text x="198" y="88" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#FFFFFF">9</text>
+                    <text x="248" y="90" text-anchor="middle" font-family="Arial Black" font-size="28" fill="#FDE047">+</text>
+                    <rect x="278" y="34" width="150" height="106" rx="16" fill="#FFFFFF"/>
+                    <text x="353" y="112" text-anchor="middle" font-family="Arial Black" font-size="76" fill="#EF4444">5</text>
+                </svg>`
+        },
+        {
+            id: 3,
+            category: 'Hitung Alfabet + Gambar',
+            question: 'Pecahkan kode alfabet di kiri lalu gabungkan dengan gambar batangan berkilau di kanan!',
+            answer: 'ANAK EMAS',
+            acceptedAnswers: ['ANAK EMAS', 'ANAKEMAS'],
+            trap: 'EMAS MURNI',
+            openIndices: [5],
+            clues: [
+                'Hitung urutan ke-1, ke-14, ke-1, dan ke-11 di alfabet!',
+                '1=A, 14=N, 1=A, 11=K + logam mulia kuning!'
+            ],
+            reason: '1-14-1-11 = A-N-A-K ("ANAK") + batangan EMAS = ANAK EMAS (anak kesayangan/orang kepercayaan bos)!',
+            renderSvg: () => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#0F172A"/>
+                    <text x="128" y="34" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#94A3B8">KODE ALFABET (A=1..Z=26)</text>
+                    <rect x="20" y="52" width="44" height="56" rx="9" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+                    <text x="42" y="88" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#6EE7B7">1</text>
+                    <rect x="72" y="52" width="44" height="56" rx="9" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+                    <text x="94" y="88" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#6EE7B7">14</text>
+                    <rect x="124" y="52" width="44" height="56" rx="9" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+                    <text x="146" y="88" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#6EE7B7">1</text>
+                    <rect x="176" y="52" width="44" height="56" rx="9" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+                    <text x="198" y="88" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#6EE7B7">11</text>
+                    <text x="248" y="90" text-anchor="middle" font-family="Arial Black" font-size="28" fill="#FDE047">+</text>
+                    <!-- Gold Bar Icon -->
+                    <rect x="278" y="34" width="150" height="106" rx="14" fill="#FFFFFF"/>
+                    <polygon points="300,114 316,66 390,66 406,114" fill="#F59E0B" stroke="#B45309" stroke-width="3"/>
+                    <polygon points="316,66 326,56 380,56 390,66" fill="#FDE047"/>
+                    <text x="353" y="97" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#78350F">999.9</text>
+                </svg>`
+        },
+        {
+            id: 4,
+            category: 'Hitung Alfabet + Gambar',
+            question: 'Perhatikan pola hitungan viral ini! Berdasarkan pola pada tiga baris pertama, berapakah angka pengganti tanda tanya (?)',
+            answer: '7',
+            acceptedAnswers: ['7', 'TUJUH'],
+            trap: '10',
+            openIndices: [0],
+            clues: [
+                'Bukan nilai matematikanya! Jangan langsung jawab 10!',
+                'Hitung JUMLAH HURUF pada setiap kata bilangannya!'
+            ],
+            reason: 'MIND BLOWING! SATU = 4 huruf, DUA = 3 huruf, EMPAT = 5 huruf, maka S-E-P-U-L-U-H terdiri dari 7 huruf!',
+            renderSvg: (solved) => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#F8FAFC"/>
+                    <rect x="40" y="16" width="380" height="32" rx="8" fill="#E0F2FE"/>
+                    <text x="230" y="37" text-anchor="middle" font-family="Arial Black" font-size="16" fill="#0369A1">S A T U   =   4</text>
+                    <rect x="40" y="54" width="380" height="32" rx="8" fill="#FEF3C7"/>
+                    <text x="230" y="75" text-anchor="middle" font-family="Arial Black" font-size="16" fill="#B45309">D U A   =   3</text>
+                    <rect x="40" y="92" width="380" height="32" rx="8" fill="#DCFCE7"/>
+                    <text x="230" y="113" text-anchor="middle" font-family="Arial Black" font-size="16" fill="#15803D">E M P A T   =   5</text>
+                    <rect x="40" y="130" width="380" height="34" rx="8" fill="#FCE7F3" stroke="#EC4899" stroke-width="2"/>
+                    <text x="230" y="152" text-anchor="middle" font-family="Arial Black" font-size="16" fill="#BE185D">S E P U L U H   =   ${solved ? '7 (HURUF!)' : '?'}</text>
+                </svg>`
+        },
+        {
+            id: 5,
+            category: 'Hitung Alfabet + Gambar',
+            question: 'Teka-teki pola alfabet viral di talkshow TV! Huruf tunggal apakah yang tepat mengisi tanda tanya (?) di akhir deretan ini?',
+            answer: 'M',
+            acceptedAnswers: ['M', 'MINGGU'],
+            trap: 'N',
+            openIndices: [0],
+            clues: [
+                'Ini bukan deretan urutan huruf A-B-C biasa — baca seperti nama hari dalam seminggu!',
+                'Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, lalu...'
+            ],
+            reason: 'M (MINGGU)! Deretan S - S - R - K - J - S - M adalah inisial nama-nama hari Senin sampai Minggu!',
+            renderSvg: (solved) => {
+                const letters = ['S', 'S', 'R', 'K', 'J', 'S', solved ? 'M' : '?'];
+                const blocks = letters.map((ch, idx) => `
+                    <rect x="${26 + idx * 59}" y="54" width="50" height="62" rx="10" fill="${idx === 6 ? '#EF4444' : '#1E40AF'}"/>
+                    <text x="${51 + idx * 59}" y="96" text-anchor="middle" font-family="Arial Black" font-size="28" fill="#FFFFFF">${ch}</text>
+                `).join('');
+                return `
+                    <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="460" height="175" rx="12" fill="#F8FAFC"/>
+                        <text x="230" y="34" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#475569">DERETAN INISIAL HARI / POLA VIRAL</text>
+                        ${blocks}
+                        ${solved ? `<text x="230" y="146" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#059669">Senin • Selasa • Rabu • Kamis • Jumat • Sabtu • MINGGU!</text>` : ''}
+                    </svg>`;
+            }
+        },
+
+        // === 2. Logika Talkshow TV & Ilusi Optik ===
+        {
+            id: 6,
+            category: 'Logika Talkshow & Ilusi',
+            question: 'Tebak-tebakan viral talkshow & tes logika! Berapakah nomor slot parkir yang sedang tertutup mobil merah di gambar ini?',
+            answer: '87',
+            acceptedAnswers: ['87', 'DELAPAN PULUH TUJUH'],
+            trap: '67',
+            openIndices: [0],
+            clues: [
+                'Jangan baca angkanya tegak dari layar! Coba balikkan kepalamu / lihat dari atas ke bawah (180 derajat)!',
+                'Jika diputar terbalik seperti pandangan sopir saat mau parkir: 86, [?], 88, 89, 90, 91!'
+            ],
+            reason: 'MIND BLOWING! Jika gambarnya diputar 180 derajat (sesuai arah sopir masuk parkir), deretan nomornya adalah 86, 87, 88, 89, 90, 91! Jadi yang tertutup mobil adalah 87!',
+            renderSvg: (solved) => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#334155"/>
+                    <g transform="${solved ? 'rotate(180 230 87.5)' : ''}">
+                        ${['16', '06', '68', '88', 'CAR', '98'].map((val, i) => {
+                            const x = 32 + i * 66;
+                            return `
+                                <rect x="${x}" y="25" width="60" height="125" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+                                ${val === 'CAR' ? `
+                                    <rect x="${x + 10}" y="42" width="40" height="88" rx="10" fill="#EF4444" stroke="#FFFFFF" stroke-width="2"/>
+                                    <rect x="${x + 15}" y="58" width="30" height="24" rx="4" fill="#BAE6FD"/>
+                                    ${solved ? `<text x="${x + 30}" y="112" text-anchor="middle" font-family="Arial Black" font-size="22" fill="#FDE047" transform="rotate(180 ${x + 30} 105)">87</text>` : ''}
+                                ` : `
+                                    <text x="${x + 30}" y="102" text-anchor="middle" font-family="Arial Black" font-size="26" fill="#F8FAFC">${val}</text>
+                                `}
+                            `;
+                        }).join('')}
+                    </g>
+                    ${solved ? `<rect x="132" y="4" width="196" height="20" rx="10" fill="#10B981"/><text x="230" y="18" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#FFFFFF">DIPUTAR 180°: 86 • 87 • 88 • 89 • 90 • 91!</text>` : ''}
+                </svg>`
+        },
+        {
+            id: 7,
+            category: 'Logika Talkshow & Ilusi',
+            question: 'Perhatikan dua garis mendatar HITAM (ATAS vs BAWAH). Mana yang lebih panjang?',
+            answer: 'SAMA PANJANG',
+            acceptedAnswers: ['SAMA PANJANG', 'SAMA'],
+            trap: 'GARIS BAWAH',
+            openIndices: [5],
+            clues: [
+                'Jangan tertipu ujung panah merah dan biru!',
+                'Keduanya membentang persis dari x=140 ke x=320!'
+            ],
+            reason: 'MIND BLOWING! Panjang garis hitam ATAS dan BAWAH tepat 180px — SAMA PANJANG 100% (Ilusi Muller-Lyer)!',
+            renderSvg: (solved) => `
+                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
+                    <text x="24" y="48" font-family="Plus Jakarta Sans, Arial" font-size="13" font-weight="800" fill="#64748B">ATAS</text>
+                    <text x="24" y="128" font-family="Plus Jakarta Sans, Arial" font-size="13" font-weight="800" fill="#64748B">BAWAH</text>
+                    <line x1="140" y1="44" x2="320" y2="44" stroke="#0F172A" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M115 24 L140 44 L115 64" fill="none" stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M345 24 L320 44 L345 64" fill="none" stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="140" y1="124" x2="320" y2="124" stroke="#0F172A" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M165 104 L140 124 L165 144" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M295 104 L320 124 L295 144" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    ${solved ? `
+                        <line x1="140" y1="16" x2="140" y2="154" stroke="#10B981" stroke-width="2.5" stroke-dasharray="6 4"/>
+                        <line x1="320" y1="16" x2="320" y2="154" stroke="#10B981" stroke-width="2.5" stroke-dasharray="6 4"/>
+                        <rect x="172" y="72" width="116" height="24" rx="12" fill="#10B981"/>
+                        <text x="230" y="88" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#FFFFFF">BUKTI: SAMA 180px!</text>
+                    ` : ''}
+                </svg>`
+        },
+        {
+            id: 8,
+            category: 'Logika Talkshow & Ilusi',
+            question: 'Bandingkan warna abu-abu KOTAK A dan KOTAK B secara langsung. Mana yang kode warnanya lebih terang?',
+            answer: 'SAMA WARNA',
+            acceptedAnswers: ['SAMA WARNA', 'SAMA'],
+            trap: 'KOTAK B',
+            openIndices: [5],
+            clues: [
+                'Kotak B dikelilingi bayangan gelap sehingga terlihat terang.',
+                'Tutup kotak sekitarnya pakai jari — A dan B ternyata...'
+            ],
+            reason: 'MIND BLOWING! Kotak A dan Kotak B memakai kode warna #787878 yang 100% IDENTIK! Saat dihubungkan jembatan #787878, mata langsung sadar keduanya SAMA WARNA!',
+            renderSvg: (solved) => `
+                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="170" rx="12" fill="#E2E8F0"/>
+                    <rect x="70" y="20" width="90" height="55" fill="#F1F5F9" stroke="#94A3B8"/>
+                    <rect x="160" y="20" width="90" height="55" fill="#787878" stroke="#475569"/>
+                    <text x="205" y="52" text-anchor="middle" font-family="Arial Black" font-size="18" fill="#FFFFFF">A</text>
+                    <rect x="250" y="20" width="90" height="55" fill="#F1F5F9" stroke="#94A3B8"/>
+                    <rect x="70" y="75" width="90" height="55" fill="#787878" stroke="#475569"/>
+                    <rect x="160" y="75" width="90" height="55" fill="#334155" stroke="#1E293B"/>
+                    <rect x="250" y="75" width="90" height="55" fill="#787878" stroke="#475569"/>
+                    <text x="295" y="108" text-anchor="middle" font-family="Arial Black" font-size="18" fill="#FFFFFF">B</text>
+                    <ellipse cx="365" cy="115" rx="28" ry="11" fill="#047857"/>
+                    <rect x="337" y="45" width="56" height="70" fill="#10B981"/>
+                    <ellipse cx="365" cy="45" rx="28" ry="11" fill="#34D399"/>
+                    ${solved ? `
+                        <polygon points="205,65 295,65 295,90 205,90" fill="#787878" stroke="#F59E0B" stroke-width="2.5"/>
+                        <rect x="160" y="128" width="140" height="22" rx="11" fill="#10B981"/>
+                        <text x="230" y="143" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#FFFFFF">BUKTI: SAMA #787878!</text>
+                    ` : ''}
+                </svg>`
+        },
+
+        // === 3. Rebus Tebak Gambar Resmi (Ikon + Ganti Huruf Tanpa Bocoran!) ===
+        {
+            id: 9,
+            category: 'Rebus Tebak Gambar Resmi',
+            question: 'Gabungkan kedua gambar rebus ini (ikuti aturan ganti huruf di tiap ikon) menjadi frasa tempat nongkrong favorit!',
+            answer: 'WARUNG KOPI',
+            acceptedAnswers: ['WARUNG KOPI'],
+            trap: 'SARUNG TOPI',
+            openIndices: [7],
+            clues: [
+                'Ikon kiri adalah kain SARUNG (ganti huruf S jadi W) + ikon kanan TOPI (ganti T jadi K)!',
+                'Tempat ngobrol santai sambil pesan es kopi atau gorengan!'
+            ],
+            reason: 'SARUNG (S→W) = WARUNG + TOPI (T→K) = KOPI → WARUNG KOPI! Format resmi game Tebak Gambar Indonesia!',
+            renderSvg: () => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#F8FAFC"/>
+                    <!-- Sarung Icon -->
+                    <rect x="44" y="34" width="134" height="114" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+                    <rect x="80" y="54" width="62" height="74" rx="4" fill="#0F766E"/>
+                    <line x1="80" y1="74" x2="142" y2="74" stroke="#FDE047" stroke-width="4"/>
+                    <line x1="80" y1="96" x2="142" y2="96" stroke="#FDE047" stroke-width="4"/>
+                    <line x1="100" y1="54" x2="100" y2="128" stroke="#14B8A6" stroke-width="4"/>
+                    <line x1="122" y1="54" x2="122" y2="128" stroke="#14B8A6" stroke-width="4"/>
+                    <rect x="64" y="18" width="94" height="24" rx="12" fill="#EF4444"/>
+                    <text x="111" y="34" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#FFFFFF">S ➔ W</text>
+                    <text x="230" y="100" text-anchor="middle" font-family="Arial Black" font-size="30" fill="#64748B">+</text>
+                    <!-- Hat / Topi Icon -->
+                    <rect x="282" y="34" width="134" height="114" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+                    <path d="M316 108 C316 68, 376 68, 376 108 Z" fill="#2563EB"/>
+                    <rect x="308" y="106" width="90" height="12" rx="6" fill="#1E40AF"/>
+                    <rect x="302" y="18" width="94" height="24" rx="12" fill="#7C3AED"/>
+                    <text x="349" y="34" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#FFFFFF">T ➔ K</text>
+                </svg>`
+        },
+        {
+            id: 10,
+            category: 'Rebus Tebak Gambar Resmi',
+            question: 'Gabungkan dua ikon ini (ikuti aturan ganti hurufnya) menjadi satu ungkapan dagang laris manis!',
+            answer: 'LAKU KERAS',
+            acceptedAnswers: ['LAKU KERAS'],
+            trap: 'PAKU BATU',
+            openIndices: [5],
+            clues: [
+                'Ikon kiri adalah PAKU (ganti huruf P jadi L) + sifat fisik batu di sebelah kanan!',
+                'Kondisi toko online yang pesanannya membludak habis terjual!'
+            ],
+            reason: 'PAKU (P→L) = LAKU + BATU (sifatnya KERAS) = LAKU KERAS!',
+            renderSvg: () => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#F8FAFC"/>
+                    <!-- Nail / Paku -->
+                    <rect x="44" y="34" width="134" height="114" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+                    <rect x="92" y="54" width="38" height="10" rx="3" fill="#475569"/>
+                    <polygon points="107,64 115,64 113,130 111,138 109,130" fill="#64748B"/>
+                    <rect x="64" y="18" width="94" height="24" rx="12" fill="#EF4444"/>
+                    <text x="111" y="34" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#FFFFFF">P ➔ L</text>
+                    <text x="230" y="100" text-anchor="middle" font-family="Arial Black" font-size="30" fill="#64748B">+</text>
+                    <!-- Hard Rock Icon -->
+                    <rect x="282" y="34" width="134" height="114" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+                    <path d="M302 126 L320 70 L356 58 L394 82 L398 126 Z" fill="#64748B" stroke="#334155" stroke-width="3"/>
+                    <text x="349" y="140" text-anchor="middle" font-family="Arial" font-size="10.5" font-weight="800" fill="#64748B">(Sifat benda ini?)</text>
+                </svg>`
+        },
+        {
+            id: 11,
+            category: 'Rebus Tebak Gambar Resmi',
+            question: 'Pecahkan gabungan dua ikon dan aturan huruf ini menjadi ungkapan perasaan sedih!',
+            answer: 'MAKAN HATI',
+            acceptedAnswers: ['MAKAN HATI'],
+            trap: 'IKAN CINTA',
+            openIndices: [6],
+            clues: [
+                'Ikon kiri adalah IKAN (ganti huruf I dengan MA) + simbol HATI merah!',
+                'Perasaan saat tersakiti atau kesal terus dipendam di dalam!'
+            ],
+            reason: 'IKAN (I→MA) = MAKAN + simbol HATI = MAKAN HATI!',
+            renderSvg: () => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#FFF1F2"/>
+                    <!-- Fish Icon -->
+                    <rect x="44" y="34" width="134" height="114" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+                    <ellipse cx="105" cy="92" rx="34" ry="20" fill="#0284C7"/>
+                    <polygon points="135,92 158,74 158,110" fill="#0369A1"/>
+                    <circle cx="86" cy="87" r="4" fill="#FFFFFF"/>
+                    <circle cx="85" cy="87" r="2" fill="#0F172A"/>
+                    <rect x="64" y="18" width="94" height="24" rx="12" fill="#EF4444"/>
+                    <text x="111" y="34" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#FFFFFF">I ➔ MA</text>
+                    <text x="230" y="100" text-anchor="middle" font-family="Arial Black" font-size="30" fill="#64748B">+</text>
+                    <!-- Heart Icon -->
+                    <rect x="282" y="34" width="134" height="114" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+                    <path d="M349 124 C349 124 308 98 308 74 C308 60 320 52 332 52 C340 52 346 57 349 63 C352 57 358 52 366 52 C378 52 390 60 390 74 C390 98 349 124 349 124 Z" fill="#EF4444"/>
+                </svg>`
+        },
+        {
+            id: 12,
+            category: 'Rebus Tebak Gambar Resmi',
+            question: 'Gabungkan ikon di kiri dan gambar bulat beraroma wangi + rasa di kanan menjadi nama jajanan masa kecil!',
+            answer: 'HARUM MANIS',
+            acceptedAnswers: ['HARUM MANIS', 'ARUM MANIS'],
+            trap: 'JARUM GULA',
+            openIndices: [6],
+            clues: [
+                'Ikon kiri adalah JARUM (ganti J jadi H) + sifat rasa gula di sebelah kanan!',
+                'Jajanan gulali kapas warna pink yang dijual abang keliling!'
+            ],
+            reason: 'JARUM (J→H) = HARUM + rasa gula (MANIS) = HARUM MANIS!',
+            renderSvg: () => `
+                <svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="460" height="175" rx="12" fill="#FDF2F8"/>
+                    <!-- Needle Icon -->
+                    <rect x="44" y="34" width="134" height="114" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+                    <path d="M84 128 L138 56" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+                    <ellipse cx="136" cy="59" rx="5" ry="9" transform="rotate(38 136 59)" fill="#FFFFFF" stroke="#475569" stroke-width="3"/>
+                    <rect x="64" y="18" width="94" height="24" rx="12" fill="#EC4899"/>
+                    <text x="111" y="34" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#FFFFFF">J ➔ H</text>
+                    <text x="230" y="100" text-anchor="middle" font-family="Arial Black" font-size="30" fill="#64748B">+</text>
+                    <!-- Sugar Cube / Candy -->
+                    <rect x="282" y="34" width="134" height="114" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+                    <rect x="318" y="60" width="60" height="48" rx="10" fill="#FDE68A" stroke="#D97706" stroke-width="3"/>
+                    <text x="348" y="89" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#92400E">GULA</text>
+                    <text x="349" y="132" text-anchor="middle" font-family="Arial" font-size="10.5" font-weight="800" fill="#64748B">(Rasanya...?)</text>
+                </svg>`
+        },
+
+        // === 4. Foto Asli Hewan Menipu & Kamuflase ===
+        {
+            id: 13,
             category: 'Foto Hewan Menipu',
             question: 'Perhatikan foto halaman belakang rumah ini! Hewan apakah yang sebenarnya sedang menoleh di gambar?',
             answer: 'BURUNG',
@@ -25,7 +403,7 @@
             trap: 'KUCING',
             openIndices: [5],
             clues: [
-                'Coba zoom tatapan ke dua ujung runcing hitam yang menghadap ke atas!',
+                'Coba perhatikan dua ujung runcing hitam yang menghadap ke atas!',
                 'Itu bukan telinga berbulu — melainkan paruh yang sedang menganga!'
             ],
             reason: 'MIND BLOWING! Ternyata bukan KUCING HITAM, melainkan BURUNG GAGAK yang menengok ke samping dengan paruh terbuka ke atas mirip telinga kucing!',
@@ -40,7 +418,7 @@
             })
         },
         {
-            id: 2,
+            id: 14,
             category: 'Foto Hewan Menipu',
             question: 'Foto close-up di atas dahan hijau! Hewan apakah yang sedang berada tepat di depan kamera ini?',
             answer: 'ULAT',
@@ -63,7 +441,7 @@
             })
         },
         {
-            id: 3,
+            id: 15,
             category: 'Foto Hewan Menipu',
             question: 'Wajah hewan apakah yang sedang menatap tajam ke arah kamera di foto ini?',
             answer: 'KUPU KUPU',
@@ -72,7 +450,7 @@
             openIndices: [8],
             clues: [
                 'Dua mata itu bukan bola mata asli — cuma motif lingkaran simetris!',
-                'Kalau kamera di-zoom out dan diputar, kelihatan sepasang sayap lebar!'
+                'Ketika kamera di-zoom out dan diputar, kelihatan sepasang sayap lebar!'
             ],
             reason: 'MIND BLOWING! Yang menatap kamera ternyata bukan BURUNG HANTU, melainkan sayap KUPU KUPU (Owl Butterfly) yang terbalik & di-zoom!',
             renderSvg: (solved) => renderPhotoStage({
@@ -85,7 +463,7 @@
             })
         },
         {
-            id: 4,
+            id: 16,
             category: 'Foto Hewan Menipu',
             question: 'Foto tebing batu gunung salju! Ada 1 hewan liar yang bersembunyi dan ikut menatap ke kamera — hewan apakah itu?',
             answer: 'MACAN TUTUL',
@@ -107,7 +485,7 @@
             })
         },
         {
-            id: 5,
+            id: 17,
             category: 'Foto Hewan Menipu',
             question: 'Foto batang pohon berkulit kasar di hutan. Tepat di tengah foto tersembunyi satu hewan — hewan apakah itu?',
             answer: 'BURUNG HANTU',
@@ -130,7 +508,7 @@
             })
         },
         {
-            id: 6,
+            id: 18,
             category: 'Foto Hewan Menipu',
             question: 'Perhatikan kelopak bunga anggrek pink di foto ini! Makhluk hidup apakah yang sebenarnya hinggap tepat di tengahnya?',
             answer: 'BELALANG',
@@ -151,297 +529,6 @@
                 spotStyle: 'width: 110px; height: 96px; top: 44px; left: 37%;',
                 caption: 'DI TENGAH BUNGA: BELALANG ANGGREK!'
             })
-        },
-        {
-            id: 7,
-            category: 'Foto Hewan Menipu',
-            question: 'Di antara tumpukan daun kering cokelat ini ada satu hewan yang tubuhnya 99% menyamar jadi daun gugur. Hewan apakah itu?',
-            answer: 'KATAK',
-            acceptedAnswers: ['KATAK', 'KATAK DAUN', 'KODOK'],
-            trap: 'TOKEK',
-            openIndices: [4],
-            clues: [
-                'Bukan kadal atau ular — tubuhnya segitiga pipih dengan dua tanduk di atas mata!',
-                'Hewan amfibi yang melompat di lantai hutan!'
-            ],
-            reason: 'MIND BLOWING! Itu adalah KATAK DAUN BERTANDUK (Megophrys nasuta) yang punggungnya punya guratan mirip persis tulang daun kering!',
-            renderSvg: (solved) => renderPhotoStage({
-                src: 'hewan-leaf-frog.jpg',
-                alt: 'Tumpukan daun kering hutan',
-                solved,
-                preStyle: 'object-position: 52% 52%; transform: scale(1);',
-                postStyle: 'transform: scale(1.38); transform-origin: 60% 52%;',
-                spotStyle: 'width: 155px; height: 112px; top: 46px; left: 42%;',
-                caption: 'KATAK DAUN BERTANDUK BERKAMUFLASE!'
-            })
-        },
-
-        // === 2. Ilusi Optik Menipu ===
-        {
-            id: 8,
-            category: 'Ilusi Optik Menipu',
-            question: 'Perhatikan garis tengah (warna hitam) pada gambar ATAS dan BAWAH. Garis mana yang ukurannya lebih panjang?',
-            answer: 'SAMA PANJANG',
-            acceptedAnswers: ['SAMA PANJANG', 'SAMA'],
-            trap: 'GARIS BAWAH',
-            openIndices: [5],
-            clues: [
-                'Jangan percaya penglihatan mata gara-gara ujung panahnya!',
-                'Ukur ujung garis hitam kiri dan kanan kedua garis!'
-            ],
-            reason: 'MIND BLOWING! Panjang garis hitam ATAS dan BAWAH tepat 180px — SAMA PANJANG 100%! Panah keluar-masuk (Ilusi Muller-Lyer) menipu otak kita!',
-            renderSvg: (solved) => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <text x="24" y="48" font-family="Plus Jakarta Sans, Arial" font-size="13" font-weight="800" fill="#64748B">ATAS</text>
-                    <text x="24" y="128" font-family="Plus Jakarta Sans, Arial" font-size="13" font-weight="800" fill="#64748B">BAWAH</text>
-                    <line x1="140" y1="44" x2="320" y2="44" stroke="#0F172A" stroke-width="5" stroke-linecap="round"/>
-                    <path d="M115 24 L140 44 L115 64" fill="none" stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M345 24 L320 44 L345 64" fill="none" stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <line x1="140" y1="124" x2="320" y2="124" stroke="#0F172A" stroke-width="5" stroke-linecap="round"/>
-                    <path d="M165 104 L140 124 L165 144" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M295 104 L320 124 L295 144" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    ${solved ? `
-                        <line x1="140" y1="16" x2="140" y2="154" stroke="#10B981" stroke-width="2.5" stroke-dasharray="6 4"/>
-                        <line x1="320" y1="16" x2="320" y2="154" stroke="#10B981" stroke-width="2.5" stroke-dasharray="6 4"/>
-                        <rect x="172" y="72" width="116" height="24" rx="12" fill="#10B981"/>
-                        <text x="230" y="88" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#FFFFFF">BUKTI: SAMA 180px!</text>
-                    ` : ''}
-                </svg>`
-        },
-        {
-            id: 9,
-            category: 'Ilusi Optik Menipu',
-            question: 'Perhatikan lingkaran ORANYE di tengah KIRI dan KANAN. Lingkaran oranye mana yang diameternya lebih besar?',
-            answer: 'SAMA BESAR',
-            acceptedAnswers: ['SAMA BESAR', 'SAMA'],
-            trap: 'YANG KANAN',
-            openIndices: [5],
-            clues: [
-                'Abaikan lingkaran biru besar/kecil di sekitarnya!',
-                'Fokus cuma ke dua titik oranye di tengah — ternyata...'
-            ],
-            reason: 'MIND BLOWING! Kedua lingkaran oranye punya jari-jari 18px yang SAMA BESAR 100% (Ilusi Ebbinghaus)!',
-            renderSvg: (solved) => {
-                const bigAround = [0, 60, 120, 180, 240, 300].map((deg) => {
-                    const rad = deg * Math.PI / 180;
-                    return `<circle cx="${125 + Math.cos(rad) * 50}" cy="${85 + Math.sin(rad) * 50}" r="20" fill="${solved ? '#CBD5E1' : '#2563EB'}"/>`;
-                }).join('');
-                const smallAround = [0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
-                    const rad = deg * Math.PI / 180;
-                    return `<circle cx="${335 + Math.cos(rad) * 32}" cy="${85 + Math.sin(rad) * 32}" r="7" fill="${solved ? '#CBD5E1' : '#2563EB'}"/>`;
-                }).join('');
-                return `
-                    <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                        ${bigAround}
-                        ${smallAround}
-                        <circle cx="125" cy="85" r="18" fill="#F97316"/>
-                        <circle cx="335" cy="85" r="18" fill="#F97316"/>
-                        <text x="125" y="158" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#475569">KIRI</text>
-                        <text x="335" y="158" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#475569">KANAN</text>
-                        ${solved ? `
-                            <line x1="125" y1="67" x2="335" y2="67" stroke="#10B981" stroke-width="2" stroke-dasharray="5 4"/>
-                            <line x1="125" y1="103" x2="335" y2="103" stroke="#10B981" stroke-width="2" stroke-dasharray="5 4"/>
-                            <rect x="176" y="74" width="108" height="22" rx="11" fill="#10B981"/>
-                            <text x="230" y="89" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#FFFFFF">SAMA r=18px!</text>
-                        ` : ''}
-                    </svg>`;
-            }
-        },
-        {
-            id: 10,
-            category: 'Ilusi Optik Menipu',
-            question: 'Bandingkan warna abu-abu KOTAK A dan KOTAK B secara langsung. Mana yang kode warnanya lebih terang?',
-            answer: 'SAMA WARNA',
-            acceptedAnswers: ['SAMA WARNA', 'SAMA'],
-            trap: 'KOTAK B',
-            openIndices: [5],
-            clues: [
-                'Mata kita terkecoh karena Kotak B berada di area bayangan silinder!',
-                'Tutup kotak sekitarnya pakai jari — terlihat kotak A dan B ternyata...'
-            ],
-            reason: 'MIND BLOWING! Kotak A dan Kotak B memakai kode warna #787878 yang 100% IDENTIK! Saat dihubungkan garis #787878, mata langsung sadar keduanya SAMA WARNA!',
-            renderSvg: (solved) => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#E2E8F0"/>
-                    <rect x="70" y="20" width="90" height="55" fill="#F1F5F9" stroke="#94A3B8"/>
-                    <rect x="160" y="20" width="90" height="55" fill="#787878" stroke="#475569"/>
-                    <text x="205" y="52" text-anchor="middle" font-family="Arial Black" font-size="18" fill="#FFFFFF">A</text>
-                    <rect x="250" y="20" width="90" height="55" fill="#F1F5F9" stroke="#94A3B8"/>
-                    <rect x="70" y="75" width="90" height="55" fill="#787878" stroke="#475569"/>
-                    <rect x="160" y="75" width="90" height="55" fill="#334155" stroke="#1E293B"/>
-                    <rect x="250" y="75" width="90" height="55" fill="#787878" stroke="#475569"/>
-                    <text x="295" y="108" text-anchor="middle" font-family="Arial Black" font-size="18" fill="#FFFFFF">B</text>
-                    <ellipse cx="365" cy="115" rx="28" ry="11" fill="#047857"/>
-                    <rect x="337" y="45" width="56" height="70" fill="#10B981"/>
-                    <ellipse cx="365" cy="45" rx="28" ry="11" fill="#34D399"/>
-                    <text x="230" y="154" text-anchor="middle" font-family="Arial" font-size="11.5" font-weight="800" fill="#334155">Kotak A vs Kotak B</text>
-                    ${solved ? `
-                        <polygon points="205,65 295,65 295,90 205,90" fill="#787878" stroke="#F59E0B" stroke-width="2.5"/>
-                        <rect x="160" y="128" width="140" height="22" rx="11" fill="#10B981"/>
-                        <text x="230" y="143" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#FFFFFF">BUKTI: SAMA #787878!</text>
-                    ` : ''}
-                </svg>`
-        },
-        {
-            id: 11,
-            category: 'Ilusi Optik Menipu',
-            question: 'Berapa jumlah garis SEGITIGA PUTIH yang benar-benar digambar di tengah gambar ini?',
-            answer: 'NOL',
-            acceptedAnswers: ['NOL', '0', 'TIDAK ADA', 'KOSONG'],
-            trap: 'TIGA',
-            openIndices: [0],
-            clues: [
-                'Otakmu sedang menggambar garis ilusi sendiri (Segitiga Kanizsa)!',
-                'Hanya ada 3 lingkaran hitam terpotong — nggak ada garis segitiga sama sekali!'
-            ],
-            reason: 'MIND BLOWING! Jumlah garis segitiga yang benar-benar digambar adalah NOL! Otak kita yang mengarang garis putih di antara potongan lingkaran hitam!',
-            renderSvg: (solved) => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#FFFFFF"/>
-                    <circle cx="230" cy="36" r="24" fill="${solved ? '#94A3B8' : '#0F172A'}"/>
-                    <circle cx="155" cy="136" r="24" fill="${solved ? '#94A3B8' : '#0F172A'}"/>
-                    <circle cx="305" cy="136" r="24" fill="${solved ? '#94A3B8' : '#0F172A'}"/>
-                    <polygon points="230,36 155,136 305,136" fill="#FFFFFF"/>
-                    ${solved ? `
-                        <text x="230" y="106" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#EF4444">0 GARIS SEGITIGA!</text>
-                        <text x="230" y="124" text-anchor="middle" font-family="Arial" font-size="10.5" font-weight="700" fill="#64748B">(Cuma 3 lingkaran terpotong)</text>
-                    ` : ''}
-                </svg>`
-        },
-        {
-            id: 12,
-            category: 'Ilusi Optik Menipu',
-            question: 'Garis abu-abu mendatar di antara kotak hitam-putih ini lurus sejajar atau miring bengkok?',
-            answer: 'LURUS SEJAJAR',
-            acceptedAnswers: ['LURUS SEJAJAR', 'LURUS', 'SEJAJAR'],
-            trap: 'MIRING',
-            openIndices: [6],
-            clues: [
-                'Jangan lihat kotak-kotak hitam putihnya!',
-                'Miringkan layar atau lihat dari samping untuk bukti aslinya!'
-            ],
-            reason: 'MIND BLOWING! Semua garis mendatarnya 100% LURUS SEJAJAR sempurna! Pergeseran pola kotak hitam-putih (Ilusi Cafe Wall) bikin mata melihatnya miring!',
-            renderSvg: (solved) => {
-                const rows = [0, 1, 2, 3];
-                const offsets = [0, 14, 28, 14];
-                const tiles = rows.map((r) => {
-                    const y = 25 + r * 30;
-                    const rowTiles = [];
-                    for (let c = -1; c < 11; c++) {
-                        const x = 60 + c * 32 + offsets[r];
-                        const isBlack = c % 2 === 0;
-                        rowTiles.push(`<rect x="${x}" y="${y}" width="32" height="30" fill="${isBlack ? (solved ? '#CBD5E1' : '#0F172A') : '#FFFFFF'}"/>`);
-                    }
-                    return rowTiles.join('') + `<line x1="50" y1="${y}" x2="410" y2="${y}" stroke="${solved ? '#10B981' : '#94A3B8'}" stroke-width="${solved ? 3 : 2}"/>`;
-                }).join('');
-                return `
-                    <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                        <clipPath id="cwClip"><rect x="60" y="25" width="340" height="120" rx="6"/></clipPath>
-                        <g clip-path="url(#cwClip)">${tiles}</g>
-                        ${solved ? `<text x="230" y="160" text-anchor="middle" font-family="Arial" font-size="11.5" font-weight="800" fill="#059669">BUKTI: GARIS HIJAU 100% LURUS SEJAJAR!</text>` : ''}
-                    </svg>`;
-            }
-        },
-        {
-            id: 13,
-            category: 'Ilusi Optik Menipu',
-            question: 'Dua bentuk lengkung ORANYE dan BIRU yang ditumpuk ini: mana yang ukurannya lebih besar?',
-            answer: 'SAMA BESAR',
-            acceptedAnswers: ['SAMA BESAR', 'SAMA'],
-            trap: 'YANG BAWAH',
-            openIndices: [5],
-            clues: [
-                'Sisi pendek bagian bawah ditaruh persis di atas sisi panjang gambar bawahnya!',
-                'Kalau digeser lurus sejajar, dua-duanya ukurannya...'
-            ],
-            reason: 'MIND BLOWING! Bentuk oranye dan biru ukurannya 100% IDENTIK / SAMA BESAR (Ilusi Jastrow)!',
-            renderSvg: (solved) => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <path d="M135 55 Q230 22 325 55 L308 82 Q230 56 152 82 Z" fill="#F97316" stroke="#C2410C" stroke-width="2"/>
-                    <path d="${solved ? 'M135 100 Q230 67 325 100 L308 127 Q230 101 152 127 Z' : 'M152 100 Q247 67 342 100 L325 127 Q247 101 169 127 Z'}" fill="#0284C7" stroke="#0369A1" stroke-width="2"/>
-                    ${solved ? `<text x="230" y="155" text-anchor="middle" font-family="Arial" font-size="12" font-weight="800" fill="#059669">BUKTI: DIGESER LURUS 100% SAMA BESAR!</text>` : ''}
-                </svg>`
-        },
-
-        // === 3. Sudut Pandang & Rebus ===
-        {
-            id: 14,
-            category: 'Tebak Sudut Pandang',
-            question: 'Ada dua hal di dalam gambar hitam-putih ini! Selain piala putih di tengah, adegan apakah yang sebenarnya terjadi di gambar ini?',
-            answer: 'SALING TATAP',
-            acceptedAnswers: ['SALING TATAP', 'TATAPAN', 'DUA WAJAH'],
-            trap: 'PIALA PUTIH',
-            openIndices: [7],
-            clues: [
-                'Abaikan bentuk piala putih di tengah, lihat sisi hitam di kiri dan kanan!',
-                'Keduanya punya hidung, dagu, dan bibir yang berhadap-hadapan!'
-            ],
-            reason: 'MIND BLOWING! Ini ilusi Vas Rubin — bayangan hitam kiri dan kanan adalah dua wajah manusia yang lagi SALING TATAP jarak dekat!',
-            renderSvg: (solved) => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#FFFFFF"/>
-                    <path d="M120 20 L205 20 C198 40, 212 52, 200 66 C214 78, 218 85, 202 92 C210 98, 202 104, 198 108 C208 114, 194 128, 196 150 L120 150 Z" fill="${solved ? '#6D28D9' : '#0F172A'}"/>
-                    <path d="M340 20 L255 20 C262 40, 248 52, 260 66 C246 78, 242 85, 258 92 C250 98, 258 104, 262 108 C252 114, 266 128, 264 150 L340 150 Z" fill="${solved ? '#DB2777' : '#0F172A'}"/>
-                    ${solved ? `
-                        <line x1="205" y1="54" x2="255" y2="54" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="4 3"/>
-                        <text x="230" y="164" text-anchor="middle" font-family="Arial" font-size="11.5" font-weight="800" fill="#6D28D9">DUA WAJAH SALING TATAP!</text>
-                    ` : ''}
-                </svg>`
-        },
-        {
-            id: 15,
-            category: 'Tebak Sudut Pandang',
-            question: 'Si Kiri berteriak itu angka 6! Si Kanan ngotot itu angka 9! Siapa sebenarnya yang paling tahu kebenaran angka aslinya?',
-            answer: 'PEMBUATNYA',
-            acceptedAnswers: ['PEMBUATNYA', 'YANG MENULIS', 'PENULISNYA'],
-            trap: 'PENGUKUR',
-            openIndices: [9],
-            clues: [
-                'Bukan salah satu dari dua orang yang berdebat di kiri atau kanan!',
-                'Tanyakan ke orang yang pertama kali mengecat angka itu di lantai!'
-            ],
-            reason: 'MIND BLOWING! Keduanya cuma berdebat dari sudut pandang masing-masing — yang paling tahu apakah itu 6 atau 9 adalah PEMBUATNYA!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <circle cx="95" cy="60" r="16" fill="#2563EB"/>
-                    <rect x="83" y="80" width="24" height="45" rx="6" fill="#2563EB"/>
-                    <text x="95" y="148" text-anchor="middle" font-family="Arial Black" font-size="14" fill="#1E40AF">"ITU 6!"</text>
-                    <ellipse cx="230" cy="116" rx="64" ry="20" fill="#E2E8F0"/>
-                    <text x="230" y="102" text-anchor="middle" font-family="Arial Black" font-size="76" fill="#0F172A">6</text>
-                    <circle cx="365" cy="60" r="16" fill="#DC2626"/>
-                    <rect x="353" y="80" width="24" height="45" rx="6" fill="#DC2626"/>
-                    <text x="365" y="148" text-anchor="middle" font-family="Arial Black" font-size="14" fill="#B91C1C">"ITU 9!"</text>
-                </svg>`
-        },
-        {
-            id: 16,
-            category: 'Rebus Plesetan Kantor',
-            question: 'Lihat gambar pintu minimarket ini: ada tulisan merah besar di kaca, tapi orangnya tetap menarik sekuat tenaga. Penyakit apa itu?',
-            answer: 'MALAS BACA',
-            acceptedAnswers: ['MALAS BACA', 'MALES BACA', 'TIDAK BACA'],
-            trap: 'BUKA PINTU',
-            openIndices: [6],
-            clues: [
-                'Bukan karena pintunya macet atau terkunci.',
-                'Tulisannya sudah gede banget bertuliskan DORONG!'
-            ],
-            reason: 'MALAS BACA! Penyakit umum di pintu kaca seluruh minimarket — udah tertulis DORONG huruf kapital tetep aja ditarik sampai bunyi brak!',
-            renderSvg: () => `
-                <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="460" height="170" rx="12" fill="#F8FAFC"/>
-                    <rect x="165" y="18" width="130" height="136" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="4"/>
-                    <rect x="188" y="42" width="84" height="32" rx="6" fill="#EF4444"/>
-                    <text x="230" y="63" text-anchor="middle" font-family="Arial Black" font-size="15" fill="#FFFFFF">DORONG</text>
-                    <rect x="274" y="88" width="8" height="32" rx="4" fill="#334155"/>
-                    <path d="M350 104 L288 104" stroke="#F59E0B" stroke-width="6" stroke-linecap="round"/>
-                    <path d="M335 90 L355 104 L335 118" fill="none" stroke="#F59E0B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <text x="368" y="78" text-anchor="middle" font-family="Arial Black" font-size="13" fill="#B45309">TARIKK!!</text>
-                </svg>`
         }
     ];
 
@@ -460,7 +547,7 @@
         selectedCategory: 'ALL',
         currentIndex: 0,
         openedLetters: new Set(),
-        showTiles: false, // Hides letter/word count spoilers by default!
+        showTiles: false,
         clueStage: 0,
         isSolved: false,
         teams: [
