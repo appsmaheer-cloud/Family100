@@ -886,6 +886,8 @@
         selectedCategory: 'ALL',
         currentIndex: 0,
         revealedIds: new Set(),
+        slotClueTiers: {},
+        hoveredSlotId: null,
         teams: initialBoard.teams,
         activeTeam: initialBoard.activeTeam,
         strikes: 0,
@@ -925,6 +927,7 @@
         qNumber: document.getElementById('question-number'),
         qText: document.getElementById('question-text'),
         board: document.getElementById('answer-board'),
+        slotClueBar: document.getElementById('slot-clue-bar'),
         form: document.getElementById('answer-form'),
         input: document.getElementById('answer-input'),
         feedback: document.getElementById('feedback-msg'),
@@ -1052,68 +1055,9 @@
             .trim();
     }
 
-    const SYNONYM_GROUPS = [
-        ['MENANGIS', 'NANGIS', 'MEWEK', 'BERSEDIH', 'SEDIH'],
-        ['MINTA MAAF', 'MEMINTA MAAF', 'MOHON MAAF', 'MAAF', 'AMPUN'],
-        ['MINTA BANTUAN', 'MINTA TOLONG', 'TOLONG', 'BANTUAN', 'MEMBANTU'],
-        ['BERDOA', 'DOA', 'SHOLAT', 'SALAT', 'SEMBAHYANG', 'IBADAH', 'BERIBADAH'],
-        ['MENCARI SOLUSI', 'CARI SOLUSI', 'SOLUSI', 'PENYELESAIAN', 'JALAN KELUAR'],
-        ['CURHAT', 'CERITA', 'BERCERITA', 'NGOBROL', 'SHARING'],
-        ['MARAH MARAH', 'MARAH', 'NGAMUK', 'EMOSI', 'KESAL', 'MENGAMUK'],
-        ['JALAN JALAN', 'LIBURAN', 'PIKNIK', 'HEALING', 'REFRESHING', 'REKREASI', 'TRAVELING', 'BERLIBUR'],
-        ['MELAMUN', 'NGELAMUN', 'LAMUN', 'BENGONG', 'TERMENUNG', 'MELONGO', 'MENGKHAYAL'],
-        ['DIAM', 'DIEM', 'BUNGKAM', 'PENDIAM', 'MENENG'],
-        ['TIDUR', 'BOBOK', 'KETIDURAN', 'NGOROK', 'TERLELAP'],
-        ['MAKAN', 'SANTAP', 'JAJAN', 'NGEMIL', 'KULINER'],
-        ['MINUM', 'NGOPI', 'NGETEH', 'HAUS'],
-        ['HANDPHONE', 'HP', 'PONSEL', 'GADGET', 'GAWAI', 'SMARTPHONE'],
-        ['UANG', 'DUIT', 'CUAN', 'RUPIAH', 'DANA'],
-        ['SENANG', 'BAHAGIA', 'GEMBIRA', 'HAPPY', 'CERIA'],
-        ['CAPEK', 'LELAH', 'LETIH', 'PENAT', 'LESU'],
-        ['MALU', 'MINDER', 'SUNGKAN', 'SEGAN'],
-        ['TAKUT', 'NGEPER', 'CIUT', 'KHAWATIR', 'CEMES'],
-        ['BEKERJA', 'KERJA', 'NGANTOR', 'KANTOR', 'DINAS'],
-        ['TERLAMBAT', 'TELAT', 'NGARET'],
-        ['CENGENGESAN', 'KETAWA', 'TERTAWA', 'NYENGIR', 'SENYUM', 'CEKIKIKAN'],
-        ['GUGUP', 'GROGI', 'NERVOUS', 'PANIK', 'GEMETAR'],
-        ['MENCARI ALASAN', 'CARI ALASAN', 'NGELES', 'ALASAN', 'BERDALIH'],
-        ['PURA PURA LUPA', 'LUPA', 'NGAKU LUPA', 'TIDAK INGAT'],
-        ['BAU', 'BAU BADAN', 'KETEK', 'BUSUK', 'APEK'],
-        ['NYEBELIN', 'MENYEBALKAN', 'SEBEL', 'RESE', 'MENJENGKELKAN'],
-        ['SOMBONG', 'ANGKUH', 'CONGKAK', 'BELAGU', 'AROGAN', 'SONGONG'],
-        ['SUKA PINJAM DUIT', 'PINJAM DUIT', 'PINJAM UANG', 'NGUTANG', 'HUTANG', 'UTANG', 'MINJAM DUIT'],
-        ['KASAR', 'GALAK', 'TIDAK SOPAN'],
-        ['TIDAK DIPERCAYA', 'PEMBOHONG', 'PENGKHIANAT', 'BOHONG'],
-        ['JAHAT', 'KEJAM', 'LICIK', 'NAKAL'],
-        ['EGOIS', 'SERAKAH', 'PELIT', 'KIKIR', 'MAU MENANG SENDIRI'],
-        ['MEMBELI PROPERTY', 'BELI PROPERTY', 'PROPERTI', 'RUMAH', 'TANAH', 'APARTEMEN', 'RUKO', 'BELI RUMAH'],
-        ['MEMBELI EMAS', 'BELI EMAS', 'EMAS', 'LOGAM MULIA', 'PERHIASAN', 'ANTAM'],
-        ['MEMBELI KENDARAAN', 'BELI KENDARAAN', 'MOBIL', 'MOTOR', 'BELI MOBIL', 'BELI MOTOR'],
-        ['MENABUNG', 'NABUNG', 'TABUNGAN', 'INVESTASI', 'DEPOSITO', 'SIMPAN UANG'],
-        ['GOOGLESHEET', 'GOOGLE SHEET', 'GOOGLE SHEETS', 'SPREADSHEET', 'GSHEET'],
-        ['SQL SERVER', 'MSSQL', 'SQLSERVER'],
-        ['APACHE SPARK', 'SPARK', 'PYSPARK'],
-        ['GRATIS', 'FREE', 'CUMA CUMA'],
-        ['BRUG', 'JEMBATAN'],
-        ['GORDIJN', 'GORDEN', 'HORDENG', 'TIRAI'],
-        ['HANDDOEK', 'HANDUK'],
-        ['SPOOR', 'SEPUR', 'KERETA'],
-        ['TENAGA', 'ENERGI', 'OTOT', 'DAYA', 'KEKUATAN'],
-        ['KASUR', 'TEMPAT TIDUR', 'RANJANG', 'SPRINGBED'],
-        ['GANTIAN', 'BERGANTIAN', 'GILIRAN'],
-        ['ANTRE', 'ANTRI', 'MENUNGGU GILIRAN'],
-        ['DARI MAGHRIB', 'MAGHRIB', 'MAGRIB', 'WAKTU MAGHRIB'],
-        ['DITILANG', 'TILANG', 'KENA TILANG', 'RAZIA', 'POLISI'],
-        ['MEREM', 'PEJAMKAN MATA', 'TUTUP MATA'],
-        ['ORANG SEHAT', 'SEHAT', 'TIDAK SAKIT', 'BUGAR', 'WARAS'],
-        ['PAMIT', 'MINTA IZIN PULANG', 'PAMITAN'],
-        ['SEMUA BULAN', 'SEMUA', 'TIAP BULAN', 'BULAN APA SAJA'],
-        ['SYARAT DAN KETENTUAN', 'SYARAT KETENTUAN', 'TERMS', 'TNC', 'TOS'],
-        ['BERHENTI MENCARI', 'BERHENTI CARI', 'STOP CARI', 'MENYERAH'],
-        ['SUDAH KAYA', 'ORANG KAYA', 'KAYA RAYA', 'KAYA'],
-        ['JADI NOMOR DUA', 'NOMOR DUA', 'POSISI DUA', 'POSISI 2', 'KE 2', 'NO 2'],
-        ['LAGI BERPIKIR KERAS', 'BERPIKIR', 'MIKIR', 'KONSENTRASI', 'RENUNG', 'MERENUNG'],
-    ];
+    const SYNONYM_GROUPS = window.Family100Data
+        ? window.Family100Data.SYNONYM_GROUPS
+        : [];
 
     function stripPrefix(normText) {
         return normText.replace(/\b(MENG|MEM|MEN|ME|BER)([A-Z]{3,})/g, '$2');
@@ -1143,8 +1087,12 @@
             if (guessVariants.includes(av)) return 2;
         }
 
-        if (normGuess.length <= 2 || normAnswer.length <= 2) {
-            return normAnswer.split(' ').includes(normGuess) ? 2 : 0;
+        const guessTokens = normGuess.split(' ').filter(Boolean);
+        for (const av of ansVariants) {
+            const avTokens = av.split(' ').filter(Boolean);
+            if (avTokens.length > 0 && avTokens.every((t) => guessTokens.includes(t))) {
+                return 1;
+            }
         }
         if (Math.min(normAnswer.length, normGuess.length) >= 4 &&
             (normAnswer.includes(normGuess) || normGuess.includes(normAnswer))) {
@@ -1302,6 +1250,87 @@
         el.select.value = String(state.currentIndex);
     }
 
+    function getSlotClueText(q, ans, tier) {
+        if (!q || !ans) return '';
+        if (window.Family100Data && typeof window.Family100Data.getTieredClue === 'function') {
+            return window.Family100Data.getTieredClue(q.id, ans.answer_text, ans.points, tier);
+        }
+        const cleanLen = String(ans.answer_text || '').replace(/\s+/g, '').length;
+        return `💡 [Clue ${tier}/3] Jawaban bernilai ${ans.points} poin (${cleanLen} huruf)`;
+    }
+
+    function updateClueBar(q = currentQuestion()) {
+        if (!el.slotClueBar) return;
+        const answers = Array.isArray(q?.answers) ? q.answers : [];
+        let targetAns = null;
+        let targetIdx = -1;
+        let displayTier = 0;
+
+        if (state.hoveredSlotId !== null) {
+            const hIdx = answers.findIndex((a) => Number(a.id) === Number(state.hoveredSlotId));
+            if (hIdx !== -1 && !state.revealedIds.has(Number(answers[hIdx].id))) {
+                targetAns = answers[hIdx];
+                targetIdx = hIdx;
+                displayTier = Number(state.slotClueTiers[Number(targetAns.id)] || 1);
+            }
+        }
+
+        if (!targetAns) {
+            for (let i = 0; i < answers.length; i++) {
+                const a = answers[i];
+                const id = Number(a.id);
+                const t = Number(state.slotClueTiers[id] || 0);
+                if (!state.revealedIds.has(id) && t > 0) {
+                    targetAns = a;
+                    targetIdx = i;
+                    displayTier = t;
+                    break;
+                }
+            }
+        }
+
+        if (targetAns && displayTier > 0) {
+            el.slotClueBar.textContent = `#${targetIdx + 1}: ${getSlotClueText(q, targetAns, displayTier)}`;
+            el.slotClueBar.classList.add('active');
+        } else {
+            el.slotClueBar.textContent = '💡 Arahkan ke kotak jawaban untuk lihat Clue bertingkat';
+            el.slotClueBar.classList.remove('active');
+        }
+    }
+
+    function syncSlotClueView(row, q, ans) {
+        if (!row || !q || !ans) return;
+        const ansId = Number(ans.id);
+        const lockedTier = Number(state.slotClueTiers[ansId] || 0);
+        const isHovering = Number(state.hoveredSlotId) === ansId;
+        const displayTier = lockedTier > 0 ? lockedTier : (isHovering ? 1 : 0);
+
+        row.classList.toggle('clue-hovered', isHovering);
+
+        const txt = row.querySelector('.slot-text');
+        if (txt) {
+            if (displayTier > 0) {
+                txt.className = 'slot-text slot-clue-preview';
+                txt.textContent = getSlotClueText(q, ans, displayTier);
+            } else {
+                txt.className = 'slot-text hidden-mask';
+                txt.textContent = '• • • • • • • •';
+            }
+        }
+
+        const btn = row.querySelector('.slot-clue-btn');
+        if (btn) {
+            btn.classList.toggle('active', lockedTier > 0);
+            if (lockedTier > 0) {
+                btn.textContent = lockedTier < 3 ? `💡 ${lockedTier}/3 ▸` : '💡 3/3 ↺';
+            } else if (isHovering) {
+                btn.textContent = '💡 1/3 ▸';
+            } else {
+                btn.textContent = '💡 Clue';
+            }
+        }
+    }
+
     function renderBoard() {
         const q = currentQuestion();
         el.board.textContent = '';
@@ -1309,6 +1338,7 @@
             el.qNumber.textContent = 'Kosong';
             el.qText.textContent = 'Belum ada pertanyaan.';
             el.revealedCount.textContent = '0 / 0';
+            updateClueBar(null);
             return;
         }
 
@@ -1317,33 +1347,55 @@
 
         const answers = Array.isArray(q.answers) ? q.answers : [];
         answers.forEach((ans, idx) => {
-            const isRevealed = state.revealedIds.has(Number(ans.id));
+            const ansId = Number(ans.id);
+            const isRevealed = state.revealedIds.has(ansId);
             const row = document.createElement('div');
             row.className = isRevealed ? 'answer-slot revealed' : 'answer-slot';
             row.dataset.answerId = String(ans.id);
-            if (!isRevealed) {
-                row.setAttribute('role', 'button');
-                row.setAttribute('tabindex', '0');
-                row.title = `Klik untuk membuka hasil survei #${idx + 1} (tanpa poin tim)`;
-            }
 
             const num = document.createElement('div');
             num.className = 'slot-num';
             num.textContent = String(idx + 1);
 
-            const txt = document.createElement('div');
-            txt.className = isRevealed ? 'slot-text' : 'slot-text hidden-mask';
-            txt.textContent = isRevealed ? ans.answer_text : '• • • • • • • •';
-
             const pts = document.createElement('div');
             pts.className = 'slot-points';
             pts.textContent = String(ans.points);
 
-            row.append(num, txt, pts);
+            if (isRevealed) {
+                const txt = document.createElement('div');
+                txt.className = 'slot-text';
+                txt.textContent = ans.answer_text;
+                row.append(num, txt, pts);
+            } else {
+                row.setAttribute('role', 'button');
+                row.setAttribute('tabindex', '0');
+                row.title = `Arahkan untuk Clue #${idx + 1} • Klik 💡 naikkan level • Klik baris buka jawaban`;
+
+                const centerWrap = document.createElement('div');
+                centerWrap.className = 'slot-center';
+
+                const txt = document.createElement('div');
+                txt.className = 'slot-text hidden-mask';
+                txt.textContent = '• • • • • • • •';
+
+                const clueBtn = document.createElement('button');
+                clueBtn.type = 'button';
+                clueBtn.className = 'slot-clue-btn';
+                clueBtn.dataset.clueAnswerId = String(ans.id);
+                clueBtn.title = 'Klik untuk tingkatkan Clue bertingkat (Level 1 → 2 → 3)';
+                clueBtn.setAttribute('aria-label', `Clue bertingkat jawaban #${idx + 1}`);
+                clueBtn.textContent = '💡 Clue';
+
+                centerWrap.append(txt, clueBtn);
+                row.append(num, centerWrap, pts);
+                syncSlotClueView(row, q, ans);
+            }
+
             el.board.appendChild(row);
         });
 
         el.revealedCount.textContent = `${state.revealedIds.size} / ${answers.length}`;
+        updateClueBar(q);
         renderTeamScores();
         const boxes = el.strikes.querySelectorAll('.strike-box');
         boxes.forEach((box, idx) => box.classList.toggle('active', idx < state.strikes));
@@ -1762,6 +1814,8 @@
 
     function resetRound() {
         state.revealedIds.clear();
+        state.slotClueTiers = {};
+        state.hoveredSlotId = null;
         state.strikes = 0;
         el.history.textContent = '';
         setFeedback('', '');
@@ -1820,6 +1874,8 @@
         const ans = q.answers[ansIdx];
 
         state.revealedIds.add(id);
+        delete state.slotClueTiers[id];
+        if (state.hoveredSlotId === id) state.hoveredSlotId = null;
         playCorrectSound();
         renderBoard();
 
@@ -1849,7 +1905,10 @@
             const data = await checkAnswerRemoteOrLocal(q, guess);
             if (data.found && !data.already_revealed && data.answer) {
                 const teamName = getTeamName(state.activeTeam);
-                state.revealedIds.add(Number(data.answer.id));
+                const hitId = Number(data.answer.id);
+                state.revealedIds.add(hitId);
+                delete state.slotClueTiers[hitId];
+                if (state.hoveredSlotId === hitId) state.hoveredSlotId = null;
                 state.teams[state.activeTeam].score += Number(data.answer.points);
                 persistTeams();
                 playCorrectSound();
@@ -2389,13 +2448,78 @@
         });
 
         if (el.board) {
+            let lastPointerType = 'mouse';
+            const setHoveredSlot = (slot, isEntering) => {
+                if (!slot) return;
+                const ansId = Number(slot.dataset.answerId);
+                const q = currentQuestion();
+                const ans = q?.answers?.find((a) => Number(a.id) === ansId);
+                if (isEntering) {
+                    if (state.hoveredSlotId === ansId) return;
+                    const prevId = state.hoveredSlotId;
+                    state.hoveredSlotId = ansId;
+                    if (prevId !== null && prevId !== ansId) {
+                        const prevEl = el.board.querySelector(`.answer-slot[data-answer-id="${prevId}"]`);
+                        const prevAns = q?.answers?.find((a) => Number(a.id) === prevId);
+                        if (prevEl && q && prevAns) syncSlotClueView(prevEl, q, prevAns);
+                    }
+                    if (q && ans) syncSlotClueView(slot, q, ans);
+                    updateClueBar(q);
+                } else if (state.hoveredSlotId === ansId) {
+                    state.hoveredSlotId = null;
+                    if (q && ans) syncSlotClueView(slot, q, ans);
+                    updateClueBar(q);
+                }
+            };
+            el.board.addEventListener('pointerdown', (e) => {
+                if (e.pointerType) lastPointerType = e.pointerType;
+            });
+            el.board.addEventListener('pointermove', (e) => {
+                if (e.pointerType) lastPointerType = e.pointerType;
+            });
+            el.board.addEventListener('mouseover', (e) => {
+                const slot = e.target.closest('.answer-slot:not(.revealed)');
+                if (!slot || e.relatedTarget?.closest?.('.answer-slot') === slot) return;
+                setHoveredSlot(slot, true);
+            });
+            el.board.addEventListener('mouseout', (e) => {
+                const slot = e.target.closest('.answer-slot:not(.revealed)');
+                if (!slot || e.relatedTarget?.closest?.('.answer-slot') === slot) return;
+                setHoveredSlot(slot, false);
+            });
+            el.board.addEventListener('focusin', (e) => {
+                const slot = e.target.closest('.answer-slot:not(.revealed)');
+                if (slot) setHoveredSlot(slot, true);
+            });
+            el.board.addEventListener('focusout', (e) => {
+                const slot = e.target.closest('.answer-slot:not(.revealed)');
+                if (slot && !slot.contains(e.relatedTarget)) setHoveredSlot(slot, false);
+            });
             el.board.addEventListener('click', (e) => {
+                const clueBtn = e.target.closest('[data-clue-answer-id]');
+                if (clueBtn) {
+                    e.stopPropagation();
+                    const ansId = Number(clueBtn.dataset.clueAnswerId);
+                    const cur = Number(state.slotClueTiers[ansId] || 0);
+                    const isHoverPreviewing = cur === 0 && lastPointerType === 'mouse' && Number(state.hoveredSlotId) === ansId && e.detail > 0;
+                    const nextTier = isHoverPreviewing ? 2 : ((cur + 1) % 4);
+                    state.slotClueTiers[ansId] = nextTier;
+                    const slot = clueBtn.closest('.answer-slot:not(.revealed)');
+                    const q = currentQuestion();
+                    const ans = q?.answers?.find((a) => Number(a.id) === ansId);
+                    if (slot && q && ans) {
+                        syncSlotClueView(slot, q, ans);
+                        updateClueBar(q);
+                    }
+                    return;
+                }
                 const slot = e.target.closest('.answer-slot:not(.revealed)');
                 if (slot && slot.dataset.answerId) {
                     revealSingleSlot(slot.dataset.answerId);
                 }
             });
             el.board.addEventListener('keydown', (e) => {
+                if (e.target.closest('[data-clue-answer-id]')) return;
                 if (e.key === 'Enter' || e.key === ' ') {
                     const slot = e.target.closest('.answer-slot:not(.revealed)');
                     if (slot && slot.dataset.answerId) {

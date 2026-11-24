@@ -2053,67 +2053,2367 @@ function normalizeText_(text) {
 
 function getSynonymGroups_() {
   return [
-    ['MENANGIS', 'NANGIS', 'MEWEK', 'BERSEDIH', 'SEDIH'],
-    ['MINTA MAAF', 'MEMINTA MAAF', 'MOHON MAAF', 'MAAF', 'AMPUN'],
-    ['MINTA BANTUAN', 'MINTA TOLONG', 'TOLONG', 'BANTUAN', 'MEMBANTU'],
-    ['BERDOA', 'DOA', 'SHOLAT', 'SALAT', 'SEMBAHYANG', 'IBADAH', 'BERIBADAH'],
-    ['MENCARI SOLUSI', 'CARI SOLUSI', 'SOLUSI', 'PENYELESAIAN', 'JALAN KELUAR'],
-    ['CURHAT', 'CERITA', 'BERCERITA', 'NGOBROL', 'SHARING'],
-    ['MARAH MARAH', 'MARAH', 'NGAMUK', 'EMOSI', 'KESAL', 'MENGAMUK'],
-    ['JALAN JALAN', 'LIBURAN', 'PIKNIK', 'HEALING', 'REFRESHING', 'REKREASI', 'TRAVELING', 'BERLIBUR'],
-    ['MELAMUN', 'NGELAMUN', 'LAMUN', 'BENGONG', 'TERMENUNG', 'MELONGO', 'MENGKHAYAL'],
-    ['DIAM', 'DIEM', 'BUNGKAM', 'PENDIAM', 'MENENG'],
-    ['TIDUR', 'BOBOK', 'KETIDURAN', 'NGOROK', 'TERLELAP'],
-    ['MAKAN', 'SANTAP', 'JAJAN', 'NGEMIL', 'KULINER'],
-    ['MINUM', 'NGOPI', 'NGETEH', 'HAUS'],
-    ['HANDPHONE', 'HP', 'PONSEL', 'GADGET', 'GAWAI', 'SMARTPHONE'],
-    ['UANG', 'DUIT', 'CUAN', 'RUPIAH', 'DANA'],
-    ['SENANG', 'BAHAGIA', 'GEMBIRA', 'HAPPY', 'CERIA'],
-    ['CAPEK', 'LELAH', 'LETIH', 'PENAT', 'LESU'],
-    ['MALU', 'MINDER', 'SUNGKAN', 'SEGAN'],
-    ['TAKUT', 'NGEPER', 'CIUT', 'KHAWATIR', 'CEMES'],
-    ['BEKERJA', 'KERJA', 'NGANTOR', 'KANTOR', 'DINAS'],
-    ['TERLAMBAT', 'TELAT', 'NGARET'],
-    ['CENGENGESAN', 'KETAWA', 'TERTAWA', 'NYENGIR', 'SENYUM', 'CEKIKIKAN'],
-    ['GUGUP', 'GROGI', 'NERVOUS', 'PANIK', 'GEMETAR'],
-    ['MENCARI ALASAN', 'CARI ALASAN', 'NGELES', 'ALASAN', 'BERDALIH'],
-    ['PURA PURA LUPA', 'LUPA', 'NGAKU LUPA', 'TIDAK INGAT'],
-    ['BAU', 'BAU BADAN', 'KETEK', 'BUSUK', 'APEK'],
-    ['NYEBELIN', 'MENYEBALKAN', 'SEBEL', 'RESE', 'MENJENGKELKAN'],
-    ['SOMBONG', 'ANGKUH', 'CONGKAK', 'BELAGU', 'AROGAN', 'SONGONG'],
-    ['SUKA PINJAM DUIT', 'PINJAM DUIT', 'PINJAM UANG', 'NGUTANG', 'HUTANG', 'UTANG', 'MINJAM DUIT'],
-    ['KASAR', 'GALAK', 'TIDAK SOPAN'],
-    ['TIDAK DIPERCAYA', 'PEMBOHONG', 'PENGKHIANAT', 'BOHONG'],
-    ['JAHAT', 'KEJAM', 'LICIK', 'NAKAL'],
-    ['EGOIS', 'SERAKAH', 'PELIT', 'KIKIR', 'MAU MENANG SENDIRI'],
-    ['MEMBELI PROPERTY', 'BELI PROPERTY', 'PROPERTI', 'RUMAH', 'TANAH', 'APARTEMEN', 'RUKO', 'BELI RUMAH'],
-    ['MEMBELI EMAS', 'BELI EMAS', 'EMAS', 'LOGAM MULIA', 'PERHIASAN', 'ANTAM'],
-    ['MEMBELI KENDARAAN', 'BELI KENDARAAN', 'MOBIL', 'MOTOR', 'BELI MOBIL', 'BELI MOTOR'],
-    ['MENABUNG', 'NABUNG', 'TABUNGAN', 'INVESTASI', 'DEPOSITO', 'SIMPAN UANG'],
-    ['GOOGLESHEET', 'GOOGLE SHEET', 'GOOGLE SHEETS', 'SPREADSHEET', 'GSHEET'],
-    ['SQL SERVER', 'MSSQL', 'SQLSERVER'],
-    ['APACHE SPARK', 'SPARK', 'PYSPARK'],
-    ['GRATIS', 'FREE', 'CUMA CUMA'],
-    ['BRUG', 'JEMBATAN'],
-    ['GORDIJN', 'GORDEN', 'HORDENG', 'TIRAI'],
-    ['HANDDOEK', 'HANDUK'],
-    ['SPOOR', 'SEPUR', 'KERETA'],
-    ['TENAGA', 'ENERGI', 'OTOT', 'DAYA', 'KEKUATAN'],
-    ['KASUR', 'TEMPAT TIDUR', 'RANJANG', 'SPRINGBED'],
-    ['GANTIAN', 'BERGANTIAN', 'GILIRAN'],
-    ['ANTRE', 'ANTRI', 'MENUNGGU GILIRAN'],
-    ['DARI MAGHRIB', 'MAGHRIB', 'MAGRIB', 'WAKTU MAGHRIB'],
-    ['DITILANG', 'TILANG', 'KENA TILANG', 'RAZIA', 'POLISI'],
-    ['MEREM', 'PEJAMKAN MATA', 'TUTUP MATA'],
-    ['ORANG SEHAT', 'SEHAT', 'TIDAK SAKIT', 'BUGAR', 'WARAS'],
-    ['PAMIT', 'MINTA IZIN PULANG', 'PAMITAN'],
-    ['SEMUA BULAN', 'SEMUA', 'TIAP BULAN', 'BULAN APA SAJA'],
-    ['SYARAT DAN KETENTUAN', 'SYARAT KETENTUAN', 'TERMS', 'TNC', 'TOS'],
-    ['BERHENTI MENCARI', 'BERHENTI CARI', 'STOP CARI', 'MENYERAH'],
-    ['SUDAH KAYA', 'ORANG KAYA', 'KAYA RAYA', 'KAYA'],
-    ['JADI NOMOR DUA', 'NOMOR DUA', 'POSISI DUA', 'POSISI 2', 'KE 2', 'NO 2'],
-    ['LAGI BERPIKIR KERAS', 'BERPIKIR', 'MIKIR', 'KONSENTRASI', 'RENUNG', 'MERENUNG']
-  ];
+  [
+    "TABLEAU",
+    "TABLO",
+    "TABLEU"
+  ],
+  [
+    "LOOKER",
+    "LOOKER STUDIO",
+    "DATA STUDIO",
+    "GDS"
+  ],
+  [
+    "EXCEL",
+    "MS EXCEL",
+    "MICROSOFT EXCEL"
+  ],
+  [
+    "GOOGLESHEET",
+    "GOOGLE SHEET",
+    "GOOGLE SHEETS",
+    "SPREADSHEET",
+    "GSHEET",
+    "SHEETS"
+  ],
+  [
+    "PYTHON",
+    "PITON",
+    "PY"
+  ],
+  [
+    "R",
+    "BAHASA R",
+    "R STUDIO",
+    "RSTUDIO"
+  ],
+  [
+    "SQL",
+    "MYSQL",
+    "POSTGRESQL",
+    "QUERY",
+    "DATABASE SQL"
+  ],
+  [
+    "APACHE SPARK",
+    "SPARK",
+    "PYSPARK"
+  ],
+  [
+    "LINE",
+    "LINE CHART",
+    "GRAFIK GARIS",
+    "GARIS"
+  ],
+  [
+    "PIE",
+    "PIE CHART",
+    "GRAFIK LINGKARAN",
+    "LINGKARAN",
+    "DONUT CHART"
+  ],
+  [
+    "TABLE",
+    "TABEL",
+    "TABLE CHART",
+    "MATRIX"
+  ],
+  [
+    "SCATTER",
+    "SCATTER PLOT",
+    "SCATTER CHART",
+    "DIAGRAM PENCAR",
+    "TITIK"
+  ],
+  [
+    "WATERFALL",
+    "WATERFALL CHART",
+    "GRAFIK AIR TERJUN",
+    "AIR TERJUN"
+  ],
+  [
+    "HISTOGRAM",
+    "HISTOGRAM CHART",
+    "DISTRIBUSI FREKUENSI"
+  ],
+  [
+    "MAP",
+    "PETA",
+    "MAP CHART",
+    "GEO MAP",
+    "FILLED MAP"
+  ],
+  [
+    "GANTT",
+    "GANTT CHART",
+    "TIMELINE PROYEK",
+    "JADWAL PROYEK"
+  ],
+  [
+    "AVERAGE",
+    "RATA RATA",
+    "AVG",
+    "MEAN"
+  ],
+  [
+    "VLOOKUP",
+    "V LOOKUP",
+    "XLOOKUP"
+  ],
+  [
+    "HLOOKUP",
+    "H LOOKUP"
+  ],
+  [
+    "IF",
+    "FUNGSI IF",
+    "RUMUS IF",
+    "JIKA"
+  ],
+  [
+    "MAX",
+    "MAKSIMUM",
+    "TERBESAR",
+    "MAKS"
+  ],
+  [
+    "MIN",
+    "MINIMUM",
+    "TERKECIL"
+  ],
+  [
+    "COUNT",
+    "COUNTIF",
+    "COUNTA",
+    "HITUNG SEL"
+  ],
+  [
+    "INDEX",
+    "INDEX MATCH",
+    "INDEKS"
+  ],
+  [
+    "PDF",
+    "FILE PDF",
+    "DOKUMEN PDF"
+  ],
+  [
+    "CSV",
+    "FILE CSV",
+    "COMMA SEPARATED"
+  ],
+  [
+    "WEB",
+    "WEBSITE",
+    "URL",
+    "API WEB",
+    "INTERNET"
+  ],
+  [
+    "FOLDER",
+    "DIREKTORI",
+    "BANYAK FILE",
+    "FOLDER KOMPUTER"
+  ],
+  [
+    "ORACLE",
+    "ORACLE DB",
+    "ORACLE DATABASE"
+  ],
+  [
+    "SQL SERVER",
+    "MSSQL",
+    "SQLSERVER",
+    "MICROSOFT SQL SERVER"
+  ],
+  [
+    "SHAREPOINT",
+    "SHARE POINT",
+    "ONEDRIVE SHAREPOINT"
+  ],
+  [
+    "SAP",
+    "SAP HANA",
+    "SAP ERP",
+    "SISTEM SAP"
+  ],
+  [
+    "MINTA MAAF",
+    "MEMINTA MAAF",
+    "MOHON MAAF",
+    "MAAF",
+    "AMPUN",
+    "SORRY"
+  ],
+  [
+    "MENANGIS",
+    "NANGIS",
+    "MEWEK",
+    "BERSEDIH",
+    "SEDIH",
+    "KELUAR AIR MATA"
+  ],
+  [
+    "CENGENGESAN",
+    "KETAWA",
+    "TERTAWA",
+    "NYENGIR",
+    "SENYUM",
+    "CEKIKIKAN",
+    "MESEM MESEM"
+  ],
+  [
+    "MALU",
+    "MINDER",
+    "SUNGKAN",
+    "SEGAN",
+    "SALAH TINGKAH",
+    "SALTING"
+  ],
+  [
+    "GUGUP",
+    "GROGI",
+    "NERVOUS",
+    "PANIK",
+    "GEMETAR",
+    "GUGUPAN"
+  ],
+  [
+    "MENCARI ALASAN",
+    "CARI ALASAN",
+    "NGELES",
+    "ALASAN",
+    "BERDALIH",
+    "MENGELAK"
+  ],
+  [
+    "PURA PURA LUPA",
+    "LUPA",
+    "NGAKU LUPA",
+    "TIDAK INGAT",
+    "BERPURA PURA LUPA"
+  ],
+  [
+    "DIAM",
+    "DIEM",
+    "BUNGKAM",
+    "PENDIAM",
+    "MENENG",
+    "MEMBISU",
+    "MINGKEM"
+  ],
+  [
+    "MELAMUN",
+    "NGELAMUN",
+    "LAMUN",
+    "BENGONG",
+    "TERMENUNG",
+    "MELONGO",
+    "MENGKHAYAL"
+  ],
+  [
+    "MINTA BANTUAN",
+    "MINTA TOLONG",
+    "TOLONG",
+    "BANTUAN",
+    "MEMBANTU"
+  ],
+  [
+    "BERDOA",
+    "SHOLAT",
+    "SALAT",
+    "SEMBAHYANG",
+    "IBADAH",
+    "BERIBADAH",
+    "PASRAH KE TUHAN"
+  ],
+  [
+    "MENCARI SOLUSI",
+    "CARI SOLUSI",
+    "SOLUSI",
+    "PENYELESAIAN",
+    "JALAN KELUAR"
+  ],
+  [
+    "CURHAT",
+    "CERITA",
+    "BERCERITA",
+    "NGOBROL",
+    "SHARING",
+    "CERITA KE TEMAN"
+  ],
+  [
+    "MARAH MARAH",
+    "MARAH",
+    "NGAMUK",
+    "EMOSI",
+    "KESAL",
+    "MENGAMUK"
+  ],
+  [
+    "JALAN JALAN",
+    "LIBURAN",
+    "PIKNIK",
+    "HEALING",
+    "REFRESHING",
+    "REKREASI",
+    "TRAVELING",
+    "BERLIBUR"
+  ],
+  [
+    "BAU",
+    "BAU BADAN",
+    "KETEK",
+    "BUSUK",
+    "APEK",
+    "BAU MULUT"
+  ],
+  [
+    "NYEBELIN",
+    "MENYEBALKAN",
+    "SEBEL",
+    "RESE",
+    "MENJENGKELKAN",
+    "JUEDES"
+  ],
+  [
+    "SOMBONG",
+    "ANGKUH",
+    "CONGKAK",
+    "BELAGU",
+    "AROGAN",
+    "SONGONG",
+    "PAMER"
+  ],
+  [
+    "SUKA PINJAM DUIT",
+    "PINJAM DUIT",
+    "PINJAM UANG",
+    "NGUTANG",
+    "HUTANG",
+    "MINJAM DUIT",
+    "PINJOL TEMAN"
+  ],
+  [
+    "KASAR",
+    "GALAK",
+    "TIDAK SOPAN",
+    "KASAR MULUT"
+  ],
+  [
+    "TIDAK DIPERCAYA",
+    "PEMBOHONG",
+    "PENGKHIANAT",
+    "BOHONG",
+    "MUNAFIK",
+    "INGKAR JANJI"
+  ],
+  [
+    "JAHAT",
+    "KEJAM",
+    "LICIK",
+    "NAKAL",
+    "JAHAT HATI"
+  ],
+  [
+    "EGOIS",
+    "SERAKAH",
+    "PELIT",
+    "KIKIR",
+    "MAU MENANG SENDIRI"
+  ],
+  [
+    "ULAR NAGA",
+    "ULAR NAGA PANJANGNYA"
+  ],
+  [
+    "AMPAR AMPAR PISANG",
+    "AMPAR PISANG"
+  ],
+  [
+    "CUBLEK CUBLEK SUWENG",
+    "CUBLEK SUWENG"
+  ],
+  [
+    "DOMIKADO",
+    "DO MI KA DO",
+    "DOMI KADO"
+  ],
+  [
+    "BRUG",
+    "JEMBATAN"
+  ],
+  [
+    "GORDIJN",
+    "GORDEN",
+    "HORDENG",
+    "TIRAI"
+  ],
+  [
+    "HANDDOEK",
+    "HANDUK"
+  ],
+  [
+    "SPOOR",
+    "SEPUR",
+    "KERETA",
+    "KERETA API",
+    "REL"
+  ],
+  [
+    "GRATIS",
+    "FREE",
+    "CUMA CUMA",
+    "TANPA BAYAR"
+  ],
+  [
+    "BUGENVIL",
+    "BOUGENVILLE",
+    "BOUGENVIL",
+    "BUNGA KERTAS"
+  ],
+  [
+    "KAMBOJA",
+    "CAMBOJA",
+    "PLUMERIA"
+  ],
+  [
+    "KENANGA",
+    "BUNGA KENANGA"
+  ],
+  [
+    "LILY",
+    "LILI",
+    "BUNGA LILY",
+    "BUNGA LILI"
+  ],
+  [
+    "ANGGREK",
+    "ORCHID",
+    "BUNGA ANGGREK"
+  ],
+  [
+    "MAWAR",
+    "ROSE",
+    "BUNGA MAWAR"
+  ],
+  [
+    "AZALEA",
+    "BUNGA AZALEA"
+  ],
+  [
+    "MEMBELI PROPERTY",
+    "BELI PROPERTY",
+    "PROPERTI",
+    "RUMAH",
+    "TANAH",
+    "APARTEMEN",
+    "RUKO",
+    "BELI RUMAH"
+  ],
+  [
+    "MEMBELI EMAS",
+    "BELI EMAS",
+    "EMAS",
+    "LOGAM MULIA",
+    "PERHIASAN",
+    "ANTAM"
+  ],
+  [
+    "MEMBELI KENDARAAN",
+    "BELI KENDARAAN",
+    "MOBIL",
+    "MOTOR",
+    "BELI MOBIL",
+    "BELI MOTOR"
+  ],
+  [
+    "BERLIBUR",
+    "LIBURAN MEWAH",
+    "KE LUAR NEGERI",
+    "HOLIDAY",
+    "PESIAR"
+  ],
+  [
+    "MENABUNG",
+    "NABUNG",
+    "TABUNGAN",
+    "INVESTASI",
+    "DEPOSITO",
+    "SIMPAN UANG"
+  ],
+  [
+    "EXCEL XLSX",
+    "XLSX",
+    "XLS",
+    "WORKBOOK"
+  ],
+  [
+    "JSON",
+    "FILE JSON",
+    "JAVASCRIPT OBJECT NOTATION"
+  ],
+  [
+    "XML",
+    "FILE XML",
+    "MARKUP XML"
+  ],
+  [
+    "PARQUET",
+    "FILE PARQUET",
+    "APACHE PARQUET"
+  ],
+  [
+    "TXT",
+    "TEXT",
+    "PLAIN TEXT",
+    "FILE TXT",
+    "NOTEPAD"
+  ],
+  [
+    "PROSES MANUAL",
+    "MANUAL",
+    "INPUT MANUAL",
+    "REKAP MANUAL",
+    "KERJA MANUAL"
+  ],
+  [
+    "FORMAT BERBEDA",
+    "BEDA FORMAT",
+    "TIDAK SERAGAM",
+    "TEMPLATE BEDA"
+  ],
+  [
+    "REVISI DATA",
+    "REVISI",
+    "PERBAIKAN DATA",
+    "SALAH INPUT",
+    "DATA SALAH"
+  ],
+  [
+    "KONEKSI INTERNET",
+    "INTERNET LEMOT",
+    "JARINGAN ERROR",
+    "SINYAL JELEK",
+    "WIFI LEMOT",
+    "KONEKSI"
+  ],
+  [
+    "LUPA",
+    "KELUPAAN",
+    "TERLEWAT",
+    "LUPA KIRIM"
+  ],
+  [
+    "SISTEM ERROR",
+    "ERROR",
+    "BUG",
+    "APLIKASI DOWN",
+    "SERVER DOWN",
+    "SYSTEM ERROR"
+  ],
+  [
+    "MENUNGGU APPROVAL",
+    "APPROVAL",
+    "TUNGGU ACC",
+    "BELUM DI ACC",
+    "TANDA TANGAN BOS"
+  ],
+  [
+    "FILE TERLALU BESAR",
+    "FILE BESAR",
+    "UKURAN BESAR",
+    "OVERSIZE",
+    "KEBESARAN FILE"
+  ],
+  [
+    "LENGKAP COMPLETENESS",
+    "LENGKAP",
+    "COMPLETENESS",
+    "KELENGKAPAN"
+  ],
+  [
+    "AKURAT ACCURACY",
+    "AKURAT",
+    "ACCURACY",
+    "KEAKURATAN"
+  ],
+  [
+    "KONSISTEN CONSISTENCY",
+    "KONSISTEN",
+    "CONSISTENCY",
+    "KONSISTENSI"
+  ],
+  [
+    "TEPAT WAKTU TIMELINESS",
+    "TEPAT WAKTU",
+    "TIMELINESS"
+  ],
+  [
+    "TIDAK DUPLIKAT UNIQUENESS",
+    "TIDAK DUPLIKAT",
+    "UNIQUENESS",
+    "UNIK",
+    "ANTI DUPLIKAT"
+  ],
+  [
+    "VALID",
+    "VALIDITY",
+    "VALIDITAS",
+    "SAH"
+  ],
+  [
+    "WHATSAPP",
+    "WA",
+    "WHATS APP"
+  ],
+  [
+    "EMAIL",
+    "GMAIL",
+    "OUTLOOK",
+    "SUREL",
+    "E MAIL"
+  ],
+  [
+    "GOOGLE DRIVE",
+    "GDRIVE",
+    "DRIVE",
+    "CLOUD GOOGLE"
+  ],
+  [
+    "ZOOM MEET",
+    "ZOOM",
+    "GOOGLE MEET",
+    "GMEET",
+    "VIDEO CALL"
+  ],
+  [
+    "EXCEL SPREADSHEET",
+    "MICROSOFT EXCEL",
+    "SPREADSHEET ONLINE"
+  ],
+  [
+    "SLACK TEAMS",
+    "SLACK",
+    "MICROSOFT TEAMS",
+    "MS TEAMS"
+  ],
+  [
+    "TRELLO NOTION",
+    "TRELLO",
+    "NOTION",
+    "JIRA",
+    "ASANA"
+  ],
+  [
+    "GITHUB",
+    "GIT",
+    "GITLAB",
+    "BITBUCKET"
+  ],
+  [
+    "LAPOR IT",
+    "PANGGIL IT",
+    "HUBUNGI IT",
+    "HELPDESK",
+    "TIKET IT"
+  ],
+  [
+    "REFRESH BERKALI KALI",
+    "REFRESH",
+    "F5",
+    "RELOAD",
+    "MUAT ULANG"
+  ],
+  [
+    "NGOPI ISTIRAHAT",
+    "NGOPI",
+    "ISTIRAHAT",
+    "BIKIN KOPI",
+    "KE PANTRY"
+  ],
+  [
+    "PANIK",
+    "PANIK BANGET",
+    "DEG DEGAN",
+    "KAGET"
+  ],
+  [
+    "TANYA TEMAN SEBELAH",
+    "TANYA TEMAN",
+    "NANYA TEMAN",
+    "CEK TEMAN",
+    "NGOBROL"
+  ],
+  [
+    "RESTART LAPTOP",
+    "RESTART",
+    "REBOOT",
+    "MATIKAN LAPTOP"
+  ],
+  [
+    "MAIN HP",
+    "BUKA HP",
+    "SCROLL HP",
+    "MAIN PONSEL"
+  ],
+  [
+    "MACET",
+    "KEMACETAN",
+    "MACET TOTAL",
+    "JALAN MACET"
+  ],
+  [
+    "BANGUN KESIANGAN",
+    "KESIANGAN",
+    "TELAT BANGUN",
+    "BANGUN TELAT"
+  ],
+  [
+    "HUJAN",
+    "HUJAN DERAS",
+    "KEHUJANAN",
+    "CUACA BURUK"
+  ],
+  [
+    "ANTRE KAMAR MANDI",
+    "ANTRI KAMAR MANDI",
+    "KAMAR MANDI PENUH",
+    "ANTRE MANDI",
+    "ANTRI TOILET"
+  ],
+  [
+    "CARI KUNCI BARANG",
+    "CARI KUNCI",
+    "BARANG HILANG",
+    "KUNCI LUPA TARUH"
+  ],
+  [
+    "BAN BOCOR",
+    "BOCOR BAN",
+    "BAN KEMPES",
+    "TAMBAL BAN"
+  ],
+  [
+    "DANDAN LAMA",
+    "MAKE UP LAMA",
+    "MILIH BAJU",
+    "PERSIAPAN LAMA",
+    "DANDAN"
+  ],
+  [
+    "SARAPAN",
+    "BELI SARAPAN",
+    "MAKAN PAGI"
+  ],
+  [
+    "HP HANDPHONE",
+    "HANDPHONE",
+    "HP",
+    "PONSEL",
+    "GADGET",
+    "GAWAI",
+    "SMARTPHONE"
+  ],
+  [
+    "KUNCI",
+    "KUNCI RUMAH",
+    "KUNCI MOTOR",
+    "KUNCI MOBIL"
+  ],
+  [
+    "POWERBANK CHARGER",
+    "POWERBANK",
+    "CHARGER",
+    "CASAN",
+    "PB"
+  ],
+  [
+    "TISU",
+    "TISSUE",
+    "TISU BASAH",
+    "SAPU TANGAN"
+  ],
+  [
+    "EARPHONE",
+    "TWS",
+    "HEADSET",
+    "HEADPHONE",
+    "AIRPODS"
+  ],
+  [
+    "PAYUNG",
+    "JAS HUJAN",
+    "PAYUNG LIPAT"
+  ],
+  [
+    "BOTOL MINUM",
+    "TUMBLER",
+    "AIR MINUM",
+    "TEMPAT MINUM"
+  ],
+  [
+    "PARFUM",
+    "MINYAK WANGI",
+    "PEWANGI",
+    "COLOGNE"
+  ],
+  [
+    "NASI GORENG",
+    "NASGOR"
+  ],
+  [
+    "BUBUR AYAM",
+    "BURAYAM",
+    "BUBUR"
+  ],
+  [
+    "NASI UDUK",
+    "NASDUK",
+    "UDUK"
+  ],
+  [
+    "ROTI",
+    "ROTI BAKAR",
+    "ROTI TAWAR",
+    "SANDWICH"
+  ],
+  [
+    "LONTONG SAYUR",
+    "LONSAY",
+    "KETUPAT SAYUR"
+  ],
+  [
+    "GORENGAN",
+    "BAKWAN",
+    "RISOL",
+    "TAHU TEMPE GORENG"
+  ],
+  [
+    "MI INSTAN",
+    "MIE INSTAN",
+    "INDOMIE",
+    "MIE REBUS",
+    "MIE GORENG"
+  ],
+  [
+    "TELUR",
+    "TELOR",
+    "TELUR DADAR",
+    "TELUR CEPLOK",
+    "TELUR REBUS"
+  ],
+  [
+    "CEK HP",
+    "LIHAT HP",
+    "BUKA HP",
+    "MAIN HP DULU",
+    "CEK CHAT"
+  ],
+  [
+    "MINUM AIR",
+    "MINUM AIR PUTIH",
+    "MINUM",
+    "NGOPI",
+    "NGETEH"
+  ],
+  [
+    "KE KAMAR MANDI",
+    "KE TOILET",
+    "KENCING",
+    "BUANG AIR",
+    "WC"
+  ],
+  [
+    "MATIKAN ALARM",
+    "MATIIN ALARM",
+    "SNOOZE ALARM",
+    "ALARM"
+  ],
+  [
+    "NGUMPULIN NYAWA",
+    "KUMPULIN NYAWA",
+    "DUDUK BENGONG",
+    "SADARIN DIRI"
+  ],
+  [
+    "CUCI MUKA",
+    "BASUH MUKA",
+    "RAUP MUKA"
+  ],
+  [
+    "TARIK SELIMUT LAGI",
+    "TIDUR LAGI",
+    "TARIK SELIMUT",
+    "SAMBUNG TIDUR"
+  ],
+  [
+    "KETIDURAN",
+    "TIDUR",
+    "KETIDURAN BENERAN",
+    "TERTIDUR"
+  ],
+  [
+    "SIBUK KERJA",
+    "SIBUK",
+    "KERJAAN NUMPUK",
+    "BANYAK KERJAAN",
+    "LAGI MEETING"
+  ],
+  [
+    "TIDAK ADA SINYAL",
+    "SUSAH SINYAL",
+    "SINYAL HILANG",
+    "NO SIGNAL",
+    "KUOTA HABIS"
+  ],
+  [
+    "SUDAH BALAS DI HATI",
+    "BALAS DALAM HATI",
+    "SUDAH DIKETIK LUPA KIRIM",
+    "BALES DI HATI"
+  ],
+  [
+    "BATERAI HABIS",
+    "LOWBAT",
+    "BATRE HABIS",
+    "HP MATI"
+  ],
+  [
+    "TIDAK BUKA HP",
+    "LUPA BUKA HP",
+    "HP DI TAS",
+    "SILENT"
+  ],
+  [
+    "TENGGELAM",
+    "KELELEP",
+    "CHAT TENGGELAM",
+    "TERTIMBUN"
+  ],
+  [
+    "MACET DI JALAN",
+    "MACET",
+    "JALANAN MACET",
+    "MACET PARAH"
+  ],
+  [
+    "LEMBUR KANTOR",
+    "LEMBUR",
+    "OVERTIME",
+    "BANYAK KERJAAN"
+  ],
+  [
+    "NGOPI NONTON BOLA",
+    "NONTON BOLA",
+    "NOBAR",
+    "NONGKRONG"
+  ],
+  [
+    "RAPAT MENDADAK",
+    "MEETING MENDADAK",
+    "RAPAT SORE"
+  ],
+  [
+    "BATERAI HP HABIS",
+    "HP MATI",
+    "LOWBAT"
+  ],
+  [
+    "BELI TITIPAN ISTRI",
+    "BELI MAKANAN",
+    "BELI MARTABAT",
+    "BELI MARTABAK",
+    "BAWA OLEH OLEH"
+  ],
+  [
+    "TANYA KENAPA",
+    "NANYA KENAPA",
+    "ADA APA",
+    "TANYA SALAHNYA"
+  ],
+  [
+    "BELIKAN MAKANAN",
+    "BELI MAKANAN",
+    "TRAKTIR MAKAN",
+    "GOFOOD",
+    "MARTABAK"
+  ],
+  [
+    "TRANSFER UANG",
+    "TRANSFER",
+    "KASIH UANG",
+    "KIRIM SALDO",
+    "TF"
+  ],
+  [
+    "IKUT DIAM",
+    "DIEM JUGA",
+    "SAMA SAMA DIAM",
+    "MENENG"
+  ],
+  [
+    "RAYU GOMBAL",
+    "MERAYU",
+    "GOMBALIN",
+    "BUJUK"
+  ],
+  [
+    "CUCI PIRING",
+    "BERESIN RUMAH",
+    "BANTU KERJAAN RUMAH",
+    "NYAPU"
+  ],
+  [
+    "KABUR KELUAR",
+    "KABUR",
+    "PERGI KELUAR",
+    "KELUAR RUMAH"
+  ],
+  [
+    "MAKAN GRATIS TRAKTIRAN",
+    "MAKAN GRATIS",
+    "TRAKTIRAN",
+    "DITRAKTIR",
+    "SYUKURAN"
+  ],
+  [
+    "TANGGAL MERAH LIBUR",
+    "TANGGAL MERAH",
+    "LIBUR",
+    "CUTI BERSAMA",
+    "LONG WEEKEND"
+  ],
+  [
+    "PULANG CEPAT",
+    "BALIK CEPAT",
+    "PULANG AWAL",
+    "BUBAR CEPAT"
+  ],
+  [
+    "BONUS THR",
+    "BONUS",
+    "THR",
+    "INSENTIF",
+    "TUNJANGAN"
+  ],
+  [
+    "BOS TIDAK MASUK",
+    "BOS CUTI",
+    "ATASAN TIDAK MASUK",
+    "BOS DINAS"
+  ],
+  [
+    "WFH",
+    "WORK FROM HOME",
+    "KERJA DARI RUMAH",
+    "HYBRID"
+  ],
+  [
+    "RAPAT DIBATALKAN",
+    "MEETING BATAL",
+    "MEETING CANCEL",
+    "TIDAK JADI RAPAT"
+  ],
+  [
+    "KOPI GRATIS",
+    "KOPI GRATISAN",
+    "MINUMAN GRATIS"
+  ],
+  [
+    "MAIN HP SCROLL SOSMED",
+    "SCROLL SOSMED",
+    "MAIN HP DI RAPAT",
+    "BUKA SOSMED"
+  ],
+  [
+    "NGANTUK MENGUAP",
+    "MENGUAP",
+    "HOAM",
+    "MENGANTUK BERAT"
+  ],
+  [
+    "CORAT CORET BUKU",
+    "CORAT CORET",
+    "GAMBAR GAMBAR",
+    "DOODLE"
+  ],
+  [
+    "MENGHAYAL",
+    "KHAYAL",
+    "MELAMUN DI RAPAT",
+    "BENGONG"
+  ],
+  [
+    "PURA PURA CATAT",
+    "AKTING NYATAT",
+    "PURA PURA NGETIK"
+  ],
+  [
+    "NYEMIL MINUM KOPI",
+    "NYEMIL",
+    "NGEMIL",
+    "MINUM KOPI"
+  ],
+  [
+    "MATIKAN KAMERA",
+    "OFF CAM",
+    "MATIIN KAMERA",
+    "CAMERA OFF"
+  ],
+  [
+    "IZIN KE TOILET",
+    "KE TOILET",
+    "IZIN TOILET",
+    "KE WC"
+  ],
+  [
+    "JOGET DANCE",
+    "JOGET",
+    "DANCE",
+    "CHALLENGE DANCE"
+  ],
+  [
+    "KULINER MUKBANG",
+    "KULINER",
+    "MUKBANG",
+    "MAKAN MAKAN",
+    "FOOD VLOG"
+  ],
+  [
+    "KOMEDI PRANK",
+    "KOMEDI",
+    "LUCU",
+    "PRANK",
+    "SKETSA"
+  ],
+  [
+    "REVIEW BARANG",
+    "REVIEW PRODUK",
+    "RACUN SHOPEE",
+    "UNBOXING"
+  ],
+  [
+    "DRAMA CURHAT",
+    "DRAMA",
+    "CURHAT SOSMED",
+    "SPILL TEA"
+  ],
+  [
+    "KUCING LUCU",
+    "KUCING",
+    "ANABUL",
+    "HEWAN LUCU",
+    "KUCING OYEN"
+  ],
+  [
+    "TIPS TUTORIAL",
+    "TUTORIAL",
+    "TIPS",
+    "LIFE HACK",
+    "EDUKASI"
+  ],
+  [
+    "PODCAST",
+    "PODKES",
+    "OBROLAN PODCAST",
+    "KLIP WAWANCARA"
+  ],
+  [
+    "FOTO VIDEO DULU",
+    "FOTO MAKANAN",
+    "VIDEO DULU",
+    "CEKREK"
+  ],
+  [
+    "UPLOAD STORY",
+    "POST STORY",
+    "IG STORY",
+    "UPDATE STATUS"
+  ],
+  [
+    "CARI ANGLE BAGUS",
+    "ATUR ANGLE",
+    "CARI PENCAHAYAAN",
+    "AESTHETIC"
+  ],
+  [
+    "CUCI TANGAN",
+    "HAND SANITIZER",
+    "CUCI TANGAN DULU"
+  ],
+  [
+    "COBAIN KUAHNYA",
+    "ICIP RASA",
+    "COBAIN RASA",
+    "TES RASA"
+  ],
+  [
+    "TAG TEMAN",
+    "MENTION TEMAN",
+    "TAG PACAR"
+  ],
+  [
+    "MINTA SENDOK",
+    "MINTA GARPU",
+    "MINTA SAMBAL",
+    "MINTA TISU"
+  ],
+  [
+    "OVERTHINKING GALAU",
+    "OVERTHINKING",
+    "GALAU",
+    "OVT"
+  ],
+  [
+    "HEALING",
+    "BUTUH HEALING",
+    "REFRESHING JIWA"
+  ],
+  [
+    "FOMO",
+    "TAKUT KETINGGALAN TREN"
+  ],
+  [
+    "RED FLAG GREEN FLAG",
+    "RED FLAG",
+    "GREEN FLAG"
+  ],
+  [
+    "SLAY",
+    "KEREN BANGET",
+    "MEMUKAU"
+  ],
+  [
+    "BESTIE",
+    "SAHABAT",
+    "SOHIB",
+    "TEMAN DEKAT"
+  ],
+  [
+    "VIBE",
+    "VIBES",
+    "AURA",
+    "SUASANA"
+  ],
+  [
+    "GHOSTING",
+    "NGILANG TANPA KABAR",
+    "DI GHOSTING"
+  ],
+  [
+    "ES KOPI SUSU",
+    "KOPI SUSU",
+    "ES KOPI",
+    "KOPI GULA AREN",
+    "KOPI KENANGAN"
+  ],
+  [
+    "TWS EARPHONE",
+    "EARPHONE WIRELESS",
+    "AIRPODS"
+  ],
+  [
+    "TUMBLER",
+    "BOTOL TUMBLER",
+    "TEMPAT AIR"
+  ],
+  [
+    "LAPTOP IPAD",
+    "LAPTOP",
+    "IPAD",
+    "NOTEBOOK",
+    "MACBOOK"
+  ],
+  [
+    "CHARGER POWERBANK",
+    "ADAPTOR CHARGER"
+  ],
+  [
+    "LIP BALM SKINCARE",
+    "LIP BALM",
+    "SKINCARE",
+    "SUNSCREEN",
+    "LIPSTICK"
+  ],
+  [
+    "STIKER LUCU",
+    "STIKER",
+    "TEMPELAN LUCU"
+  ],
+  [
+    "KIPAS MINI",
+    "KIPAS PORTABLE",
+    "KIPAS ANGIN MINI"
+  ],
+  [
+    "SAKIT PINGGUNG ENCOK",
+    "SAKIT PINGGUNG",
+    "ENCOK",
+    "PEGEL LINU",
+    "JOMPO"
+  ],
+  [
+    "CICILAN KPR",
+    "CICILAN",
+    "KPR",
+    "TAGIHAN BULANAN"
+  ],
+  [
+    "CAPEK KERJA",
+    "LELAH KERJA",
+    "BURNOUT",
+    "CAPEK BANGET"
+  ],
+  [
+    "HARGA RUMAH MAHAL",
+    "RUMAH MAHAL",
+    "SUSAH BELI RUMAH"
+  ],
+  [
+    "SUSAH TIDUR",
+    "INSOMNIA",
+    "TIDAK BISA TIDUR",
+    "BEGADANG"
+  ],
+  [
+    "RAMBUT RONTOK UBAN",
+    "RAMBUT RONTOK",
+    "UBAN",
+    "BOTAK"
+  ],
+  [
+    "KURANG LIBURAN",
+    "KURANG PIKNIK",
+    "BUTUH CUTI"
+  ],
+  [
+    "ASAM LAMBUNG",
+    "MAAG",
+    "GERD",
+    "PERUT PERIH"
+  ],
+  [
+    "KIRIM STIKER SELAMAT PAGI",
+    "STIKER SELAMAT PAGI",
+    "GAMBAR SELAMAT PAGI",
+    "UCAPAN PAGI"
+  ],
+  [
+    "FORWARD BROADCAST HOAX",
+    "FORWARD HOAX",
+    "BROADCAST",
+    "PESAN BERANTAI",
+    "BERITA HOAX"
+  ],
+  [
+    "NGETIK HURUF KAPITAL",
+    "HURUF KAPITAL",
+    "CAPS LOCK",
+    "HURUF BESAR"
+  ],
+  [
+    "KIRIM FOTO BUNGA KOPI",
+    "FOTO BUNGA",
+    "FOTO KOPI"
+  ],
+  [
+    "TYPO SALAH KIRIM",
+    "TYPO",
+    "SALAH KETIK",
+    "SALAH KIRIM"
+  ],
+  [
+    "VOICE NOTE PANJANG",
+    "VOICE NOTE",
+    "VN PANJANG",
+    "PESAN SUARA"
+  ],
+  [
+    "BALAS JEMPOL",
+    "EMOJI JEMPOL",
+    "STIKER JEMPOL",
+    "JEMPOL"
+  ],
+  [
+    "KIRIM VIDEO CERAMAH",
+    "VIDEO CERAMAH",
+    "CERAMAH",
+    "PENGAJIAN"
+  ],
+  [
+    "TENAGA",
+    "ENERGI",
+    "OTOT",
+    "DAYA",
+    "KEKUATAN",
+    "STAMINA"
+  ],
+  [
+    "MULUT",
+    "BIBIR",
+    "RONGGA MULUT"
+  ],
+  [
+    "GIGI",
+    "NGUNYAH",
+    "MENGUNYAH",
+    "GERAHAM"
+  ],
+  [
+    "UANG",
+    "DUIT",
+    "CUAN",
+    "RUPIAH",
+    "DANA",
+    "BAYAR"
+  ],
+  [
+    "LAPAR",
+    "PERUT LAPAR",
+    "LAPER",
+    "KERONCONGAN"
+  ],
+  [
+    "PIRING",
+    "DAUN PISANG",
+    "BUNGKUS",
+    "KERTAS NASI"
+  ],
+  [
+    "KURSI",
+    "BANGKU",
+    "TEMPAT DUDUK"
+  ],
+  [
+    "DOA",
+    "BERDOA",
+    "DOA MAKAN",
+    "BISMILLAH",
+    "BACA DOA"
+  ],
+  [
+    "KASUR",
+    "TEMPAT TIDUR",
+    "RANJANG",
+    "SPRINGBED",
+    "KAMAR TIDUR"
+  ],
+  [
+    "OBAT",
+    "PEREDA NYERI",
+    "OBAT SAKIT GIGI",
+    "PONSTAN",
+    "PARASETAMOL",
+    "ANTIBIOTIK"
+  ],
+  [
+    "AIR GARAM",
+    "KUMUR AIR GARAM",
+    "GARAM"
+  ],
+  [
+    "BANTAL",
+    "GULING",
+    "BANTAL GULING"
+  ],
+  [
+    "KACA CERMIN",
+    "CERMIN",
+    "KACA",
+    "NGACA"
+  ],
+  [
+    "IGD RUMAH SAKIT",
+    "IGD",
+    "UGD",
+    "RUMAH SAKIT",
+    "UNIT GAWAT DARURAT"
+  ],
+  [
+    "HP",
+    "HANDPHONE",
+    "PONSEL",
+    "SMARTPHONE",
+    "GADGET"
+  ],
+  [
+    "GANTIAN",
+    "BERGANTIAN",
+    "GILIRAN",
+    "BERANTAI"
+  ],
+  [
+    "SATU PER SATU",
+    "SATU SATU",
+    "BERURUTAN",
+    "BERGILIR"
+  ],
+  [
+    "ANTRE",
+    "ANTRI",
+    "MENUNGGU GILIRAN",
+    "ANTRIAN",
+    "NUNGGU"
+  ],
+  [
+    "GUNTING",
+    "GUNTING RAMBUT",
+    "ALAT POTONG"
+  ],
+  [
+    "MESIN CUKUR",
+    "CLIPPER",
+    "SHAVER",
+    "TRIMMER",
+    "ALAT CUKUR LISTRIK"
+  ],
+  [
+    "SISIR",
+    "SISIR RAMBUT"
+  ],
+  [
+    "PELAN PELAN",
+    "HATI HATI",
+    "PERLAHAN"
+  ],
+  [
+    "SABAR",
+    "TENANG",
+    "BERSABAR"
+  ],
+  [
+    "DARI MAGHRIB",
+    "MAGHRIB",
+    "MAGRIB",
+    "WAKTU MAGHRIB",
+    "SEHABIS ASHAR"
+  ],
+  [
+    "DARI LANGIT",
+    "LANGIT",
+    "AWAN",
+    "ATMOSFER"
+  ],
+  [
+    "DARI ATAS",
+    "ATAS",
+    "ATAS KE BAWAH",
+    "GRAVITASI"
+  ],
+  [
+    "MUSIM HUJAN",
+    "PENGHUJAN",
+    "MUSIM PENGHUJAN"
+  ],
+  [
+    "SORE HARI",
+    "SORE",
+    "PETANG"
+  ],
+  [
+    "GERIMIS",
+    "RINTIK RINTIK",
+    "HUJAN RINTIK"
+  ],
+  [
+    "MALAM HARI",
+    "MALAM",
+    "WAKTU MALAM"
+  ],
+  [
+    "DITILANG",
+    "TILANG",
+    "KENA TILANG",
+    "RAZIA",
+    "POLISI"
+  ],
+  [
+    "VIRAL",
+    "DIREKAM",
+    "MASUK SOSMED",
+    "FYP",
+    "RAME"
+  ],
+  [
+    "DISURUH KELUAR",
+    "PUTAR BALIK",
+    "DIUSIR",
+    "BALIK KANAN",
+    "KELUAR TOL"
+  ],
+  [
+    "DIDEREK",
+    "DEREK",
+    "DIANGKUT",
+    "EVAKUASI"
+  ],
+  [
+    "DIDORONG PETUGAS",
+    "DORONG",
+    "PETUGAS TOL",
+    "BANTU PETUGAS"
+  ],
+  [
+    "DENDA",
+    "BAYAR DENDA",
+    "SANKSI DENDA"
+  ],
+  [
+    "TIDUR",
+    "BOBOK",
+    "TERLELAP",
+    "NGOROK",
+    "TIDUR DULU"
+  ],
+  [
+    "MEREM",
+    "PEJAMKAN MATA",
+    "TUTUP MATA",
+    "MEMEJAMKAN MATA"
+  ],
+  [
+    "BARING",
+    "BERBARING",
+    "REBAHAN",
+    "TIDURAN"
+  ],
+  [
+    "MATIKAN LAMPU",
+    "LAMPU MATI",
+    "GELAP",
+    "SAKLAR LAMPU"
+  ],
+  [
+    "NGANTUK",
+    "MENGANTUK",
+    "KANTUK"
+  ],
+  [
+    "PASANG ALARM",
+    "ALARM",
+    "SET ALARM"
+  ],
+  [
+    "ORANG SEHAT",
+    "SEHAT",
+    "TIDAK SAKIT",
+    "BUGAR",
+    "WARAS"
+  ],
+  [
+    "TIDAK PUNYA UANG",
+    "NGGAK PUNYA DUIT",
+    "MISKIN",
+    "TAK ADA BIAYA",
+    "BPJS MATI"
+  ],
+  [
+    "SUDAH MENINGGAL",
+    "MENINGGAL",
+    "MATI",
+    "JENAZAH",
+    "MAYAT"
+  ],
+  [
+    "TIDAK SETUJU",
+    "MENOLAK",
+    "TOLAK",
+    "TIDAK IZIN",
+    "NOLAK"
+  ],
+  [
+    "KELUARGA SENDIRI",
+    "ANAK SENDIRI",
+    "ISTRI SENDIRI",
+    "SAUDARA SENDIRI",
+    "KERABAT"
+  ],
+  [
+    "KABUR",
+    "LARI",
+    "MELARIKAN DIRI"
+  ],
+  [
+    "SALAH KAMAR",
+    "SALAH PASIEN",
+    "KAMAR LAIN",
+    "SALAH RUANG"
+  ],
+  [
+    "INGIN MENANG",
+    "MENANG",
+    "JUARA",
+    "CHAMPION",
+    "RAIH JUARA"
+  ],
+  [
+    "BOLANYA CUMA SATU",
+    "BOLA SATU",
+    "CUMA SATU BOLA",
+    "BOLA TUNGGAL",
+    "SATU BOLA"
+  ],
+  [
+    "ATURAN MAIN",
+    "ATURAN",
+    "PERATURAN",
+    "WASIT",
+    "REGULASI"
+  ],
+  [
+    "CETAK POIN",
+    "GOL",
+    "SKOR",
+    "CETAK GOL",
+    "MASUKIN BOLA"
+  ],
+  [
+    "TAKUT KALAH",
+    "KALAH",
+    "DIOMELIN PELATIH",
+    "MALU KALAH"
+  ],
+  [
+    "DIBAYAR",
+    "GAJI",
+    "GAJI ATLET",
+    "KONTRAK",
+    "BONUS KLUB"
+  ],
+  [
+    "KURANG MODAL BELI BOLA",
+    "KURANG MODAL",
+    "NGGAK MAMPU BELI BOLA",
+    "IRIT"
+  ],
+  [
+    "PAMIT",
+    "MINTA IZIN PULANG",
+    "PAMITAN",
+    "IZIN PULANG"
+  ],
+  [
+    "LAPOR RT",
+    "LAPOR PAK RT",
+    "LAPOR RW",
+    "WAJIB LAPOR"
+  ],
+  [
+    "BANTU PEKERJAAN RUMAH",
+    "CUCI PIRING TAMU",
+    "BERSIH BERSIH",
+    "BANTU TUAN RUMAH"
+  ],
+  [
+    "BAWA MAKANAN",
+    "OLEH OLEH",
+    "BUAH TANGAN",
+    "TRAKTIR TUAN RUMAH"
+  ],
+  [
+    "JANGAN MEREPOTKAN",
+    "TAHU DIRI",
+    "SADAR DIRI",
+    "NGGAK REPOTIN"
+  ],
+  [
+    "BERTERIMA KASIH",
+    "TERIMA KASIH",
+    "MAKASIH",
+    "UCAP SYUKUR"
+  ],
+  [
+    "PINDAH HOTEL",
+    "HOTEL",
+    "PENGINAPAN",
+    "KOST HARIAN"
+  ],
+  [
+    "NASI PADANG",
+    "PADANG",
+    "MASAKAN PADANG",
+    "RENDANG"
+  ],
+  [
+    "PULANG",
+    "MASAK SENDIRI",
+    "BALIK KE RUMAH"
+  ],
+  [
+    "BAKSO",
+    "MIE BAKSO",
+    "BAKSO URAT"
+  ],
+  [
+    "AYAM GEPREK",
+    "GEPREK",
+    "AYAM PENYET"
+  ],
+  [
+    "MIE AYAM",
+    "MI AYAM",
+    "BAKMI"
+  ],
+  [
+    "PECEL LELE",
+    "LAMONGAN",
+    "WARUNG TENDA",
+    "LELE GORENG"
+  ],
+  [
+    "SATE",
+    "SATE AYAM",
+    "SATE KAMBING",
+    "SATE MADURA"
+  ],
+  [
+    "TIDAK JADI MAKAN",
+    "GA JADI MAKAN",
+    "NGGAK JADI MAKAN",
+    "BATAL MAKAN",
+    "RIBUT"
+  ],
+  [
+    "BERHENTI MENCARI",
+    "BERHENTI CARI",
+    "STOP CARI",
+    "MENYERAH",
+    "SUDAH TIDAK DICARI"
+  ],
+  [
+    "BELI BARU",
+    "SUDAH BELI",
+    "BELI LAGI",
+    "TOKO"
+  ],
+  [
+    "PASRAH",
+    "IKHLAS",
+    "SUDAH PASRAH"
+  ],
+  [
+    "TANYA IBU",
+    "TANYA ISTRI",
+    "TANYA MAMA",
+    "TANYA EMAK",
+    "MINTA CARIIN"
+  ],
+  [
+    "SUDAH TELAT",
+    "TELAT",
+    "ACARA SELESAI",
+    "SUDAH TERLANJUR"
+  ],
+  [
+    "BERESKAN KAMAR",
+    "BERESIN KAMAR",
+    "RAPIKAN MEJA"
+  ],
+  [
+    "TIDAK BUTUH LAGI",
+    "NGGAK BUTUH",
+    "GAK BUTUH",
+    "TAK PERLU LAGI"
+  ],
+  [
+    "JADI NOMOR DUA",
+    "NOMOR DUA",
+    "POSISI DUA",
+    "POSISI 2",
+    "KE 2",
+    "NO 2",
+    "URUTAN 2"
+  ],
+  [
+    "MASIH ADA JUARA SATU",
+    "JUARA SATU",
+    "POSISI SATU",
+    "MASIH ADA DI DEPAN"
+  ],
+  [
+    "DISALIP JADI NOMOR TIGA",
+    "NOMOR TIGA",
+    "POSISI 3",
+    "JADI KETIGA"
+  ],
+  [
+    "BELUM MENANG",
+    "BELUM JUARA",
+    "TIDAK MENANG"
+  ],
+  [
+    "HARUS KEJAR LAGI",
+    "KEJAR NOMOR SATU",
+    "LARI LEBIH CEPAT"
+  ],
+  [
+    "CAPEK",
+    "LELAH",
+    "LETIH",
+    "PENAT",
+    "NGOS NGOSAN"
+  ],
+  [
+    "BERDIRI",
+    "TEGAK",
+    "BERDIRI TEGAK"
+  ],
+  [
+    "MASUK KARUNG",
+    "MASUKIN KAKI",
+    "PAKAI KARUNG"
+  ],
+  [
+    "PEGANG KARUNG",
+    "PEGANG UJUNG KARUNG",
+    "TAHAN KARUNG"
+  ],
+  [
+    "DENGAR PELUIT",
+    "ABA ABA",
+    "TUNGGU PELUIT",
+    "DENGERIN ABA ABA"
+  ],
+  [
+    "SIAP LOMPAT",
+    "LOMPAT",
+    "KUDA KUDA"
+  ],
+  [
+    "LEPAS SANDAL",
+    "COPOT SANDAL",
+    "LEPAS SEPATU",
+    "NYEKER"
+  ],
+  [
+    "BERATNYA SAMA",
+    "SAMA BERAT",
+    "10 KG SAMA",
+    "MASSANYA SAMA",
+    "SAMA"
+  ],
+  [
+    "BESI LEBIH SAKIT",
+    "SAKIT BESI",
+    "BESI KERAS",
+    "LEBIH KERAS",
+    "MEMAR"
+  ],
+  [
+    "KAPAS LEBIH EMPUK",
+    "EMPUK",
+    "KAPAS LEMBUT",
+    "TIDAK SAKIT"
+  ],
+  [
+    "UKURAN KAPAS BESAR",
+    "VOLUME KAPAS BESAR",
+    "KARUNG BESAR",
+    "LEBIH BESAR"
+  ],
+  [
+    "BESI JATUH CEPAT",
+    "JATUH CEPAT",
+    "HAMBATAN UDARA"
+  ],
+  [
+    "MENGHINDAR",
+    "TARIK KAKI",
+    "MINGGIR",
+    "GHINDAR"
+  ],
+  [
+    "ILMU",
+    "PENGETAHUAN",
+    "ILMU PENGETAHUAN",
+    "KEAHLIAN"
+  ],
+  [
+    "SEDEKAH",
+    "AMAL",
+    "INFAQ",
+    "BERBAGI",
+    "ZAKAT"
+  ],
+  [
+    "SENYUM",
+    "SENYUMAN",
+    "RAMAH"
+  ],
+  [
+    "PENGALAMAN",
+    "JAM TERBANG",
+    "WAWASAN"
+  ],
+  [
+    "TEMAN",
+    "RELASI",
+    "SAHABAT",
+    "KAWAN",
+    "KENALAN"
+  ],
+  [
+    "KEBAHAGIAAN",
+    "BAHAGIA",
+    "SUKACITA"
+  ],
+  [
+    "UTANG",
+    "HUTANG",
+    "CICILAN",
+    "PAYLATER",
+    "TAGIHAN"
+  ],
+  [
+    "HARI ESOK",
+    "BESOK",
+    "BESOK HARI",
+    "ESOK"
+  ],
+  [
+    "DIET",
+    "MULAI DIET",
+    "DIET BESOK",
+    "OLAHRAGA BESOK"
+  ],
+  [
+    "GAJIAN",
+    "TANGGAL GAJIAN",
+    "HARI GAJIAN"
+  ],
+  [
+    "MASA DEPAN",
+    "HARI DEPAN",
+    "MASA NANTI"
+  ],
+  [
+    "JANJI MANIS",
+    "JANJI",
+    "PHP",
+    "HARAPAN PALSU"
+  ],
+  [
+    "LIBUR PANJANG",
+    "CUTI PANJANG",
+    "LIBURAN BESAR"
+  ],
+  [
+    "TOBAT MALAS",
+    "MULAI RAJIN",
+    "PERUBAHAN DIRI"
+  ],
+  [
+    "SEMUA BULAN",
+    "SEMUA",
+    "TIAP BULAN",
+    "BULAN APA SAJA",
+    "SELURUH BULAN"
+  ],
+  [
+    "FEBRUARI",
+    "PEBRUARI",
+    "BULAN DUA",
+    "BULAN 2"
+  ],
+  [
+    "JANUARI",
+    "BULAN SATU",
+    "BULAN PERTAMA"
+  ],
+  [
+    "DESEMBER",
+    "BULAN KEDUABELAS",
+    "BULAN 12"
+  ],
+  [
+    "DUA BELAS BULAN",
+    "12 BULAN",
+    "SETAHUN PENUH"
+  ],
+  [
+    "SETIAP BULAN",
+    "TIAP TIAP BULAN"
+  ],
+  [
+    "JARUM",
+    "JARUM JAHIT",
+    "MATA JARUM"
+  ],
+  [
+    "MEJA KURSI",
+    "MEJA",
+    "KURSI KAYU",
+    "KAKI MEJA"
+  ],
+  [
+    "BOTOL",
+    "LEHER BOTOL",
+    "BOTOL KACA"
+  ],
+  [
+    "GERGAJI",
+    "GIGI GERGAJI"
+  ],
+  [
+    "KUPING PANCI",
+    "PANCI",
+    "GAGANG PANCI",
+    "TELINGA PANCI"
+  ],
+  [
+    "DAUN PINTU",
+    "PINTU",
+    "DAUN JENDELA"
+  ],
+  [
+    "RESLETING",
+    "RITSLETING",
+    "ZIPPER",
+    "GIGI RESLETING"
+  ],
+  [
+    "CEK METERAN LISTRIK",
+    "CEK MCB",
+    "SEKRING",
+    "TOKEN LISTRIK",
+    "METERAN"
+  ],
+  [
+    "INTIP TETANGGA",
+    "LIHAT TETANGGA",
+    "NGINTIP TETANGGA",
+    "CEK TETANGGA"
+  ],
+  [
+    "TERIAK MATI LAMPU",
+    "MATI LAMPU",
+    "MATI LISTRIK",
+    "TERIAK"
+  ],
+  [
+    "NYALAKAN SENTER",
+    "SENTER",
+    "FLASHLIGHT",
+    "SENTER HP",
+    "LAMPU HP"
+  ],
+  [
+    "CARI LILIN",
+    "LILIN",
+    "LAMPU EMERGENCY",
+    "KOREK API"
+  ],
+  [
+    "CEK WIFI",
+    "WIFI MATI",
+    "PAKET DATA",
+    "CEK KUOTA"
+  ],
+  [
+    "SYARAT DAN KETENTUAN",
+    "SYARAT KETENTUAN",
+    "TERMS",
+    "TNC",
+    "TOS",
+    "TERMS AND CONDITIONS"
+  ],
+  [
+    "BUKU PANDUAN",
+    "MANUAL BOOK",
+    "BUKU MANUAL",
+    "PETUNJUK PEMAKAIAN"
+  ],
+  [
+    "ATURAN GARANSI",
+    "KARTU GARANSI",
+    "GARANSI"
+  ],
+  [
+    "KEBIJAKAN PRIVASI",
+    "PRIVACY POLICY",
+    "COOKIE"
+  ],
+  [
+    "DILARANG PARKIR",
+    "RAMBU DILARANG PARKIR",
+    "PARKIR SEMBARANGAN"
+  ],
+  [
+    "ATURAN KOMPLEK",
+    "PAPAN ATURAN",
+    "TATA TERTIB"
+  ],
+  [
+    "KEMASAN OBAT",
+    "BROSUR OBAT",
+    "ATURAN MINUM OBAT"
+  ],
+  [
+    "SUDAH KAYA",
+    "ORANG KAYA",
+    "KAYA RAYA",
+    "KAYA",
+    "BANYAK DUIT"
+  ],
+  [
+    "PURA PURA BIJAK",
+    "PENCITRAAN",
+    "BIJAK PALSU"
+  ],
+  [
+    "MASIH NGANTUK",
+    "NGANTUK BERAT",
+    "SALAH DENGER"
+  ],
+  [
+    "LAGI BANYAK MASALAH",
+    "KESPIAN",
+    "KESEPIAN",
+    "BUTUH TEMAN"
+  ],
+  [
+    "GURU MOTIVASI",
+    "MOTIVATOR",
+    "KATA MUTIARA"
+  ],
+  [
+    "BARU GAJIAN",
+    "TANGGAL MUDA",
+    "MASIH ADA UANG"
+  ],
+  [
+    "TAKUT DIHUJAT",
+    "TAKUT DICAP MATRE",
+    "JAGA IMAGE",
+    "JAIM"
+  ],
+  [
+    "JALAN CEPAT BAWA KERTAS",
+    "JALAN CEPAT",
+    "BAWA MAP",
+    "BAWA KERTAS",
+    "TERBURU BURU"
+  ],
+  [
+    "DAHI BERKERUT",
+    "MUKA SERIUS",
+    "ALIS BERKERUT",
+    "CEMBERUT SERIUS"
+  ],
+  [
+    "BUKA BANYAK TAB",
+    "BANYAK TAB",
+    "ALT TAB",
+    "LAYAR PENUH TAB"
+  ],
+  [
+    "PAKAI EARPHONE",
+    "PAKAI HEADSET",
+    "EARPHONE KANTOR"
+  ],
+  [
+    "NGETIK CEPAT",
+    "MENGETIK CEPAT",
+    "SUARA KEYBOARD"
+  ],
+  [
+    "TELPONAN MONDAR MANDIR",
+    "TELPONAN",
+    "MONDAR MANDIR"
+  ],
+  [
+    "MINUM KOPI SERIUS",
+    "NGOPI SERIUS",
+    "TAMPANG LELAH"
+  ],
+  [
+    "MEJA BERANTAKAN",
+    "MEJA PENUH",
+    "TUMPUKAN BERKAS"
+  ],
+  [
+    "PARKIR GRATIS",
+    "BEBAS PARKIR",
+    "TUKANG PARKIR",
+    "BAYAR PARKIR"
+  ],
+  [
+    "CUMA LIHAT LIHAT",
+    "WINDOW SHOPPING",
+    "CUCI MATA"
+  ],
+  [
+    "ONGKIR MINIMAL BELANJA",
+    "GRATIS ONGKIR",
+    "MINIMAL BELANJA",
+    "ONGKIR"
+  ],
+  [
+    "KONDANGAN",
+    "UNDANGAN NIKAH",
+    "AMPLOP KONDANGAN"
+  ],
+  [
+    "COBA GRATIS",
+    "SAMPLE GRATIS",
+    "CICIP GRATIS"
+  ],
+  [
+    "TRIAL APLIKASI",
+    "FREE TRIAL",
+    "LANGGANAN OTOMATIS"
+  ],
+  [
+    "DISKON BESAR",
+    "DISKON",
+    "PROMO BESAR",
+    "SALE"
+  ],
+  [
+    "LAGI BERPIKIR KERAS",
+    "BERPIKIR",
+    "MIKIR",
+    "KONSENTRASI",
+    "RENUNG",
+    "MERENUNG",
+    "VISUALISASI"
+  ],
+  [
+    "MATA PEDIH",
+    "KELILIPAN",
+    "MATA KERING",
+    "PERIH"
+  ],
+  [
+    "LAGI BERDOA",
+    "DOA DI MEJA",
+    "KHUSYUK"
+  ],
+  [
+    "PUSING",
+    "SAKIT KEPALA",
+    "MIGRAIN",
+    "PUSING KEPALA"
+  ],
+  [
+    "TUNGGU LOADING",
+    "LOADING LAMA",
+    "NUNGGU PROSES",
+    "KOMPUTER LEMOT"
+  ],
+  [
+    "ISTIRAHAT MATA",
+    "REHAT MATA",
+    "ISTIRAHATKAN MATA"
+  ],
+  [
+    "MENGHAFAL DATA",
+    "MENGHAFAL",
+    "LATIHAN PRESENTASI"
+  ]
+];
 }
 
 function stripPrefix_(normText) {
@@ -2147,8 +4447,12 @@ function matchScore_(normAnswer, normGuess) {
     if (guessVariants.indexOf(ansVariants[i]) !== -1) return 2;
   }
 
-  if (normGuess.length <= 2 || normAnswer.length <= 2) {
-    return normAnswer.split(' ').indexOf(normGuess) !== -1 ? 2 : 0;
+  const guessTokens = normGuess.split(' ').filter(Boolean);
+  for (let i = 0; i < ansVariants.length; i++) {
+    const avTokens = ansVariants[i].split(' ').filter(Boolean);
+    if (avTokens.length > 0 && avTokens.every(function (t) { return guessTokens.indexOf(t) !== -1; })) {
+      return 1;
+    }
   }
   if (Math.min(normAnswer.length, normGuess.length) >= 4 &&
       (normAnswer.indexOf(normGuess) !== -1 || normGuess.indexOf(normAnswer) !== -1)) {
