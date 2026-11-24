@@ -464,6 +464,394 @@
                 { id: 3108, answer_text: 'KIRIM VIDEO CERAMAH', points: 30 },
             ],
         },
+        {
+            id: 32,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Pakai sendok atau nggak, makan nasi padang tetap butuh TENAGA, MULUT, GIGI, dan UANG buat bayar!',
+            question: 'Di rumah makan Padang, selain pakai sendok atau tangan, hal apa yang pasti dipakai orang saat makan?',
+            is_example: true,
+            answers: [
+                { id: 3201, answer_text: 'TENAGA', points: 100 },
+                { id: 3202, answer_text: 'MULUT', points: 90 },
+                { id: 3203, answer_text: 'GIGI', points: 80 },
+                { id: 3204, answer_text: 'UANG', points: 70 },
+                { id: 3205, answer_text: 'LAPAR', points: 60 },
+                { id: 3206, answer_text: 'PIRING', points: 50 },
+                { id: 3207, answer_text: 'KURSI', points: 40 },
+                { id: 3208, answer_text: 'DOA', points: 30 },
+            ],
+        },
+        {
+            id: 33,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Tengah malam klinik dokter tutup, jadi selain obat atau air garam, ujung-ujungnya lari ke KASUR & BANTAL!',
+            question: 'Jika tengah malam sakit gigi dan semua dokter gigi sudah tutup, hal atau benda apa yang langsung dicari orang?',
+            is_example: true,
+            answers: [
+                { id: 3301, answer_text: 'KASUR', points: 100 },
+                { id: 3302, answer_text: 'OBAT', points: 90 },
+                { id: 3303, answer_text: 'AIR GARAM', points: 80 },
+                { id: 3304, answer_text: 'BANTAL', points: 70 },
+                { id: 3305, answer_text: 'KACA CERMIN', points: 60 },
+                { id: 3306, answer_text: 'DOA', points: 50 },
+                { id: 3307, answer_text: 'IGD RUMAH SAKIT', points: 40 },
+                { id: 3308, answer_text: 'HP', points: 30 },
+            ],
+        },
+        {
+            id: 34,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Tukangnya cuma satu! Sebelum pegang gunting, lima pelanggan tentu dipotong GANTIAN / ANTRE satu per satu!',
+            question: 'Saat lima pelanggan masuk bersamaan ke tempat cukur yang tukangnya cuma satu, dengan cara apa rambut mereka dipotong?',
+            is_example: true,
+            answers: [
+                { id: 3401, answer_text: 'GANTIAN', points: 100 },
+                { id: 3402, answer_text: 'SATU PER SATU', points: 90 },
+                { id: 3403, answer_text: 'ANTRE', points: 80 },
+                { id: 3404, answer_text: 'GUNTING', points: 70 },
+                { id: 3405, answer_text: 'MESIN CUKUR', points: 60 },
+                { id: 3406, answer_text: 'SISIR', points: 50 },
+                { id: 3407, answer_text: 'PELAN-PELAN', points: 40 },
+                { id: 3408, answer_text: 'SABAR', points: 30 },
+            ],
+        },
+        {
+            id: 35,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Sore hari pas Ashar masih mendung doang belum turun — baru mengguyur DARI MAGHRIB!',
+            question: 'Selain dari awan mendung, dari manakah atau kapankah air hujan itu biasanya turun ke bumi?',
+            is_example: true,
+            answers: [
+                { id: 3501, answer_text: 'DARI MAGHRIB', points: 100 },
+                { id: 3502, answer_text: 'DARI LANGIT', points: 90 },
+                { id: 3503, answer_text: 'DARI ATAS', points: 80 },
+                { id: 3504, answer_text: 'MUSIM HUJAN', points: 70 },
+                { id: 3505, answer_text: 'SORE HARI', points: 60 },
+                { id: 3506, answer_text: 'GERIMIS', points: 50 },
+                { id: 3507, answer_text: 'MALAM HARI', points: 40 },
+            ],
+        },
+        {
+            id: 36,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Motor dilarang masuk tol! Jadi kalau mogok di jalan tol bebas hambatan ya paling cepat langsung DITILANG!',
+            question: 'Apa yang paling cepat terjadi jika sebuah sepeda motor nekat masuk ke jalan tol lalu mogok di jalur cepat?',
+            is_example: true,
+            answers: [
+                { id: 3601, answer_text: 'DITILANG', points: 100 },
+                { id: 3602, answer_text: 'VIRAL', points: 90 },
+                { id: 3603, answer_text: 'DISURUH KELUAR', points: 80 },
+                { id: 3604, answer_text: 'DIDEREK', points: 70 },
+                { id: 3605, answer_text: 'DIDORONG PETUGAS', points: 60 },
+                { id: 3606, answer_text: 'DENDA', points: 50 },
+                { id: 3607, answer_text: 'MALU', points: 40 },
+            ],
+        },
+        {
+            id: 37,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Mana mungkin bisa bangun tidur kalau TIDUR dan MEREM dulu saja belum dilakukan?!',
+            question: 'Hal apa yang mutlak harus dilakukan seseorang lebih dulu sebelum ia bisa bangun tidur?',
+            is_example: true,
+            answers: [
+                { id: 3701, answer_text: 'TIDUR', points: 100 },
+                { id: 3702, answer_text: 'MEREM', points: 90 },
+                { id: 3703, answer_text: 'BARING', points: 80 },
+                { id: 3704, answer_text: 'MATIKAN LAMPU', points: 70 },
+                { id: 3705, answer_text: 'NGANTUK', points: 60 },
+                { id: 3706, answer_text: 'DOA', points: 50 },
+                { id: 3707, answer_text: 'PASANG ALARM', points: 40 },
+            ],
+        },
+        {
+            id: 38,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Dokter bedah terbaik sekalipun mustahil membedah ORANG SEHAT yang tidak sakit apa-apa!',
+            question: 'Sehebat apa pun dokter bedah di rumah sakit terbaik, orang seperti apa yang pasti ditolak untuk dioperasi?',
+            is_example: true,
+            answers: [
+                { id: 3801, answer_text: 'ORANG SEHAT', points: 100 },
+                { id: 3802, answer_text: 'TIDAK PUNYA UANG', points: 90 },
+                { id: 3803, answer_text: 'SUDAH MENINGGAL', points: 80 },
+                { id: 3804, answer_text: 'TIDAK SETUJU', points: 70 },
+                { id: 3805, answer_text: 'KELUARGA SENDIRI', points: 60 },
+                { id: 3806, answer_text: 'KABUR', points: 50 },
+                { id: 3807, answer_text: 'SALAH KAMAR', points: 40 },
+            ],
+        },
+        {
+            id: 39,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Selain mengejar kemenangan dan aturan main, alasan paling nyatanya karena BOLANYA CUMA SATU di lapangan!',
+            question: 'Dalam pertandingan basket atau sepak bola resmi, kenapa semua pemain berlari berebut satu bola yang sama?',
+            is_example: true,
+            answers: [
+                { id: 3901, answer_text: 'INGIN MENANG', points: 100 },
+                { id: 3902, answer_text: 'BOLANYA CUMA SATU', points: 90 },
+                { id: 3903, answer_text: 'ATURAN MAIN', points: 80 },
+                { id: 3904, answer_text: 'CETAK POIN', points: 70 },
+                { id: 3905, answer_text: 'TAKUT KALAH', points: 60 },
+                { id: 3906, answer_text: 'DIBAYAR', points: 50 },
+                { id: 3907, answer_text: 'KURANG MODAL BELI BOLA', points: 40 },
+            ],
+        },
+        {
+            id: 40,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Selain lapor RT 1x24 jam, tamu yang sudah lewat dua hari menginap sebaiknya sadar diri lalu PAMIT pulang!',
+            question: 'Apa yang sebaiknya dilakukan seorang tamu jika sudah menginap di rumah orang lain lebih dari 2x24 jam?',
+            is_example: true,
+            answers: [
+                { id: 4001, answer_text: 'PAMIT', points: 100 },
+                { id: 4002, answer_text: 'LAPOR RT', points: 90 },
+                { id: 4003, answer_text: 'BANTU PEKERJAAN RUMAH', points: 80 },
+                { id: 4004, answer_text: 'BAWA MAKANAN', points: 70 },
+                { id: 4005, answer_text: 'JANGAN MEREPOTKAN', points: 60 },
+                { id: 4006, answer_text: 'BERTERIMA KASIH', points: 50 },
+                { id: 4007, answer_text: 'PINDAH HOTEL', points: 40 },
+            ],
+        },
+        {
+            id: 41,
+            category: 'Logika Belok (Cak Lontong)',
+            logicNote: 'Kata "terserah" sering membingungkan semua orang — ujung-ujungnya kalau tidak NASI PADANG, ya PULANG saja!',
+            question: 'Saat diajak makan lalu seseorang menjawab "Terserah", makanan atau keputusan apa yang akhirnya paling sering dipilih?',
+            is_example: true,
+            answers: [
+                { id: 4101, answer_text: 'NASI PADANG', points: 100 },
+                { id: 4102, answer_text: 'PULANG', points: 90 },
+                { id: 4103, answer_text: 'BAKSO', points: 80 },
+                { id: 4104, answer_text: 'AYAM GEPREK', points: 70 },
+                { id: 4105, answer_text: 'MIE AYAM', points: 60 },
+                { id: 4106, answer_text: 'PECEL LELE', points: 50 },
+                { id: 4107, answer_text: 'SATE', points: 40 },
+                { id: 4108, answer_text: 'TIDAK JADI MAKAN', points: 30 },
+            ],
+        },
+        {
+            id: 42,
+            category: 'Asah Otak & Logika',
+            logicNote: 'Hukum alam barang kecil: saat dicari panik menghilang, begitu BERHENTI MENCARI atau BELI BARU langsung muncul!',
+            question: 'Benda kecil seperti gunting kuku atau charger selalu hilang saat dicari buru-buru, tapi langsung ketemu begitu kita...',
+            is_example: true,
+            answers: [
+                { id: 4201, answer_text: 'BERHENTI MENCARI', points: 100 },
+                { id: 4202, answer_text: 'BELI BARU', points: 90 },
+                { id: 4203, answer_text: 'PASRAH', points: 80 },
+                { id: 4204, answer_text: 'TANYA IBU', points: 70 },
+                { id: 4205, answer_text: 'SUDAH TELAT', points: 60 },
+                { id: 4206, answer_text: 'BERESKAN KAMAR', points: 50 },
+                { id: 4207, answer_text: 'TIDAK BUTUH LAGI', points: 40 },
+            ],
+        },
+        {
+            id: 43,
+            category: 'Asah Otak & Logika',
+            logicNote: 'Menyalip posisi ke-2 artinya kita merebut posisi ke-2 — bukan langsung jadi juara 1!',
+            question: 'Dalam lomba balap lari, jika kamu berhasil menyalip pelari di posisi nomor 2, apa saja fakta yang langsung terjadi?',
+            is_example: true,
+            answers: [
+                { id: 4301, answer_text: 'JADI NOMOR DUA', points: 100 },
+                { id: 4302, answer_text: 'MASIH ADA JUARA SATU', points: 90 },
+                { id: 4303, answer_text: 'DISALIP JADI NOMOR TIGA', points: 80 },
+                { id: 4304, answer_text: 'BELUM MENANG', points: 70 },
+                { id: 4305, answer_text: 'HARUS KEJAR LAGI', points: 60 },
+                { id: 4306, answer_text: 'CAPEK', points: 50 },
+            ],
+        },
+        {
+            id: 44,
+            category: 'Asah Otak & Logika',
+            logicNote: 'Kalau masih duduk lesehan di garis start gimana mau lompat? Wajib BERDIRI dan MASUK KARUNG dulu!',
+            question: 'Supaya tidak kalah start saat lomba balap karung dimulai, hal pertama apa yang wajib dilakukan peserta di garis start?',
+            is_example: true,
+            answers: [
+                { id: 4401, answer_text: 'BERDIRI', points: 100 },
+                { id: 4402, answer_text: 'MASUK KARUNG', points: 90 },
+                { id: 4403, answer_text: 'PEGANG KARUNG', points: 80 },
+                { id: 4404, answer_text: 'DENGAR PELUIT', points: 70 },
+                { id: 4405, answer_text: 'SIAP LOMPAT', points: 60 },
+                { id: 4406, answer_text: 'DOA', points: 50 },
+                { id: 4407, answer_text: 'LEPAS SANDAL', points: 40 },
+            ],
+        },
+        {
+            id: 45,
+            category: 'Asah Otak & Logika',
+            logicNote: 'Massa keduanya sama-sama 10 kg! Tapi kerapatan beda jauh sehingga yang kena besi jauh lebih sakit.',
+            question: 'Antara 10 kg kapas dan 10 kg besi yang dijatuhkan dari ketinggian ke atas kaki, fakta apa saja yang benar?',
+            is_example: true,
+            answers: [
+                { id: 4501, answer_text: 'BERATNYA SAMA', points: 100 },
+                { id: 4502, answer_text: 'BESI LEBIH SAKIT', points: 90 },
+                { id: 4503, answer_text: 'KAPAS LEBIH EMPUK', points: 80 },
+                { id: 4504, answer_text: 'UKURAN KAPAS BESAR', points: 70 },
+                { id: 4505, answer_text: 'BESI JATUH CEPAT', points: 60 },
+                { id: 4506, answer_text: 'MENGHINDAR', points: 50 },
+            ],
+        },
+        {
+            id: 46,
+            category: 'Asah Otak & Logika',
+            logicNote: 'Ilmu, sedekah, dan senyum bertambah pahalanya — tapi hati-hati, UTANG juga bertambah kalau terus dipakai!',
+            question: 'Sebutkan hal yang anehnya justru semakin sering dibagi atau dikeluarkan, malah terasa semakin bertambah!',
+            is_example: true,
+            answers: [
+                { id: 4601, answer_text: 'ILMU', points: 100 },
+                { id: 4602, answer_text: 'SEDEKAH', points: 90 },
+                { id: 4603, answer_text: 'SENYUM', points: 80 },
+                { id: 4604, answer_text: 'PENGALAMAN', points: 70 },
+                { id: 4605, answer_text: 'TEMAN', points: 60 },
+                { id: 4606, answer_text: 'KEBAHAGIAAN', points: 50 },
+                { id: 4607, answer_text: 'UTANG', points: 40 },
+            ],
+        },
+        {
+            id: 47,
+            category: 'Asah Otak & Logika',
+            logicNote: 'Setiap hari berganti, "besok" tetap saja besok — termasuk rencana diet yang selalu dimulai besok!',
+            question: 'Hal apa yang paling sering ditunggu dan dijanjikan orang, tapi anehnya tidak pernah benar-benar terasa datang sebagai hari ini?',
+            is_example: true,
+            answers: [
+                { id: 4701, answer_text: 'HARI ESOK', points: 100 },
+                { id: 4702, answer_text: 'DIET', points: 90 },
+                { id: 4703, answer_text: 'GAJIAN', points: 80 },
+                { id: 4704, answer_text: 'MASA DEPAN', points: 70 },
+                { id: 4705, answer_text: 'JANJI MANIS', points: 60 },
+                { id: 4706, answer_text: 'LIBUR PANJANG', points: 50 },
+                { id: 4707, answer_text: 'TOBAT MALAS', points: 40 },
+            ],
+        },
+        {
+            id: 48,
+            category: 'Asah Otak & Logika',
+            logicNote: 'Bukan hanya Februari — SEMUA 12 BULAN dari Januari sampai Desember pasti punya tanggal 1 sampai 28!',
+            question: 'Tebakan kalender yang sering mengecoh: Di antara 12 bulan dalam setahun, bulan apa saja yang memiliki 28 hari?',
+            is_example: true,
+            answers: [
+                { id: 4801, answer_text: 'SEMUA BULAN', points: 100 },
+                { id: 4802, answer_text: 'FEBRUARI', points: 90 },
+                { id: 4803, answer_text: 'JANUARI', points: 80 },
+                { id: 4804, answer_text: 'DESEMBER', points: 70 },
+                { id: 4805, answer_text: 'DUA BELAS BULAN', points: 60 },
+                { id: 4806, answer_text: 'SETIAP BULAN', points: 50 },
+            ],
+        },
+        {
+            id: 49,
+            category: 'Asah Otak & Logika',
+            logicNote: 'Sisir punya gigi, jarum punya mata, meja punya kaki, botol punya leher, sampai panci punya kuping!',
+            question: 'Benda sehari-hari apa yang punya bagian mirip organ tubuh manusia (seperti gigi, mata, kaki, atau leher), padahal benda mati?',
+            is_example: true,
+            answers: [
+                { id: 4901, answer_text: 'SISIR', points: 100 },
+                { id: 4902, answer_text: 'JARUM', points: 90 },
+                { id: 4903, answer_text: 'MEJA KURSI', points: 80 },
+                { id: 4904, answer_text: 'BOTOL', points: 70 },
+                { id: 4905, answer_text: 'GERGAJI', points: 60 },
+                { id: 4906, answer_text: 'KUPING PANCI', points: 50 },
+                { id: 4907, answer_text: 'DAUN PINTU', points: 40 },
+                { id: 4908, answer_text: 'RESLETING', points: 30 },
+            ],
+        },
+        {
+            id: 50,
+            category: 'Survei Kocak & Belok',
+            logicNote: 'Setelah pegang HP, langkah paling legendaris warga +62 adalah INTIP TETANGGA buat memastikan bukan cuma token kita yang habis!',
+            question: 'Saat malam-malam listrik rumah tiba-tiba padam total, hal pertama apa yang refleks langsung dilakukan orang?',
+            is_example: true,
+            answers: [
+                { id: 5001, answer_text: 'CEK HP', points: 100 },
+                { id: 5002, answer_text: 'CEK METERAN LISTRIK', points: 90 },
+                { id: 5003, answer_text: 'INTIP TETANGGA', points: 80 },
+                { id: 5004, answer_text: 'TERIAK MATI LAMPU', points: 70 },
+                { id: 5005, answer_text: 'NYALAKAN SENTER', points: 60 },
+                { id: 5006, answer_text: 'CARI LILIN', points: 50 },
+                { id: 5007, answer_text: 'CEK WIFI', points: 40 },
+                { id: 5008, answer_text: 'TIDUR', points: 30 },
+            ],
+        },
+        {
+            id: 51,
+            category: 'Survei Kocak & Belok',
+            logicNote: 'Centang "Saya telah membaca & menyetujui Syarat dan Ketentuan" adalah konspirasi klik tercepat di dunia digital!',
+            question: 'Tulisan apa yang paling sering diklaim "Sudah Saya Baca", padahal hampir semua orang langsung melewatinya begitu saja?',
+            is_example: true,
+            answers: [
+                { id: 5101, answer_text: 'SYARAT DAN KETENTUAN', points: 100 },
+                { id: 5102, answer_text: 'BUKU PANDUAN', points: 90 },
+                { id: 5103, answer_text: 'ATURAN GARANSI', points: 80 },
+                { id: 5104, answer_text: 'KEBIJAKAN PRIVASI', points: 70 },
+                { id: 5105, answer_text: 'DILARANG PARKIR', points: 60 },
+                { id: 5106, answer_text: 'ATURAN KOMPLEK', points: 50 },
+                { id: 5107, answer_text: 'KEMASAN OBAT', points: 40 },
+            ],
+        },
+        {
+            id: 52,
+            category: 'Survei Kocak & Belok',
+            logicNote: 'Bukan karena anti uang — biasanya yang menolak Rp 1 miliar tanpa berpikir itu memang saldonya SUDAH KAYA!',
+            question: 'Menurut pengamatan lucu, orang yang langsung memilih "Sahabat Sejati" ketimbang uang Rp 1 miliar biasanya kenapa?',
+            is_example: true,
+            answers: [
+                { id: 5201, answer_text: 'SUDAH KAYA', points: 100 },
+                { id: 5202, answer_text: 'PURA-PURA BIJAK', points: 90 },
+                { id: 5203, answer_text: 'MASIH NGANTUK', points: 80 },
+                { id: 5204, answer_text: 'LAGI BANYAK MASALAH', points: 70 },
+                { id: 5205, answer_text: 'GURU MOTIVASI', points: 60 },
+                { id: 5206, answer_text: 'BARU GAJIAN', points: 50 },
+                { id: 5207, answer_text: 'TAKUT DIHUJAT', points: 40 },
+            ],
+        },
+        {
+            id: 53,
+            category: 'Survei Kocak & Belok',
+            logicNote: 'Rumus terlihat super sibuk di kantor: jalan cepat bawa berkas + dahi berkerut menatap banyak tab terbuka!',
+            question: 'Bukan karena pekerjaan menumpuk, akting apa yang paling sering dipakai pegawai agar terlihat sangat sibuk di kantor?',
+            is_example: true,
+            answers: [
+                { id: 5301, answer_text: 'JALAN CEPAT BAWA KERTAS', points: 100 },
+                { id: 5302, answer_text: 'DAHI BERKERUT', points: 90 },
+                { id: 5303, answer_text: 'BUKA BANYAK TAB', points: 80 },
+                { id: 5304, answer_text: 'PAKAI EARPHONE', points: 70 },
+                { id: 5305, answer_text: 'NGETIK CEPAT', points: 60 },
+                { id: 5306, answer_text: 'TELPONAN MONDAR-MANDIR', points: 50 },
+                { id: 5307, answer_text: 'MINUM KOPI SERIUS', points: 40 },
+                { id: 5308, answer_text: 'MEJA BERANTAKAN', points: 30 },
+            ],
+        },
+        {
+            id: 54,
+            category: 'Survei Kocak & Belok',
+            logicNote: 'Mulai dari tulisan "Parkir Gratis" berujung peluit tukang parkir, sampai niat "cuma lihat-lihat" berujung checkout!',
+            question: 'Hal apa yang awalnya dikira gratis atau hemat, tapi ujung-ujungnya malah bikin keluar uang lebih banyak?',
+            is_example: true,
+            answers: [
+                { id: 5401, answer_text: 'PARKIR GRATIS', points: 100 },
+                { id: 5402, answer_text: 'CUMA LIHAT-LIHAT', points: 90 },
+                { id: 5403, answer_text: 'ONGKIR MINIMAL BELANJA', points: 80 },
+                { id: 5404, answer_text: 'KONDANGAN', points: 70 },
+                { id: 5405, answer_text: 'COBA GRATIS', points: 60 },
+                { id: 5406, answer_text: 'TRIAL APLIKASI', points: 50 },
+                { id: 5407, answer_text: 'DISKON BESAR', points: 40 },
+            ],
+        },
+        {
+            id: 55,
+            category: 'Survei Kocak & Belok',
+            logicNote: 'Bukan tidur Pak — mata terpejam ini tanda sedang LAGI BERPIKIR KERAS memvisualisasikan strategi!',
+            question: 'Saat ketahuan memejamkan mata di meja kerja oleh atasan, alasan kreatif apa yang langsung diucapkan karyawan?',
+            is_example: true,
+            answers: [
+                { id: 5501, answer_text: 'LAGI BERPIKIR KERAS', points: 100 },
+                { id: 5502, answer_text: 'MATA PEDIH', points: 90 },
+                { id: 5503, answer_text: 'LAGI BERDOA', points: 80 },
+                { id: 5504, answer_text: 'PUSING', points: 70 },
+                { id: 5505, answer_text: 'TUNGGU LOADING', points: 60 },
+                { id: 5506, answer_text: 'ISTIRAHAT MATA', points: 50 },
+                { id: 5507, answer_text: 'MENGHAFAL DATA', points: 40 },
+            ],
+        },
     ];
 
     const STORAGE_KEY_QUESTIONS = 'family100_gas_local_questions_v4';
@@ -710,6 +1098,21 @@
         ['GORDIJN', 'GORDEN', 'HORDENG', 'TIRAI'],
         ['HANDDOEK', 'HANDUK'],
         ['SPOOR', 'SEPUR', 'KERETA'],
+        ['TENAGA', 'ENERGI', 'OTOT', 'DAYA', 'KEKUATAN'],
+        ['KASUR', 'TEMPAT TIDUR', 'RANJANG', 'SPRINGBED'],
+        ['GANTIAN', 'BERGANTIAN', 'GILIRAN'],
+        ['ANTRE', 'ANTRI', 'MENUNGGU GILIRAN'],
+        ['DARI MAGHRIB', 'MAGHRIB', 'MAGRIB', 'WAKTU MAGHRIB'],
+        ['DITILANG', 'TILANG', 'KENA TILANG', 'RAZIA', 'POLISI'],
+        ['MEREM', 'PEJAMKAN MATA', 'TUTUP MATA'],
+        ['ORANG SEHAT', 'SEHAT', 'TIDAK SAKIT', 'BUGAR', 'WARAS'],
+        ['PAMIT', 'MINTA IZIN PULANG', 'PAMITAN'],
+        ['SEMUA BULAN', 'SEMUA', 'TIAP BULAN', 'BULAN APA SAJA'],
+        ['SYARAT DAN KETENTUAN', 'SYARAT KETENTUAN', 'TERMS', 'TNC', 'TOS'],
+        ['BERHENTI MENCARI', 'BERHENTI CARI', 'STOP CARI', 'MENYERAH'],
+        ['SUDAH KAYA', 'ORANG KAYA', 'KAYA RAYA', 'KAYA'],
+        ['JADI NOMOR DUA', 'NOMOR DUA', 'POSISI DUA', 'POSISI 2', 'KE 2', 'NO 2'],
+        ['LAGI BERPIKIR KERAS', 'BERPIKIR', 'MIKIR', 'KONSENTRASI', 'RENUNG', 'MERENUNG'],
     ];
 
     function stripPrefix(normText) {
@@ -765,6 +1168,19 @@
         localStorage.setItem(STORAGE_KEY_QUESTIONS, JSON.stringify(state.questions));
     }
 
+    function prioritizeQuestions(list) {
+        const rankCat = {
+            'Logika Belok (Cak Lontong)': 0,
+            'Asah Otak & Logika': 1,
+            'Survei Kocak & Belok': 2,
+        };
+        return [...list].sort((a, b) => {
+            const ra = rankCat[getQuestionCategory(a)] ?? 9;
+            const rb = rankCat[getQuestionCategory(b)] ?? 9;
+            return ra - rb;
+        });
+    }
+
     async function loadQuestions() {
         if (state.gasUrl) {
             el.modeIndicator.textContent = 'Terhubung ke Google Apps Script (Sheets)';
@@ -775,7 +1191,7 @@
                 if (data.ok && Array.isArray(data.data)) {
                     const existing = new Set(data.data.map((q) => normalizeText(q.question)));
                     const extras = EXAMPLE_QUESTIONS.filter((q) => !existing.has(normalizeText(q.question)));
-                    state.questions = [...data.data, ...structuredClone(extras)];
+                    state.questions = prioritizeQuestions([...data.data, ...structuredClone(extras)]);
                     populateSelect();
                     resetRound();
                     return;
@@ -786,7 +1202,7 @@
         } else {
             el.modeIndicator.textContent = 'Mode Contoh Lokal (Siap GitHub Pages & GAS)';
         }
-        state.questions = loadLocalQuestions();
+        state.questions = prioritizeQuestions(loadLocalQuestions());
         populateSelect();
         resetRound();
     }
@@ -795,9 +1211,17 @@
         return state.questions[state.currentIndex] || null;
     }
 
+    function findExampleMeta(q) {
+        if (!q) return null;
+        const norm = normalizeText(q.question);
+        return EXAMPLE_QUESTIONS.find((ex) => normalizeText(ex.question) === norm) || null;
+    }
+
     function getQuestionCategory(q) {
         if (!q) return 'Umum';
         if (q.category) return q.category;
+        const meta = findExampleMeta(q);
+        if (meta && meta.category) return meta.category;
         const txt = String(q.question || '').toLowerCase();
         if (/power bi|excel|grafik|connector|format file|data quality/.test(txt)) return 'Data & Teknologi';
         if (/kolaborasi|server|terlambat dikirim|karyawan|meeting|kantor/.test(txt)) return 'Lingkungan Kantor';
@@ -805,6 +1229,12 @@
         if (/tiktok|kafe|gaul|meja kerja|anak muda/.test(txt)) return 'Gen Z & Sosmed';
         if (/30-an|whatsapp keluarga|orang tua/.test(txt)) return 'Milenial & Boomers';
         return 'Kehidupan Sehari-hari';
+    }
+
+    function getQuestionLogicNote(q) {
+        if (!q) return '';
+        if (q.logicNote) return q.logicNote;
+        return findExampleMeta(q)?.logicNote || '';
     }
 
     function getFilteredIndices() {
@@ -822,13 +1252,29 @@
         if (!catEl) return;
         const cats = new Set();
         state.questions.forEach((q) => cats.add(getQuestionCategory(q)));
+        const preferredOrder = [
+            'Logika Belok (Cak Lontong)',
+            'Asah Otak & Logika',
+            'Survei Kocak & Belok',
+            'Data & Teknologi',
+            'Lingkungan Kantor',
+            'Kehidupan Sehari-hari',
+            'Bapak-bapak',
+            'Gen Z & Sosmed',
+            'Milenial & Boomers',
+        ];
+        const orderedCats = Array.from(cats).sort((a, b) => {
+            const ia = preferredOrder.indexOf(a);
+            const ib = preferredOrder.indexOf(b);
+            return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+        });
         const prev = state.selectedCategory || 'ALL';
         catEl.textContent = '';
         const allOpt = document.createElement('option');
         allOpt.value = 'ALL';
         allOpt.textContent = `Semua Kategori (${state.questions.length})`;
         catEl.appendChild(allOpt);
-        Array.from(cats).forEach((c) => {
+        orderedCats.forEach((c) => {
             const count = state.questions.filter((q) => getQuestionCategory(q) === c).length;
             const opt = document.createElement('option');
             opt.value = c;
@@ -1411,8 +1857,12 @@
                 renderBoard();
                 triggerScorePop();
                 addHistoryItem(`[${teamName}] ${data.answer.answer_text}`, true, data.answer.points);
+                const logicNote = state.revealedIds.size >= q.answers.length ? getQuestionLogicNote(q) : '';
+                const speechText = logicNote
+                    ? `Tuntas! ${logicNote}`
+                    : `Tepat sekali! ${data.answer.answer_text} (+${data.answer.points})!`;
                 setFeedback(`Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk ${teamName})`, 'ok');
-                setHostSpeech(`Tepat sekali! ${data.answer.answer_text} (+${data.answer.points})!`);
+                setHostSpeech(speechText);
                 syncPushIfHost('correct', `Benar! "${data.answer.answer_text}" (+${data.answer.points} untuk ${teamName})`, 'ok');
             } else if (data.found && data.already_revealed) {
                 setFeedback(`Jawaban "${data.answer.answer_text}" sudah terbuka sebelumnya.`, 'err');
@@ -1964,7 +2414,9 @@
             playCorrectSound();
             spawnConfetti();
             renderBoard();
+            const logicNote = getQuestionLogicNote(q);
             setFeedback('Semua jawaban telah dibuka.', 'ok');
+            if (logicNote) setHostSpeech(logicNote);
             syncPushIfHost('correct', 'Semua jawaban telah dibuka.', 'ok');
         });
         el.btnResetRound.addEventListener('click', () => {
